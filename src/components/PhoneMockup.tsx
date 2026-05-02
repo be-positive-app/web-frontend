@@ -13,7 +13,7 @@ export function PhoneMockup() {
                 Today
               </p>
             </div>
-            <p className="text-xs font-semibold text-slate-500">Be Positive</p>
+            <p className="text-xs font-semibold text-slate-500">Be Positive Life Planner</p>
           </div>
 
           <div className="px-5 pb-5">
@@ -25,7 +25,7 @@ export function PhoneMockup() {
                 Finish 3 high-impact tasks
               </p>
               <div className="mt-3 grid gap-2">
-                <TaskRow label="Review lecture notes" time="09:30" />
+                <TaskRow label="Marketing research" time="09:30" />
                 <TaskRow label="Write project outline" time="11:00" highlight />
                 <TaskRow label="Gym + reset" time="18:00" />
               </div>

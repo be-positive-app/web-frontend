@@ -8,8 +8,7 @@ type StoreButtonsProps = {
 }
 
 const placeholderAppStore = 'https://apps.apple.com/app/be-positive-life-planner/id6760747846'
-const placeholderGooglePlay =
-  'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
+const placeholderGooglePlay = 'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
 
 /** Width comes from each SVG’s intrinsic aspect ratio; only height is set here. */
 const badgeImgClass =

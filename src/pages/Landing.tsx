@@ -16,7 +16,8 @@ import { StoreButtons } from '../components/StoreButtons'
 import { useInView } from '../hooks/useInView'
 
 const appStoreHref =
-  (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() || undefined
+  (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() || 
+  'https://apps.apple.com/app/be-positive-life-planner/id6760747846'
 const googlePlayHref =
   (import.meta.env.VITE_GOOGLE_PLAY_URL as string | undefined)?.trim() ||
   'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
@@ -44,8 +45,7 @@ export function Landing() {
             </h1>
 
             <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">
-              Be Positive helps you organize tasks, keep a clear daily structure, and
-              stay consistent—so you get more done without the stress.
+              Do you struggle to complete tasks on time? Be Positive Life Planner helps you plan tasks, send reminders, and analyze your daily results - so you can stay focused and productive every day.
             </p>
 
             <div className="mt-7 flex flex-col gap-4">
@@ -53,7 +53,7 @@ export function Landing() {
 
               <div className="flex items-center gap-2 text-sm text-slate-600">
                 <CheckCircle2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
-                <span>Simple, fast, effective. Built for students and pros.</span>
+                <span>Task manager & daily planner app with reminders, focus tools, and progress tracking.</span>
               </div>
             </div>
           </div>
@@ -74,8 +74,7 @@ export function Landing() {
               Everything you need to stay productive
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
-              A clean workflow that makes planning feel effortless—and results feel
-              inevitable.
+              Plan smarter. Stay consistent. See results.
             </p>
           </div>
 
@@ -125,7 +124,7 @@ export function Landing() {
               How it works
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
-              Three steps. One simple system. A better day—every day.
+              Three steps to plan, focus, and win every day.
             </p>
           </div>
 
@@ -140,8 +139,8 @@ export function Landing() {
             />
             <Step
               index={2}
-              title="Get reminders"
-              description="Gentle nudges to keep you on track—without noise."
+              title="Get Positive reminders"
+              description="Stay focused with calm, distraction-free reminders."
               icon={<Bell className="h-5 w-5" aria-hidden="true" />}
               revealed={how.inView}
               delayMs={90}
@@ -149,7 +148,7 @@ export function Landing() {
             <Step
               index={3}
               title="Track your progress"
-              description="See what’s working and build momentum with streaks."
+              description="Track your wins and grow your streaks over time."
               icon={<LineChart className="h-5 w-5" aria-hidden="true" />}
               revealed={how.inView}
               delayMs={180}
@@ -159,7 +158,7 @@ export function Landing() {
           <div className="mt-8 flex items-center gap-3 text-sm text-slate-600">
             <ArrowRight className="h-4 w-4 text-brandBlue" aria-hidden="true" />
             <p>
-              Designed to be intuitive on mobile, powerful enough for real routines.
+              Effortless on mobile, powerful for your daily routine.
             </p>
           </div>
         </div>
@@ -173,11 +172,10 @@ export function Landing() {
                 Contact
               </p>
               <h2 className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-                Want early access or have questions?
+                Have a question or suggestion?
               </h2>
               <p className="mt-3 text-base leading-relaxed text-slate-600">
-                Email us and we’ll get back to you. We’re building Be Positive with
-                real feedback from students and professionals.
+                Email us today—we’ll get back to you fast. Built with real feedback to help you stay consistent.
               </p>
             </div>
 
