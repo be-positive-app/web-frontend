@@ -8,7 +8,8 @@ type StoreButtonsProps = {
 }
 
 const placeholderAppStore = '#app-store'
-const placeholderGooglePlay = '#google-play'
+const placeholderGooglePlay =
+  'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
 
 /** Width comes from each SVG’s intrinsic aspect ratio; only height is set here. */
 const badgeImgClass =
@@ -28,7 +29,7 @@ export function StoreButtons({
       : linkBase
 
   return (
-    <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+    <div className="flex flex-row flex-wrap items-center gap-3 sm:gap-4">
       <a
         href={appStoreHref}
         className={link}

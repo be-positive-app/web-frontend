@@ -15,10 +15,15 @@ import { Step } from '../components/Step'
 import { StoreButtons } from '../components/StoreButtons'
 import { useInView } from '../hooks/useInView'
 
+const appStoreHref =
+  (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() || undefined
+const googlePlayHref =
+  (import.meta.env.VITE_GOOGLE_PLAY_URL as string | undefined)?.trim() ||
+  'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
+
 export function Landing() {
   const features = useInView<HTMLDivElement>({ once: true })
   const how = useInView<HTMLDivElement>({ once: true })
-  const download = useInView<HTMLDivElement>({ once: true })
 
   return (
     <div>
@@ -44,7 +49,7 @@ export function Landing() {
             </p>
 
             <div className="mt-7 flex flex-col gap-4">
-              <StoreButtons />
+              <StoreButtons appStoreHref={appStoreHref} googlePlayHref={googlePlayHref} />
 
               <div className="flex items-center gap-2 text-sm text-slate-600">
                 <CheckCircle2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
@@ -160,71 +165,6 @@ export function Landing() {
         </div>
       </section>
 
-      <section id="download" className="border-t border-slate-100 bg-hero-gradient">
-        <div
-          ref={download.ref}
-          className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 sm:py-20"
-        >
-          <div className="grid gap-10 rounded-[34px] border border-slate-200 bg-white/80 p-8 shadow-soft backdrop-blur sm:p-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <h2 className="text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                Start organizing your life today
-              </h2>
-              <p className="mt-3 text-base leading-relaxed text-slate-600">
-                A lightweight productivity system that’s easy to stick with. Download
-                Be Positive and get a clear plan in minutes.
-              </p>
-
-              <div
-                className={[
-                  'mt-7 transition duration-300',
-                  download.inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2',
-                ].join(' ')}
-              >
-                <StoreButtons variant="primary" />
-                <ul className="mt-4 grid gap-2 text-sm text-slate-600">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
-                    Simple
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
-                    Fast
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
-                    Effective
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-6">
-              <div className="absolute -right-14 -top-10 h-40 w-40 rounded-full bg-brandYellow/50 blur-3xl" />
-              <div className="absolute -bottom-16 -left-16 h-44 w-44 rounded-full bg-brandBlue/15 blur-3xl" />
-              <div className="relative">
-                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
-                  Your day, simplified
-                </p>
-                <p className="mt-3 text-lg font-semibold tracking-tight text-slate-900">
-                  “I finally feel in control of my schedule.”
-                </p>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">
-                  Students use it to stay on top of deadlines. Professionals use it to
-                  protect deep work. Everyone uses it to keep momentum.
-                </p>
-
-                <div className="mt-6 grid gap-3">
-                  <MiniStat label="Daily plan clarity" value="High" />
-                  <MiniStat label="Distraction resistance" value="Better" />
-                  <MiniStat label="Consistency streak" value="Growing" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="contact" className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-18">
           <div className="grid gap-8 rounded-[30px] border border-slate-200 bg-white p-8 shadow-card sm:p-10 lg:grid-cols-2 lg:items-center">
@@ -260,18 +200,6 @@ export function Landing() {
           </div>
         </div>
       </section>
-    </div>
-  )
-}
-
-function MiniStat({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex items-center justify-between rounded-2xl border border-slate-200 bg-white px-4 py-3">
-      <p className="text-sm font-medium text-slate-700">{label}</p>
-      <p className="inline-flex items-center gap-2 text-sm font-semibold text-brandBlue">
-        <span className="grid h-2 w-2 rounded-full bg-brandYellow ring-2 ring-brandBlue/15" />
-        {value}
-      </p>
     </div>
   )
 }

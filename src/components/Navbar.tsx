@@ -45,10 +45,10 @@ export function Navbar() {
     setOpen(false)
     if (location.pathname !== '/') {
       navigate('/')
-      setTimeout(() => scrollToId('download'), 0)
+      setTimeout(() => scrollToId('home'), 0)
       return
     }
-    scrollToId('download')
+    scrollToId('home')
   }
 
   return (
@@ -56,7 +56,7 @@ export function Navbar() {
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link
           to="/"
-          className="group inline-flex items-center gap-2.5 rounded-xl px-1 py-0.5 focus-ring"
+          className="group inline-flex items-center rounded-xl px-1 py-0.5 focus-ring"
           aria-label="Be Positive home"
         >
           <img
@@ -67,9 +67,6 @@ export function Navbar() {
             decoding="async"
             className="h-9 w-9 shrink-0 rounded-2xl object-contain shadow-sm ring-1 ring-slate-200/50 transition group-hover:shadow-md group-hover:ring-brandYellow/40 sm:h-10 sm:w-10"
           />
-          <span className="text-base font-extrabold tracking-tight text-slate-900 sm:text-lg">
-            Be <span className="text-brandBlue">Positive</span>
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-2 sm:flex" aria-label="Primary">
@@ -106,7 +103,7 @@ export function Navbar() {
         </button>
 
         <a
-          href="#download"
+          href="#home"
           onClick={onDownloadClick}
           className="hidden items-center justify-center gap-2 rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring motion-reduce:transition-none sm:inline-flex"
         >
@@ -141,7 +138,7 @@ export function Navbar() {
                 Contact
               </a>
               <a
-                href="#download"
+                href="#home"
                 onClick={onDownloadClick}
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-4 py-3 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring motion-reduce:transition-none"
               >

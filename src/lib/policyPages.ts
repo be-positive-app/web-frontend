@@ -16,16 +16,10 @@ export const SUPPORT_PAGE = {
   label: 'Support',
 } as const
 
-export const DELETE_ACCOUNT_PAGE = {
-  path: '/delete-account',
-  label: 'Delete account',
-} as const
-
 /** Footer and any combined legal nav: API policies + static support. */
 export const FOOTER_LEGAL_LINKS = [
   ...POLICY_PAGES.map((p) => ({ path: p.path, label: p.label })),
   { path: SUPPORT_PAGE.path, label: SUPPORT_PAGE.label },
-  { path: DELETE_ACCOUNT_PAGE.path, label: DELETE_ACCOUNT_PAGE.label },
 ] as const
 
 export function policyMetaForSlug(slug: string) {
