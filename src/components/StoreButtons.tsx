@@ -7,7 +7,7 @@ type StoreButtonsProps = {
   googlePlayHref?: string
 }
 
-const placeholderAppStore = '#app-store'
+const placeholderAppStore = 'https://apps.apple.com/app/be-positive-life-planner/id6760747846'
 const placeholderGooglePlay =
   'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
 
