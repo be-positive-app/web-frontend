@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   ArrowRight,
   Bell,
@@ -40,7 +41,8 @@ export function Landing() {
             </div>
 
             <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              Plan your day. Stay focused.{' '}
+              <span>Plan your day.</span>
+  <span>Stay focused.</span> 
               <span className="text-brandBlue">Feel positive.</span>
             </h1>
 
