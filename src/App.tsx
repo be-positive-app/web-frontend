@@ -7,6 +7,7 @@ import { PolicyDocumentPage } from './pages/PolicyDocumentPage'
 import { Support } from './pages/Support'
 import { DeleteAccount } from './pages/DeleteAccount'
 import { DeleteAccountVerify } from './pages/DeleteAccountVerify'
+import { ResetPassword } from './pages/ResetPassword'
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
           <Route path="/support" element={<Support />} />
           <Route path="/delete-account" element={<DeleteAccount />} />
           <Route path="/delete-account/verify/:token" element={<DeleteAccountVerify />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
