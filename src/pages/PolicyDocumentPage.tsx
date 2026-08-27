@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 import remarkGfm from 'remark-gfm'
 import { apiV1Url } from '../lib/apiBase'
+import { usePageMeta } from '../hooks/usePageMeta'
 import { policyMetaForSlug, type PolicySlug } from '../lib/policyPages'
 
 type PolicyApiResponse = {
@@ -61,6 +62,12 @@ export function PolicyDocumentPage({ slug }: PolicyDocumentPageProps) {
   }, [slug])
 
   const heading = state.status === 'ok' ? state.data.title : defaultTitle
+
+  usePageMeta({
+    title: heading,
+    description: `${heading} for Be Positive Life Planner.`,
+    path: meta?.path ?? `/${slug}`,
+  })
 
   return (
     <section className="bg-white">

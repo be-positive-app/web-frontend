@@ -1,9 +1,17 @@
 import { Clock, HelpCircle, Mail, MessageCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const SUPPORT_EMAIL = 'info@bepositive.cc'
 
 export function Support() {
+  usePageMeta({
+    title: 'Support',
+    description:
+      'Get help with Be Positive Life Planner. Contact support, see response times, and find what to include in your message.',
+    path: '/support',
+  })
+
   return (
     <section className="bg-white">
       <div className="mx-auto w-full max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
