@@ -37,6 +37,8 @@ export function StoreButtons({
         <img
           src={appStoreBadge}
           alt=""
+          width={120}
+          height={40}
           decoding="async"
           className={badgeImgClass}
         />
@@ -49,6 +51,8 @@ export function StoreButtons({
         <img
           src={googlePlayBadge}
           alt=""
+          width={140}
+          height={40}
           decoding="async"
           className={badgeImgClass}
         />
