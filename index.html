@@ -3,8 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Title, description & keywords are overwritten from src/config/siteMeta.ts at dev/build -->
+    <meta name="theme-color" content="#0808c1" />
+    <meta name="robots" content="index, follow" />
+    <!-- Title, description, keywords, canonical & social tags are overwritten from
+         src/config/siteMeta.ts at dev/build (see vite.config.ts inject-site-meta plugin) -->
     <meta
       name="description"
       content="Plan your day, stay focused, and track your progress with Be Positive Life Planner"
@@ -13,6 +17,29 @@
       name="keywords"
       content="best daily planner, daily planner app, weekly planner app, monthly planner app, life planner app, routine planner, schedule planner, daily goal tracker, goal tracking app, best goal tracker app, productivity app, best productivity apps, productivity planner, improve productivity, increase productivity, daily motivation app, motivation app, track daily progress, performance tracking app, daily success tracker, goal achievement app, productivity app for entrepreneurs, daily planner for freelancers, focus app for work, time management app, time management for business, organize your life, take control of your day, better habits app, change your life app, to do list app, reminder app, smart reminder app, task manager app, personal productivity app, discipline app, daily performance tracker, habit tracker app, focus and discipline app,"
     />
+    <link rel="canonical" href="https://bepositive.cc/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Be Positive" />
+    <meta property="og:url" content="https://bepositive.cc/" />
+    <meta property="og:title" content="Be Positive — Life Planner" />
+    <meta
+      property="og:description"
+      content="Plan your day, stay focused, and track your progress with Be Positive Life Planner"
+    />
+    <meta property="og:image" content="https://bepositive.cc/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Be Positive — Life Planner" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Be Positive — Life Planner" />
+    <meta
+      name="twitter:description"
+      content="Plan your day, stay focused, and track your progress with Be Positive Life Planner"
+    />
+    <meta name="twitter:image" content="https://bepositive.cc/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,6 +47,23 @@
       rel="stylesheet"
     />
     <title>Be Positive — Life Planner</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "MobileApplication",
+        "name": "Be Positive — Life Planner",
+        "description": "Plan your day, stay focused, and track your progress with Be Positive Life Planner",
+        "url": "https://bepositive.cc/",
+        "applicationCategory": "ProductivityApplication",
+        "operatingSystem": "iOS, Android",
+        "image": "https://bepositive.cc/og-image.png",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

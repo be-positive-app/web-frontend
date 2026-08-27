@@ -25,22 +25,71 @@ export default defineConfig(({ mode }) => {
           const title = escapeAttr(SITE_META.title)
           const description = escapeAttr(SITE_META.description)
           const keywords = escapeAttr(SITE_META.keywords)
+          const siteUrl = SITE_META.siteUrl.replace(/\/$/, '')
+          const canonicalUrl = escapeAttr(`${siteUrl}/`)
+          const ogImage = escapeAttr(
+            SITE_META.ogImage.startsWith('http')
+              ? SITE_META.ogImage
+              : `${siteUrl}${SITE_META.ogImage.startsWith('/') ? '' : '/'}${SITE_META.ogImage}`,
+          )
+
           let next = html.replace(/<title>[\s\S]*?<\/title>/, `<title>${title}</title>`)
           next = next.replace(
             /<meta[^>]*name=["']description["'][^>]*\/?>/i,
             `<meta name="description" content="${description}" />`,
           )
-          if (/name=["']keywords["']/i.test(next)) {
-            next = next.replace(
-              /<meta[^>]*name=["']keywords["'][^>]*\/?>/i,
-              `<meta name="keywords" content="${keywords}" />`,
-            )
-          } else {
-            next = next.replace(
-              '</head>',
-              `    <meta name="keywords" content="${keywords}" />\n  </head>`,
-            )
-          }
+          next = next.replace(
+            /<meta[^>]*name=["']keywords["'][^>]*\/?>/i,
+            `<meta name="keywords" content="${keywords}" />`,
+          )
+          next = next.replace(
+            /<link[^>]*rel=["']canonical["'][^>]*\/?>/i,
+            `<link rel="canonical" href="${canonicalUrl}" />`,
+          )
+          next = next.replace(
+            /<meta[^>]*property=["']og:url["'][^>]*\/?>/i,
+            `<meta property="og:url" content="${canonicalUrl}" />`,
+          )
+          next = next.replace(
+            /<meta[^>]*property=["']og:title["'][^>]*\/?>/i,
+            `<meta property="og:title" content="${title}" />`,
+          )
+          next = next.replace(
+            /<meta[^>]*property=["']og:description["'][^>]*\/?>/i,
+            `<meta property="og:description" content="${description}" />`,
+          )
+          next = next.replace(
+            /<meta[^>]*property=["']og:image["'][^>]*\/?>/i,
+            `<meta property="og:image" content="${ogImage}" />`,
+          )
+          next = next.replace(
+            /<meta[^>]*name=["']twitter:title["'][^>]*\/?>/i,
+            `<meta name="twitter:title" content="${title}" />`,
+          )
+          next = next.replace(
+            /<meta[^>]*name=["']twitter:description["'][^>]*\/?>/i,
+            `<meta name="twitter:description" content="${description}" />`,
+          )
+          next = next.replace(
+            /<meta[^>]*name=["']twitter:image["'][^>]*\/?>/i,
+            `<meta name="twitter:image" content="${ogImage}" />`,
+          )
+          next = next.replace(
+            /"name":\s*"[^"]*"/,
+            `"name": "${title}"`,
+          )
+          next = next.replace(
+            /"description":\s*"[^"]*"(?=[\s\S]*"applicationCategory")/,
+            `"description": "${description}"`,
+          )
+          next = next.replace(
+            /"url":\s*"[^"]*"/,
+            `"url": "${canonicalUrl}"`,
+          )
+          next = next.replace(
+            /"image":\s*"[^"]*"/,
+            `"image": "${ogImage}"`,
+          )
           return next
         },
       },
