@@ -18,7 +18,7 @@ export function Footer() {
             >
               <img
                 src={appLogo}
-                alt=""
+                alt="Be Positive"
                 width={48}
                 height={48}
                 decoding="async"

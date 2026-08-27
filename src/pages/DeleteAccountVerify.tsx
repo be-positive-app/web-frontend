@@ -2,10 +2,18 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { AlertCircle, CheckCircle2, Loader2 } from 'lucide-react'
 import { apiV1Url } from '../lib/apiBase'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 type Phase = 'loading' | 'confirmed' | 'cancelled' | 'error'
 
 export function DeleteAccountVerify() {
+  usePageMeta({
+    title: 'Confirm Account Deletion',
+    description: 'Confirm or cancel a Be Positive account deletion request.',
+    path: '/delete-account/verify',
+    noindex: true,
+  })
+
   const { token } = useParams<{ token: string }>()
   const ranRef = useRef(false)
 

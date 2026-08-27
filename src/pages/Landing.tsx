@@ -13,7 +13,9 @@ import { FeatureCard } from '../components/FeatureCard'
 import { PhoneMockup } from '../components/PhoneMockup'
 import { Step } from '../components/Step'
 import { StoreButtons } from '../components/StoreButtons'
+import { SITE_META } from '../config/siteMeta'
 import { useInView } from '../hooks/useInView'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const appStoreHref =
   (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() || 
@@ -23,6 +25,8 @@ const googlePlayHref =
   'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
 
 export function Landing() {
+  usePageMeta({ title: SITE_META.title, description: SITE_META.description, path: '/' })
+
   const features = useInView<HTMLDivElement>({ once: true })
   const how = useInView<HTMLDivElement>({ once: true })
 

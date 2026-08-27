@@ -61,7 +61,7 @@ export function Navbar() {
         >
           <img
             src={appLogo}
-            alt=""
+            alt="Be Positive"
             width={40}
             height={40}
             decoding="async"

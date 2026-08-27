@@ -2,8 +2,16 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Mail, Trash2 } from 'lucide-react'
 import { apiV1Url } from '../lib/apiBase'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export function DeleteAccount() {
+  usePageMeta({
+    title: 'Delete Account',
+    description: 'Request permanent deletion of your Be Positive account and data.',
+    path: '/delete-account',
+    noindex: true,
+  })
+
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
