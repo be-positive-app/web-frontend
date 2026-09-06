@@ -1,5 +1,6 @@
 import appStoreBadge from '../assets/Download_on_the_App_Store_Badge.svg'
 import googlePlayBadge from '../assets/google-play-badge.svg'
+import { SITE_META } from '../config/siteMeta'
 
 type StoreButtonsProps = {
   variant?: 'primary' | 'secondary'
@@ -7,8 +8,8 @@ type StoreButtonsProps = {
   googlePlayHref?: string
 }
 
-const placeholderAppStore = 'https://apps.apple.com/app/be-positive-life-planner/id6760747846'
-const placeholderGooglePlay = 'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
+const placeholderAppStore = SITE_META.appStoreUrl
+const placeholderGooglePlay = SITE_META.googlePlayUrl
 
 /** Width comes from each SVG’s intrinsic aspect ratio; only height is set here. */
 const badgeImgClass =

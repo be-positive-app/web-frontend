@@ -9,17 +9,32 @@ type PageMetaOptions = {
   path: string
   /** Keep crawlers away from transactional/utility pages (reset-password, delete-account). */
   noindex?: boolean
+  /** Social preview image, absolute URL or site-root path. Defaults to SITE_META.ogImage. */
+  image?: string
 }
 
 function setContent(selector: string, attr: string, value: string) {
   document.querySelector(selector)?.setAttribute(attr, value)
 }
 
-export function usePageMeta({ title, description, path, noindex = false }: PageMetaOptions) {
+function absoluteUrl(pathOrUrl: string, origin: string) {
+  if (/^https?:\/\//i.test(pathOrUrl)) return pathOrUrl
+  return `${origin}${pathOrUrl.startsWith('/') ? '' : '/'}${pathOrUrl}`
+}
+
+export function usePageMeta({
+  title,
+  description,
+  path,
+  noindex = false,
+  image,
+}: PageMetaOptions) {
   useEffect(() => {
+    const origin = SITE_META.siteUrl.replace(/\/$/, '')
     const fullTitle = path === '/' ? title : `${title} | Be Positive`
     const desc = description ?? SITE_META.description
-    const url = `${SITE_META.siteUrl.replace(/\/$/, '')}${path}`
+    const url = `${origin}${path}`
+    const imageUrl = absoluteUrl(image ?? SITE_META.ogImage, origin)
 
     document.title = fullTitle
     setContent('meta[name="description"]', 'content', desc)
@@ -28,7 +43,10 @@ export function usePageMeta({ title, description, path, noindex = false }: PageM
     setContent('meta[property="og:url"]', 'content', url)
     setContent('meta[property="og:title"]', 'content', fullTitle)
     setContent('meta[property="og:description"]', 'content', desc)
+    setContent('meta[property="og:image"]', 'content', imageUrl)
+    setContent('meta[property="og:image:alt"]', 'content', fullTitle)
     setContent('meta[name="twitter:title"]', 'content', fullTitle)
     setContent('meta[name="twitter:description"]', 'content', desc)
-  }, [title, description, path, noindex])
+    setContent('meta[name="twitter:image"]', 'content', imageUrl)
+  }, [title, description, path, noindex, image])
 }

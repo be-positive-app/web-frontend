@@ -13,19 +13,20 @@ import { FeatureCard } from '../components/FeatureCard'
 import { PhoneMockup } from '../components/PhoneMockup'
 import { Step } from '../components/Step'
 import { StoreButtons } from '../components/StoreButtons'
+import { routeMeta } from '../config/routeMeta'
 import { SITE_META } from '../config/siteMeta'
 import { useInView } from '../hooks/useInView'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 const appStoreHref =
-  (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() || 
-  'https://apps.apple.com/app/be-positive-life-planner/id6760747846'
+  (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() ||
+  SITE_META.appStoreUrl
 const googlePlayHref =
   (import.meta.env.VITE_GOOGLE_PLAY_URL as string | undefined)?.trim() ||
-  'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
+  SITE_META.googlePlayUrl
 
 export function Landing() {
-  usePageMeta({ title: SITE_META.title, description: SITE_META.description, path: '/' })
+  usePageMeta(routeMeta('/'))
 
   const features = useInView<HTMLDivElement>({ once: true })
   const how = useInView<HTMLDivElement>({ once: true })
@@ -44,8 +45,8 @@ export function Landing() {
             </div>
 
             <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              <span>Plan your day.</span>
-  <span>Stay focused.</span> 
+              <span>Plan your day.</span>{' '}
+              <span>Stay focused.</span>{' '}
               <span className="text-brandBlue">Feel positive.</span>
             </h1>
 
