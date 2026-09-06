@@ -10,11 +10,10 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { AppScreens } from '../components/AppScreens'
 import { DownloadCta } from '../components/DownloadCta'
 import { Faq } from '../components/Faq'
 import { FeatureCard } from '../components/FeatureCard'
-import { PhoneMockup } from '../components/PhoneMockup'
+import { HeroScreens } from '../components/HeroScreens'
 import { Pricing } from '../components/Pricing'
 import { Problem } from '../components/Problem'
 import { Step } from '../components/Step'
@@ -39,7 +38,7 @@ export function Landing() {
 
   return (
     <div>
-      {/* The decorative blobs in PhoneMockup sit outside their container on
+      {/* The decorative blobs in HeroScreens sit outside their container on
           purpose; clip them here so they cannot widen the page on small screens. */}
       <section id="home" className="overflow-x-clip bg-hero-gradient">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:items-center">
@@ -78,7 +77,7 @@ export function Landing() {
           </div>
 
           <div className="lg:pl-8">
-            <PhoneMockup />
+            <HeroScreens />
           </div>
         </div>
       </section>
@@ -184,8 +183,6 @@ export function Landing() {
           </div>
         </div>
       </section>
-
-      <AppScreens />
 
       <Pricing />
 
