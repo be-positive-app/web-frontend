@@ -1,5 +1,5 @@
 {
-  "$comment": "Single source of truth for per-route metadata. Consumed at runtime by src/config/routeMeta.ts (pages call usePageMeta) and at build time by scripts/prerender.mjs, which writes one static HTML file per route and regenerates public/sitemap.xml. Keep the policy paths in sync with src/lib/policyPages.ts.",
+  "$comment": "Single source of truth for per-route metadata. Consumed at runtime by src/config/routeMeta.ts (pages call usePageMeta) and at build time by scripts/prerender.mjs, which writes one static HTML file per route and regenerates sitemap.xml. A route may set \"output\" to control the file it is written to (the 404 view needs 404.html, not 404/index.html). Keep the policy paths in sync with src/lib/policyPages.ts.",
   "routes": [
     {
       "path": "/",
@@ -59,6 +59,13 @@
       "path": "/delete-account/verify",
       "title": "Confirm Account Deletion",
       "description": "Confirm or cancel a Be Positive account deletion request.",
+      "noindex": true
+    },
+    {
+      "path": "/404",
+      "output": "404.html",
+      "title": "Page Not Found",
+      "description": "This page does not exist. Find downloads on the home page, or contact support.",
       "noindex": true
     }
   ]

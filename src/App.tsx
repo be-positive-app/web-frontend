@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react'
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Navbar } from './components/Navbar'
 import { POLICY_PAGES } from './lib/policyPages'
@@ -18,6 +18,7 @@ const DeleteAccountVerify = lazy(() =>
 const ResetPassword = lazy(() =>
   import('./pages/ResetPassword').then((m) => ({ default: m.ResetPassword })),
 )
+const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
 export default function App() {
   return (
@@ -46,7 +47,7 @@ export default function App() {
             <Route path="/delete-account" element={<DeleteAccount />} />
             <Route path="/delete-account/verify/:token" element={<DeleteAccountVerify />} />
             <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
       </main>

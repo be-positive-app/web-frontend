@@ -15,11 +15,20 @@
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.+?)/?$ /$1/index.html [L]
 
-  # Everything else falls through to the SPA shell.
+  # Everything else falls through to the SPA shell, which renders the 404 view
+  # for unknown paths. That view is noindex — the signal Google reads for a
+  # client-rendered app — but the response is still 200. To return a real 404
+  # status, replace the two lines below with a rule that only serves the shell
+  # for the routes that genuinely need it (currently /delete-account/verify/*)
+  # and let ErrorDocument handle the rest. Verify on the host before switching:
+  # if the prerender rule above does not fire there, narrowing this would 404
+  # the static pages too.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
+
+ErrorDocument 404 /404.html
 
 <IfModule mod_dir.c>
   # The rewrite above already serves directory index files; without this Apache

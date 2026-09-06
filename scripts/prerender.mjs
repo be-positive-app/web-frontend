@@ -106,8 +106,9 @@ function renderRoute(route) {
 let written = 0
 for (const route of routes) {
   const html = renderRoute(route)
-  const outPath =
-    route.path === '/'
+  const outPath = route.output
+    ? join(distDir, route.output)
+    : route.path === '/'
       ? indexPath
       : join(distDir, route.path.replace(/^\//, ''), 'index.html')
   mkdirSync(dirname(outPath), { recursive: true })

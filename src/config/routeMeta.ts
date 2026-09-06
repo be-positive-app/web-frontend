@@ -11,6 +11,8 @@ export type RouteMeta = {
   title: string
   description: string
   noindex?: boolean
+  /** Filename to prerender into, relative to dist. Defaults to <path>/index.html. */
+  output?: string
   changefreq?: string
   priority?: string
 }
