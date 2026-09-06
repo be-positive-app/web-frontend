@@ -8,8 +8,6 @@ import overviewPng from '../assets/screen-overview.png'
 import overviewWebp from '../assets/screen-overview.webp'
 import signinPng from '../assets/screen-signin.png'
 import signinWebp from '../assets/screen-signin.webp'
-import statsPng from '../assets/screen-stats.png'
-import statsWebp from '../assets/screen-stats.webp'
 
 /** Roughly the order a new user meets them, from signing in to looking back. */
 const SCREENS = [
@@ -43,17 +41,15 @@ const SCREENS = [
     webp: overviewWebp,
     alt: 'The Overview screen: 64 tasks completed, an 80% completion rate, 22 active days and a best streak of 9, above a weekly productivity chart.',
   },
-  {
-    label: 'See your stats',
-    png: statsPng,
-    webp: statsWebp,
-    alt: 'The Overview screen on a fresh account: a weekly range with no tasks completed yet, a one-day streak, and productivity insights waiting for data.',
-  },
 ] as const
 
 /** Degrees between neighbours on the ring. */
 const STEP = 360 / SCREENS.length
-/** Seconds for a full turn. Must match the animation duration in tailwind.config.js. */
+/**
+ * Seconds for a full turn. Must match the animation duration in
+ * tailwind.config.js, whose HERO_SEATS must in turn match SCREENS.length —
+ * the fade stops there are derived from the number of seats.
+ */
 const SPIN_SECONDS = 24
 
 /**
@@ -84,7 +80,7 @@ export function HeroScreens() {
 
       <div className="relative [perspective:1200px]">
         <ul
-          className="relative h-[450px] [--ring-r:130px] animate-hero-spin [transform-style:preserve-3d] motion-reduce:animate-none sm:h-[430px] sm:[--ring-r:196px]"
+          className="relative h-[450px] [--ring-r:130px] animate-hero-spin [transform-style:preserve-3d] motion-reduce:animate-none sm:h-[430px] sm:[--ring-r:180px]"
           // The resting pose, for when the animation is off under
           // prefers-reduced-motion. A running animation outranks inline styles
           // in the cascade, so this never fights the spin.

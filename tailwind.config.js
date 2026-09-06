@@ -1,5 +1,17 @@
 import typography from '@tailwindcss/typography'
 
+/**
+ * Seats on the hero ring. Must match SCREENS.length in HeroScreens.tsx.
+ *
+ * The fade stops are derived from it rather than hand-written: a screen holds
+ * the front for one seat's worth of the turn, stays fully crisp for half a seat
+ * either side of it, and is dimmed by the time the next seat comes round. Fixed
+ * stops silently stopped matching the ring twice while the screen count moved.
+ */
+const HERO_SEATS = 5
+const SEAT = 100 / HERO_SEATS
+const PLATEAU = SEAT / 2
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
@@ -35,13 +47,15 @@ export default {
         // tighter leaves a moment mid-crossover where every screen is dim at
         // once. Tuned for six screens — one seat is a sixth of a turn.
         'hero-face': {
-          // A plateau across the front, not a single sharp peak: with six seats
-          // a linear fall-off left both screens half-dim at every crossover, so
-          // nothing on the ring was ever crisp. The plateau reaches half a seat
-          // either side of the front, so the screen handing over and the one
-          // taking over are both clear as they pass.
-          '0%, 8%, 92%, 100%': { opacity: '1', filter: 'blur(0px)' },
-          '17%, 83%': { opacity: '0.2', filter: 'blur(2.5px)' },
+          // A plateau across the front, not a single sharp peak: a linear
+          // fall-off left both screens half-dim through every crossover, so
+          // nothing on the ring was ever crisp. The plateau means the screen
+          // handing over and the one taking over are both clear as they pass.
+          [`0%, ${PLATEAU}%, ${100 - PLATEAU}%, 100%`]: {
+            opacity: '1',
+            filter: 'blur(0px)',
+          },
+          [`${SEAT}%, ${100 - SEAT}%`]: { opacity: '0.2', filter: 'blur(2.5px)' },
         },
       },
       animation: {
