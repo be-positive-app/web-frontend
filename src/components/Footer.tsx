@@ -1,6 +1,7 @@
 import { Link, useLocation } from 'react-router-dom'
 import appLogoPng from '../assets/logo-128.png'
 import appLogoWebp from '../assets/logo-128.webp'
+import { SITE_META } from '../config/siteMeta'
 import { FOOTER_LEGAL_LINKS } from '../lib/policyPages'
 
 export function Footer() {
@@ -39,10 +40,10 @@ export function Footer() {
               </div>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <a
-                  href="mailto:info@bepositive.cc"
+                  href={`mailto:${SITE_META.supportEmail}`}
                   className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy"
                 >
-                  info@bepositive.cc
+                  {SITE_META.supportEmail}
                 </a>
                 <a
                   href={isLanding ? '#contact' : '/#contact'}

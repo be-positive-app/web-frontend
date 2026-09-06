@@ -207,11 +207,11 @@ export function Landing() {
 
             <div className="flex flex-col items-start gap-3 sm:items-end">
               <a
-                href="mailto:info@bepositive.cc"
+                href={`mailto:${SITE_META.supportEmail}`}
                 className="inline-flex items-center gap-2 rounded-2xl bg-brandBlue px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring"
               >
                 <Mail className="h-4 w-4" aria-hidden="true" />
-                info@bepositive.cc
+                {SITE_META.supportEmail}
               </a>
               <p className="text-sm text-slate-500">
                 Or check the{' '}
