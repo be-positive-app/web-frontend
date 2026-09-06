@@ -56,6 +56,16 @@ export const SITE_META = {
   appStoreUrl: 'https://apps.apple.com/app/be-positive-life-planner/id6760747846',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.bepositive.mobile',
   supportEmail: 'info@bepositive.cc',
+  /**
+   * Where the "how did you find us?" answers are posted. A Formspree form that
+   * mails them to supportEmail.
+   *
+   * Not a secret: the endpoint ships in the browser bundle either way, which is
+   * how the service is meant to be used — the form is public and Formspree does
+   * its own spam filtering. Overridable per environment via
+   * VITE_SURVEY_ENDPOINT; empty it to take the section off the page.
+   */
+  surveyEndpoint: 'https://formspree.io/f/moeqnoqn',
   /** Store downloads to date. Shown as social proof — keep it truthful. */
   downloads: '400+',
   /**

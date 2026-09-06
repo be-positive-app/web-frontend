@@ -1,15 +1,16 @@
 import { Check, Loader2 } from 'lucide-react'
 import { useState } from 'react'
 
+import { SITE_META } from '../config/siteMeta'
+
 /**
- * Where the answers go. A form-to-email service or your own endpoint that
- * accepts a JSON POST — see the note in the component below.
- *
- * With nothing configured the whole section stays off the page rather than
- * collecting answers into the void, which would be asking visitors for
- * something and then throwing it away.
+ * Where the answers go. With nothing configured the whole section stays off the
+ * page rather than collecting answers into the void, which would be asking
+ * visitors for something and then throwing it away.
  */
-const ENDPOINT = (import.meta.env.VITE_SURVEY_ENDPOINT as string | undefined)?.trim()
+const ENDPOINT =
+  (import.meta.env.VITE_SURVEY_ENDPOINT as string | undefined)?.trim() ||
+  SITE_META.surveyEndpoint
 
 const SOURCES = ['LinkedIn', 'Google', 'Facebook', 'Instagram', 'TikTok', 'Other'] as const
 type Source = (typeof SOURCES)[number]
@@ -54,11 +55,18 @@ export function FoundUs() {
   async function send(source: Source, detail?: string) {
     setState('sending')
     try {
-      const response = await fetch(ENDPOINT as string, {
+      const response = await fetch(ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          // Without this Formspree answers a form post with a redirect to its
+          // own thank-you page instead of the JSON this reads.
+          Accept: 'application/json',
+        },
         body: JSON.stringify({
-          subject: 'bepositive.cc — how did you find us?',
+          // Formspree reads a leading underscore as an instruction; this one
+          // becomes the subject line of the email it sends.
+          _subject: 'bepositive.cc — how did you find us?',
           source,
           detail: detail?.trim() || undefined,
           page: window.location.pathname,
