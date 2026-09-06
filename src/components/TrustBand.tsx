@@ -3,6 +3,10 @@ import { useEffect, useState, useSyncExternalStore } from 'react'
 import { SITE_META } from '../config/siteMeta'
 import { useInView } from '../hooks/useInView'
 
+const appStoreHref =
+  (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() ||
+  SITE_META.appStoreUrl
+
 /**
  * Splits a display figure into the part worth counting up and the text around
  * it, so "400+" animates to 400 and keeps its plus, and "5.0" keeps its decimal.
@@ -103,12 +107,18 @@ function Stars({ value, active }: { value: number; active: boolean }) {
           // clipped, it rendered as a hard dark square behind each star.
           <span
             key={index}
-            className="relative block h-7 w-7 sm:h-9 sm:w-9"
-            style={fill > 0 ? { filter: 'drop-shadow(0 0 10px rgba(255,244,92,0.3))' } : undefined}
+            className={[
+              'relative block h-7 w-7 sm:h-9 sm:w-9',
+              // Only a star with something in it glows, and the glow goes once
+              // the pill behind it turns yellow.
+              fill > 0
+                ? 'drop-shadow-[0_0_10px_rgba(255,244,92,0.3)] group-hover/rating:drop-shadow-none'
+                : '',
+            ].join(' ')}
           >
-            <Star className="absolute inset-0 h-full w-full text-white/20" />
+            <Star className="absolute inset-0 h-full w-full text-white/20 transition-colors group-hover/rating:text-brandNavy/25 motion-reduce:transition-none" />
             <span className="absolute inset-0 overflow-hidden" style={{ width: `${fill * 100}%` }}>
-              <Star className="h-7 w-7 fill-brandYellow text-brandYellow sm:h-9 sm:w-9" />
+              <Star className="h-7 w-7 fill-brandYellow text-brandYellow transition-colors group-hover/rating:fill-brandNavy group-hover/rating:text-brandNavy motion-reduce:transition-none sm:h-9 sm:w-9" />
             </span>
           </span>
         )
@@ -174,9 +184,15 @@ export function TrustBand() {
                 <Figure display={rating.value} active={inView} />
                 <p className="text-2xl font-bold text-white/40 sm:text-3xl">/ 5</p>
               </div>
-              <div className="mt-6">
+              <a
+                href={appStoreHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${rating.value} out of 5 — read the reviews on the App Store`}
+                className="group/rating mt-6 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-6 py-3 backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:scale-105 hover:border-brandYellow hover:bg-brandYellow hover:shadow-lg hover:shadow-brandYellow/25 focus-ring motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100"
+              >
                 <Stars value={Number(rating.value)} active={inView} />
-              </div>
+              </a>
               <p className="mt-5 max-w-sm text-balance text-base font-semibold text-white/75 sm:text-lg">
                 from {rating.count} App Store and Google Play ratings
               </p>
