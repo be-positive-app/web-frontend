@@ -28,8 +28,8 @@ const googlePlayHref =
 export function Landing() {
   usePageMeta(routeMeta('/'))
 
-  const features = useInView<HTMLDivElement>({ once: true })
-  const how = useInView<HTMLDivElement>({ once: true })
+  const { ref: featuresRef, inView: featuresInView } = useInView<HTMLDivElement>({ once: true })
+  const { ref: howRef, inView: howInView } = useInView<HTMLDivElement>({ once: true })
 
   return (
     <div>
@@ -85,35 +85,35 @@ export function Landing() {
           </div>
 
           <div
-            ref={features.ref}
+            ref={featuresRef}
             className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-2"
           >
             <FeatureCard
               icon={<ListTodo className="h-5 w-5" aria-hidden="true" />}
               title="Smart Task Management"
               description="Organize tasks efficiently and prioritize what matters."
-              revealed={features.inView}
+              revealed={featuresInView}
               delayMs={0}
             />
             <FeatureCard
               icon={<CalendarDays className="h-5 w-5" aria-hidden="true" />}
               title="Calendar Planning"
               description="Plan your day with a clear and structured schedule."
-              revealed={features.inView}
+              revealed={featuresInView}
               delayMs={80}
             />
             <FeatureCard
               icon={<Bell className="h-5 w-5" aria-hidden="true" />}
               title="Daily Reminders"
               description="Never miss important tasks with smart notifications."
-              revealed={features.inView}
+              revealed={featuresInView}
               delayMs={140}
             />
             <FeatureCard
               icon={<LineChart className="h-5 w-5" aria-hidden="true" />}
               title="Progress Tracking"
               description="Track your productivity and build better habits over time."
-              revealed={features.inView}
+              revealed={featuresInView}
               delayMs={220}
             />
           </div>
@@ -134,13 +134,13 @@ export function Landing() {
             </p>
           </div>
 
-          <div ref={how.ref} className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div ref={howRef} className="mt-10 grid gap-5 lg:grid-cols-3">
             <Step
               index={1}
               title="Add your tasks"
               description="Capture everything quickly, then choose what matters most."
               icon={<ListTodo className="h-5 w-5" aria-hidden="true" />}
-              revealed={how.inView}
+              revealed={howInView}
               delayMs={0}
             />
             <Step
@@ -148,7 +148,7 @@ export function Landing() {
               title="Get Positive reminders"
               description="Stay focused with calm, distraction-free reminders."
               icon={<Bell className="h-5 w-5" aria-hidden="true" />}
-              revealed={how.inView}
+              revealed={howInView}
               delayMs={90}
             />
             <Step
@@ -156,7 +156,7 @@ export function Landing() {
               title="Track your progress"
               description="Track your wins and grow your streaks over time."
               icon={<LineChart className="h-5 w-5" aria-hidden="true" />}
-              revealed={how.inView}
+              revealed={howInView}
               delayMs={180}
             />
           </div>

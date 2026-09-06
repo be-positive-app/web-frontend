@@ -18,8 +18,26 @@ export const SITE_META = {
    * lists get flagged as keyword stuffing by audit tools — keep it short and
    * put the real keywords in the page copy instead.
    */
-  keywords:
-    'daily planner app, life planner app, task manager app, habit tracker app, goal tracking app, productivity app, time management app, daily reminders, progress tracking, to do list app',
+  keywords: [
+    // Brand — the one group worth owning outright.
+    'be positive app',
+    'be positive life planner',
+    // What the app is.
+    'daily planner app',
+    'life planner app',
+    'task manager app',
+    'to do list app',
+    'habit tracker app',
+    'goal tracking app',
+    // Mirrors the four feature cards on the landing page.
+    'calendar planning app',
+    'daily reminders app',
+    'daily progress tracker',
+    'focus app for work',
+    // Category terms.
+    'productivity app',
+    'time management app',
+  ].join(', '),
   /** BCP 47 locale, mirrored into <html lang> and og:locale. */
   locale: 'en_US',
   /** Social share preview image, 1200x630, path relative to the site root. */

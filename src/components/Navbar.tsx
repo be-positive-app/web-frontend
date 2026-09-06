@@ -1,5 +1,5 @@
 import { Download, Menu, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import type { MouseEvent } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import appLogoPng from '../assets/logo-128.png'
@@ -15,9 +15,14 @@ export function Navbar() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
 
-  useEffect(() => {
+  // Every link in the menu closes it on click; this covers the navigations that
+  // do not go through them (back/forward, programmatic). Adjusting state during
+  // render instead of in an effect avoids a second render pass.
+  const [menuPath, setMenuPath] = useState(location.pathname)
+  if (menuPath !== location.pathname) {
+    setMenuPath(location.pathname)
     setOpen(false)
-  }, [location.pathname])
+  }
 
   function onHomeClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
