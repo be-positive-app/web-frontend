@@ -3,15 +3,19 @@ import {
   Bell,
   CalendarDays,
   CheckCircle2,
+  Download,
   LineChart,
   ListTodo,
   Mail,
   Sparkles,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { DownloadCta } from '../components/DownloadCta'
 import { Faq } from '../components/Faq'
 import { FeatureCard } from '../components/FeatureCard'
 import { PhoneMockup } from '../components/PhoneMockup'
+import { Pricing } from '../components/Pricing'
+import { Problem } from '../components/Problem'
 import { Step } from '../components/Step'
 import { StoreButtons } from '../components/StoreButtons'
 import { routeMeta } from '../config/routeMeta'
@@ -60,6 +64,11 @@ export function Landing() {
             <div className="mt-7 flex flex-col gap-4">
               <StoreButtons appStoreHref={appStoreHref} googlePlayHref={googlePlayHref} />
 
+              <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+                <Download className="h-4 w-4 text-brandBlue" aria-hidden="true" />
+                <span>{SITE_META.downloads} downloads on iOS and Android</span>
+              </div>
+
               <div className="flex items-center gap-2 text-sm text-slate-600">
                 <CheckCircle2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
                 <span>Task manager & daily planner app with reminders, focus tools, and progress tracking.</span>
@@ -72,6 +81,8 @@ export function Landing() {
           </div>
         </div>
       </section>
+
+      <Problem />
 
       <section className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
@@ -173,7 +184,11 @@ export function Landing() {
         </div>
       </section>
 
+      <Pricing />
+
       <Faq />
+
+      <DownloadCta appStoreHref={appStoreHref} googlePlayHref={googlePlayHref} />
 
       <section id="contact" className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-18">
