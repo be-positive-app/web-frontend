@@ -13,6 +13,31 @@ export type FaqEntry = {
 }
 
 export const FAQ: readonly FaqEntry[] = [
+  // The first few are phrased the way people actually search — "how do I stop
+  // forgetting tasks" rather than "features" — because these answers are also
+  // the FAQPage structured data, which is where a search result gets its
+  // expandable questions. They still have to be literally true of the app: the
+  // structured data is a claim to Google, not marketing copy.
+  {
+    question: 'How do I stop forgetting tasks?',
+    answer:
+      'Write the task down the moment you think of it, give it a date and time, and let the app remind you instead of your memory. In Be Positive every task can carry a due date, a time, a repeat rule and a reminder, so nothing depends on you remembering it later.',
+  },
+  {
+    question: 'How do I plan my day?',
+    answer:
+      'Start from what is already fixed, then fit the rest around it. Be Positive lays the day out in a calendar so you can see where the free hours are, and lets you mark each task low, medium or high priority so the important ones do not get lost among the small ones.',
+  },
+  {
+    question: 'Can the app remind me before a task is due?',
+    answer:
+      'Yes. Each task has a reminder you can switch on when you create it, and tasks that come round again — daily, weekly or monthly — repeat without you setting them up each time.',
+  },
+  {
+    question: 'How do I keep track of what I actually finished?',
+    answer:
+      'The Overview screen counts the tasks you completed, your completion rate, your active days and your current streak, and charts your week, so you can see whether the plan is working rather than guessing.',
+  },
   {
     question: 'How much does Be Positive cost?',
     answer: `Be Positive is a subscription: ${SITE_META.pricing.monthly} per month or ${SITE_META.pricing.yearly} per year. You can subscribe from inside the app.`,

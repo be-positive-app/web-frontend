@@ -12,6 +12,7 @@ import {
 import { Link } from 'react-router-dom'
 import { DownloadCta } from '../components/DownloadCta'
 import { Faq } from '../components/Faq'
+import { FoundUs } from '../components/FoundUs'
 import { FeatureCard } from '../components/FeatureCard'
 import { HeroScreens } from '../components/HeroScreens'
 import { Pricing } from '../components/Pricing'
@@ -195,6 +196,8 @@ export function Landing() {
       <Pricing />
 
       <Faq />
+
+      <FoundUs />
 
       <DownloadCta appStoreHref={appStoreHref} googlePlayHref={googlePlayHref} />
 

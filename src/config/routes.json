@@ -3,8 +3,8 @@
   "routes": [
     {
       "path": "/",
-      "title": "Be Positive — Life Planner",
-      "description": "Plan your day, focus on what matters, and build lasting habits. Be Positive Life Planner brings tasks, calendar, smart reminders and progress tracking together.",
+      "title": "Be Positive \u2014 Life Planner",
+      "description": "Stop forgetting tasks and plan your day in one place. Be Positive Life Planner keeps your tasks, calendar and reminders together, and tracks what you finish \u2014 on iPhone and Android.",
       "changefreq": "weekly",
       "priority": "1.0"
     },
