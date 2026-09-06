@@ -1,16 +1,23 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 
+/**
+ * Reveal-on-scroll helper.
+ *
+ * `ref` is a callback ref that stores the observed node in state rather than a
+ * ref object: the effect can then depend on the node directly, so the observer
+ * is re-attached if the element is swapped out, and callers can read `inView`
+ * during render without tripping the react-hooks refs rule.
+ */
 export function useInView<T extends Element>(options?: {
   rootMargin?: string
   threshold?: number
   once?: boolean
 }) {
-  const ref = useRef<T | null>(null)
+  const [node, setNode] = useState<T | null>(null)
   const [inView, setInView] = useState(false)
 
   useEffect(() => {
-    const el = ref.current
-    if (!el) return
+    if (!node) return
 
     const obs = new IntersectionObserver(
       (entries) => {
@@ -24,10 +31,9 @@ export function useInView<T extends Element>(options?: {
       },
     )
 
-    obs.observe(el)
+    obs.observe(node)
     return () => obs.disconnect()
-  }, [options?.once, options?.rootMargin, options?.threshold])
+  }, [node, options?.once, options?.rootMargin, options?.threshold])
 
-  return { ref, inView }
+  return { ref: setNode, inView }
 }
-

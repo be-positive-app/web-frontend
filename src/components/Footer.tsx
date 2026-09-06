@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
-import appLogo from '../assets/Be-Positive-App-Logo.png'
+import appLogoPng from '../assets/logo-128.png'
+import appLogoWebp from '../assets/logo-128.webp'
 import { FOOTER_LEGAL_LINKS } from '../lib/policyPages'
 
 export function Footer() {
@@ -16,14 +17,18 @@ export function Footer() {
               className="group shrink-0 rounded-2xl p-0.5 focus-ring focus-visible:ring-offset-brandNavy"
               aria-label="Be Positive home"
             >
-              <img
-                src={appLogo}
-                alt="Be Positive"
-                width={48}
-                height={48}
-                decoding="async"
-                className="h-12 w-12 rounded-2xl object-contain shadow-lg ring-1 ring-white/20 transition group-hover:ring-brandYellow/50 sm:h-14 sm:w-14"
-              />
+              <picture className="contents">
+                <source srcSet={appLogoWebp} type="image/webp" />
+                <img
+                  src={appLogoPng}
+                  alt="Be Positive"
+                  width={48}
+                  height={48}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-12 w-12 rounded-2xl object-contain shadow-lg ring-1 ring-white/20 transition group-hover:ring-brandYellow/50 sm:h-14 sm:w-14"
+                />
+              </picture>
             </Link>
             <div className="flex min-w-0 flex-1 flex-col gap-4">
               <div>

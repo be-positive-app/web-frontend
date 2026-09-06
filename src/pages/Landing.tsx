@@ -9,30 +9,34 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Faq } from '../components/Faq'
 import { FeatureCard } from '../components/FeatureCard'
 import { PhoneMockup } from '../components/PhoneMockup'
 import { Step } from '../components/Step'
 import { StoreButtons } from '../components/StoreButtons'
+import { routeMeta } from '../config/routeMeta'
 import { SITE_META } from '../config/siteMeta'
 import { useInView } from '../hooks/useInView'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 const appStoreHref =
-  (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() || 
-  'https://apps.apple.com/app/be-positive-life-planner/id6760747846'
+  (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() ||
+  SITE_META.appStoreUrl
 const googlePlayHref =
   (import.meta.env.VITE_GOOGLE_PLAY_URL as string | undefined)?.trim() ||
-  'https://play.google.com/store/apps/details?id=com.bepositive.mobile'
+  SITE_META.googlePlayUrl
 
 export function Landing() {
-  usePageMeta({ title: SITE_META.title, description: SITE_META.description, path: '/' })
+  usePageMeta(routeMeta('/'))
 
-  const features = useInView<HTMLDivElement>({ once: true })
-  const how = useInView<HTMLDivElement>({ once: true })
+  const { ref: featuresRef, inView: featuresInView } = useInView<HTMLDivElement>({ once: true })
+  const { ref: howRef, inView: howInView } = useInView<HTMLDivElement>({ once: true })
 
   return (
     <div>
-      <section id="home" className="bg-hero-gradient">
+      {/* The decorative blobs in PhoneMockup sit outside their container on
+          purpose; clip them here so they cannot widen the page on small screens. */}
+      <section id="home" className="overflow-x-clip bg-hero-gradient">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">
@@ -44,8 +48,8 @@ export function Landing() {
             </div>
 
             <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              <span>Plan your day.</span>
-  <span>Stay focused.</span> 
+              <span>Plan your day.</span>{' '}
+              <span>Stay focused.</span>{' '}
               <span className="text-brandBlue">Feel positive.</span>
             </h1>
 
@@ -84,35 +88,35 @@ export function Landing() {
           </div>
 
           <div
-            ref={features.ref}
+            ref={featuresRef}
             className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-2"
           >
             <FeatureCard
               icon={<ListTodo className="h-5 w-5" aria-hidden="true" />}
               title="Smart Task Management"
               description="Organize tasks efficiently and prioritize what matters."
-              revealed={features.inView}
+              revealed={featuresInView}
               delayMs={0}
             />
             <FeatureCard
               icon={<CalendarDays className="h-5 w-5" aria-hidden="true" />}
               title="Calendar Planning"
               description="Plan your day with a clear and structured schedule."
-              revealed={features.inView}
+              revealed={featuresInView}
               delayMs={80}
             />
             <FeatureCard
               icon={<Bell className="h-5 w-5" aria-hidden="true" />}
               title="Daily Reminders"
               description="Never miss important tasks with smart notifications."
-              revealed={features.inView}
+              revealed={featuresInView}
               delayMs={140}
             />
             <FeatureCard
               icon={<LineChart className="h-5 w-5" aria-hidden="true" />}
               title="Progress Tracking"
               description="Track your productivity and build better habits over time."
-              revealed={features.inView}
+              revealed={featuresInView}
               delayMs={220}
             />
           </div>
@@ -133,13 +137,13 @@ export function Landing() {
             </p>
           </div>
 
-          <div ref={how.ref} className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div ref={howRef} className="mt-10 grid gap-5 lg:grid-cols-3">
             <Step
               index={1}
               title="Add your tasks"
               description="Capture everything quickly, then choose what matters most."
               icon={<ListTodo className="h-5 w-5" aria-hidden="true" />}
-              revealed={how.inView}
+              revealed={howInView}
               delayMs={0}
             />
             <Step
@@ -147,7 +151,7 @@ export function Landing() {
               title="Get Positive reminders"
               description="Stay focused with calm, distraction-free reminders."
               icon={<Bell className="h-5 w-5" aria-hidden="true" />}
-              revealed={how.inView}
+              revealed={howInView}
               delayMs={90}
             />
             <Step
@@ -155,7 +159,7 @@ export function Landing() {
               title="Track your progress"
               description="Track your wins and grow your streaks over time."
               icon={<LineChart className="h-5 w-5" aria-hidden="true" />}
-              revealed={how.inView}
+              revealed={howInView}
               delayMs={180}
             />
           </div>
@@ -168,6 +172,8 @@ export function Landing() {
           </div>
         </div>
       </section>
+
+      <Faq />
 
       <section id="contact" className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-18">

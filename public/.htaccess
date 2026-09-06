@@ -9,7 +9,54 @@
   RewriteRule ^ https://bepositive.cc%{REQUEST_URI} [L,R=301]
 
   RewriteRule ^index\.html$ - [L]
+
+  # Serve the prerendered file for /support, /privacy, ... in place, so the URL
+  # keeps matching the canonical tag (no redirect to a trailing slash).
+  RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+  RewriteRule ^(.+?)/?$ /$1/index.html [L]
+
+  # Everything else falls through to the SPA shell, which renders the 404 view
+  # for unknown paths. That view is noindex — the signal Google reads for a
+  # client-rendered app — but the response is still 200. To return a real 404
+  # status, replace the two lines below with a rule that only serves the shell
+  # for the routes that genuinely need it (currently /delete-account/verify/*)
+  # and let ErrorDocument handle the rest. Verify on the host before switching:
+  # if the prerender rule above does not fire there, narrowing this would 404
+  # the static pages too.
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule . /index.html [L]
 </IfModule>
+
+ErrorDocument 404 /404.html
+
+<IfModule mod_dir.c>
+  # The rewrite above already serves directory index files; without this Apache
+  # would 301 /support to /support/ first.
+  DirectorySlash Off
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Vite emits content-hashed filenames under /assets, so they can never go stale.
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Icons, social preview and other unhashed images: cache, but keep revalidating.
+  <FilesMatch "\.(png|jpg|jpeg|gif|svg|ico|webp)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+
+  # HTML, manifest and crawler files must never be served stale after a deploy.
+  <FilesMatch "\.(html|webmanifest|xml|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE image/svg+xml application/manifest+json
+</IfModule>
+
+AddType application/manifest+json .webmanifest

@@ -1,8 +1,9 @@
 import { Download, Menu, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import type { MouseEvent } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import appLogo from '../assets/Be-Positive-App-Logo.png'
+import appLogoPng from '../assets/logo-128.png'
+import appLogoWebp from '../assets/logo-128.webp'
 function scrollToId(id: string) {
   const el = document.getElementById(id)
   if (!el) return
@@ -14,9 +15,14 @@ export function Navbar() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
 
-  useEffect(() => {
+  // Every link in the menu closes it on click; this covers the navigations that
+  // do not go through them (back/forward, programmatic). Adjusting state during
+  // render instead of in an effect avoids a second render pass.
+  const [menuPath, setMenuPath] = useState(location.pathname)
+  if (menuPath !== location.pathname) {
+    setMenuPath(location.pathname)
     setOpen(false)
-  }, [location.pathname])
+  }
 
   function onHomeClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
@@ -59,14 +65,17 @@ export function Navbar() {
           className="group inline-flex items-center rounded-xl px-1 py-0.5 focus-ring"
           aria-label="Be Positive home"
         >
-          <img
-            src={appLogo}
-            alt="Be Positive"
-            width={40}
-            height={40}
-            decoding="async"
-            className="h-9 w-9 shrink-0 rounded-2xl object-contain shadow-sm ring-1 ring-slate-200/50 transition group-hover:shadow-md group-hover:ring-brandYellow/40 sm:h-10 sm:w-10"
-          />
+          <picture className="contents">
+            <source srcSet={appLogoWebp} type="image/webp" />
+            <img
+              src={appLogoPng}
+              alt="Be Positive"
+              width={40}
+              height={40}
+              decoding="async"
+              className="h-9 w-9 shrink-0 rounded-2xl object-contain shadow-sm ring-1 ring-slate-200/50 transition group-hover:shadow-md group-hover:ring-brandYellow/40 sm:h-10 sm:w-10"
+            />
+          </picture>
         </Link>
 
         <nav className="hidden items-center gap-2 sm:flex" aria-label="Primary">

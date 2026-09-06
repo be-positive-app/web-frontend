@@ -4,6 +4,7 @@ import { confirmPasswordReset } from 'firebase/auth'
 import { KeyRound } from 'lucide-react'
 import { getFirebaseAuth } from '../lib/firebase'
 import { StoreButtons } from '../components/StoreButtons'
+import { routeMeta } from '../config/routeMeta'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 /** Firebase minimum is 6; we enforce higher for basic strength. */
@@ -62,12 +63,7 @@ function hasFirebaseWebConfig(): boolean {
 }
 
 export function ResetPassword() {
-  usePageMeta({
-    title: 'Reset Password',
-    description: 'Set a new password for your Be Positive account.',
-    path: '/reset-password',
-    noindex: true,
-  })
+  usePageMeta(routeMeta('/reset-password'))
 
   const [searchParams] = useSearchParams()
   const link = useMemo(() => parseResetLink(searchParams), [searchParams])

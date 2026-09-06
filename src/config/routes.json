@@ -1,0 +1,72 @@
+{
+  "$comment": "Single source of truth for per-route metadata. Consumed at runtime by src/config/routeMeta.ts (pages call usePageMeta) and at build time by scripts/prerender.mjs, which writes one static HTML file per route and regenerates sitemap.xml. A route may set \"output\" to control the file it is written to (the 404 view needs 404.html, not 404/index.html). Keep the policy paths in sync with src/lib/policyPages.ts.",
+  "routes": [
+    {
+      "path": "/",
+      "title": "Be Positive — Life Planner",
+      "description": "Plan your day, focus on what matters, and build lasting habits. Be Positive Life Planner brings tasks, calendar, smart reminders and progress tracking together.",
+      "changefreq": "weekly",
+      "priority": "1.0"
+    },
+    {
+      "path": "/support",
+      "title": "Support",
+      "description": "Get help with Be Positive Life Planner. Contact support, see response times, and find what to include in your message.",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "path": "/privacy",
+      "title": "Privacy Policy",
+      "description": "Privacy Policy for Be Positive Life Planner.",
+      "changefreq": "monthly",
+      "priority": "0.3"
+    },
+    {
+      "path": "/terms",
+      "title": "Terms of Service",
+      "description": "Terms of Service for Be Positive Life Planner.",
+      "changefreq": "monthly",
+      "priority": "0.3"
+    },
+    {
+      "path": "/refunds",
+      "title": "Refund Policy",
+      "description": "Refund Policy for Be Positive Life Planner.",
+      "changefreq": "monthly",
+      "priority": "0.3"
+    },
+    {
+      "path": "/cookies",
+      "title": "Cookie Policy",
+      "description": "Cookie Policy for Be Positive Life Planner.",
+      "changefreq": "monthly",
+      "priority": "0.3"
+    },
+    {
+      "path": "/reset-password",
+      "title": "Reset Password",
+      "description": "Set a new password for your Be Positive account.",
+      "noindex": true
+    },
+    {
+      "path": "/delete-account",
+      "title": "Delete Account",
+      "description": "Request permanent deletion of your Be Positive account and data.",
+      "noindex": true
+    },
+    {
+      "path": "/delete-account/verify",
+      "title": "Confirm Account Deletion",
+      "description": "Confirm or cancel a Be Positive account deletion request.",
+      "noindex": true
+    },
+    {
+      "path": "/404",
+      "output": "404.html",
+      "title": "Page Not Found",
+      "description": "This page does not exist. Find downloads on the home page, or contact support.",
+      "noindex": true
+    }
+  ]
+}

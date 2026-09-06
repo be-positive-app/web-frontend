@@ -2,25 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
-    <link rel="apple-touch-icon" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0808c1" />
     <meta name="robots" content="index, follow" />
-    <!-- Title, description, keywords, canonical & social tags are overwritten from
-         src/config/siteMeta.ts at dev/build (see vite.config.ts inject-site-meta plugin) -->
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Self-hosted Manrope (variable, 400-800) — @font-face lives in src/index.css.
+         Preloaded because the hero headline is the LCP element. -->
+    <link
+      rel="preload"
+      href="/fonts/manrope-latin-var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Title, description, keywords, canonical, social tags & JSON-LD are overwritten
+         from src/config/siteMeta.ts at dev/build (see vite.config.ts inject-site-meta). -->
+    <title>Be Positive — Life Planner</title>
     <meta
       name="description"
       content="Plan your day, stay focused, and track your progress with Be Positive Life Planner"
     />
-    <meta
-      name="keywords"
-      content="best daily planner, daily planner app, weekly planner app, monthly planner app, life planner app, routine planner, schedule planner, daily goal tracker, goal tracking app, best goal tracker app, productivity app, best productivity apps, productivity planner, improve productivity, increase productivity, daily motivation app, motivation app, track daily progress, performance tracking app, daily success tracker, goal achievement app, productivity app for entrepreneurs, daily planner for freelancers, focus app for work, time management app, time management for business, organize your life, take control of your day, better habits app, change your life app, to do list app, reminder app, smart reminder app, task manager app, personal productivity app, discipline app, daily performance tracker, habit tracker app, focus and discipline app,"
-    />
+    <meta name="keywords" content="daily planner app, life planner app, task manager app" />
     <link rel="canonical" href="https://bepositive.cc/" />
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Be Positive" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:url" content="https://bepositive.cc/" />
     <meta property="og:title" content="Be Positive — Life Planner" />
     <meta
@@ -28,6 +42,7 @@
       content="Plan your day, stay focused, and track your progress with Be Positive Life Planner"
     />
     <meta property="og:image" content="https://bepositive.cc/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Be Positive — Life Planner" />
@@ -40,29 +55,8 @@
     />
     <meta name="twitter:image" content="https://bepositive.cc/og-image.png" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <title>Be Positive — Life Planner</title>
     <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "MobileApplication",
-        "name": "Be Positive — Life Planner",
-        "description": "Plan your day, stay focused, and track your progress with Be Positive Life Planner",
-        "url": "https://bepositive.cc/",
-        "applicationCategory": "ProductivityApplication",
-        "operatingSystem": "iOS, Android",
-        "image": "https://bepositive.cc/og-image.png",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        }
-      }
+      {}
     </script>
   </head>
   <body>
