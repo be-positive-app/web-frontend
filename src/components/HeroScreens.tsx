@@ -103,16 +103,24 @@ export function HeroScreens() {
         ))}
       </ul>
 
-      {/* Pointer: it travels on its own. */}
-      <div className="relative hidden overflow-hidden pb-6 [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)] sm:block">
-        <ul className="flex w-max animate-hero-rail gap-8 motion-reduce:animate-none">
+      {/* Pointer: it travels on its own — unless the reader asked for less
+          motion, in which case it becomes a rail they scroll themselves rather
+          than a row frozen mid-track. */}
+      <div className="relative hidden overflow-hidden pb-6 [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)] motion-reduce:snap-x motion-reduce:snap-mandatory motion-reduce:overflow-x-auto sm:block">
+        <ul className="flex w-max animate-hero-rail gap-8 motion-reduce:mx-auto motion-reduce:animate-none">
           {SCREENS.map((screen, index) => (
-            <li key={screen.label} className="shrink-0">
+            <li key={screen.label} className="shrink-0 motion-reduce:snap-center">
               <Phone screen={screen} eager={index === 0} />
             </li>
           ))}
           {SCREENS.map((screen) => (
-            <li key={`${screen.label}-repeat`} className="shrink-0" aria-hidden="true">
+            <li
+              key={`${screen.label}-repeat`}
+              // The copy only exists to close the travelling loop; with the
+              // travel off it is just the same five screens scrolled twice.
+              className="shrink-0 motion-reduce:hidden"
+              aria-hidden="true"
+            >
               <Phone screen={screen} />
             </li>
           ))}
