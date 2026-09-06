@@ -60,13 +60,16 @@ export const SITE_META = {
   downloads: '400+',
   /**
    * The real store rating, or null while there is not one worth quoting.
-   * Filling this in lights up the rating tile in the trust band and the
-   * aggregateRating in the JSON-LD — so use the exact numbers from App Store
-   * Connect and the Play Console. An invented score breaks both stores'
-   * marketing rules and Google's structured-data policy, and a rating with no
-   * reviews behind it is the quickest way to lose the rich result entirely.
+   * Use the exact figures from App Store Connect and the Play Console: an
+   * invented score breaks both stores' marketing rules and Google's
+   * structured-data policy.
+   *
+   * `count` is the number of ratings behind the score. It is optional because
+   * the band can state a score without it, but the JSON-LD cannot — schema.org
+   * requires ratingCount on an aggregateRating, so the rating is left out of
+   * the structured data entirely until this is filled in.
    */
-  rating: null as { value: string; count: number } | null,
+  rating: { value: '5.0' } as { value: string; count?: number } | null,
   /** Subscription prices, shared by the FAQ copy and the JSON-LD offers. */
   pricing: {
     currency: 'USD',

@@ -79,14 +79,16 @@ export default defineConfig(({ mode }) => {
                 operatingSystem: 'iOS, Android',
                 installUrl: [appStoreUrl, googlePlayUrl],
                 publisher: { '@id': `${siteUrl}/#organization` },
-                // Only ever emitted from a real store rating — Google treats an
-                // aggregateRating with no reviews behind it as spam.
-                ...(SITE_META.rating
+                // Only ever emitted from a real store rating, and only once
+                // the review count is known: schema.org requires ratingCount,
+                // and Google treats an aggregateRating with nothing behind it
+                // as spam.
+                ...(SITE_META.rating?.count
                   ? {
                       aggregateRating: {
                         '@type': 'AggregateRating',
-                        ratingValue: SITE_META.rating.value,
-                        ratingCount: SITE_META.rating.count,
+                        ratingValue: SITE_META.rating!.value,
+                        ratingCount: SITE_META.rating!.count,
                         bestRating: '5',
                         worstRating: '1',
                       },

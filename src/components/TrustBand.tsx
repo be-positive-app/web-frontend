@@ -194,7 +194,9 @@ export function TrustBand() {
                 <Stars value={Number(rating.value)} active={inView} />
               </a>
               <p className="mt-5 max-w-sm text-balance text-base font-semibold text-white/75 sm:text-lg">
-                from {rating.count} App Store and Google Play ratings
+                {rating.count
+                  ? `from ${rating.count} App Store and Google Play ratings`
+                  : 'on the App Store and Google Play'}
               </p>
             </div>
           ) : null}
