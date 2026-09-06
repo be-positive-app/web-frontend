@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import calendarPng from '../assets/screen-calendar.png'
 import calendarWebp from '../assets/screen-calendar.webp'
 import newTaskPng from '../assets/screen-new-task.png'
@@ -33,13 +34,18 @@ const STEP = 360 / SCREENS.length
 const SPIN_SECONDS = 24
 
 /**
- * Hero device shot: the three screens stand on a turntable that never stops.
+ * Hero device shot: the three screens ride a turntable that never stops.
  *
- * The whole thing is CSS. The ring runs one linear rotation on a loop, and each
- * screen runs the same loop on its own opacity, offset by a third of the turn,
- * so it sharpens as it swings to the front and fades as it goes round the back.
- * That offset is the only thing React contributes — there is no state, no timer
- * and no controls, because the ring is meant to keep turning on its own.
+ * Each screen counter-rotates against the ring by the same angle, so it circles
+ * without ever turning away — all three stay face-on and readable, one swinging
+ * to the front while the other two sit back and to the sides. Hiding the back
+ * faces instead left a single screen on show for most of the turn, which read
+ * as one still picture rather than a carousel.
+ *
+ * The whole thing is CSS. The ring runs one linear rotation on a loop and each
+ * screen runs the same loop, offset by a third of a turn — that offset is the
+ * only thing React contributes. There is no state, no timer and no controls,
+ * because the ring is meant to keep turning on its own.
  *
  * Hovering pauses both loops so a screen can be read, and prefers-reduced-motion
  * stops them entirely, leaving the three screens standing still in a fan.
@@ -52,7 +58,7 @@ export function HeroScreens() {
 
       <div className="group/stage relative [perspective:1200px]">
         <ul
-          className="relative h-[450px] [--ring-r:96px] animate-hero-spin [transform-style:preserve-3d] group-hover/stage:[animation-play-state:paused] motion-reduce:animate-none sm:h-[430px] sm:[--ring-r:132px]"
+          className="relative h-[450px] [--ring-r:100px] animate-hero-spin [transform-style:preserve-3d] group-hover/stage:[animation-play-state:paused] motion-reduce:animate-none sm:h-[430px] sm:[--ring-r:150px]"
           // The resting pose, for when the animation is off under
           // prefers-reduced-motion. A running animation outranks inline styles
           // in the cascade, so this never fights the spin.
@@ -61,11 +67,24 @@ export function HeroScreens() {
           {SCREENS.map((screen, index) => (
             <li
               key={screen.label}
-              className="absolute inset-0 flex flex-col items-center justify-center gap-3 [backface-visibility:hidden] animate-hero-face group-hover/stage:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:opacity-100"
-              style={{
-                transform: `rotateY(${index * STEP}deg) translateZ(var(--ring-r))`,
-                animationDelay: `${-index * (SPIN_SECONDS / SCREENS.length)}s`,
-              }}
+              className="absolute inset-0 flex flex-col items-center justify-center gap-3 animate-hero-orbit group-hover/stage:[animation-play-state:paused] motion-reduce:animate-none motion-reduce:opacity-100"
+              style={
+                {
+                  '--a': `${index * STEP}deg`,
+                  // Matches the animation's first frame, for when it is off.
+                  transform:
+                    `rotateY(${index * STEP}deg) translateZ(var(--ring-r))` +
+                    ` rotateY(${-index * STEP}deg)`,
+                  // One delay per animation, in the order the class lists
+                  // them. The orbit must not be offset — the seat angle above
+                  // already spreads the screens out, and delaying it would
+                  // leave the counter-rotation out of step with the ring, which
+                  // is what turned a screen round to face backwards. The fade
+                  // is offset so a screen brightens exactly as it reaches the
+                  // front, at a third of a turn per seat.
+                  animationDelay: `0s, ${-SPIN_SECONDS + (index * SPIN_SECONDS) / SCREENS.length}s`,
+                } as CSSProperties
+              }
             >
               <picture className="contents">
                 <source srcSet={screen.webp} type="image/webp" />
