@@ -22,6 +22,21 @@ const ASKED_KEY = 'bp:found-us-answered'
  */
 const OPEN_AFTER_MS = 800
 
+/**
+ * ?found-us on the URL opens it even for a browser that has already answered.
+ *
+ * Without this the only way to see it again is to clear site data, which made
+ * "it does not appear" impossible to tell apart from "I answered it once weeks
+ * ago" — the two look identical and one of them is not a fault.
+ */
+function forcedOpen() {
+  try {
+    return new URLSearchParams(window.location.search).has('found-us')
+  } catch {
+    return false
+  }
+}
+
 function alreadyAsked() {
   try {
     return window.localStorage.getItem(ASKED_KEY) !== null
@@ -67,7 +82,7 @@ export function FoundUs() {
 
   // Ask straight away, once the page has drawn.
   useEffect(() => {
-    if (!ENDPOINT || alreadyAsked()) return
+    if (!ENDPOINT || (alreadyAsked() && !forcedOpen())) return
     const armed = window.setTimeout(() => setOpen(true), OPEN_AFTER_MS)
     return () => window.clearTimeout(armed)
   }, [])
