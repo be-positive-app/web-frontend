@@ -17,6 +17,7 @@ import { HeroScreens } from '../components/HeroScreens'
 import { Pricing } from '../components/Pricing'
 import { Problem } from '../components/Problem'
 import { Step } from '../components/Step'
+import { TrustBand } from '../components/TrustBand'
 import { StoreButtons } from '../components/StoreButtons'
 import { routeMeta } from '../config/routeMeta'
 import { SITE_META } from '../config/siteMeta'
@@ -83,6 +84,8 @@ export function Landing() {
       </section>
 
       <Problem />
+
+      <TrustBand />
 
       <section className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
