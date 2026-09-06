@@ -1,12 +1,11 @@
-import { Check, Loader2 } from 'lucide-react'
-import { useState } from 'react'
-
+import { Check, Loader2, X } from 'lucide-react'
+import { useEffect, useState } from 'react'
 import { SITE_META } from '../config/siteMeta'
 
 /**
- * Where the answers go. With nothing configured the whole section stays off the
- * page rather than collecting answers into the void, which would be asking
- * visitors for something and then throwing it away.
+ * Where the answers go. With nothing configured the popup never opens rather
+ * than collecting answers into the void, which would be asking visitors for
+ * something and then throwing it away.
  */
 const ENDPOINT =
   (import.meta.env.VITE_SURVEY_ENDPOINT as string | undefined)?.trim() ||
@@ -15,12 +14,16 @@ const ENDPOINT =
 const SOURCES = ['LinkedIn', 'Google', 'Facebook', 'Instagram', 'TikTok', 'Other'] as const
 type Source = (typeof SOURCES)[number]
 
-/** Remembers that this browser already answered, so it is asked once. */
-const ANSWERED_KEY = 'bp:found-us-answered'
+/** Answered or dismissed — either way this browser is not asked again. */
+const ASKED_KEY = 'bp:found-us-answered'
+/** Not before this long on the page, however fast they scroll. */
+const MIN_ON_PAGE_MS = 6000
+/** How far down the page counts as reading rather than glancing. */
+const SCROLL_TRIGGER = 0.4
 
-function alreadyAnswered() {
+function alreadyAsked() {
   try {
-    return window.localStorage.getItem(ANSWERED_KEY) === '1'
+    return window.localStorage.getItem(ASKED_KEY) !== null
   } catch {
     // Private mode and blocked site data both throw; asking again is the
     // harmless failure here.
@@ -28,29 +31,80 @@ function alreadyAnswered() {
   }
 }
 
-function rememberAnswered() {
+function rememberAsked() {
   try {
-    window.localStorage.setItem(ANSWERED_KEY, '1')
+    window.localStorage.setItem(ASKED_KEY, '1')
   } catch {
     // Not worth failing the submission over.
   }
 }
 
 /**
- * "How did you find us?" — one tap, or a few words under Other.
+ * "How did you find us?" as a popup — one tap, or a few words under Other.
  *
- * Only the chosen source and, for Other, whatever the visitor types is sent.
+ * It waits for a visitor who is actually reading: at least six seconds on the
+ * page and forty percent of the way down it. Someone who lands and leaves is
+ * never interrupted, and it opens once ever — answering and dismissing are both
+ * an answer to whether they want to be asked.
+ *
+ * Built on <dialog>, which gives the focus trap, Escape, and the top layer for
+ * free; doing those by hand is where home-made modals usually go wrong.
+ *
+ * Only the chosen source and, under Other, whatever is typed goes anywhere.
  * Nothing identifying is collected or attached, which is why the free-text box
  * says not to put personal details in it: it is the one field that could carry
- * any, and it would then sit in an inbox nobody expected it to reach.
+ * any, and they would then sit in an inbox nobody expected them to reach.
  */
 export function FoundUs() {
+  const [dialog, setDialog] = useState<HTMLDialogElement | null>(null)
+  const [open, setOpen] = useState(false)
   const [choice, setChoice] = useState<Source | null>(null)
   const [note, setNote] = useState('')
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'failed'>('idle')
-  const [dismissed] = useState(alreadyAnswered)
 
-  if (!ENDPOINT || dismissed) return null
+  // Decide when to ask: the dwell first, then how far down they are — now, or
+  // whenever they next move.
+  useEffect(() => {
+    if (!ENDPOINT || alreadyAsked()) return
+
+    const readEnough = () => {
+      const scrollable = document.body.scrollHeight - window.innerHeight
+      // A page short enough not to scroll has already been seen in full.
+      return scrollable <= 0 || window.scrollY / scrollable >= SCROLL_TRIGGER
+    }
+
+    let stopListening = () => {}
+    const consider = () => {
+      if (!readEnough()) return
+      setOpen(true)
+      stopListening()
+    }
+
+    // Checking on scroll alone missed anyone who scrolled down inside the
+    // dwell and then stopped to read: no further scroll event ever arrived, so
+    // they were never asked. The timer checks where they already are.
+    const armed = window.setTimeout(() => {
+      consider()
+      window.addEventListener('scroll', consider, { passive: true })
+      stopListening = () => window.removeEventListener('scroll', consider)
+    }, MIN_ON_PAGE_MS)
+
+    return () => {
+      window.clearTimeout(armed)
+      stopListening()
+    }
+  }, [])
+
+  // <dialog> only becomes modal through showModal(), never through an attribute.
+  useEffect(() => {
+    if (open && dialog && !dialog.open) dialog.showModal()
+  }, [open, dialog])
+
+  function close() {
+    rememberAsked()
+    dialog?.close()
+    setOpen(false)
+  }
 
   async function send(source: Source, detail?: string) {
     setState('sending')
@@ -59,8 +113,8 @@ export function FoundUs() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          // Without this Formspree answers a form post with a redirect to its
-          // own thank-you page instead of the JSON this reads.
+          // Without this Formspree answers with a redirect to its own
+          // thank-you page instead of the JSON this reads.
           Accept: 'application/json',
         },
         body: JSON.stringify({
@@ -73,64 +127,94 @@ export function FoundUs() {
         }),
       })
       if (!response.ok) throw new Error(String(response.status))
-      rememberAnswered()
+      rememberAsked()
       setState('done')
+      window.setTimeout(close, 1600)
     } catch {
       // Say so rather than showing a tick for something that never arrived.
       setState('failed')
     }
   }
 
+  if (!open) return null
+
   return (
-    <section className="border-t border-slate-100 bg-white">
-      <div className="mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
-        <div className="rounded-[30px] border border-slate-200 bg-slate-50/60 p-8 text-center sm:p-10">
-          {state === 'done' ? (
-            <p className="inline-flex items-center gap-2 text-base font-semibold text-slate-900">
-              <Check className="h-5 w-5 text-brandBlue" aria-hidden="true" />
-              Thank you — that helps us more than you would think.
+    <dialog
+      ref={setDialog}
+      aria-labelledby="found-us-title"
+      onCancel={(event) => {
+        // Escape; let it through, but record the answer to being asked.
+        event.preventDefault()
+        close()
+      }}
+      onClick={(event) => {
+        // A click that lands on the dialog itself is a click on the backdrop:
+        // the panel inside covers everything else.
+        if (event.target === event.currentTarget) close()
+      }}
+      className="w-[calc(100vw-2rem)] max-w-lg rounded-[28px] border border-slate-200 bg-white p-0 shadow-2xl backdrop:bg-slate-900/40 backdrop:backdrop-blur-sm"
+    >
+      <div className="relative p-8 text-center sm:p-10">
+        <button
+          type="button"
+          onClick={close}
+          aria-label="Close"
+          className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus-ring"
+        >
+          <X className="h-4 w-4" aria-hidden="true" />
+        </button>
+
+        {state === 'done' ? (
+          <p className="inline-flex items-center gap-2 py-4 text-base font-semibold text-slate-900">
+            <Check className="h-5 w-5 text-brandBlue" aria-hidden="true" />
+            Thank you — that helps us more than you would think.
+          </p>
+        ) : (
+          <>
+            <h2
+              id="found-us-title"
+              className="text-balance text-2xl font-extrabold tracking-tight text-slate-900"
+            >
+              How did you find us?
+            </h2>
+            <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-slate-600">
+              One tap. It tells us where to keep showing up.
             </p>
-          ) : (
-            <>
-              <h2 className="text-balance text-2xl font-extrabold tracking-tight text-slate-900">
-                How did you find us?
-              </h2>
-              <p className="mx-auto mt-2 max-w-md text-sm leading-relaxed text-slate-600">
-                One tap. It tells us where to keep showing up.
-              </p>
 
-              <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-                {SOURCES.map((source) => {
-                  const selected = choice === source
-                  return (
-                    <button
-                      key={source}
-                      type="button"
-                      disabled={state === 'sending'}
-                      aria-pressed={selected}
-                      onClick={() => {
-                        setChoice(source)
-                        setState('idle')
-                        // Other needs its own words first; the rest are complete
-                        // answers on their own.
-                        if (source !== 'Other') void send(source)
-                      }}
-                      className={[
-                        'rounded-full border px-5 py-2.5 text-sm font-semibold transition focus-ring disabled:opacity-60',
-                        selected
-                          ? 'border-brandBlue bg-brandBlue text-white'
-                          : 'border-slate-200 bg-white text-slate-700 hover:border-brandBlue/40 hover:text-brandBlue',
-                      ].join(' ')}
-                    >
-                      {source}
-                    </button>
-                  )
-                })}
-              </div>
+            <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5">
+              {SOURCES.map((source, index) => {
+                const selected = choice === source
+                return (
+                  <button
+                    key={source}
+                    type="button"
+                    autoFocus={index === 0}
+                    disabled={state === 'sending'}
+                    aria-pressed={selected}
+                    onClick={() => {
+                      setChoice(source)
+                      setState('idle')
+                      // Other needs its own words first; the rest are complete
+                      // answers on their own.
+                      if (source !== 'Other') void send(source)
+                    }}
+                    className={[
+                      'rounded-full border px-5 py-2.5 text-sm font-semibold transition focus-ring disabled:opacity-60',
+                      selected
+                        ? 'border-brandBlue bg-brandBlue text-white'
+                        : 'border-slate-200 bg-white text-slate-700 hover:border-brandBlue/40 hover:text-brandBlue',
+                    ].join(' ')}
+                  >
+                    {source}
+                  </button>
+                )
+              })}
+            </div>
 
-              {choice === 'Other' ? (
+            {choice === 'Other' ? (
+              <>
                 <form
-                  className="mx-auto mt-5 flex max-w-md flex-col items-center gap-2 sm:flex-row"
+                  className="mx-auto mt-5 flex max-w-sm flex-col items-center gap-2 sm:flex-row"
                   onSubmit={(event) => {
                     event.preventDefault()
                     if (note.trim()) void send('Other', note)
@@ -159,23 +243,20 @@ export function FoundUs() {
                     OK
                   </button>
                 </form>
-              ) : null}
-
-              {choice === 'Other' ? (
                 <p className="mt-3 text-xs text-slate-500">
                   Please do not include personal details.
                 </p>
-              ) : null}
+              </>
+            ) : null}
 
-              {state === 'failed' ? (
-                <p className="mt-4 text-sm font-semibold text-red-600" role="alert">
-                  That did not go through. Please try again.
-                </p>
-              ) : null}
-            </>
-          )}
-        </div>
+            {state === 'failed' ? (
+              <p className="mt-4 text-sm font-semibold text-red-600" role="alert">
+                That did not go through. Please try again.
+              </p>
+            ) : null}
+          </>
+        )}
       </div>
-    </section>
+    </dialog>
   )
 }
