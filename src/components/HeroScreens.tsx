@@ -1,3 +1,5 @@
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useCallback, useState, useSyncExternalStore } from 'react'
 import calendarPng from '../assets/screen-calendar.png'
 import calendarWebp from '../assets/screen-calendar.webp'
 import homePng from '../assets/screen-home.png'
@@ -43,88 +45,126 @@ const SCREENS = [
   },
 ] as const
 
-type Screen = (typeof SCREENS)[number]
-
-function Phone({ screen, eager }: { screen: Screen; eager?: boolean }) {
-  return (
-    <figure className="m-0 flex flex-col items-center gap-3">
-      <picture className="contents">
-        <source srcSet={screen.webp} type="image/webp" />
-        <img
-          src={screen.png}
-          alt={screen.alt}
-          width={428}
-          height={926}
-          fetchPriority={eager ? 'high' : 'auto'}
-          loading={eager ? 'eager' : 'lazy'}
-          decoding="async"
-          draggable={false}
-          className="block h-[420px] w-[194px] select-none rounded-[26px] border-[6px] border-brandBlue bg-white object-cover object-top shadow-card sm:h-[400px] sm:w-[185px]"
-        />
-      </picture>
-      <figcaption className="text-xs font-bold uppercase tracking-[0.14em] text-brandBlue">
-        {screen.label}
-      </figcaption>
-    </figure>
+/**
+ * Which ends of the rail are reached, subscribed during render.
+ *
+ * The snapshot is a string rather than an object because useSyncExternalStore
+ * compares snapshots by identity — a fresh object every call would loop for ever.
+ */
+function useRailEdges(rail: HTMLElement | null) {
+  const subscribe = useCallback(
+    (onChange: () => void) => {
+      if (!rail) return () => {}
+      rail.addEventListener('scroll', onChange, { passive: true })
+      const resize = new ResizeObserver(onChange)
+      resize.observe(rail)
+      return () => {
+        rail.removeEventListener('scroll', onChange)
+        resize.disconnect()
+      }
+    },
+    [rail],
   )
+
+  const snapshot = useCallback(() => {
+    if (!rail) return 'start,end'
+    // A sub-pixel scroll position must still count as the end, or the arrow
+    // sticks around with nothing left to scroll to.
+    const atStart = rail.scrollLeft <= 1
+    const atEnd = rail.scrollLeft + rail.clientWidth >= rail.scrollWidth - 1
+    return `${atStart ? 'start' : ''},${atEnd ? 'end' : ''}`
+  }, [rail])
+
+  const edges = useSyncExternalStore(subscribe, snapshot, () => 'start,end')
+  return { atStart: edges.includes('start'), atEnd: edges.includes('end') }
 }
 
 /**
- * The app screens, as a slider the full width of the page.
+ * The app screens, as a slider driven by the reader.
  *
- * Two presentations rather than one responsive compromise. On a pointer device
- * the screens ride a rail that travels left to right on its own; on a touch
- * device they are a snapping rail the reader swipes by hand, which is what a
- * phone affords and what a hands-off animation cannot offer.
+ * Arrows and a swipe, the way a video site's shelf works — deliberately not an
+ * animation. Two earlier attempts moved on their own and both failed on real
+ * machines rather than in testing: one turned the screens edge-on and made them
+ * vanish, and the one that replaced it had to render the list twice to close
+ * its loop, so the screens visibly repeated. A rail the reader scrolls has
+ * neither problem, and it cannot be stopped by a browser or an accessibility
+ * setting either — which is what kept making the hero look broken.
  *
- * Nothing here is drawn in 3D. An earlier version rotated a ring and had each
- * screen counter-rotate to cancel it, which broke wherever the spec is followed
- * strictly: the blur used for the depth fade flattens an element's 3D context,
- * so the counter-rotation stopped cancelling and the screens turned edge-on and
- * disappeared. Computed styles could not show that either, which is how it
- * reached the live site. There is no 3D left here to flatten.
- *
- * The travelling rail renders the list twice and moves exactly half the track,
- * so the loop closes on itself with no jump. The second copy is hidden from
- * screen readers, which would otherwise hear every screen described twice.
+ * Scroll snapping means a nudge always lands with a screen aligned, so nothing
+ * is ever left half cut off at the edge.
  */
 export function HeroScreens() {
+  const [rail, setRail] = useState<HTMLUListElement | null>(null)
+  const { atStart, atEnd } = useRailEdges(rail)
+
+  function page(direction: -1 | 1) {
+    if (!rail) return
+    rail.scrollBy({
+      left: direction * rail.clientWidth * 0.85,
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'auto'
+        : 'smooth',
+    })
+  }
+
   return (
-    <div className="relative">
-      <div className="pointer-events-none absolute -top-10 left-[8%] h-40 w-40 rounded-full bg-brandYellow/40 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-12 right-[10%] h-48 w-48 rounded-full bg-brandBlue/10 blur-3xl" />
+    <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+      <div className="relative">
+        <div className="pointer-events-none absolute -top-8 left-[6%] h-40 w-40 rounded-full bg-brandYellow/40 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-10 right-[8%] h-48 w-48 rounded-full bg-brandBlue/10 blur-3xl" />
 
-      {/* Touch: swipe it. */}
-      <ul className="relative flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-6 [scrollbar-width:none] sm:hidden [&::-webkit-scrollbar]:hidden">
-        {SCREENS.map((screen, index) => (
-          <li key={screen.label} className="shrink-0 snap-center">
-            <Phone screen={screen} eager={index === 0} />
-          </li>
-        ))}
-      </ul>
-
-      {/* Pointer: it travels on its own — unless the reader asked for less
-          motion, in which case it becomes a rail they scroll themselves rather
-          than a row frozen mid-track. */}
-      <div className="relative hidden overflow-hidden pb-6 [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)] motion-reduce:snap-x motion-reduce:snap-mandatory motion-reduce:overflow-x-auto sm:block">
-        <ul className="flex w-max animate-hero-rail gap-8 motion-reduce:mx-auto motion-reduce:animate-none">
+        <ul
+          ref={setRail}
+          className="relative flex snap-x snap-mandatory gap-6 overflow-x-auto pb-6 [scrollbar-width:none] sm:gap-8 [&::-webkit-scrollbar]:hidden"
+        >
           {SCREENS.map((screen, index) => (
-            <li key={screen.label} className="shrink-0 motion-reduce:snap-center">
-              <Phone screen={screen} eager={index === 0} />
-            </li>
-          ))}
-          {SCREENS.map((screen) => (
-            <li
-              key={`${screen.label}-repeat`}
-              // The copy only exists to close the travelling loop; with the
-              // travel off it is just the same five screens scrolled twice.
-              className="shrink-0 motion-reduce:hidden"
-              aria-hidden="true"
-            >
-              <Phone screen={screen} />
+            <li key={screen.label} className="shrink-0 snap-start">
+              <figure className="m-0 flex flex-col items-center gap-3">
+                <picture className="contents">
+                  <source srcSet={screen.webp} type="image/webp" />
+                  <img
+                    src={screen.png}
+                    alt={screen.alt}
+                    width={428}
+                    height={926}
+                    fetchPriority={index === 0 ? 'high' : 'auto'}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    draggable={false}
+                    className="block h-[420px] w-[194px] select-none rounded-[26px] border-[6px] border-brandBlue bg-white object-cover object-top shadow-card sm:h-[519px] sm:w-[240px]"
+                  />
+                </picture>
+                <figcaption className="text-xs font-bold uppercase tracking-[0.14em] text-brandBlue">
+                  {screen.label}
+                </figcaption>
+              </figure>
             </li>
           ))}
         </ul>
+
+        {/* Rendered out entirely at the ends rather than hidden with the
+            attribute, which the responsive display class would override.
+            Touch scrolls by swiping, so the arrows are for pointers only. */}
+        {atStart ? null : (
+          <button
+            type="button"
+            onClick={() => page(-1)}
+            aria-label="Previous screens"
+            className="absolute -left-4 top-[42%] hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-slate-200 bg-white text-brandBlue shadow-card transition hover:border-brandBlue/40 hover:bg-brandYellow focus-ring sm:grid"
+          >
+            <ChevronLeft className="h-5 w-5" aria-hidden="true" />
+          </button>
+        )}
+        {atEnd ? null : (
+          <button
+            type="button"
+            onClick={() => page(1)}
+            aria-label="More screens"
+            className="absolute -right-4 top-[42%] hidden h-11 w-11 -translate-y-1/2 place-items-center rounded-full border border-slate-200 bg-white text-brandBlue shadow-card transition hover:border-brandBlue/40 hover:bg-brandYellow focus-ring sm:grid"
+          >
+            <ChevronRight className="h-5 w-5" aria-hidden="true" />
+          </button>
+        )}
       </div>
     </div>
   )
