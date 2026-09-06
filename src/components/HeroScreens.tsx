@@ -43,79 +43,77 @@ const SCREENS = [
   },
 ] as const
 
-/** Degrees between neighbours on the ring. */
-const STEP = 360 / SCREENS.length
-/**
- * Seconds for a full turn. Must match the animation duration in
- * tailwind.config.js, whose HERO_SEATS must in turn match SCREENS.length —
- * the fade stops there are derived from the number of seats.
- */
-const SPIN_SECONDS = 24
+type Screen = (typeof SCREENS)[number]
+
+function Phone({ screen, eager }: { screen: Screen; eager?: boolean }) {
+  return (
+    <figure className="m-0 flex flex-col items-center gap-3">
+      <picture className="contents">
+        <source srcSet={screen.webp} type="image/webp" />
+        <img
+          src={screen.png}
+          alt={screen.alt}
+          width={428}
+          height={926}
+          fetchPriority={eager ? 'high' : 'auto'}
+          loading={eager ? 'eager' : 'lazy'}
+          decoding="async"
+          draggable={false}
+          className="block h-[420px] w-[194px] select-none rounded-[26px] border-[6px] border-brandBlue bg-white object-cover object-top shadow-card sm:h-[400px] sm:w-[185px]"
+        />
+      </picture>
+      <figcaption className="text-xs font-bold uppercase tracking-[0.14em] text-brandBlue">
+        {screen.label}
+      </figcaption>
+    </figure>
+  )
+}
 
 /**
- * Hero device shot: the screens ride a turntable that never stops.
+ * The app screens, as a slider the full width of the page.
  *
- * Each screen sits at a fixed seat on the ring, and the element inside it
- * counter-rotates against the ring so the screen circles without ever turning
- * away — every one stays face-on and readable, one swinging to the front while
- * the rest sit back and to the sides.
+ * Two presentations rather than one responsive compromise. On a pointer device
+ * the screens ride a rail that travels left to right on its own; on a touch
+ * device they are a snapping rail the reader swipes by hand, which is what a
+ * phone affords and what a hands-off animation cannot offer.
  *
- * The counter-rotation lives on its own element rather than sharing the seat's,
- * because the two need different phases: the counter-rotation must stay in step
- * with the ring, while the fade is offset by one seat so a screen brightens
- * exactly as it reaches the front. Sharing one animation-delay between them put
- * the counter-rotation out of step and turned a screen round to face backwards.
+ * Nothing here is drawn in 3D. An earlier version rotated a ring and had each
+ * screen counter-rotate to cancel it, which broke wherever the spec is followed
+ * strictly: the blur used for the depth fade flattens an element's 3D context,
+ * so the counter-rotation stopped cancelling and the screens turned edge-on and
+ * disappeared. Computed styles could not show that either, which is how it
+ * reached the live site. There is no 3D left here to flatten.
  *
- * The whole thing is CSS; the per-seat offsets are the only thing React
- * contributes. There are deliberately no controls and no pause-on-hover — a
- * hover pause is invisible on a phone but freezes the hero on a desktop as soon
- * as the pointer drifts over it, which reads as the carousel being broken.
- * prefers-reduced-motion still stops it, leaving the screens standing in a fan.
+ * The travelling rail renders the list twice and moves exactly half the track,
+ * so the loop closes on itself with no jump. The second copy is hidden from
+ * screen readers, which would otherwise hear every screen described twice.
  */
 export function HeroScreens() {
   return (
-    <div className="relative mx-auto w-full max-w-[520px]">
-      <div className="absolute -left-8 -top-10 h-32 w-32 rounded-full bg-brandYellow/50 blur-2xl" />
-      <div className="absolute -bottom-12 -right-10 h-40 w-40 rounded-full bg-brandBlue/15 blur-2xl" />
+    <div className="relative">
+      <div className="pointer-events-none absolute -top-10 left-[8%] h-40 w-40 rounded-full bg-brandYellow/40 blur-3xl" />
+      <div className="pointer-events-none absolute -bottom-12 right-[10%] h-48 w-48 rounded-full bg-brandBlue/10 blur-3xl" />
 
-      <div className="relative [perspective:1200px]">
-        <ul
-          className="relative h-[450px] [--ring-r:130px] animate-hero-spin [transform-style:preserve-3d] motion-reduce:animate-none sm:h-[430px] sm:[--ring-r:180px]"
-          // The resting pose, for when the animation is off under
-          // prefers-reduced-motion. A running animation outranks inline styles
-          // in the cascade, so this never fights the spin.
-          style={{ transform: 'translateZ(calc(var(--ring-r) * -1))' }}
-        >
+      {/* Touch: swipe it. */}
+      <ul className="relative flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-6 [scrollbar-width:none] sm:hidden [&::-webkit-scrollbar]:hidden">
+        {SCREENS.map((screen, index) => (
+          <li key={screen.label} className="shrink-0 snap-center">
+            <Phone screen={screen} eager={index === 0} />
+          </li>
+        ))}
+      </ul>
+
+      {/* Pointer: it travels on its own. */}
+      <div className="relative hidden overflow-hidden pb-6 [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)] sm:block">
+        <ul className="flex w-max animate-hero-rail gap-8 motion-reduce:animate-none">
           {SCREENS.map((screen, index) => (
-            <li
-              key={screen.label}
-              className="absolute inset-0 grid place-items-center [transform-style:preserve-3d] animate-hero-face motion-reduce:animate-none motion-reduce:opacity-100"
-              style={{
-                // The seat: static, so the screens sit one step apart. The
-                // trailing rotation undoes the seat angle, leaving the
-                // counter-rotation below to cancel the ring's and nothing else.
-                transform: `rotateY(${index * STEP}deg) translateZ(var(--ring-r)) rotateY(${-index * STEP}deg)`,
-                animationDelay: `${-SPIN_SECONDS + (index * SPIN_SECONDS) / SCREENS.length}s`,
-              }}
-            >
-              <div className="flex flex-col items-center gap-3 animate-hero-counter motion-reduce:animate-none">
-                <picture className="contents">
-                  <source srcSet={screen.webp} type="image/webp" />
-                  <img
-                    src={screen.png}
-                    alt={screen.alt}
-                    width={428}
-                    height={926}
-                    fetchPriority={index === 0 ? 'high' : 'auto'}
-                    decoding="async"
-                    draggable={false}
-                    className="block h-[398px] w-[184px] select-none rounded-[24px] border-[6px] border-brandBlue bg-white object-cover object-top shadow-card sm:h-[380px] sm:w-[176px]"
-                  />
-                </picture>
-                <span className="text-xs font-bold uppercase tracking-[0.14em] text-brandBlue">
-                  {screen.label}
-                </span>
-              </div>
+            <li key={screen.label} className="shrink-0">
+              <Phone screen={screen} eager={index === 0} />
+            </li>
+          ))}
+          {SCREENS.map((screen) => (
+            <li key={`${screen.label}-repeat`} className="shrink-0" aria-hidden="true">
+              <Phone screen={screen} />
             </li>
           ))}
         </ul>

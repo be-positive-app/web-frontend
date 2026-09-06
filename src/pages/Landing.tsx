@@ -39,11 +39,14 @@ export function Landing() {
 
   return (
     <div>
-      {/* The decorative blobs in HeroScreens sit outside their container on
-          purpose; clip them here so they cannot widen the page on small screens. */}
+      {/* The travelling rail is wider than the viewport by design, and the
+          decorative blobs sit outside their container; clip both here so
+          neither can widen the page. */}
       <section id="home" className="overflow-x-clip bg-hero-gradient">
-        <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:items-center">
-          <div>
+        <div className="mx-auto w-full max-w-6xl px-4 pb-12 pt-16 sm:px-6 sm:pb-14 sm:pt-20">
+          {/* Centred now that the screens sit below rather than beside it —
+              left-aligned, it left half the hero empty. */}
+          <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">
               <Sparkles className="h-4 w-4 text-brandBlue" aria-hidden="true" />
               <span>
@@ -58,28 +61,30 @@ export function Landing() {
               <span className="text-brandBlue">Feel positive.</span>
             </h1>
 
-            <p className="mt-4 max-w-xl text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">
               Do you struggle to complete tasks on time? Be Positive Life Planner helps you plan tasks, send reminders, and analyze your daily results - so you can stay focused and productive every day.
             </p>
 
-            <div className="mt-7 flex flex-col gap-4">
+            <div className="mt-7 flex flex-col items-center gap-4">
               <StoreButtons appStoreHref={appStoreHref} googlePlayHref={googlePlayHref} />
 
-              <div className="flex items-center gap-2 text-sm font-semibold text-slate-700">
+              <div className="flex items-center justify-center gap-2 text-sm font-semibold text-slate-700">
                 <Download className="h-4 w-4 text-brandBlue" aria-hidden="true" />
                 <span>{SITE_META.downloads} downloads on iOS and Android</span>
               </div>
 
-              <div className="flex items-center gap-2 text-sm text-slate-600">
+              <div className="flex items-center justify-center gap-2 text-center text-sm text-slate-600">
                 <CheckCircle2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
                 <span>Task manager & daily planner app with reminders, focus tools, and progress tracking.</span>
               </div>
             </div>
           </div>
+        </div>
 
-          <div className="lg:pl-8">
-            <HeroScreens />
-          </div>
+        {/* Outside the max-width wrapper on purpose: the rail wants the whole
+            page to travel across, not a column of it. */}
+        <div className="pb-16 sm:pb-20">
+          <HeroScreens />
         </div>
       </section>
 
