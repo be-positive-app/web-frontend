@@ -35,6 +35,17 @@ export function Navbar() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  function onFaqClick(e: MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault()
+    setOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => scrollToId('faq'), 0)
+      return
+    }
+    scrollToId('faq')
+  }
+
   function onContactClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
     setOpen(false)
@@ -93,6 +104,13 @@ export function Navbar() {
             Privacy
           </Link>
           <a
+            href="#faq"
+            onClick={onFaqClick}
+            className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
+          >
+            FAQ
+          </a>
+          <a
             href="#contact"
             onClick={onContactClick}
             className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
@@ -139,6 +157,13 @@ export function Navbar() {
               >
                 Privacy
               </Link>
+              <a
+                href="#faq"
+                onClick={onFaqClick}
+                className="rounded-2xl px-4 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none"
+              >
+                FAQ
+              </a>
               <a
                 href="#contact"
                 onClick={onContactClick}

@@ -46,6 +46,12 @@ export function Footer() {
                   {SITE_META.supportEmail}
                 </a>
                 <a
+                  href={isLanding ? '#faq' : '/#faq'}
+                  className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy"
+                >
+                  FAQ
+                </a>
+                <a
                   href={isLanding ? '#contact' : '/#contact'}
                   className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy"
                 >
