@@ -23,8 +23,9 @@ export default {
         },
       },
       animation: {
-        // Slow enough to read a screen as it goes past.
-        'hero-rail': 'hero-rail 55s linear infinite',
+        // ~36px/s: a screen passes in about five seconds. Slower than this
+        // and a glance at the page cannot tell it is moving at all.
+        'hero-rail': 'hero-rail 30s linear infinite',
       },
     },
   },
