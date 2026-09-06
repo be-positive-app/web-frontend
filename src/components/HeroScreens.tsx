@@ -89,9 +89,15 @@ function Phone({ screen, eager }: { screen: Screen; eager?: boolean }) {
  *
  * There are deliberately no arrows and no pause on hover: a hover pause is
  * invisible on a phone but stops the slider on a desktop the moment the pointer
- * drifts over it, which reads as broken. prefers-reduced-motion stops the travel
- * — an endlessly moving strip is exactly what that setting is for — and hands
- * back a rail the reader scrolls instead of a row frozen mid-track.
+ * drifts over it, which reads as broken.
+ *
+ * It also does not honour prefers-reduced-motion, which it did until the owner
+ * asked four times for a hero that moves — their own machine has the setting on,
+ * which is why it kept looking frozen to them. This is a deliberate trade
+ * against that setting, not an oversight: a visitor who asked their system for
+ * less motion gets the travel anyway. Reinstating it is one class each on the
+ * frame and the list, motion-reduce:overflow-x-auto and motion-reduce:animate-none,
+ * which leaves a rail they can scroll by hand instead.
  */
 export function HeroScreens() {
   return (
@@ -100,19 +106,17 @@ export function HeroScreens() {
         <div className="pointer-events-none absolute -top-8 left-[6%] h-40 w-40 rounded-full bg-brandYellow/40 blur-3xl" />
         <div className="pointer-events-none absolute -bottom-10 right-[8%] h-48 w-48 rounded-full bg-brandBlue/10 blur-3xl" />
 
-        <div className="relative overflow-hidden pb-6 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] motion-reduce:snap-x motion-reduce:snap-mandatory motion-reduce:overflow-x-auto">
-          <ul className="flex w-max animate-hero-rail gap-6 motion-reduce:mx-auto motion-reduce:animate-none sm:gap-8">
+        <div className="relative overflow-hidden pb-6 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+          <ul className="flex w-max animate-hero-rail gap-6 sm:gap-8">
             {SCREENS.map((screen, index) => (
-              <li key={screen.label} className="shrink-0 motion-reduce:snap-start">
+              <li key={screen.label} className="shrink-0">
                 <Phone screen={screen} eager={index === 0} />
               </li>
             ))}
             {SCREENS.map((screen) => (
               <li
                 key={`${screen.label}-repeat`}
-                // Only exists to close the travelling loop; with the travel off
-                // it would just be the same five screens scrolled twice.
-                className="shrink-0 motion-reduce:hidden"
+                className="shrink-0"
                 aria-hidden="true"
               >
                 <Phone screen={screen} />
