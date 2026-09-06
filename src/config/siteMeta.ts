@@ -58,6 +58,15 @@ export const SITE_META = {
   supportEmail: 'info@bepositive.cc',
   /** Store downloads to date. Shown as social proof — keep it truthful. */
   downloads: '400+',
+  /**
+   * The real store rating, or null while there is not one worth quoting.
+   * Filling this in lights up the rating tile in the trust band and the
+   * aggregateRating in the JSON-LD — so use the exact numbers from App Store
+   * Connect and the Play Console. An invented score breaks both stores'
+   * marketing rules and Google's structured-data policy, and a rating with no
+   * reviews behind it is the quickest way to lose the rich result entirely.
+   */
+  rating: null as { value: string; count: number } | null,
   /** Subscription prices, shared by the FAQ copy and the JSON-LD offers. */
   pricing: {
     currency: 'USD',
