@@ -71,3 +71,28 @@ export default defineConfig([
   },
 ])
 ```
+
+## Deploying
+
+The site is a static build: `npm run build` runs `tsc -b`, `vite build`, and
+then `scripts/prerender.mjs`, which writes one HTML file per route and
+regenerates `sitemap.xml`. Everything Vercel needs is in `vercel.json`.
+
+Two hosts are configured, and they do not share a routing model:
+
+- **Vercel** — `vercel.json`. Vercel checks the filesystem before rewrites, so
+  the prerendered files are served for `/support`, `/privacy` and the rest, and
+  the catch-all rewrite only picks up paths with no file: `/delete-account/verify/:token`,
+  and anything unknown, which renders the noindex 404 view. `cleanUrls` and
+  `trailingSlash: false` keep the served URL equal to the canonical tag.
+- **Apache** — `public/.htaccess`. Same behaviour expressed with mod_rewrite,
+  plus the http/www canonical redirect. Ignored by Vercel.
+
+On both, an unknown path answers 200 with the noindex 404 view rather than a
+404 status, because the SPA shell cannot set a status code. Narrowing the
+catch-all to the routes that need it would give a real 404 — worth doing once
+the host is settled and the change can be verified there.
+
+The www/non-www and http/https canonical redirects live in `.htaccess` for
+Apache; on Vercel they are set per-domain in the project's Domains settings,
+not in this file.
