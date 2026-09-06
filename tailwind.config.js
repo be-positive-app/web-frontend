@@ -20,35 +20,34 @@ export default {
           from: { transform: 'translateZ(calc(var(--ring-r) * -1)) rotateY(0deg)' },
           to: { transform: 'translateZ(calc(var(--ring-r) * -1)) rotateY(-360deg)' },
         },
-        // Each screen is sharp as it passes the front (0% and 100%) and sinks
-        // to a ghost across the back. The dim stops sit a third of the way
-        // round rather than a sixth: neighbours are offset by a third of the
-        // turn, so anything tighter leaves a moment mid-crossover where every
-        // screen is dim at once. Tuned for three screens.
-        // Each screen rides the ring but spins the opposite way by the same
-        // amount, so it orbits without ever turning away: the third rotateY
-        // cancels the ring's. --a is the screen's seat on the ring, set per
-        // item; --ring-r is inherited from the ring itself.
-        'hero-orbit': {
-          from: {
-            transform:
-              'rotateY(var(--a)) translateZ(var(--ring-r)) rotateY(calc(-1 * var(--a)))',
-          },
-          to: {
-            transform:
-              'rotateY(var(--a)) translateZ(var(--ring-r)) rotateY(calc(360deg - var(--a)))',
-          },
+        // Cancels the ring's rotation for whatever rides it, so a screen
+        // orbits without ever turning away from the viewer. Deliberately free
+        // of custom properties: a transform keyframe built out of var() is not
+        // reliably interpolated everywhere, and this one is identical for every
+        // screen anyway — their seats are set by a static transform instead.
+        'hero-counter': {
+          from: { transform: 'rotateY(0deg)' },
+          to: { transform: 'rotateY(360deg)' },
         },
-        // Depth cue only — every screen faces the viewer now, so the ones
-        // round the back are dimmed rather than hidden.
+        // Depth cue only — every screen faces the viewer, so the ones round
+        // the back are dimmed rather than hidden. The dim stops sit one seat
+        // either side of the front: neighbours are one seat apart, and anything
+        // tighter leaves a moment mid-crossover where every screen is dim at
+        // once. Tuned for six screens — one seat is a sixth of a turn.
         'hero-face': {
-          '0%, 100%': { opacity: '1', filter: 'blur(0px)' },
-          '33%, 67%': { opacity: '0.45', filter: 'blur(1px)' },
+          // A plateau across the front, not a single sharp peak: with six seats
+          // a linear fall-off left both screens half-dim at every crossover, so
+          // nothing on the ring was ever crisp. The plateau reaches half a seat
+          // either side of the front, so the screen handing over and the one
+          // taking over are both clear as they pass.
+          '0%, 8%, 92%, 100%': { opacity: '1', filter: 'blur(0px)' },
+          '17%, 83%': { opacity: '0.2', filter: 'blur(2.5px)' },
         },
       },
       animation: {
         'hero-spin': 'hero-spin 24s linear infinite',
-        'hero-orbit': 'hero-orbit 24s linear infinite, hero-face 24s linear infinite',
+        'hero-counter': 'hero-counter 24s linear infinite',
+        'hero-face': 'hero-face 24s linear infinite',
       },
     },
   },
