@@ -56,6 +56,8 @@ export const SITE_META = {
   appStoreUrl: 'https://apps.apple.com/app/be-positive-life-planner/id6760747846',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.bepositive.mobile',
   supportEmail: 'info@bepositive.cc',
+  /** Store downloads to date. Shown as social proof — keep it truthful. */
+  downloads: '400+',
   /** Subscription prices, shared by the FAQ copy and the JSON-LD offers. */
   pricing: {
     currency: 'USD',
