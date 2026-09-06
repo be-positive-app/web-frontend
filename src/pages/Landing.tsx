@@ -34,7 +34,9 @@ export function Landing() {
 
   return (
     <div>
-      <section id="home" className="bg-hero-gradient">
+      {/* The decorative blobs in PhoneMockup sit outside their container on
+          purpose; clip them here so they cannot widen the page on small screens. */}
+      <section id="home" className="overflow-x-clip bg-hero-gradient">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-2 lg:items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">
