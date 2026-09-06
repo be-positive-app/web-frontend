@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
+import { FAQ } from './src/config/faq'
 import { SITE_META } from './src/config/siteMeta'
 
 function escapeAttr(value: string): string {
@@ -78,11 +79,45 @@ export default defineConfig(({ mode }) => {
                 operatingSystem: 'iOS, Android',
                 installUrl: [appStoreUrl, googlePlayUrl],
                 publisher: { '@id': `${siteUrl}/#organization` },
-                offers: {
-                  '@type': 'Offer',
-                  price: '0',
-                  priceCurrency: 'USD',
-                },
+                offers: [
+                  {
+                    '@type': 'Offer',
+                    name: 'Monthly subscription',
+                    price: SITE_META.pricing.monthlyAmount,
+                    priceCurrency: SITE_META.pricing.currency,
+                    priceSpecification: {
+                      '@type': 'UnitPriceSpecification',
+                      price: SITE_META.pricing.monthlyAmount,
+                      priceCurrency: SITE_META.pricing.currency,
+                      billingDuration: 1,
+                      billingIncrement: 1,
+                      unitCode: 'MON',
+                    },
+                  },
+                  {
+                    '@type': 'Offer',
+                    name: 'Yearly subscription',
+                    price: SITE_META.pricing.yearlyAmount,
+                    priceCurrency: SITE_META.pricing.currency,
+                    priceSpecification: {
+                      '@type': 'UnitPriceSpecification',
+                      price: SITE_META.pricing.yearlyAmount,
+                      priceCurrency: SITE_META.pricing.currency,
+                      billingDuration: 1,
+                      billingIncrement: 1,
+                      unitCode: 'ANN',
+                    },
+                  },
+                ],
+              },
+              {
+                '@type': 'FAQPage',
+                '@id': `${siteUrl}/#faq`,
+                mainEntity: FAQ.map((entry) => ({
+                  '@type': 'Question',
+                  name: entry.question,
+                  acceptedAnswer: { '@type': 'Answer', text: entry.answer },
+                })),
               },
             ],
           }

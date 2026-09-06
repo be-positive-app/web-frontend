@@ -9,6 +9,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { Faq } from '../components/Faq'
 import { FeatureCard } from '../components/FeatureCard'
 import { PhoneMockup } from '../components/PhoneMockup'
 import { Step } from '../components/Step'
@@ -169,6 +170,8 @@ export function Landing() {
           </div>
         </div>
       </section>
+
+      <Faq />
 
       <section id="contact" className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-18">
