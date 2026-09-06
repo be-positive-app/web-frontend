@@ -7,12 +7,21 @@
  *
  * Per-page titles and descriptions live in src/config/routes.json.
  */
+import routes from './routes.json'
+
+/**
+ * The homepage entry doubles as the site-level default: it is what og:description
+ * and the JSON-LD fall back to, so it is defined once in routes.json rather than
+ * repeated here.
+ */
+const homeRoute = routes.routes.find((route) => route.path === '/')
+if (!homeRoute) throw new Error('src/config/routes.json has no "/" route')
+
 export const SITE_META = {
   /** Production origin, no trailing slash. Used for canonical/OG URLs and sitemap.xml. */
   siteUrl: 'https://bepositive.cc',
-  title: 'Be Positive — Life Planner',
-  description:
-    'Plan your day, stay focused, and track your progress with Be Positive Life Planner',
+  title: homeRoute.title,
+  description: homeRoute.description,
   /**
    * Comma-separated phrases. Google has ignored this tag since 2009 and long
    * lists get flagged as keyword stuffing by audit tools — keep it short and
