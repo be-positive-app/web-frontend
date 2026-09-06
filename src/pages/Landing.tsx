@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { AppScreens } from '../components/AppScreens'
 import { DownloadCta } from '../components/DownloadCta'
 import { Faq } from '../components/Faq'
 import { FeatureCard } from '../components/FeatureCard'
@@ -183,6 +184,8 @@ export function Landing() {
           </div>
         </div>
       </section>
+
+      <AppScreens />
 
       <Pricing />
 
