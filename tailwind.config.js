@@ -13,20 +13,6 @@ export default {
       boxShadow: {
         soft: '0 12px 30px -18px rgba(0,0,0,0.35)',
       },
-      keyframes: {
-        // The desktop rail. The screen list is rendered twice, so travelling
-        // exactly half the track and snapping back is seamless. Percentages,
-        // not pixels or custom properties, so it holds for any list length.
-        'hero-rail': {
-          from: { transform: 'translateX(-50%)' },
-          to: { transform: 'translateX(0)' },
-        },
-      },
-      animation: {
-        // ~36px/s: a screen passes in about five seconds. Slower than this
-        // and a glance at the page cannot tell it is moving at all.
-        'hero-rail': 'hero-rail 30s linear infinite',
-      },
     },
   },
   plugins: [typography],
