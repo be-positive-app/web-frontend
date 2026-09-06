@@ -41,25 +41,23 @@ function usePrefersReducedMotion(): boolean {
 /**
  * Counts from zero to `target` once `active` turns true.
  *
- * The safety timer matters more than the animation: without an
- * IntersectionObserver — or with one that never fires because the section is
- * already past — `active` would stay false and the band would sit on a zero
- * forever. After a second it counts up regardless. Anyone who asked for less
- * motion is handed the final figure at render, without an animation at all.
+ * `active` means the band has been scrolled into view and nothing else. An
+ * earlier version also started it after a one-second wall clock, as a guard
+ * against a browser with no IntersectionObserver — but that fired long before
+ * anyone had scrolled down here, so on a desktop the figures had finished
+ * counting before they were ever on screen and only ever appeared as final
+ * numbers. The guard belongs where the observer is set up instead: see
+ * OBSERVER_SUPPORTED below.
+ *
+ * Anyone who asked for less motion is handed the final figure at render,
+ * without an animation at all.
  */
 function useCountUp(target: number, active: boolean, durationMs = 1600) {
   const [value, setValue] = useState(0)
-  const [armed, setArmed] = useState(false)
   const reducedMotion = usePrefersReducedMotion()
 
   useEffect(() => {
-    if (armed) return
-    const timer = window.setTimeout(() => setArmed(true), 1000)
-    return () => window.clearTimeout(timer)
-  }, [armed])
-
-  useEffect(() => {
-    if (reducedMotion || (!active && !armed)) return
+    if (reducedMotion || !active) return
 
     let frame = 0
     const start = performance.now()
@@ -70,10 +68,17 @@ function useCountUp(target: number, active: boolean, durationMs = 1600) {
     }
     frame = requestAnimationFrame(step)
     return () => cancelAnimationFrame(frame)
-  }, [active, armed, reducedMotion, target, durationMs])
+  }, [active, reducedMotion, target, durationMs])
 
   return reducedMotion ? target : value
 }
+
+/**
+ * Without an observer nothing would ever mark the band as seen and the figures
+ * would sit on zero for good, so there they start counted.
+ */
+const OBSERVER_SUPPORTED =
+  typeof window !== 'undefined' && typeof window.IntersectionObserver !== 'undefined'
 
 function Figure({ display, active }: { display: string; active: boolean }) {
   const { prefix, target, suffix, decimals } = parseFigure(display)
@@ -91,9 +96,9 @@ function Figure({ display, active }: { display: string; active: boolean }) {
 }
 
 /**
- * Five stars, filling up to `value` in step with the score beside them — same
- * count-up, so they share its safety net rather than hanging empty if the
- * observer never fires. A half point renders as a half star.
+ * Five stars, filling up to `value` in step with the score beside them — the
+ * same count-up, so the two cannot drift apart. A half point renders as a half
+ * star.
  */
 function Stars({ value, active }: { value: number; active: boolean }) {
   const filled = useCountUp(value, active)
@@ -139,6 +144,7 @@ function Stars({ value, active }: { value: number; active: boolean }) {
 export function TrustBand() {
   const rating = SITE_META.rating
   const { ref, inView } = useInView<HTMLDivElement>({ once: true, threshold: 0.3 })
+  const counting = inView || !OBSERVER_SUPPORTED
 
   return (
     <section className="relative isolate overflow-hidden border-t border-slate-100 bg-brandNavy text-white">
@@ -172,7 +178,7 @@ export function TrustBand() {
           ].join(' ')}
         >
           <div className="flex flex-col items-center">
-            <Figure display={SITE_META.downloads} active={inView} />
+            <Figure display={SITE_META.downloads} active={counting} />
             <p className="mt-5 max-w-sm text-balance text-base font-semibold text-white/75 sm:text-lg">
               downloads on the App Store and Google Play
             </p>
@@ -181,7 +187,7 @@ export function TrustBand() {
           {rating ? (
             <div className="flex flex-col items-center">
               <div className="flex items-baseline gap-3">
-                <Figure display={rating.value} active={inView} />
+                <Figure display={rating.value} active={counting} />
                 <p className="text-2xl font-bold text-white/40 sm:text-3xl">/ 5</p>
               </div>
               <a
@@ -191,7 +197,7 @@ export function TrustBand() {
                 aria-label={`${rating.value} out of 5 — read the reviews on the App Store`}
                 className="group/rating mt-6 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-6 py-3 backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:scale-105 hover:border-brandYellow hover:bg-brandYellow hover:shadow-lg hover:shadow-brandYellow/25 focus-ring motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100"
               >
-                <Stars value={Number(rating.value)} active={inView} />
+                <Stars value={Number(rating.value)} active={counting} />
               </a>
               <p className="mt-5 max-w-sm text-balance text-base font-semibold text-white/75 sm:text-lg">
                 {rating.count
