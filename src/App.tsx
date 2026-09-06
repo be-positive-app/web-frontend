@@ -22,7 +22,7 @@ const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m
 
 export default function App() {
   return (
-    <div className="min-h-dvh bg-white text-slate-900">
+    <div className="flex min-h-dvh flex-col bg-white text-slate-900">
       <a
         className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-brandBlue focus:shadow-soft focus-ring"
         href="#main"
@@ -32,7 +32,7 @@ export default function App() {
 
       <Navbar />
 
-      <main id="main">
+      <main id="main" className="flex-1">
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Landing />} />

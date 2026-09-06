@@ -10,7 +10,7 @@ import screenCalendarWebp from '../assets/screen-calendar.webp'
  */
 export function PhoneMockup() {
   return (
-    <div className="relative mx-auto w-full max-w-[420px]">
+    <div className="relative mx-auto w-full max-w-[264px] sm:max-w-[300px]">
       <div className="absolute -left-8 -top-10 h-32 w-32 rounded-full bg-brandYellow/50 blur-2xl" />
       <div className="absolute -bottom-12 -right-10 h-40 w-40 rounded-full bg-brandBlue/15 blur-2xl" />
 

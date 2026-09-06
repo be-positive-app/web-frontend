@@ -1,9 +1,10 @@
 import { Clock, HelpCircle, Mail, MessageCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { routeMeta } from '../config/routeMeta'
+import { SITE_META } from '../config/siteMeta'
 import { usePageMeta } from '../hooks/usePageMeta'
 
-const SUPPORT_EMAIL = 'info@bepositive.cc'
+const SUPPORT_EMAIL = SITE_META.supportEmail
 
 export function Support() {
   usePageMeta(routeMeta('/support'))

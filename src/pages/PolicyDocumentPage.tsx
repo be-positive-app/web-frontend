@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
 import remarkGfm from 'remark-gfm'
+import { SITE_META } from '../config/siteMeta'
 import { apiV1Url } from '../lib/apiBase'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { policyMetaForSlug, type PolicySlug } from '../lib/policyPages'
@@ -138,10 +139,10 @@ function Fallback({
       <p className="mt-5 text-base leading-relaxed text-slate-600">
         {intro}{' '}
         <a
-          href="mailto:info@bepositive.cc"
+          href={`mailto:${SITE_META.supportEmail}`}
           className="font-semibold text-brandBlue hover:underline"
         >
-          info@bepositive.cc
+          {SITE_META.supportEmail}
         </a>
       </p>
 
@@ -161,7 +162,7 @@ function Fallback({
           />
           <Section
             title="Contact"
-            body="Questions about privacy: info@bepositive.cc"
+            body={`Questions about privacy: ${SITE_META.supportEmail}`}
           />
         </div>
       ) : null}
