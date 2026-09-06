@@ -16,10 +16,11 @@ type Source = (typeof SOURCES)[number]
 
 /** Answered or dismissed — either way this browser is not asked again. */
 const ASKED_KEY = 'bp:found-us-answered'
-/** Not before this long on the page, however fast they scroll. */
-const MIN_ON_PAGE_MS = 6000
-/** How far down the page counts as reading rather than glancing. */
-const SCROLL_TRIGGER = 0.4
+/**
+ * Long enough for the page to paint first. A dialog that arrives over a blank
+ * page reads as a fault rather than a question.
+ */
+const OPEN_AFTER_MS = 800
 
 function alreadyAsked() {
   try {
@@ -42,10 +43,12 @@ function rememberAsked() {
 /**
  * "How did you find us?" as a popup — one tap, or a few words under Other.
  *
- * It waits for a visitor who is actually reading: at least six seconds on the
- * page and forty percent of the way down it. Someone who lands and leaves is
- * never interrupted, and it opens once ever — answering and dismissing are both
- * an answer to whether they want to be asked.
+ * It opens as soon as the page has drawn, by request. That is the most likely
+ * thing on this page to be seen and the most likely to be resented: an
+ * interstitial over the content on arrival is also what Google's mobile
+ * intrusive-interstitial rule is about, so if search traffic ever dips this is
+ * the first thing to put back on a delay. It opens once ever — answering and
+ * dismissing are both an answer to whether they want to be asked.
  *
  * Built on <dialog>, which gives the focus trap, Escape, and the top layer for
  * free; doing those by hand is where home-made modals usually go wrong.
@@ -62,37 +65,11 @@ export function FoundUs() {
   const [note, setNote] = useState('')
   const [state, setState] = useState<'idle' | 'sending' | 'done' | 'failed'>('idle')
 
-  // Decide when to ask: the dwell first, then how far down they are — now, or
-  // whenever they next move.
+  // Ask straight away, once the page has drawn.
   useEffect(() => {
     if (!ENDPOINT || alreadyAsked()) return
-
-    const readEnough = () => {
-      const scrollable = document.body.scrollHeight - window.innerHeight
-      // A page short enough not to scroll has already been seen in full.
-      return scrollable <= 0 || window.scrollY / scrollable >= SCROLL_TRIGGER
-    }
-
-    let stopListening = () => {}
-    const consider = () => {
-      if (!readEnough()) return
-      setOpen(true)
-      stopListening()
-    }
-
-    // Checking on scroll alone missed anyone who scrolled down inside the
-    // dwell and then stopped to read: no further scroll event ever arrived, so
-    // they were never asked. The timer checks where they already are.
-    const armed = window.setTimeout(() => {
-      consider()
-      window.addEventListener('scroll', consider, { passive: true })
-      stopListening = () => window.removeEventListener('scroll', consider)
-    }, MIN_ON_PAGE_MS)
-
-    return () => {
-      window.clearTimeout(armed)
-      stopListening()
-    }
+    const armed = window.setTimeout(() => setOpen(true), OPEN_AFTER_MS)
+    return () => window.clearTimeout(armed)
   }, [])
 
   // <dialog> only becomes modal through showModal(), never through an attribute.
