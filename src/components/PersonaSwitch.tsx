@@ -17,7 +17,7 @@ export function PersonaSwitch({ className = '', onNavigate }: { className?: stri
         to="/"
         onClick={onNavigate}
         aria-current={!isTeams ? 'page' : undefined}
-        className={`${base} ${!isTeams ? 'bg-white text-brandBlue shadow-sm' : 'text-slate-600 hover:text-brandBlue'}`}
+        className={`${base} ${!isTeams ? 'bg-brandBlue text-white shadow-sm' : 'text-slate-600 hover:text-brandBlue'}`}
       >
         For Person
       </Link>
@@ -25,7 +25,7 @@ export function PersonaSwitch({ className = '', onNavigate }: { className?: stri
         to="/teams"
         onClick={onNavigate}
         aria-current={isTeams ? 'page' : undefined}
-        className={`${base} ${isTeams ? 'bg-white text-brandBlue shadow-sm' : 'text-slate-600 hover:text-brandBlue'}`}
+        className={`${base} ${isTeams ? 'bg-brandBlue text-white shadow-sm' : 'text-slate-600 hover:text-brandBlue'}`}
       >
         For Company
       </Link>
