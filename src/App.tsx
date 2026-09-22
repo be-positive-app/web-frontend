@@ -5,6 +5,7 @@ import { Navbar } from './components/Navbar'
 import { POLICY_PAGES } from './lib/policyPages'
 
 const Landing = lazy(() => import('./pages/Landing').then((m) => ({ default: m.Landing })))
+const Teams = lazy(() => import('./pages/Teams').then((m) => ({ default: m.Teams })))
 const PolicyDocumentPage = lazy(() =>
   import('./pages/PolicyDocumentPage').then((m) => ({ default: m.PolicyDocumentPage })),
 )
@@ -36,6 +37,7 @@ export default function App() {
         <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Landing />} />
+            <Route path="/teams" element={<Teams />} />
             {POLICY_PAGES.map(({ slug, path }) => (
               <Route
                 key={slug}

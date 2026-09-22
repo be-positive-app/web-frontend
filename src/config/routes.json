@@ -9,6 +9,13 @@
       "priority": "1.0"
     },
     {
+      "path": "/teams",
+      "title": "Be Positive Teams — Task & Team Management for Companies",
+      "description": "Company task management with assignments, moderator oversight, and weekly reports. Start a 30-day free trial for your team.",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
       "path": "/support",
       "title": "Support",
       "description": "Get help with Be Positive Life Planner. Contact support, see response times, and find what to include in your message.",

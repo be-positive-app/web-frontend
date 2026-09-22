@@ -1,4 +1,5 @@
 import { Download, Menu, X } from 'lucide-react'
+import { PersonaSwitch } from './PersonaSwitch'
 import { useState } from 'react'
 import type { MouseEvent } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -90,6 +91,7 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-2 sm:flex" aria-label="Primary">
+          <PersonaSwitch className="mr-2" />
           <a
             href="#home"
             onClick={onHomeClick}
@@ -143,6 +145,7 @@ export function Navbar() {
         <div className="border-t border-slate-200/70 bg-white/90 backdrop-blur sm:hidden">
           <div className="mx-auto w-full max-w-6xl px-4 py-4">
             <div className="grid gap-2">
+              <PersonaSwitch className="mb-1 w-full justify-center" onNavigate={() => setOpen(false)} />
               <a
                 href="#home"
                 onClick={onHomeClick}
