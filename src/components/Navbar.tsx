@@ -36,6 +36,17 @@ export function Navbar() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  function onPricingClick(e: MouseEvent<HTMLAnchorElement>) {
+    e.preventDefault()
+    setOpen(false)
+    if (location.pathname !== '/') {
+      navigate('/')
+      setTimeout(() => scrollToId('pricing'), 0)
+      return
+    }
+    scrollToId('pricing')
+  }
+
   function onFaqClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
     setOpen(false)
@@ -99,6 +110,13 @@ export function Navbar() {
           >
             Home
           </a>
+          <a
+            href="#pricing"
+            onClick={onPricingClick}
+            className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
+          >
+            Pricing
+          </a>
           <Link
             to="/privacy"
             className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
@@ -152,6 +170,13 @@ export function Navbar() {
                 className="rounded-2xl px-4 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none"
               >
                 Home
+              </a>
+              <a
+                href="#pricing"
+                onClick={onPricingClick}
+                className="rounded-2xl px-4 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none"
+              >
+                Pricing
               </a>
               <Link
                 to="/privacy"

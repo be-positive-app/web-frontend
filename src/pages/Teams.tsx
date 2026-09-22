@@ -14,36 +14,9 @@ import { FeatureCard } from '../components/FeatureCard'
 import { Step } from '../components/Step'
 import { routeMeta } from '../config/routeMeta'
 import { SITE_META } from '../config/siteMeta'
+import { TEAMS_APP_URL as APP_URL, TEAMS_PLANS as PLANS } from '../config/teamsPricing'
 import { useInView } from '../hooks/useInView'
 import { usePageMeta } from '../hooks/usePageMeta'
-
-/** Where "Start free trial" sends a company — the Teams product itself, not this marketing site. */
-const APP_URL = 'https://web.bepositive.cc'
-
-type Plan = {
-  id: 'starter' | 'team' | 'enterprise'
-  name: string
-  sub: string
-  price: string | null
-  cadence: string
-  recommended?: boolean
-  features: string[]
-}
-
-const CORE_FEATURES = [
-  'Shared tasks and calendar',
-  'Task assignment and reminders',
-  'Workflow board per department',
-  'Google Meet and Zoom links on tasks',
-  'Priority support',
-  'Mobile app included',
-]
-
-const PLANS: Plan[] = [
-  { id: 'starter', name: 'Starter', sub: 'For teams of up to 10 people', price: '$24.90', cadence: '/ month', features: CORE_FEATURES },
-  { id: 'team', name: 'Team', sub: 'For companies of up to 50 people, flat price', price: '$69.90', cadence: '/ month', recommended: true, features: CORE_FEATURES },
-  { id: 'enterprise', name: 'Enterprise', sub: '51+ people, contract and invoice', price: null, cadence: '', features: [...CORE_FEATURES, 'Bank transfer, annual invoice', 'Dedicated onboarding'] },
-]
 
 export function Teams() {
   usePageMeta(routeMeta('/teams'))
