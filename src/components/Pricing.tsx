@@ -1,7 +1,7 @@
 import { ArrowRight, Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { TeamsPricingCards } from './TeamsPricingCards'
 import { SITE_META } from '../config/siteMeta'
-import { TEAMS_APP_URL, TEAMS_PLANS } from '../config/teamsPricing'
 
 /** Everything the subscription includes. There is no free tier. */
 const INCLUDED = [
@@ -87,46 +87,7 @@ export function Pricing() {
             </p>
           </div>
 
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
-            {TEAMS_PLANS.map((p) => (
-              <div
-                key={p.id}
-                className={`relative flex flex-col rounded-3xl border p-6 shadow-card ${
-                  p.recommended ? 'border-2 border-brandBlue' : 'border-slate-200'
-                }`}
-              >
-                {p.recommended && (
-                  <span className="absolute -top-3 left-6 rounded-full bg-brandYellow px-3 py-1 text-xs font-bold uppercase tracking-wide text-brandNavy">
-                    Most popular
-                  </span>
-                )}
-                <p className={`text-sm font-semibold ${p.recommended ? 'text-brandBlue' : 'text-slate-600'}`}>{p.name}</p>
-                <p className="mt-1 text-xs text-slate-500">{p.sub}</p>
-                <div className="mt-4 flex items-baseline gap-2">
-                  {p.price ? (
-                    <>
-                      <span className="text-3xl font-extrabold tracking-tight text-slate-900">{p.price}</span>
-                      <span className="text-sm text-slate-500">{p.cadence}</span>
-                    </>
-                  ) : (
-                    <span className="text-xl font-extrabold tracking-tight text-slate-900">Contact us</span>
-                  )}
-                </div>
-                <a
-                  href={p.id === 'enterprise' ? `mailto:${SITE_META.supportEmail}` : TEAMS_APP_URL}
-                  target={p.id === 'enterprise' ? undefined : '_blank'}
-                  rel={p.id === 'enterprise' ? undefined : 'noreferrer'}
-                  className={`mt-5 inline-flex items-center justify-center rounded-2xl px-5 py-2.5 text-sm font-semibold transition focus-ring ${
-                    p.recommended
-                      ? 'bg-brandBlue text-white shadow-soft hover:shadow-md hover:shadow-brandYellow/25'
-                      : 'border border-slate-300 text-slate-800 hover:border-brandBlue hover:text-brandBlue'
-                  }`}
-                >
-                  {p.id === 'enterprise' ? 'Contact sales' : 'Start free trial'}
-                </a>
-              </div>
-            ))}
-          </div>
+          <TeamsPricingCards compact />
 
           <div className="mt-6 text-center">
             <Link

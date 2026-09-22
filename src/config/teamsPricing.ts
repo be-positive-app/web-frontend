@@ -8,8 +8,9 @@ export type TeamsPlan = {
   id: 'starter' | 'team' | 'enterprise'
   name: string
   sub: string
-  price: string | null
-  cadence: string
+  /** null on Enterprise: shown as "Contact us" instead of a price. */
+  monthly: number | null
+  yearly: number | null
   recommended?: boolean
   features: string[]
 }
@@ -24,10 +25,16 @@ const CORE_FEATURES = [
 ]
 
 export const TEAMS_PLANS: TeamsPlan[] = [
-  { id: 'starter', name: 'Starter', sub: 'For teams of up to 10 people', price: '$24.90', cadence: '/ month', features: CORE_FEATURES },
-  { id: 'team', name: 'Team', sub: 'For companies of up to 50 people, flat price', price: '$69.90', cadence: '/ month', recommended: true, features: CORE_FEATURES },
-  { id: 'enterprise', name: 'Enterprise', sub: '51+ people, contract and invoice', price: null, cadence: '', features: [...CORE_FEATURES, 'Bank transfer, annual invoice', 'Dedicated onboarding'] },
+  { id: 'starter', name: 'Starter', sub: 'For teams of up to 10 people', monthly: 24.9, yearly: 199.9, features: CORE_FEATURES },
+  { id: 'team', name: 'Team', sub: 'For companies of up to 50 people, flat price', monthly: 69.9, yearly: 699.9, recommended: true, features: CORE_FEATURES },
+  { id: 'enterprise', name: 'Enterprise', sub: '51+ people, contract and invoice', monthly: null, yearly: null, features: [...CORE_FEATURES, 'Bank transfer, annual invoice', 'Dedicated onboarding'] },
 ]
+
+/** Biggest yearly saving across the priced plans, for the cycle switch label. */
+export function teamsMaxSaving(): number {
+  const priced = TEAMS_PLANS.filter((p): p is TeamsPlan & { monthly: number; yearly: number } => p.monthly !== null && p.yearly !== null)
+  return Math.round(Math.max(...priced.map((p) => 1 - p.yearly / (p.monthly * 12))) * 100)
+}
 
 /** Where "Start free trial" sends a company — the Teams product itself, not this marketing site. */
 export const TEAMS_APP_URL = 'https://web.bepositive.cc'
