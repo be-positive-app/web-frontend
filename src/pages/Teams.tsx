@@ -12,9 +12,10 @@ import {
 import { Link } from 'react-router-dom'
 import { FeatureCard } from '../components/FeatureCard'
 import { Step } from '../components/Step'
+import { TeamsPricingCards } from '../components/TeamsPricingCards'
 import { routeMeta } from '../config/routeMeta'
 import { SITE_META } from '../config/siteMeta'
-import { TEAMS_APP_URL as APP_URL, TEAMS_PLANS as PLANS } from '../config/teamsPricing'
+import { TEAMS_APP_URL as APP_URL } from '../config/teamsPricing'
 import { useInView } from '../hooks/useInView'
 import { usePageMeta } from '../hooks/usePageMeta'
 
@@ -159,54 +160,19 @@ export function Teams() {
             </p>
           </div>
 
-          <div className="mx-auto mt-10 grid max-w-5xl gap-5 lg:grid-cols-3">
-            {PLANS.map((p) => (
-              <div
-                key={p.id}
-                className={`relative flex flex-col rounded-3xl border p-8 shadow-card ${
-                  p.recommended ? 'border-2 border-brandBlue' : 'border-slate-200'
-                }`}
-              >
-                {p.recommended && (
-                  <span className="absolute -top-3 left-8 rounded-full bg-brandYellow px-3 py-1 text-xs font-bold uppercase tracking-wide text-brandNavy">
-                    Most popular
-                  </span>
-                )}
-                <p className={`text-sm font-semibold ${p.recommended ? 'text-brandBlue' : 'text-slate-600'}`}>{p.name}</p>
-                <p className="mt-1 text-xs text-slate-500">{p.sub}</p>
-                <div className="mt-4 flex items-baseline gap-2">
-                  {p.price ? (
-                    <>
-                      <span className="text-4xl font-extrabold tracking-tight text-slate-900">{p.price}</span>
-                      <span className="text-base text-slate-500">{p.cadence}</span>
-                    </>
-                  ) : (
-                    <span className="text-2xl font-extrabold tracking-tight text-slate-900">Contact us</span>
-                  )}
-                </div>
-                <ul className="mt-6 flex-1 space-y-2.5 text-sm text-slate-600">
-                  {p.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-brandBlue" aria-hidden="true" />
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-                <a
-                  href={p.id === 'enterprise' ? `mailto:${SITE_META.supportEmail}` : APP_URL}
-                  target={p.id === 'enterprise' ? undefined : '_blank'}
-                  rel={p.id === 'enterprise' ? undefined : 'noreferrer'}
-                  className={`mt-6 inline-flex items-center justify-center rounded-2xl px-5 py-3 text-sm font-semibold transition focus-ring ${
-                    p.recommended
-                      ? 'bg-brandBlue text-white shadow-soft hover:shadow-md hover:shadow-brandYellow/25'
-                      : 'border border-slate-300 text-slate-800 hover:border-brandBlue hover:text-brandBlue'
-                  }`}
-                >
-                  {p.id === 'enterprise' ? 'Contact sales' : 'Start free trial'}
-                </a>
-              </div>
-            ))}
-          </div>
+          <TeamsPricingCards />
+
+          <p className="mt-8 text-center text-sm text-slate-500">
+            By starting a trial you agree to our{' '}
+            <Link to="/terms" className="font-semibold text-brandBlue hover:underline">
+              Terms of Service
+            </Link>{' '}
+            and{' '}
+            <Link to="/privacy" className="font-semibold text-brandBlue hover:underline">
+              Privacy Policy
+            </Link>
+            .
+          </p>
         </div>
       </section>
 
