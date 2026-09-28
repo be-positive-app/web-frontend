@@ -18,7 +18,7 @@ const label = 'block text-sm font-semibold text-slate-700'
  * the team. Kept dependency-free so the marketing site stays static.
  */
 export function ContactSalesForm() {
-  const { t } = useT()
+  const { t, lang } = useT()
   const [company, setCompany] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -44,6 +44,8 @@ export function ContactSalesForm() {
           phone: phone.trim() || undefined,
           teamSize,
           note: note.trim() || undefined,
+          // The confirmation e-mail is written in the page's language.
+          language: lang,
         }),
       })
       if (!res.ok) throw new Error(String(res.status))
