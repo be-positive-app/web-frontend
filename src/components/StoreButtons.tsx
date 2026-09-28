@@ -1,6 +1,7 @@
 import appStoreBadge from '../assets/Download_on_the_App_Store_Badge.svg'
 import googlePlayBadge from '../assets/google-play-badge.svg'
 import { SITE_META } from '../config/siteMeta'
+import { useT } from '../i18n'
 
 type StoreButtonsProps = {
   variant?: 'primary' | 'secondary'
@@ -20,6 +21,7 @@ export function StoreButtons({
   appStoreHref = placeholderAppStore,
   googlePlayHref = placeholderGooglePlay,
 }: StoreButtonsProps) {
+  const { t } = useT()
   const linkBase =
     'group inline-flex w-fit shrink-0 overflow-visible rounded-xl transition motion-reduce:transition-none focus-ring hover:scale-[1.02] hover:drop-shadow-[0_6px_22px_rgba(255,244,92,0.45)]'
 
@@ -33,7 +35,7 @@ export function StoreButtons({
       <a
         href={appStoreHref}
         className={link}
-        aria-label="Download on the App Store"
+        aria-label={t('store.appStore')}
       >
         <img
           src={appStoreBadge}
@@ -47,7 +49,7 @@ export function StoreButtons({
       <a
         href={googlePlayHref}
         className={link}
-        aria-label="Get it on Google Play"
+        aria-label={t('store.googlePlay')}
       >
         <img
           src={googlePlayBadge}

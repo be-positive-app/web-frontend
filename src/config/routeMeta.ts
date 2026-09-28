@@ -15,6 +15,10 @@ export type RouteMeta = {
   output?: string
   changefreq?: string
   priority?: string
+  /** Language of a translated edition (az, ru); English pages leave it out. */
+  lang?: string
+  /** The English path this edition translates; ties the editions together for hreflang. */
+  alternateOf?: string
 }
 
 export const ROUTES: readonly RouteMeta[] = routes.routes

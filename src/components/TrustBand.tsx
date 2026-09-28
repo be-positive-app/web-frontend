@@ -1,6 +1,7 @@
 import { Globe2, Smartphone, Star } from 'lucide-react'
 import { useEffect, useState, useSyncExternalStore } from 'react'
 import { SITE_META } from '../config/siteMeta'
+import { useT } from '../i18n'
 import { useInView } from '../hooks/useInView'
 
 const appStoreHref =
@@ -142,6 +143,7 @@ function Stars({ value, active }: { value: number; active: boolean }) {
  * Google's structured-data policy.
  */
 export function TrustBand() {
+  const { t } = useT()
   const rating = SITE_META.rating
   const { ref, inView } = useInView<HTMLDivElement>({ once: true, threshold: 0.3 })
   const counting = inView || !OBSERVER_SUPPORTED
@@ -168,7 +170,7 @@ export function TrustBand() {
         className="mx-auto w-full max-w-6xl px-4 py-16 text-center sm:px-6 sm:py-24"
       >
         <p className="inline-flex items-center gap-2 rounded-full border border-brandYellow/30 bg-brandYellow/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.22em] text-brandYellow">
-          Already planning with us
+          {t('trust.kicker')}
         </p>
 
         <div
@@ -180,7 +182,7 @@ export function TrustBand() {
           <div className="flex flex-col items-center">
             <Figure display={SITE_META.downloads} active={counting} />
             <p className="mt-5 max-w-sm text-balance text-base font-semibold text-white/75 sm:text-lg">
-              downloads on the App Store and Google Play
+              {t('trust.downloads')}
             </p>
           </div>
 
@@ -194,15 +196,15 @@ export function TrustBand() {
                 href={appStoreHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${rating.value} out of 5 — read the reviews on the App Store`}
+                aria-label={t('trust.ratingAria', { v: rating.value })}
                 className="group/rating mt-6 inline-flex items-center rounded-full border border-white/15 bg-white/5 px-6 py-3 backdrop-blur-sm transition duration-200 hover:-translate-y-1 hover:scale-105 hover:border-brandYellow hover:bg-brandYellow hover:shadow-lg hover:shadow-brandYellow/25 focus-ring motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100"
               >
                 <Stars value={Number(rating.value)} active={counting} />
               </a>
               <p className="mt-5 max-w-sm text-balance text-base font-semibold text-white/75 sm:text-lg">
                 {rating.count
-                  ? `from ${rating.count} App Store and Google Play ratings`
-                  : 'on the App Store and Google Play'}
+                  ? t('trust.ratingFrom', { n: rating.count })
+                  : t('trust.ratingStores')}
               </p>
             </div>
           ) : null}
@@ -211,11 +213,11 @@ export function TrustBand() {
         <div className="mt-14 flex flex-wrap items-center justify-center gap-3">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white/85 backdrop-blur-sm">
             <Globe2 className="h-4 w-4 text-brandYellow" aria-hidden="true" />
-            Available in every region both stores serve
+            {t('trust.regions')}
           </span>
           <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white/85 backdrop-blur-sm">
             <Smartphone className="h-4 w-4 text-brandYellow" aria-hidden="true" />
-            iOS and Android
+            {t('trust.platforms')}
           </span>
         </div>
       </div>

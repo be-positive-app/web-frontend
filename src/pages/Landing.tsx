@@ -20,10 +20,11 @@ import { Problem } from '../components/Problem'
 import { Step } from '../components/Step'
 import { TrustBand } from '../components/TrustBand'
 import { StoreButtons } from '../components/StoreButtons'
-import { routeMeta } from '../config/routeMeta'
 import { SITE_META } from '../config/siteMeta'
 import { useInView } from '../hooks/useInView'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { useT } from '../i18n'
+import { useLocalRouteMeta } from '../i18n/paths'
 
 const appStoreHref =
   (import.meta.env.VITE_APP_STORE_URL as string | undefined)?.trim() ||
@@ -33,7 +34,8 @@ const googlePlayHref =
   SITE_META.googlePlayUrl
 
 export function Landing() {
-  usePageMeta(routeMeta('/'))
+  usePageMeta(useLocalRouteMeta('/'))
+  const { t } = useT()
 
   const { ref: featuresRef, inView: featuresInView } = useInView<HTMLDivElement>({ once: true })
   const { ref: howRef, inView: howInView } = useInView<HTMLDivElement>({ once: true })
@@ -51,19 +53,19 @@ export function Landing() {
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">
               <Sparkles className="h-4 w-4 text-brandBlue" aria-hidden="true" />
               <span>
-                Minimal planning, maximum focus
+                {t('landing.badge')}
                 <span className="text-brandBlue">.</span>
               </span>
             </div>
 
             <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              <span>Plan your day.</span>{' '}
-              <span>Stay focused.</span>{' '}
-              <span className="text-brandBlue">Feel positive.</span>
+              <span>{t('landing.h1a')}</span>{' '}
+              <span>{t('landing.h1b')}</span>{' '}
+              <span className="text-brandBlue">{t('landing.h1c')}</span>
             </h1>
 
             <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">
-              Do you struggle to complete tasks on time? Be Positive Life Planner helps you plan tasks, send reminders, and analyze your daily results - so you can stay focused and productive every day.
+              {t('landing.lead')}
             </p>
 
             <div className="mt-7 flex flex-col items-center gap-4">
@@ -71,12 +73,12 @@ export function Landing() {
 
               <div className="flex items-center justify-center gap-2 text-sm font-semibold text-slate-700">
                 <Download className="h-4 w-4 text-brandBlue" aria-hidden="true" />
-                <span>{SITE_META.downloads} downloads on iOS and Android</span>
+                <span>{t('landing.downloads', { n: SITE_META.downloads })}</span>
               </div>
 
               <div className="flex items-center justify-center gap-2 text-center text-sm text-slate-600">
                 <CheckCircle2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
-                <span>Task manager & daily planner app with reminders, focus tools, and progress tracking.</span>
+                <span>{t('landing.tagline')}</span>
               </div>
             </div>
           </div>
@@ -97,13 +99,13 @@ export function Landing() {
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
-              Features
+              {t('landing.features.kicker')}
             </p>
             <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Everything you need to stay productive
+              {t('landing.features.title')}
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
-              Plan smarter. Stay consistent. See results.
+              {t('landing.features.text')}
             </p>
           </div>
 
@@ -113,29 +115,29 @@ export function Landing() {
           >
             <FeatureCard
               icon={<ListTodo className="h-5 w-5" aria-hidden="true" />}
-              title="Smart Task Management"
-              description="Organize tasks efficiently and prioritize what matters."
+              title={t('landing.f1.title')}
+              description={t('landing.f1.text')}
               revealed={featuresInView}
               delayMs={0}
             />
             <FeatureCard
               icon={<CalendarDays className="h-5 w-5" aria-hidden="true" />}
-              title="Calendar Planning"
-              description="Plan your day with a clear and structured schedule."
+              title={t('landing.f2.title')}
+              description={t('landing.f2.text')}
               revealed={featuresInView}
               delayMs={80}
             />
             <FeatureCard
               icon={<Bell className="h-5 w-5" aria-hidden="true" />}
-              title="Daily Reminders"
-              description="Never miss important tasks with smart notifications."
+              title={t('landing.f3.title')}
+              description={t('landing.f3.text')}
               revealed={featuresInView}
               delayMs={140}
             />
             <FeatureCard
               icon={<LineChart className="h-5 w-5" aria-hidden="true" />}
-              title="Progress Tracking"
-              description="Track your productivity and build better habits over time."
+              title={t('landing.f4.title')}
+              description={t('landing.f4.text')}
               revealed={featuresInView}
               delayMs={220}
             />
@@ -147,37 +149,37 @@ export function Landing() {
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
-              How it works
+              {t('landing.how.kicker')}
             </p>
             <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              How it works
+              {t('landing.how.title')}
             </h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
-              Three steps to plan, focus, and win every day.
+              {t('landing.how.text')}
             </p>
           </div>
 
           <div ref={howRef} className="mt-10 grid gap-5 lg:grid-cols-3">
             <Step
               index={1}
-              title="Add your tasks"
-              description="Capture everything quickly, then choose what matters most."
+              title={t('landing.s1.title')}
+              description={t('landing.s1.text')}
               icon={<ListTodo className="h-5 w-5" aria-hidden="true" />}
               revealed={howInView}
               delayMs={0}
             />
             <Step
               index={2}
-              title="Get Positive reminders"
-              description="Stay focused with calm, distraction-free reminders."
+              title={t('landing.s2.title')}
+              description={t('landing.s2.text')}
               icon={<Bell className="h-5 w-5" aria-hidden="true" />}
               revealed={howInView}
               delayMs={90}
             />
             <Step
               index={3}
-              title="Track your progress"
-              description="Track your wins and grow your streaks over time."
+              title={t('landing.s3.title')}
+              description={t('landing.s3.text')}
               icon={<LineChart className="h-5 w-5" aria-hidden="true" />}
               revealed={howInView}
               delayMs={180}
@@ -187,7 +189,7 @@ export function Landing() {
           <div className="mt-8 flex items-center gap-3 text-sm text-slate-600">
             <ArrowRight className="h-4 w-4 text-brandBlue" aria-hidden="true" />
             <p>
-              Effortless on mobile, powerful for your daily routine.
+              {t('landing.howNote')}
             </p>
           </div>
         </div>
@@ -206,13 +208,13 @@ export function Landing() {
           <div className="grid gap-8 rounded-[30px] border border-slate-200 bg-white p-8 shadow-card sm:p-10 lg:grid-cols-2 lg:items-center">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
-                Contact
+                {t('landing.contact.kicker')}
               </p>
               <h2 className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-                Have a question or suggestion?
+                {t('landing.contact.title')}
               </h2>
               <p className="mt-3 text-base leading-relaxed text-slate-600">
-                Email us today—we’ll get back to you fast. Built with real feedback to help you stay consistent.
+                {t('landing.contact.text')}
               </p>
             </div>
 
@@ -225,9 +227,9 @@ export function Landing() {
                 {SITE_META.supportEmail}
               </a>
               <p className="text-sm text-slate-500">
-                Or check the{' '}
+                {t('landing.contact.orPre')}{' '}
                 <Link className="font-semibold text-brandBlue hover:underline" to="/privacy">
-                  Privacy Policy
+                  {t('landing.contact.privacy')}
                 </Link>
                 .
               </p>

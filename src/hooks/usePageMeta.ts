@@ -31,7 +31,7 @@ export function usePageMeta({
 }: PageMetaOptions) {
   useEffect(() => {
     const origin = SITE_META.siteUrl.replace(/\/$/, '')
-    const fullTitle = path === '/' ? title : `${title} | Be Positive`
+    const fullTitle = path === '/' || title.includes('Be Positive') ? title : `${title} | Be Positive`
     const desc = description ?? SITE_META.description
     const url = `${origin}${path}`
     const imageUrl = absoluteUrl(image ?? SITE_META.ogImage, origin)

@@ -1,6 +1,7 @@
 import { Check, Loader2, X } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { SITE_META } from '../config/siteMeta'
+import { useT } from '../i18n'
 
 /**
  * Where the answers go. With nothing configured the popup never opens rather
@@ -74,6 +75,7 @@ function rememberAsked() {
  * any, and they would then sit in an inbox nobody expected them to reach.
  */
 export function FoundUs() {
+  const { t } = useT()
   const [dialog, setDialog] = useState<HTMLDialogElement | null>(null)
   const [open, setOpen] = useState(false)
   const [choice, setChoice] = useState<Source | null>(null)
@@ -150,7 +152,7 @@ export function FoundUs() {
         <button
           type="button"
           onClick={close}
-          aria-label="Close"
+          aria-label={t('found.close')}
           className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus-ring"
         >
           <X className="h-4 w-4" aria-hidden="true" />
@@ -159,7 +161,7 @@ export function FoundUs() {
         {state === 'done' ? (
           <p className="inline-flex items-center gap-2 py-4 text-base font-semibold text-slate-900">
             <Check className="h-5 w-5 text-brandBlue" aria-hidden="true" />
-            Thank you — that helps us more than you would think.
+            {t('found.thanks')}
           </p>
         ) : (
           <>
@@ -167,10 +169,10 @@ export function FoundUs() {
               id="found-us-title"
               className="text-balance text-2xl font-extrabold tracking-tight text-slate-900"
             >
-              How did you find us?
+              {t('found.title')}
             </h2>
             <p className="mx-auto mt-2 max-w-sm text-sm leading-relaxed text-slate-600">
-              One tap. It tells us where to keep showing up.
+              {t('found.text')}
             </p>
 
             <div className="mt-6 flex flex-wrap items-center justify-center gap-2.5">
@@ -197,7 +199,7 @@ export function FoundUs() {
                         : 'border-slate-200 bg-white text-slate-700 hover:border-brandBlue/40 hover:text-brandBlue',
                     ].join(' ')}
                   >
-                    {source}
+                    {source === 'Other' ? t('found.other') : source}
                   </button>
                 )
               })}
@@ -213,7 +215,7 @@ export function FoundUs() {
                   }}
                 >
                   <label className="sr-only" htmlFor="found-us-note">
-                    Where did you find us?
+                    {t('found.otherLabel')}
                   </label>
                   <input
                     id="found-us-note"
@@ -221,7 +223,7 @@ export function FoundUs() {
                     onChange={(event) => setNote(event.target.value)}
                     maxLength={120}
                     autoComplete="off"
-                    placeholder="A friend, a podcast, somewhere else…"
+                    placeholder={t('found.placeholder')}
                     className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus-ring"
                   />
                   <button
@@ -236,14 +238,14 @@ export function FoundUs() {
                   </button>
                 </form>
                 <p className="mt-3 text-xs text-slate-500">
-                  Please do not include personal details.
+                  {t('found.privacy')}
                 </p>
               </>
             ) : null}
 
             {state === 'failed' ? (
               <p className="mt-4 text-sm font-semibold text-red-600" role="alert">
-                That did not go through. Please try again.
+                {t('found.failed')}
               </p>
             ) : null}
           </>

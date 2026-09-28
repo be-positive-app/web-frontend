@@ -8,51 +8,53 @@ import overviewPng from '../assets/screen-overview.png'
 import overviewWebp from '../assets/screen-overview.webp'
 import signinPng from '../assets/screen-signin.png'
 import signinWebp from '../assets/screen-signin.webp'
+import { useT } from '../i18n'
 
 /** Roughly the order a new user meets them, from signing in to looking back. */
 const SCREENS = [
   {
-    label: 'Sign in',
+    label: 'screens.signin',
     png: signinPng,
     webp: signinWebp,
-    alt: 'The Sign In screen: email and password fields, and buttons to continue with Google or Apple.',
+    alt: 'screens.signin.alt',
   },
   {
-    label: 'Today at a glance',
+    label: 'screens.home',
     png: homePng,
     webp: homeWebp,
-    alt: "The Home screen: a Good Afternoon greeting for Friday 20 February above today's tasks — Morning Exercise at 07:00, Work on Project at 10:00, and Read Book at 20:00, ticked off.",
+    alt: 'screens.home.alt',
   },
   {
-    label: 'Plan your day',
+    label: 'screens.calendar',
     png: calendarPng,
     webp: calendarWebp,
-    alt: 'The Calendar screen: February 2026 with the 20th selected, and a Read Book task set for 20:00, repeating daily.',
+    alt: 'screens.calendar.alt',
   },
   {
-    label: 'Add a task',
+    label: 'screens.newTask',
     png: newTaskPng,
     webp: newTaskWebp,
-    alt: 'The New Task screen: a task name field, date and time pickers, a repeat option, a reminder toggle and a low/medium/high risk selector.',
+    alt: 'screens.newTask.alt',
   },
   {
-    label: 'Track your progress',
+    label: 'screens.overview',
     png: overviewPng,
     webp: overviewWebp,
-    alt: 'The Overview screen: 64 tasks completed, an 80% completion rate, 22 active days and a best streak of 9, above a weekly productivity chart.',
+    alt: 'screens.overview.alt',
   },
 ] as const
 
 type Screen = (typeof SCREENS)[number]
 
 function Phone({ screen, eager }: { screen: Screen; eager?: boolean }) {
+  const { t } = useT()
   return (
     <figure className="m-0 flex flex-col items-center gap-3">
       <picture className="contents">
         <source srcSet={screen.webp} type="image/webp" />
         <img
           src={screen.png}
-          alt={screen.alt}
+          alt={t(screen.alt)}
           width={428}
           height={926}
           fetchPriority={eager ? 'high' : 'auto'}
@@ -62,7 +64,7 @@ function Phone({ screen, eager }: { screen: Screen; eager?: boolean }) {
         />
       </picture>
       <figcaption className="text-xs font-bold uppercase tracking-[0.14em] text-brandBlue">
-        {screen.label}
+        {t(screen.label)}
       </figcaption>
     </figure>
   )

@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Navbar } from './components/Navbar'
 import { POLICY_PAGES } from './lib/policyPages'
+import { useT } from './i18n'
 
 const Landing = lazy(() => import('./pages/Landing').then((m) => ({ default: m.Landing })))
 const Teams = lazy(() => import('./pages/Teams').then((m) => ({ default: m.Teams })))
@@ -22,13 +23,14 @@ const ResetPassword = lazy(() =>
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
 export default function App() {
+  const { t } = useT()
   return (
     <div className="flex min-h-dvh flex-col bg-white text-slate-900">
       <a
         className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[100] focus:rounded-xl focus:bg-white focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-brandBlue focus:shadow-soft focus-ring"
         href="#main"
       >
-        Skip to content
+        {t('app.skip')}
       </a>
 
       <Navbar />
@@ -38,6 +40,11 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/teams" element={<Teams />} />
+            {/* Azerbaijani and Russian editions: same pages, own URLs so search engines index each language. */}
+            <Route path="/az" element={<Landing />} />
+            <Route path="/ru" element={<Landing />} />
+            <Route path="/az/teams" element={<Teams />} />
+            <Route path="/ru/teams" element={<Teams />} />
             {POLICY_PAGES.map(({ slug, path }) => (
               <Route
                 key={slug}
