@@ -3,10 +3,12 @@ import appLogoPng from '../assets/logo-128.png'
 import appLogoWebp from '../assets/logo-128.webp'
 import { SITE_META } from '../config/siteMeta'
 import { FOOTER_LEGAL_LINKS } from '../lib/policyPages'
+import { useT } from '../i18n'
 
 export function Footer() {
   const location = useLocation()
   const isLanding = location.pathname === '/'
+  const { t } = useT()
 
   return (
     <footer className="bg-brandNavy text-white" id="footer-legal">
@@ -35,7 +37,7 @@ export function Footer() {
               <div>
                 <p className="text-lg font-extrabold tracking-tight">Be Positive</p>
                 <p className="mt-1 text-sm text-white/80">
-                  Plan your day. Stay focused. Feel positive.
+                  {t('footer.tagline')}
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
@@ -49,13 +51,13 @@ export function Footer() {
                   href={isLanding ? '#faq' : '/#faq'}
                   className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy"
                 >
-                  FAQ
+                  {t('footer.faq')}
                 </a>
                 <a
                   href={isLanding ? '#contact' : '/#contact'}
                   className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy"
                 >
-                  Contact
+                  {t('footer.contact')}
                 </a>
               </div>
             </div>
@@ -64,7 +66,7 @@ export function Footer() {
           <div className="flex flex-col gap-4 sm:items-end">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-white/50">
-                Legal & policies
+                {t('footer.legal')}
               </p>
               <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-2 sm:justify-end">
                 {FOOTER_LEGAL_LINKS.map(({ path, label }) => (
@@ -84,7 +86,7 @@ export function Footer() {
 
         <div className="border-t border-white/15 pt-6 text-center">
           <p className="text-xs text-white/70">
-            © 2026 Be Positive. All rights reserved.
+            {t('footer.rights')}
           </p>
         </div>
       </div>

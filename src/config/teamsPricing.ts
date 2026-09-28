@@ -5,53 +5,56 @@
  * (web-app's src/lib/pricing.ts): Azerbaijani companies pay in manat,
  * everyone else in US dollars.
  */
+import type { Key } from '../i18n'
+
 export type TeamsCurrency = 'AZN' | 'USD'
 export type TeamsPrice = { monthly: number; yearly: number }
 
 export type TeamsPlan = {
   id: 'starter' | 'team' | 'enterprise'
-  name: string
-  sub: string
+  /** i18n keys: the cards render them in the visitor's language. */
+  name: Key
+  sub: Key
   /** null on Enterprise: shown as "Contact us" instead of a price. */
   prices: Record<TeamsCurrency, TeamsPrice> | null
   recommended?: boolean
-  features: string[]
+  features: Key[]
 }
 
 export const TEAMS_CURRENCIES: TeamsCurrency[] = ['AZN', 'USD']
 export const TEAMS_SYMBOL: Record<TeamsCurrency, string> = { AZN: '₼', USD: '$' }
 
-const CORE_FEATURES = [
-  'Shared tasks and calendar',
-  'Task assignment and reminders',
-  'Workflow board per department',
-  'Google Meet and Zoom links on tasks',
-  'Priority support',
-  'Mobile app included',
+const CORE_FEATURES: Key[] = [
+  'feature.tasks',
+  'feature.assign',
+  'feature.board',
+  'feature.meet',
+  'feature.support',
+  'feature.mobile',
 ]
 
 export const TEAMS_PLANS: TeamsPlan[] = [
   {
     id: 'starter',
-    name: 'Starter',
-    sub: 'For teams of up to 10 people',
+    name: 'plan.starter.name',
+    sub: 'plan.starter.sub',
     prices: { AZN: { monthly: 29.9, yearly: 199.9 }, USD: { monthly: 24.9, yearly: 199.9 } },
     features: CORE_FEATURES,
   },
   {
     id: 'team',
-    name: 'Team',
-    sub: 'For companies of up to 50 people, flat price',
+    name: 'plan.team.name',
+    sub: 'plan.team.sub',
     prices: { AZN: { monthly: 99.9, yearly: 999.9 }, USD: { monthly: 69.9, yearly: 699.9 } },
     recommended: true,
     features: CORE_FEATURES,
   },
   {
     id: 'enterprise',
-    name: 'Enterprise',
-    sub: '51+ people, contract and invoice',
+    name: 'plan.enterprise.name',
+    sub: 'plan.enterprise.sub',
     prices: null,
-    features: [...CORE_FEATURES, 'Bank transfer, annual invoice', 'Dedicated onboarding'],
+    features: [...CORE_FEATURES, 'feature.invoice', 'feature.onboarding'],
   },
 ]
 

@@ -1,5 +1,7 @@
 import { Download, Menu, X } from 'lucide-react'
 import { PersonaSwitch } from './PersonaSwitch'
+import { LangSwitch } from './LangSwitch'
+import { useT } from '../i18n'
 import { useState } from 'react'
 import type { MouseEvent } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -15,6 +17,7 @@ export function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
+  const { t } = useT()
 
   // Every link in the menu closes it on click; this covers the navigations that
   // do not go through them (back/forward, programmatic). Adjusting state during
@@ -108,55 +111,58 @@ export function Navbar() {
             onClick={onHomeClick}
             className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
           >
-            Home
+            {t('nav.home')}
           </a>
           <a
             href="#pricing"
             onClick={onPricingClick}
             className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
           >
-            Pricing
+            {t('nav.pricing')}
           </a>
           <Link
             to="/privacy"
             className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
           >
-            Privacy
+            {t('nav.privacy')}
           </Link>
           <a
             href="#faq"
             onClick={onFaqClick}
             className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
           >
-            FAQ
+            {t('nav.faq')}
           </a>
           <a
             href="#contact"
             onClick={onContactClick}
             className="rounded-xl px-3 py-2 text-base font-semibold text-slate-700 transition hover:text-brandBlue focus-ring motion-reduce:transition-none"
           >
-            Contact
+            {t('nav.contact')}
           </a>
         </nav>
 
         <button
           type="button"
           className="inline-flex items-center justify-center rounded-2xl p-2 text-slate-700 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none sm:hidden"
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? t('nav.closeMenu') : t('nav.openMenu')}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
 
-        <a
-          href="#home"
-          onClick={onDownloadClick}
-          className="hidden items-center justify-center gap-2 rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring motion-reduce:transition-none sm:inline-flex"
-        >
-          <Download className="h-4 w-4" aria-hidden="true" />
-          Download
-        </a>
+        <div className="hidden items-center gap-3 sm:flex">
+          <LangSwitch />
+          <a
+            href="#home"
+            onClick={onDownloadClick}
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring motion-reduce:transition-none"
+          >
+            <Download className="h-4 w-4" aria-hidden="true" />
+            {t('nav.download')}
+          </a>
+        </div>
       </div>
 
       {open ? (
@@ -164,40 +170,41 @@ export function Navbar() {
           <div className="mx-auto w-full max-w-6xl px-4 py-4">
             <div className="grid gap-2">
               <PersonaSwitch className="mb-1 w-full justify-center" onNavigate={() => setOpen(false)} />
+              <LangSwitch className="mb-1 justify-self-center" />
               <a
                 href="#home"
                 onClick={onHomeClick}
                 className="rounded-2xl px-4 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none"
               >
-                Home
+                {t('nav.home')}
               </a>
               <a
                 href="#pricing"
                 onClick={onPricingClick}
                 className="rounded-2xl px-4 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none"
               >
-                Pricing
+                {t('nav.pricing')}
               </a>
               <Link
                 to="/privacy"
                 onClick={() => setOpen(false)}
                 className="rounded-2xl px-4 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none"
               >
-                Privacy
+                {t('nav.privacy')}
               </Link>
               <a
                 href="#faq"
                 onClick={onFaqClick}
                 className="rounded-2xl px-4 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none"
               >
-                FAQ
+                {t('nav.faq')}
               </a>
               <a
                 href="#contact"
                 onClick={onContactClick}
                 className="rounded-2xl px-4 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-100 focus-ring motion-reduce:transition-none"
               >
-                Contact
+                {t('nav.contact')}
               </a>
               <a
                 href="#home"
@@ -205,7 +212,7 @@ export function Navbar() {
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-4 py-3 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring motion-reduce:transition-none"
               >
                 <Download className="h-4 w-4" aria-hidden="true" />
-                Download
+                {t('nav.download')}
               </a>
             </div>
           </div>

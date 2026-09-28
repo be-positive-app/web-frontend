@@ -10,17 +10,24 @@ import {
   Users,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { ContactSalesForm } from '../components/ContactSalesForm'
 import { FeatureCard } from '../components/FeatureCard'
 import { Step } from '../components/Step'
 import { TeamsPricingCards } from '../components/TeamsPricingCards'
+import { TeamsScreens } from '../components/TeamsScreens'
 import { routeMeta } from '../config/routeMeta'
 import { SITE_META } from '../config/siteMeta'
 import { TEAMS_APP_URL as APP_URL } from '../config/teamsPricing'
 import { useInView } from '../hooks/useInView'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { useT } from '../i18n'
+
+const kicker = 'text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70'
+const h2 = 'mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl'
 
 export function Teams() {
   usePageMeta(routeMeta('/teams'))
+  const { t } = useT()
 
   const { ref: featuresRef, inView: featuresInView } = useInView<HTMLDivElement>({ once: true })
   const { ref: howRef, inView: howInView } = useInView<HTMLDivElement>({ once: true })
@@ -32,18 +39,15 @@ export function Teams() {
           <div className="mx-auto max-w-3xl text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">
               <Building2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
-              <span>For companies</span>
+              <span>{t('teams.kicker')}</span>
             </div>
 
             <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              <span>Manage your team&apos;s tasks.</span>{' '}
-              <span className="text-brandBlue">See real results.</span>
+              <span>{t('teams.h1a')}</span> <span className="text-brandBlue">{t('teams.h1b')}</span>
             </h1>
 
             <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">
-              Be Positive Teams gives every task an owner, a moderator, and a deadline —
-              with notifications that keep people on schedule and weekly reports that show
-              who is actually getting things done.
+              {t('teams.lead')}
             </p>
 
             <div className="mt-7 flex flex-col items-center gap-4">
@@ -53,12 +57,12 @@ export function Teams() {
                 rel="noreferrer"
                 className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring"
               >
-                Start 30-day free trial
+                {t('teams.cta')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <div className="flex items-center justify-center gap-2 text-center text-sm text-slate-600">
                 <Check className="h-4 w-4 text-brandBlue" aria-hidden="true" />
-                <span>No credit card required to start</span>
+                <span>{t('teams.noCard')}</span>
               </div>
             </div>
           </div>
@@ -68,44 +72,29 @@ export function Teams() {
       <section className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">Features</p>
-            <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Everything a growing team needs
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-600">
-              One workspace for tasks, people, and the numbers behind them.
-            </p>
+            <p className={kicker}>{t('teams.features.kicker')}</p>
+            <h2 className={h2}>{t('teams.features.title')}</h2>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">{t('teams.features.text')}</p>
           </div>
 
           <div ref={featuresRef} className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-2">
-            <FeatureCard
-              icon={<Users className="h-5 w-5" aria-hidden="true" />}
-              title="Task assignment & moderator oversight"
-              description="Assign tasks to the right person, track subtasks with their own owners, and let a moderator watch over each department."
-              revealed={featuresInView}
-              delayMs={0}
-            />
-            <FeatureCard
-              icon={<Bell className="h-5 w-5" aria-hidden="true" />}
-              title="Notifications that keep people moving"
-              description="Assignment, overdue, and completion alerts, plus a morning digest so nobody starts the day guessing what's due."
-              revealed={featuresInView}
-              delayMs={80}
-            />
-            <FeatureCard
-              icon={<BarChart3 className="h-5 w-5" aria-hidden="true" />}
-              title="Weekly, monthly and yearly reports"
-              description="Department comparisons and completion rates that show who's carrying the team — exportable as a PDF."
-              revealed={featuresInView}
-              delayMs={140}
-            />
-            <FeatureCard
-              icon={<ShieldCheck className="h-5 w-5" aria-hidden="true" />}
-              title="Departments, projects, and workflow stages"
-              description="Organize work the way your company is actually structured, with company-wide visibility for owners."
-              revealed={featuresInView}
-              delayMs={220}
-            />
+            <FeatureCard icon={<Users className="h-5 w-5" aria-hidden="true" />} title={t('teams.feat1.title')} description={t('teams.feat1.text')} revealed={featuresInView} delayMs={0} />
+            <FeatureCard icon={<Bell className="h-5 w-5" aria-hidden="true" />} title={t('teams.feat2.title')} description={t('teams.feat2.text')} revealed={featuresInView} delayMs={80} />
+            <FeatureCard icon={<BarChart3 className="h-5 w-5" aria-hidden="true" />} title={t('teams.feat3.title')} description={t('teams.feat3.text')} revealed={featuresInView} delayMs={140} />
+            <FeatureCard icon={<ShieldCheck className="h-5 w-5" aria-hidden="true" />} title={t('teams.feat4.title')} description={t('teams.feat4.text')} revealed={featuresInView} delayMs={220} />
+          </div>
+        </div>
+      </section>
+
+      <section id="screens" className="border-t border-slate-100 bg-slate-50/60">
+        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className={kicker}>{t('teams.screens.kicker')}</p>
+            <h2 className={h2}>{t('teams.screens.title')}</h2>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">{t('teams.screens.text')}</p>
+          </div>
+          <div className="mt-10">
+            <TeamsScreens />
           </div>
         </div>
       </section>
@@ -113,37 +102,14 @@ export function Teams() {
       <section className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">How it works</p>
-            <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              Set up in minutes
-            </h2>
+            <p className={kicker}>{t('teams.how.kicker')}</p>
+            <h2 className={h2}>{t('teams.how.title')}</h2>
           </div>
 
           <div ref={howRef} className="mt-10 grid gap-5 lg:grid-cols-3">
-            <Step
-              index={1}
-              title="Create your workspace"
-              description="Invite your team by email or a shared invite code — no IT setup required."
-              icon={<Building2 className="h-5 w-5" aria-hidden="true" />}
-              revealed={howInView}
-              delayMs={0}
-            />
-            <Step
-              index={2}
-              title="Assign tasks & moderators"
-              description="Put every task in a department, give it an owner, and let moderators keep watch."
-              icon={<ClipboardCheck className="h-5 w-5" aria-hidden="true" />}
-              revealed={howInView}
-              delayMs={90}
-            />
-            <Step
-              index={3}
-              title="Track progress with reports"
-              description="See who's on track at a glance, every week, without asking around."
-              icon={<BarChart3 className="h-5 w-5" aria-hidden="true" />}
-              revealed={howInView}
-              delayMs={180}
-            />
+            <Step index={1} title={t('teams.step1.title')} description={t('teams.step1.text')} icon={<Building2 className="h-5 w-5" aria-hidden="true" />} revealed={howInView} delayMs={0} />
+            <Step index={2} title={t('teams.step2.title')} description={t('teams.step2.text')} icon={<ClipboardCheck className="h-5 w-5" aria-hidden="true" />} revealed={howInView} delayMs={90} />
+            <Step index={3} title={t('teams.step3.title')} description={t('teams.step3.text')} icon={<BarChart3 className="h-5 w-5" aria-hidden="true" />} revealed={howInView} delayMs={180} />
           </div>
         </div>
       </section>
@@ -151,60 +117,53 @@ export function Teams() {
       <section id="pricing" className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">Pricing</p>
-            <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-              A flat price per company, not per seat
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-600">
-              Hiring someone mid-year never means a billing surprise.
-            </p>
+            <p className={kicker}>{t('teams.pricing.kicker')}</p>
+            <h2 className={h2}>{t('teams.pricing.title')}</h2>
+            <p className="mt-3 text-base leading-relaxed text-slate-600">{t('teams.pricing.text')}</p>
           </div>
 
           <TeamsPricingCards />
 
           <p className="mt-8 text-center text-sm text-slate-500">
-            By starting a trial you agree to our{' '}
+            {t('teams.terms.pre')}{' '}
             <Link to="/terms" className="font-semibold text-brandBlue hover:underline">
-              Terms of Service
+              {t('teams.terms.tos')}
             </Link>{' '}
-            and{' '}
+            {t('teams.terms.and')}{' '}
             <Link to="/privacy" className="font-semibold text-brandBlue hover:underline">
-              Privacy Policy
+              {t('teams.terms.privacy')}
             </Link>
             .
           </p>
         </div>
       </section>
 
-      <section id="contact" className="border-t border-slate-100 bg-white">
+      <section id="contact" className="scroll-mt-20 border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-18">
-          <div className="grid gap-8 rounded-[30px] border border-slate-200 bg-white p-8 shadow-card sm:p-10 lg:grid-cols-2 lg:items-center">
+          <div className="grid gap-8 rounded-[30px] border border-slate-200 bg-white p-8 shadow-card sm:p-10 lg:grid-cols-[1fr_1.3fr] lg:items-start">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">Contact</p>
+              <p className={kicker}>{t('teams.contact.kicker')}</p>
               <h2 className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-                Questions before you start?
+                {t('teams.contact.title')}
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-slate-600">
-                Email us and we&apos;ll walk you through setup, pricing, or a bigger plan.
+              <p className="mt-3 text-base leading-relaxed text-slate-600">{t('teams.contact.text')}</p>
+              <p className="mt-6 text-sm text-slate-500">
+                {t('teams.contact.or')}{' '}
+                <a href={`mailto:${SITE_META.supportEmail}`} className="inline-flex items-center gap-1.5 font-semibold text-brandBlue hover:underline">
+                  <Mail className="h-4 w-4" aria-hidden="true" />
+                  {SITE_META.supportEmail}
+                </a>
               </p>
-            </div>
-
-            <div className="flex flex-col items-start gap-3 sm:items-end">
-              <a
-                href={`mailto:${SITE_META.supportEmail}`}
-                className="inline-flex items-center gap-2 rounded-2xl bg-brandBlue px-5 py-3 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring"
-              >
-                <Mail className="h-4 w-4" aria-hidden="true" />
-                {SITE_META.supportEmail}
-              </a>
-              <p className="text-sm text-slate-500">
-                Looking for the personal app instead?{' '}
+              <p className="mt-6 text-sm text-slate-500">
+                {t('teams.contact.personalPre')}{' '}
                 <Link className="font-semibold text-brandBlue hover:underline" to="/">
-                  See Be Positive for individuals
+                  {t('teams.contact.personalLink')}
                 </Link>
                 .
               </p>
             </div>
+
+            <ContactSalesForm />
           </div>
         </div>
       </section>

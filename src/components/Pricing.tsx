@@ -2,6 +2,7 @@ import { ArrowRight, Check } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { TeamsPricingCards } from './TeamsPricingCards'
 import { SITE_META } from '../config/siteMeta'
+import { useT } from '../i18n'
 
 /** Everything the subscription includes. There is no free tier. */
 const INCLUDED = [
@@ -19,6 +20,7 @@ const savingPercent = Math.round((1 - Number(yearlyAmount) / monthlyPerYear) * 1
 const yearlyPerMonth = (Number(yearlyAmount) / 12).toFixed(2)
 
 export function Pricing() {
+  const { t } = useT()
   return (
     <section id="pricing" className="border-t border-slate-100 bg-white">
       <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
@@ -77,13 +79,13 @@ export function Pricing() {
         <div className="mx-auto mt-16 max-w-5xl border-t border-slate-100 pt-14">
           <div className="mx-auto max-w-2xl text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
-              For companies
+              {t('home.companies.kicker')}
             </p>
             <h3 className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">
-              Running a team instead? See Be Positive Teams.
+              {t('home.companies.title')}
             </h3>
             <p className="mt-3 text-base leading-relaxed text-slate-600">
-              A flat price per company, not per seat — hiring someone mid-year never means a billing surprise.
+              {t('home.companies.text')}
             </p>
           </div>
 
@@ -94,7 +96,7 @@ export function Pricing() {
               to="/teams"
               className="inline-flex items-center gap-1.5 text-sm font-semibold text-brandBlue hover:underline"
             >
-              See full company pricing and features
+              {t('home.companies.link')}
               <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
             </Link>
           </div>
