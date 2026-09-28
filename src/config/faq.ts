@@ -81,3 +81,140 @@ export const FAQ: readonly FaqEntry[] = [
     answer: `Email ${SITE_META.supportEmail}. We typically respond within a few business days. Including your device type, app version and a screenshot helps us answer faster.`,
   },
 ]
+
+const FAQ_AZ: readonly FaqEntry[] = [
+  {
+    question: 'Tapşırıqları unutmağı necə dayandırım?',
+    answer:
+      'Tapşırığı ağlınıza gələn an yazın, ona tarix və vaxt verin, qoy yaddaşınız yox, tətbiq xatırlatsın. Be Positive-də hər tapşırığın son tarixi, vaxtı, təkrar qaydası və xatırlatması ola bilər, beləcə heç nə sonradan xatırlamağınızdan asılı qalmır.',
+  },
+  {
+    question: 'Günümü necə planlayım?',
+    answer:
+      'Artıq sabit olanlardan başlayın, qalanını onların ətrafına yerləşdirin. Be Positive günü təqvimdə göstərir ki, boş saatları görəsiniz, hər tapşırığı aşağı, orta və ya yüksək prioritetlə işarələməyə imkan verir ki, vacib olanlar kiçiklərin arasında itməsin.',
+  },
+  {
+    question: 'Tətbiq tapşırığın vaxtı çatmazdan əvvəl xatırlada bilər?',
+    answer:
+      'Bəli. Hər tapşırığı yaradarkən xatırlatmanı aça bilərsiniz. Gündəlik, həftəlik və ya aylıq təkrarlanan tapşırıqlar hər dəfə yenidən qurulmadan təkrarlanır.',
+  },
+  {
+    question: 'Həqiqətən nəyi bitirdiyimi necə izləyim?',
+    answer:
+      'İcmal ekranı tamamladığınız tapşırıqları, tamamlanma faizinizi, aktiv günlərinizi və cari seriyanızı sayır, həftənizi qrafikdə göstərir. Beləcə planın işləyib-işləmədiyini təxmin etmədən görürsünüz.',
+  },
+  {
+    question: 'Be Positive nə qədərdir?',
+    answer: `Be Positive abunəlikdir: ayda ${SITE_META.pricing.monthly} və ya ildə ${SITE_META.pricing.yearly}. Abunəliyi tətbiqin içindən ala bilərsiniz.`,
+  },
+  {
+    question: 'Be Positive hansı cihazlarda işləyir?',
+    answer:
+      'Be Positive iPhone və Android üçün mövcuddur. Onu App Store və ya Google Play-dən yükləyə bilərsiniz, keçidlər bu səhifənin yuxarısındadır.',
+  },
+  {
+    question: 'Tətbiqlə nə edə bilərəm?',
+    answer:
+      'Tapşırıqları planlayın və vacibini önə çəkin, gününüzü təqvimdə qurun, heç nə yaddan çıxmasın deyə xatırlatmalar alın və irəliləyişinizi zamanla izləyin.',
+  },
+  {
+    question: 'Be Positive internetsiz işləyir?',
+    answer: 'Xeyr. Be Positive-in işləməsi üçün internet bağlantısı lazımdır.',
+  },
+  {
+    question: 'Məlumatlarım cihazlar arasında sinxronlaşır?',
+    answer:
+      'Xeyr. Be Positive məlumatlarınızı cihazlar arasında sinxronlaşdırmır, planlarınız onları qurduğunuz cihazda qalır.',
+  },
+  {
+    question: 'Məlumatlarımı satırsınız?',
+    answer:
+      'Xeyr. Biz məlumatlarınızı satmırıq. Tətbiqin istifadə etdiyi xidmətlər Məxfilik siyasətimizdə təsvir olunub.',
+  },
+  {
+    question: 'Hesabımı və məlumatlarımı necə silim?',
+    answer:
+      'Tətbiqdə profilinizi açın və Hesabı sil seçin. Sorğunu bu saytdakı Hesabı sil səhifəsindən də başlada bilərsiniz: e-poçtunuzu yazın və göndərdiyimiz, 24 saat keçərli olan keçidlə təsdiqləyin. Məlumatlar 30 günlük gözləmə müddətindən sonra birdəfəlik silinir, bu müddətdə istənilən vaxt ləğv edə bilərsiniz.',
+  },
+  {
+    question: 'Parolumu unutmuşam. Nə edim?',
+    answer:
+      'Tətbiqdə Parolu unutdum seçin. Sıfırlama keçidi bu saytda yeni parol təyin etdiyiniz səhifəni açır.',
+  },
+  {
+    question: 'Dəstəklə necə əlaqə saxlayım?',
+    answer: `${SITE_META.supportEmail} ünvanına yazın. Adətən bir neçə iş günü içində cavab veririk. Cihaz növü, tətbiq versiyası və ekran görüntüsü daha tez cavab verməyə kömək edir.`,
+  },
+]
+
+const FAQ_RU: readonly FaqEntry[] = [
+  {
+    question: 'Как перестать забывать задачи?',
+    answer:
+      'Записывайте задачу в тот момент, когда о ней подумали, задайте дату и время и пусть напоминает приложение, а не память. В Be Positive у каждой задачи может быть срок, время, правило повтора и напоминание, так что ничего не зависит от того, вспомните ли вы потом.',
+  },
+  {
+    question: 'Как спланировать день?',
+    answer:
+      'Начните с того, что уже зафиксировано, и распределите остальное вокруг. Be Positive показывает день в календаре, чтобы были видны свободные часы, и позволяет отмечать задачи низким, средним или высоким приоритетом, чтобы важные не терялись среди мелких.',
+  },
+  {
+    question: 'Может ли приложение напомнить о задаче заранее?',
+    answer:
+      'Да. При создании задачи можно включить напоминание, а задачи, которые повторяются ежедневно, еженедельно или ежемесячно, повторяются без повторной настройки.',
+  },
+  {
+    question: 'Как отслеживать, что я на самом деле сделал?',
+    answer:
+      'Экран «Обзор» считает выполненные задачи, процент выполнения, активные дни и текущую серию и показывает график недели, так что видно, работает ли план, без догадок.',
+  },
+  {
+    question: 'Сколько стоит Be Positive?',
+    answer: `Be Positive — это подписка: ${SITE_META.pricing.monthly} в месяц или ${SITE_META.pricing.yearly} в год. Оформить её можно в приложении.`,
+  },
+  {
+    question: 'На каких устройствах работает Be Positive?',
+    answer:
+      'Be Positive доступен для iPhone и Android. Скачайте его в App Store или Google Play — ссылки вверху этой страницы.',
+  },
+  {
+    question: 'Что можно делать в приложении?',
+    answer:
+      'Планировать задачи и расставлять приоритеты, раскладывать день в календаре, получать напоминания, чтобы ничего не упустить, и следить за прогрессом со временем.',
+  },
+  {
+    question: 'Работает ли Be Positive без интернета?',
+    answer: 'Нет. Для работы Be Positive нужно подключение к интернету.',
+  },
+  {
+    question: 'Синхронизируются ли данные между устройствами?',
+    answer:
+      'Нет. Be Positive не синхронизирует данные между устройствами, планы остаются на устройстве, где вы их создали.',
+  },
+  {
+    question: 'Вы продаёте мои данные?',
+    answer:
+      'Нет. Мы не продаём ваши данные. Сервисы, на которые опирается приложение, описаны в нашей Политике конфиденциальности.',
+  },
+  {
+    question: 'Как удалить аккаунт и данные?',
+    answer:
+      'Откройте профиль в приложении и выберите «Удалить аккаунт». Запрос можно начать и на странице удаления аккаунта на этом сайте: введите e-mail и подтвердите по ссылке из письма, она действует 24 часа. Данные удаляются безвозвратно через 30 дней, и в течение этого срока удаление можно отменить.',
+  },
+  {
+    question: 'Я забыл пароль. Что делать?',
+    answer:
+      'Нажмите «Забыли пароль» в приложении. Ссылка для сброса откроет страницу на этом сайте, где можно задать новый пароль.',
+  },
+  {
+    question: 'Как связаться с поддержкой?',
+    answer: `Напишите на ${SITE_META.supportEmail}. Обычно отвечаем в течение нескольких рабочих дней. Тип устройства, версия приложения и скриншот помогут ответить быстрее.`,
+  },
+]
+
+/** The visible FAQ in each site language. The FAQPage structured data stays on the English list. */
+export const FAQ_BY_LANG: Record<'en' | 'az' | 'ru', readonly FaqEntry[]> = {
+  en: FAQ,
+  az: FAQ_AZ,
+  ru: FAQ_RU,
+}

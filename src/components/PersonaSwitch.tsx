@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useT } from '../i18n'
+import { localizedPath } from '../i18n/paths'
 
 /**
  * Two audiences, two very different products and price points (a $2.99/mo
@@ -9,14 +10,14 @@ import { useT } from '../i18n'
  */
 export function PersonaSwitch({ className = '', onNavigate }: { className?: string; onNavigate?: () => void }) {
   const { pathname } = useLocation()
-  const { t } = useT()
-  const isTeams = pathname.startsWith('/teams')
+  const { t, lang } = useT()
+  const isTeams = /^\/(?:(?:az|ru)\/)?teams/.test(pathname)
   const base = 'whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-semibold transition focus-ring motion-reduce:transition-none'
 
   return (
     <div className={`inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 p-1 ${className}`}>
       <Link
-        to="/"
+        to={localizedPath(lang, '/')}
         onClick={onNavigate}
         aria-current={!isTeams ? 'page' : undefined}
         className={`${base} ${!isTeams ? 'bg-brandBlue text-white shadow-sm' : 'text-slate-600 hover:text-brandBlue'}`}
@@ -24,7 +25,7 @@ export function PersonaSwitch({ className = '', onNavigate }: { className?: stri
         {t('persona.person')}
       </Link>
       <Link
-        to="/teams"
+        to={localizedPath(lang, '/teams')}
         onClick={onNavigate}
         aria-current={isTeams ? 'page' : undefined}
         className={`${base} ${isTeams ? 'bg-brandBlue text-white shadow-sm' : 'text-slate-600 hover:text-brandBlue'}`}

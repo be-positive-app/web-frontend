@@ -2,6 +2,7 @@ import { Download, Menu, X } from 'lucide-react'
 import { PersonaSwitch } from './PersonaSwitch'
 import { LangSwitch } from './LangSwitch'
 import { useT } from '../i18n'
+import { basePath, localizedPath } from '../i18n/paths'
 import { useState } from 'react'
 import type { MouseEvent } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
@@ -17,7 +18,10 @@ export function Navbar() {
   const location = useLocation()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
-  const { t } = useT()
+  const { t, lang } = useT()
+  // The home page of the visitor's language edition, and whether we are already on it.
+  const home = localizedPath(lang, '/')
+  const onHome = basePath(location.pathname) === '/'
 
   // Every link in the menu closes it on click; this covers the navigations that
   // do not go through them (back/forward, programmatic). Adjusting state during
@@ -31,8 +35,8 @@ export function Navbar() {
   function onHomeClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
     setOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
+    if (!onHome) {
+      navigate(home)
       requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }))
       return
     }
@@ -42,8 +46,8 @@ export function Navbar() {
   function onPricingClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
     setOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
+    if (!onHome) {
+      navigate(home)
       setTimeout(() => scrollToId('pricing'), 0)
       return
     }
@@ -53,8 +57,8 @@ export function Navbar() {
   function onFaqClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
     setOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
+    if (!onHome) {
+      navigate(home)
       setTimeout(() => scrollToId('faq'), 0)
       return
     }
@@ -64,8 +68,8 @@ export function Navbar() {
   function onContactClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
     setOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
+    if (!onHome) {
+      navigate(home)
       setTimeout(() => scrollToId('contact'), 0)
       return
     }
@@ -75,8 +79,8 @@ export function Navbar() {
   function onDownloadClick(e: MouseEvent<HTMLAnchorElement>) {
     e.preventDefault()
     setOpen(false)
-    if (location.pathname !== '/') {
-      navigate('/')
+    if (!onHome) {
+      navigate(home)
       setTimeout(() => scrollToId('home'), 0)
       return
     }
@@ -87,7 +91,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link
-          to="/"
+          to={home}
           className="group inline-flex items-center rounded-xl px-1 py-0.5 focus-ring"
           aria-label="Be Positive home"
         >

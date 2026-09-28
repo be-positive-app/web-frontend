@@ -1,38 +1,27 @@
 import { Bell, Brain, Clock3 } from 'lucide-react'
+import { useT } from '../i18n'
 
 const PROBLEMS = [
-  {
-    icon: Brain,
-    title: 'Lose focus easily?',
-    body: 'Too many things compete for your attention.',
-  },
-  {
-    icon: Clock3,
-    title: 'Forget important tasks?',
-    body: 'Keep everything you need to remember in one place.',
-  },
-  {
-    icon: Bell,
-    title: 'Need a little push?',
-    body: 'Get timely reminders without the noise.',
-  },
+  { icon: Brain, title: 'problem.p1.title', body: 'problem.p1.body' },
+  { icon: Clock3, title: 'problem.p2.title', body: 'problem.p2.body' },
+  { icon: Bell, title: 'problem.p3.title', body: 'problem.p3.body' },
 ] as const
 
 /** Answers the visitor's own complaint before the feature list makes its case. */
 export function Problem() {
+  const { t } = useT()
   return (
     <section className="border-t border-slate-100 bg-slate-50/60">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:items-start">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
-            Struggling to stay organized?
+            {t('problem.kicker')}
           </p>
           <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-            Can’t plan your work and often forget tasks?
+            {t('problem.title')}
           </h2>
           <p className="mt-3 text-base leading-relaxed text-slate-600">
-            Be Positive works like a personal assistant — planning, reminding and keeping
-            your day on track.
+            {t('problem.text')}
           </p>
         </div>
 
@@ -46,9 +35,9 @@ export function Problem() {
                 <Icon className="h-5 w-5 text-brandBlue" aria-hidden="true" />
               </div>
               <h3 className="mt-5 text-lg font-semibold tracking-tight text-slate-900">
-                {title}
+                {t(title)}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-slate-600">{body}</p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">{t(body)}</p>
             </div>
           ))}
         </div>

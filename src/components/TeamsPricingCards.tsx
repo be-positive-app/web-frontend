@@ -2,6 +2,7 @@ import { useState, type MouseEvent } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Check } from 'lucide-react'
 import { useT } from '../i18n'
+import { localizedPath } from '../i18n/paths'
 import {
   TEAMS_APP_URL,
   TEAMS_CURRENCIES,
@@ -30,13 +31,13 @@ const pillClass = (on: boolean) =>
  * (manat in Azerbaijan, dollars elsewhere), the same rule the Teams app bills by.
  */
 export function TeamsPricingCards({ compact = false }: { compact?: boolean }) {
-  const { t } = useT()
+  const { t, lang } = useT()
   const { pathname } = useLocation()
   const [cycle, setCycle] = useState<Cycle>('yearly')
   const [currency, setCurrency] = useState<TeamsCurrency>(defaultTeamsCurrency)
   const saving = teamsMaxSaving(currency)
   // Enterprise goes to the contact form on the Teams page; from the homepage that is a page away.
-  const onTeamsPage = pathname.startsWith('/teams')
+  const onTeamsPage = /^\/(?:(?:az|ru)\/)?teams/.test(pathname)
   function toContact(e: MouseEvent<HTMLAnchorElement>) {
     if (!onTeamsPage) return
     const el = document.getElementById('contact')
@@ -123,7 +124,7 @@ export function TeamsPricingCards({ compact = false }: { compact?: boolean }) {
                 </ul>
               )}
               <a
-                href={p.id === 'enterprise' ? (onTeamsPage ? '#contact' : '/teams#contact') : TEAMS_APP_URL}
+                href={p.id === 'enterprise' ? (onTeamsPage ? '#contact' : `${localizedPath(lang, '/teams')}#contact`) : TEAMS_APP_URL}
                 onClick={p.id === 'enterprise' ? toContact : undefined}
                 target={p.id === 'enterprise' ? undefined : '_blank'}
                 rel={p.id === 'enterprise' ? undefined : 'noreferrer'}

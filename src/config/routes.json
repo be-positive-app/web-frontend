@@ -1,10 +1,10 @@
 {
-  "$comment": "Single source of truth for per-route metadata. Consumed at runtime by src/config/routeMeta.ts (pages call usePageMeta) and at build time by scripts/prerender.mjs, which writes one static HTML file per route and regenerates sitemap.xml. A route may set \"output\" to control the file it is written to (the 404 view needs 404.html, not 404/index.html). Keep the policy paths in sync with src/lib/policyPages.ts.",
+  "$comment": "Single source of truth for per-route metadata. Consumed at runtime by src/config/routeMeta.ts (pages call usePageMeta) and at build time by scripts/prerender.mjs, which writes one static HTML file per route and regenerates sitemap.xml. A route may set \"output\" to control the file it is written to (the 404 view needs 404.html, not 404/index.html). Keep the policy paths in sync with src/lib/policyPages.ts. Language editions set \"lang\" and \"alternateOf\" (the English path they translate); the prerender gives them <html lang>, hreflang links to every edition, and drops the English-only FAQPage structured data.",
   "routes": [
     {
       "path": "/",
-      "title": "Be Positive \u2014 Life Planner",
-      "description": "Stop forgetting tasks and plan your day in one place. Be Positive Life Planner keeps your tasks, calendar and reminders together, and tracks what you finish \u2014 on iPhone and Android.",
+      "title": "Be Positive — Life Planner",
+      "description": "Stop forgetting tasks and plan your day in one place. Be Positive Life Planner keeps your tasks, calendar and reminders together, and tracks what you finish — on iPhone and Android.",
       "changefreq": "weekly",
       "priority": "1.0"
     },
@@ -14,6 +14,42 @@
       "description": "Company task management with assignments, moderator oversight, and weekly reports. Start a 30-day free trial for your team.",
       "changefreq": "weekly",
       "priority": "0.9"
+    },
+    {
+      "path": "/az",
+      "lang": "az",
+      "alternateOf": "/",
+      "title": "Be Positive — Gündəlik planlayıcı",
+      "description": "Tapşırıqları unutmağı dayandırın və gününüzü bir yerdə planlayın. Be Positive tapşırıqları, təqvimi və xatırlatmaları bir yerdə saxlayır və nəyi bitirdiyinizi izləyir — iPhone və Android-də.",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/ru",
+      "lang": "ru",
+      "alternateOf": "/",
+      "title": "Be Positive — Планировщик дня",
+      "description": "Перестаньте забывать задачи и планируйте день в одном месте. Be Positive хранит задачи, календарь и напоминания вместе и отслеживает, что вы сделали, — на iPhone и Android.",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/az/teams",
+      "lang": "az",
+      "alternateOf": "/teams",
+      "title": "Be Positive Teams — Şirkətlər üçün tapşırıq və komanda idarəetməsi",
+      "description": "Tapşırıq təyinatı, moderator nəzarəti və həftəlik hesabatlarla şirkət tapşırıqlarının idarəsi. Komandanız üçün 30 günlük pulsuz sınağa başlayın.",
+      "changefreq": "weekly",
+      "priority": "0.8"
+    },
+    {
+      "path": "/ru/teams",
+      "lang": "ru",
+      "alternateOf": "/teams",
+      "title": "Be Positive Teams — Управление задачами и командой для компаний",
+      "description": "Управление задачами компании: назначения, контроль модераторов и еженедельные отчёты. Начните 30-дневный бесплатный период для команды.",
+      "changefreq": "weekly",
+      "priority": "0.8"
     },
     {
       "path": "/support",

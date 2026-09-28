@@ -7,7 +7,7 @@ import { useT } from '../i18n'
 
 export function Footer() {
   const location = useLocation()
-  const isLanding = location.pathname === '/'
+  const isLanding = /^\/(?:az|ru)?$/.test(location.pathname)
   const { t } = useT()
 
   return (

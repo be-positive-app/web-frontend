@@ -46,7 +46,51 @@ function escapeAttr(value) {
 
 /** Mirrors the title rule in src/hooks/usePageMeta.ts. */
 function fullTitle(route) {
-  return route.path === '/' ? route.title : `${route.title} | Be Positive`
+  return route.path === '/' || route.title.includes('Be Positive')
+    ? route.title
+    : `${route.title} | Be Positive`
+}
+
+/**
+ * Language editions of one page: the English route plus every route whose
+ * alternateOf points at it. Only pages that actually have translations get
+ * hreflang links.
+ */
+function editionsOf(route) {
+  const base = route.alternateOf ?? route.path
+  const group = routes.filter((r) => r.path === base || r.alternateOf === base)
+  return group.length > 1 ? group : []
+}
+
+function hreflangLinks(route) {
+  const editions = editionsOf(route)
+  if (!editions.length) return ''
+  const english = editions.find((r) => !r.lang) ?? editions[0]
+  return [
+    ...editions.map(
+      (r) =>
+        `<link rel="alternate" hreflang="${r.lang ?? 'en'}" href="${escapeAttr(`${origin}${r.path}`)}" />`,
+    ),
+    `<link rel="alternate" hreflang="x-default" href="${escapeAttr(`${origin}${english.path}`)}" />`,
+  ].join('\n    ')
+}
+
+/** The FAQPage node describes the English FAQ; a translated edition shows other words, so it goes. */
+function withoutFaqStructuredData(html) {
+  return html.replace(
+    /<script type="application\/ld\+json">([\s\S]*?)<\/script>/i,
+    (whole, json) => {
+      try {
+        const data = JSON.parse(json)
+        if (Array.isArray(data['@graph'])) {
+          data['@graph'] = data['@graph'].filter((n) => n['@type'] !== 'FAQPage')
+        }
+        return `<script type="application/ld+json">\n${JSON.stringify(data, null, 2)}\n    </script>`
+      } catch {
+        return whole
+      }
+    },
+  )
 }
 
 function renderRoute(route) {
@@ -95,12 +139,20 @@ function renderRoute(route) {
     ],
   ]
 
-  return replacements.reduce((html, [from, to]) => {
-    if (!from.test(html)) {
+  let html = replacements.reduce((page, [from, to]) => {
+    if (!from.test(page)) {
       throw new Error(`Prerender: no match for ${from} while building ${route.path}`)
     }
-    return html.replace(from, to)
+    return page.replace(from, to)
   }, baseHtml)
+
+  if (route.lang) {
+    html = html.replace(/<html lang="[^"]*"/i, `<html lang="${route.lang}"`)
+    html = withoutFaqStructuredData(html)
+  }
+  const alternates = hreflangLinks(route)
+  if (alternates) html = html.replace('</head>', `    ${alternates}\n  </head>`)
+  return html
 }
 
 let written = 0

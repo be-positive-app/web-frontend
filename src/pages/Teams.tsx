@@ -15,19 +15,19 @@ import { FeatureCard } from '../components/FeatureCard'
 import { Step } from '../components/Step'
 import { TeamsPricingCards } from '../components/TeamsPricingCards'
 import { TeamsScreens } from '../components/TeamsScreens'
-import { routeMeta } from '../config/routeMeta'
 import { SITE_META } from '../config/siteMeta'
 import { TEAMS_APP_URL as APP_URL } from '../config/teamsPricing'
 import { useInView } from '../hooks/useInView'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { useT } from '../i18n'
+import { localizedPath, useLocalRouteMeta } from '../i18n/paths'
 
 const kicker = 'text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70'
 const h2 = 'mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl'
 
 export function Teams() {
-  usePageMeta(routeMeta('/teams'))
-  const { t } = useT()
+  usePageMeta(useLocalRouteMeta('/teams'))
+  const { t, lang } = useT()
 
   const { ref: featuresRef, inView: featuresInView } = useInView<HTMLDivElement>({ once: true })
   const { ref: howRef, inView: howInView } = useInView<HTMLDivElement>({ once: true })
@@ -156,7 +156,7 @@ export function Teams() {
               </p>
               <p className="mt-6 text-sm text-slate-500">
                 {t('teams.contact.personalPre')}{' '}
-                <Link className="font-semibold text-brandBlue hover:underline" to="/">
+                <Link className="font-semibold text-brandBlue hover:underline" to={localizedPath(lang, '/')}>
                   {t('teams.contact.personalLink')}
                 </Link>
                 .
