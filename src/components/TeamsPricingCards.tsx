@@ -5,6 +5,7 @@ import { useT } from '../i18n'
 import { localizedPath } from '../i18n/paths'
 import {
   TEAMS_APP_URL,
+  TEAMS_CARDS_TO_CONTACT,
   TEAMS_CURRENCIES,
   TEAMS_PLANS,
   TEAMS_SYMBOL,
@@ -83,6 +84,8 @@ export function TeamsPricingCards({ compact = false }: { compact?: boolean }) {
       <div className={`mt-8 grid gap-5 lg:grid-cols-3 ${compact ? '' : 'mx-auto max-w-5xl'}`}>
         {TEAMS_PLANS.map((p) => {
           const amount = p.prices ? p.prices[currency][cycle] : null
+          // Starter and Team go to the contact form too while card payment is paused.
+          const toForm = p.id === 'enterprise' || TEAMS_CARDS_TO_CONTACT
           return (
             <div
               key={p.id}
@@ -130,17 +133,17 @@ export function TeamsPricingCards({ compact = false }: { compact?: boolean }) {
                 </ul>
               )}
               <a
-                href={p.id === 'enterprise' ? (onTeamsPage ? '#contact' : `${localizedPath(lang, '/teams')}#contact`) : TEAMS_APP_URL}
-                onClick={p.id === 'enterprise' ? toContact : undefined}
-                target={p.id === 'enterprise' ? undefined : '_blank'}
-                rel={p.id === 'enterprise' ? undefined : 'noreferrer'}
+                href={toForm ? (onTeamsPage ? '#contact' : `${localizedPath(lang, '/teams')}#contact`) : TEAMS_APP_URL}
+                onClick={toForm ? toContact : undefined}
+                target={toForm ? undefined : '_blank'}
+                rel={toForm ? undefined : 'noreferrer'}
                 className={`mt-6 inline-flex items-center justify-center rounded-2xl px-5 text-sm font-semibold transition focus-ring ${compact ? 'py-2.5' : 'py-3'} ${
                   p.recommended
                     ? 'bg-brandBlue text-white shadow-soft hover:shadow-md hover:shadow-brandYellow/25'
                     : 'border border-slate-300 text-slate-800 hover:border-brandBlue hover:text-brandBlue'
                 }`}
               >
-                {p.id === 'enterprise' ? t('pricing.contactSales') : t('pricing.startTrial')}
+                {toForm ? t('pricing.contactSales') : t('pricing.startTrial')}
               </a>
             </div>
           )
