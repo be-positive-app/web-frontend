@@ -85,10 +85,10 @@ export function defaultTeamsCurrency(): TeamsCurrency {
 }
 
 /**
- * Online card payment is paused, so every pricing card's button opens the contact form instead of the app's
- * sign-up. Set to false to bring back "Start free trial" on Starter and Team.
+ * Set to true to make every pricing card's button open the contact form instead of the app's sign-up
+ * (used while online card payment was paused). False: Starter and Team say "Start free trial".
  */
-export const TEAMS_CARDS_TO_CONTACT = true
+export const TEAMS_CARDS_TO_CONTACT = false
 
 /** Where "Start free trial" sends a company — the Teams product itself, not this marketing site. */
 export const TEAMS_APP_URL = 'https://web.bepositive.cc'
