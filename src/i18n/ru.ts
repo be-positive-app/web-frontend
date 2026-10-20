@@ -19,6 +19,7 @@ export const ru: Dict = {
   'footer.faq': 'Вопросы',
   'footer.contact': 'Контакты',
   'footer.rights': '© 2026 Be Positive. Все права защищены.',
+  'footer.voen': 'ИНН (VÖEN): {id}',
 
   'pricing.monthly': 'Помесячно',
   'pricing.yearly': 'За год',

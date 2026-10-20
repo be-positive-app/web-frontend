@@ -18,6 +18,7 @@ export const en = {
   'footer.faq': 'FAQ',
   'footer.contact': 'Contact',
   'footer.rights': '© 2026 Be Positive. All rights reserved.',
+  'footer.voen': 'Tax ID (VÖEN): {id}',
 
   'pricing.monthly': 'Monthly',
   'pricing.yearly': 'Yearly',

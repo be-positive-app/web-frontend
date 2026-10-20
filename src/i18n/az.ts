@@ -19,6 +19,7 @@ export const az: Dict = {
   'footer.faq': 'Suallar',
   'footer.contact': 'Əlaqə',
   'footer.rights': '© 2026 Be Positive. Bütün hüquqlar qorunur.',
+  'footer.voen': 'VÖEN: {id}',
 
   'pricing.monthly': 'Aylıq',
   'pricing.yearly': 'İllik',

@@ -18,6 +18,8 @@ const homeRoute = routes.routes.find((route) => route.path === '/')
 if (!homeRoute) throw new Error('src/config/routes.json has no "/" route')
 
 export const SITE_META = {
+  /** Company tax ID (VÖEN), shown in the footer. */
+  taxId: '1100756352',
   /** Production origin, no trailing slash. Used for canonical/OG URLs and sitemap.xml. */
   siteUrl: 'https://bepositive.cc',
   title: homeRoute.title,
