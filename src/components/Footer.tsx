@@ -88,6 +88,9 @@ export function Footer() {
           <p className="text-xs text-white/70">
             {t('footer.rights')}
           </p>
+          <p className="mt-1 text-xs text-white/70">
+            {t('footer.voen', { id: SITE_META.taxId })}
+          </p>
         </div>
       </div>
     </footer>
