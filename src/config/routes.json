@@ -10,8 +10,8 @@
     },
     {
       "path": "/teams",
-      "title": "Be Positive Teams — Task & Team Management for Companies",
-      "description": "Company task management with assignments, moderator oversight, and weekly reports. Start a 30-day free trial for your team.",
+      "title": "Be Positive Teams — The team planner built for the owner",
+      "description": "Task and team management for companies of 5 to 500: director dashboard, sign-off and escalation, retention signal, work calendar and leave, starter packs by industry, API. Flat price per company. 30-day free trial, no card.",
       "changefreq": "weekly",
       "priority": "0.9"
     },
@@ -37,8 +37,8 @@
       "path": "/az/teams",
       "lang": "az",
       "alternateOf": "/teams",
-      "title": "Be Positive Teams — Şirkətlər üçün tapşırıq və komanda idarəetməsi",
-      "description": "Tapşırıq təyinatı, moderator nəzarəti və həftəlik hesabatlarla şirkət tapşırıqlarının idarəsi. Komandanız üçün 30 günlük pulsuz sınağa başlayın.",
+      "title": "Be Positive Teams — Rəhbər üçün qurulmuş komanda planlayıcısı",
+      "description": "5-500 nəfərlik şirkətlər üçün tapşırıq və komanda idarəetməsi: direktor paneli, təsdiq və eskalasiya, saxlama siqnalı, iş təqvimi və məzuniyyət, sahə üzrə başlanğıc paketləri, API. Şirkət başına sabit qiymət. 30 gün pulsuz, kart tələb olunmur.",
       "changefreq": "weekly",
       "priority": "0.8"
     },
@@ -46,8 +46,8 @@
       "path": "/ru/teams",
       "lang": "ru",
       "alternateOf": "/teams",
-      "title": "Be Positive Teams — Управление задачами и командой для компаний",
-      "description": "Управление задачами компании: назначения, контроль модераторов и еженедельные отчёты. Начните 30-дневный бесплатный период для команды.",
+      "title": "Be Positive Teams — Планировщик команды, созданный для руководителя",
+      "description": "Управление задачами и командой для компаний от 5 до 500 человек: панель директора, согласование и эскалация, сигнал удержания, рабочий календарь и отпуска, стартовые наборы по отраслям, API. Фиксированная цена за компанию. 30 дней бесплатно, без карты.",
       "changefreq": "weekly",
       "priority": "0.8"
     },
