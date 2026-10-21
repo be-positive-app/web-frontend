@@ -19,6 +19,7 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { ContactSalesForm } from '../components/ContactSalesForm'
+import { RequestDemoForm } from '../components/RequestDemoForm'
 import { FeatureCard } from '../components/FeatureCard'
 import { Step } from '../components/Step'
 import { TeamsPricingCards } from '../components/TeamsPricingCards'
@@ -67,6 +68,12 @@ export function Teams() {
               >
                 {t('teams.cta')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </a>
+              <a
+                href="#demo"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 shadow-sm transition hover:border-brandBlue hover:text-brandBlue focus-ring"
+              >
+                {t('demo.cta')}
               </a>
               <div className="flex items-center justify-center gap-2 text-center text-sm text-slate-600">
                 <Check className="h-4 w-4 text-brandBlue" aria-hidden="true" />
@@ -203,6 +210,24 @@ export function Teams() {
             <Step index={1} title={t('teams.step1.title')} description={t('teams.step1.text')} icon={<Building2 className="h-5 w-5" aria-hidden="true" />} revealed={howInView} delayMs={0} />
             <Step index={2} title={t('teams.step2.title')} description={t('teams.step2.text')} icon={<ClipboardCheck className="h-5 w-5" aria-hidden="true" />} revealed={howInView} delayMs={90} />
             <Step index={3} title={t('teams.step3.title')} description={t('teams.step3.text')} icon={<BarChart3 className="h-5 w-5" aria-hidden="true" />} revealed={howInView} delayMs={180} />
+          </div>
+        </div>
+      </section>
+
+      <section id="demo" className="scroll-mt-20 border-t border-slate-100 bg-slate-50/60">
+        <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
+          <div className="grid gap-8 rounded-[30px] border border-slate-200 bg-white p-8 shadow-card sm:p-10 lg:grid-cols-[1fr_1.3fr] lg:items-start">
+            <div>
+              <p className={kicker}>{t('demo.kicker')}</p>
+              <h2 className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">{t('demo.title')}</h2>
+              <p className="mt-3 text-base leading-relaxed text-slate-600">{t('demo.text')}</p>
+              <ol className="mt-5 grid gap-2 text-sm text-slate-700">
+                {(['demo.s1', 'demo.s2', 'demo.s3'] as const).map((k, i) => (
+                  <li key={k} className="flex items-start gap-3"><span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-brandBlue/10 text-xs font-bold text-brandBlue">{i + 1}</span><span>{t(k)}</span></li>
+                ))}
+              </ol>
+            </div>
+            <RequestDemoForm />
           </div>
         </div>
       </section>

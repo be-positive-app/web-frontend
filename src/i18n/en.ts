@@ -288,6 +288,20 @@ export const en = {
   'teams.faq5.a': 'Ten minutes with a starter pack: pick your industry, invite people by e-mail or a company code, give the first task. If you prefer, our team does it for you in a two-hour session.',
   'teams.final.title': 'Try it with your own team, free for 30 days',
   'teams.final.text': 'No card, no contract. If it does not save you an hour a week, you lose nothing.',
+  'demo.cta': 'Request a demo',
+  'demo.kicker': 'Request a demo',
+  'demo.title': 'Want us to open it for you?',
+  'demo.text': 'Tell us about your company. We review every request by hand, open your workspace on a 30-day trial and send you the sign-in steps, usually within one working day.',
+  'demo.s1': 'You send the form.',
+  'demo.s2': 'We approve it and open the company with a starter pack for your industry.',
+  'demo.s3': 'You get an e-mail, sign in and invite your team.',
+  'demo.industry': 'Kind of business',
+  'demo.pickIndustry': 'Choose…',
+  'demo.note': 'Anything we should know?',
+  'demo.submit': 'Request a demo',
+  'demo.privacy': 'No card, no commitment. We only use this to open your workspace and reply to you.',
+  'demo.successTitle': 'Thanks, we got your request.',
+  'demo.successText': 'We will open your workspace and write to {email}, usually within one working day.',
 } as const
 
 export type Key = keyof typeof en
