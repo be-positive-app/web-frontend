@@ -4,7 +4,7 @@ import { LangContext, translate, type Ctx, type Lang } from './index'
 import { basePath, langFromPath, localizedPath } from './paths'
 
 function isLang(v: unknown): v is Lang {
-  return v === 'en' || v === 'az' || v === 'ru'
+  return v === 'en' || v === 'az' || v === 'ru' || v === 'tr'
 }
 
 /** ?lang= wins, then the visitor's saved choice, then the browser language, else English. */
@@ -23,7 +23,7 @@ function detect(): Lang {
 }
 
 /**
- * The URL decides first: /az/… is Azerbaijani and /ru/… Russian for everyone,
+ * The URL decides first: /az/… is Azerbaijani, /ru/… Russian and /tr/… Turkish for everyone,
  * crawlers included. Elsewhere the visitor's choice (or browser language)
  * applies. Switching language on a page that has language editions moves to
  * that edition's URL, so the address bar and what is shown always agree.

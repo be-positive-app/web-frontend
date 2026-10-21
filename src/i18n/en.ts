@@ -59,7 +59,7 @@ export const en = {
 
   'teams.kicker': 'The team planner built for the owner',
   'teams.h1b': 'Run the company from one screen.',
-  'teams.lead': 'Be Positive Teams gives every task an owner and a deadline, shows the owner what is late, who is stuck and who may leave, and tells the right person before you have to ask. For companies of 5 to 500 people, in English, Azerbaijani and Russian.',
+  'teams.lead': 'Be Positive Teams gives every task an owner and a deadline, shows the owner what is late, who is stuck and who may leave, and tells the right person before you have to ask. For companies of 5 to 500 people, in English, Azerbaijani, Russian and Turkish.',
   'teams.cta': 'Start 30-day free trial',
   'teams.noCard': 'No credit card required to start',
 
@@ -216,7 +216,7 @@ export const en = {
   'found.failed': 'That did not go through. Please try again.',
   'found.close': 'Close',
   'teams.h1a': 'Stop chasing tasks.',
-  'teams.langs': 'Web, iPhone and Android · EN / AZ / RU',
+  'teams.langs': 'Web, iPhone and Android · EN / AZ / RU / TR',
   'teams.why.kicker': 'Why owners switch',
   'teams.why.title': 'Three problems every growing company has',
   'teams.why.text': 'The numbers below come from Gallup, Principal and Upwork research in 2025-2026. They describe companies everywhere, and they describe yours.',

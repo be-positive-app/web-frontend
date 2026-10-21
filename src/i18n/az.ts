@@ -61,7 +61,7 @@ export const az: Dict = {
   'teams.kicker': 'Rəhbər üçün qurulmuş komanda planlayıcısı',
   'teams.h1a': 'Tapşırıqları təqib etməyi dayandırın.',
   'teams.h1b': 'Şirkəti bir ekrandan idarə edin.',
-  'teams.lead': 'Be Positive Teams hər tapşırığa məsul şəxs və son tarix verir, rəhbərə nəyin gecikdiyini, kimin ilişdiyini və kimin gedə biləcəyini göstərir, siz soruşmadan lazımi adama xəbər verir. 5-500 nəfərlik şirkətlər üçün, ingilis, Azərbaycan və rus dillərində.',
+  'teams.lead': 'Be Positive Teams hər tapşırığa məsul şəxs və son tarix verir, rəhbərə nəyin gecikdiyini, kimin ilişdiyini və kimin gedə biləcəyini göstərir, siz soruşmadan lazımi adama xəbər verir. 5-500 nəfərlik şirkətlər üçün, ingilis, Azərbaycan, rus və türk dillərində.',
   'teams.cta': '30 günlük pulsuz sınağa başla',
   'teams.noCard': 'Başlamaq üçün kart tələb olunmur',
 
@@ -219,7 +219,7 @@ export const az: Dict = {
   'found.thanks': 'Təşəkkürlər, bu bizə düşündüyünüzdən çox kömək edir.',
   'found.failed': 'Göndərilmədi. Yenidən cəhd edin.',
   'found.close': 'Bağla',
-  'teams.langs': 'Veb, iPhone və Android · EN / AZ / RU',
+  'teams.langs': 'Veb, iPhone və Android · EN / AZ / RU / TR',
   'teams.why.kicker': 'Rəhbərlər niyə keçir',
   'teams.why.title': 'Böyüyən hər şirkətin üç problemi',
   'teams.why.text': 'Aşağıdakı rəqəmlər Gallup, Principal və Upwork-un 2025-2026 araşdırmalarındandır. Hər yerdəki şirkətləri təsvir edir, sizinkini də.',

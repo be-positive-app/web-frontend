@@ -52,6 +52,24 @@
       "priority": "0.8"
     },
     {
+      "path": "/tr",
+      "lang": "tr",
+      "alternateOf": "/",
+      "title": "Be Positive — Günlük planlayıcı",
+      "description": "Görevleri unutmayı bırakın ve gününüzü tek yerde planlayın. Be Positive görevlerinizi, takviminizi ve hatırlatmalarınızı bir arada tutar ve neyi bitirdiğinizi izler; iPhone ve Android'de.",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/tr/teams",
+      "lang": "tr",
+      "alternateOf": "/teams",
+      "title": "Be Positive Teams — Yönetici için tasarlanmış ekip planlayıcısı",
+      "description": "5-500 kişilik şirketler için görev ve ekip yönetimi: direktör paneli, onay ve yükseltme, elde tutma sinyali, çalışma takvimi ve izinler, sektöre göre başlangıç paketleri, API. Şirket başı sabit fiyat. 30 gün ücretsiz, kart gerekmez.",
+      "changefreq": "weekly",
+      "priority": "0.8"
+    },
+    {
       "path": "/support",
       "title": "Support",
       "description": "Get help with Be Positive Life Planner. Contact support, see response times, and find what to include in your message.",
