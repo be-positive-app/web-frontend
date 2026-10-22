@@ -1,5 +1,53 @@
 # Be Positive Teams — B2B Reels paketi (AZ)
 
+## ƏSAS VİDEO — Təqdimat + reklam (45–60 s)
+
+Bu bir video həm profilin "tanışlıq" videosu, həm Instagram/Facebook/YouTube reklamıdır. Qalan 10 qısa Reel bundan kəsilir və ya ayrıca çəkilir.
+İki variant montaj et: **60 s tam** (profil, YouTube, sayt) və **30 s kəsik** (reklam; 0–3, 18–38, 50–60 saniyələr).
+
+**Mesaj bir cümlədə:** işçi tapşırığı telefonda alır və edir, rəhbər şirkəti veb paneldən idarə edir, gecikən iş özü rəhbərə gəlir.
+
+**Ton:** sakit, inamlı, satış səsi yox. Danışan — şirkət sahibi (sən). Kamera ilə danışırsan, kadrlar arasında məhsul görünür.
+
+### Ssenari
+
+| Vaxt | Kadr | Söz (səsli) | Ekran yazısı |
+|---|---|---|---|
+| 0–3 s | Sən kameraya, arxada real iş yeri (restoran/ofis). Telefona bildiriş düşür, kameraya göstərirsən. | "Şirkətində 'nə oldu o işə?' sualı hələ də səndən keçirsə, bu video sənə görədir." | `"Nə oldu o işə?"` / `hələ də sənə gəlir?` |
+| 3–10 s | WhatsApp qrupu, Excel, dəftər — sürətli kəsiklər. | "Tapşırıqlar WhatsApp-da, cədvəldə, yaddaşda. Kim nəyi nə vaxt etməli — heç kim dəqiq bilmir. Sonda hamısı rəhbərə qayıdır." | `WhatsApp · Excel · yaddaş` / `sonda hamısı sənə` |
+| 10–18 s | İşçi (aşpaz/satıcı/usta) telefonu çıxarır, tapşırıq kartı açır. | "Be Positive-də işçi sayta girmir, kompüterə oturmur. Tapşırıq telefonuna gəlir: nə etməli, nə vaxta, kimə hesabat." | `İşçi: telefon` / `nə · nə vaxt · kimə` |
+| 18–25 s | İşçi işi edir, foto çəkir, "Təhvil ver" basır. | "Etdi, foto atdı, təhvil verdi. İlişdisə — bir düymə: 'İşim ilişib'. Menecer həmin dəqiqə bilir." | `Etdi → foto → təhvil` / `İlişdi? bir düymə` |
+| 25–33 s | Kəsik: noutbuk, direktor paneli. Kursor sütunlarla gəzir. | "Rəhbər isə veb paneldə oturur. Bu gün nə var, hansı şöbə geridədir, kim yüklənib, kim məzuniyyətdə, nə sənin qərarını gözləyir — bir ekranda." | `Rəhbər: veb panel` / `bütün şirkət bir ekranda` |
+| 33–40 s | Paneldə eskalasiya ayarı: 0 · 1 · 2 · 3. Telefonda ardıcıl 4 bildiriş. | "Gecikən iş özü yuxarı qalxır: birinci gün işçiyə, sonra menecerə, sonra sənə. Sən soruşmursan — sənə deyilir." | `Gün 0 işçi · Gün 2 menecer` / `Gün 3 rəhbər` |
+| 40–47 s | Menecer paneldə "Təsdiq" basır. İşçinin profilində nişan görünür. | "İş yalnız menecer təsdiq edəndə bitmiş sayılır. Yaxşı işləyən unudulmur: ayın işçisi, nişanlar, təşəkkürlər — sistem özü xatırladır." | `Təsdiqsiz bitməz` / `Ayın işçisi · nişan` |
+| 47–53 s | Başlanğıc paketi seçimi: Restoran, Mağaza, Salon, Agentlik, Klinika. | "Restoran, mağaza, salon, agentlik, klinika — hazır paket seç, 10 dəqiqəyə qurulur. Qiymət şirkət üçündür, işçi başına yox." | `Hazır paket · 10 dəqiqə` / `Qiymət şirkət üçün` |
+| 53–60 s | Sən kameraya. Son kadr: logo, bepositive.cc. | "Be Positive Teams. İşçiyə telefon, rəhbərə panel. 30 gün pulsuz, kart lazım deyil. Demo üçün saytda forma var." | `30 gün pulsuz · kart yox` / `bepositive.cc` |
+
+### 30 saniyəlik reklam kəsiyi
+
+0–3 s (hook) → 10–18 s (işçi telefon) → 25–33 s (rəhbər panel) → 33–38 s (eskalasiya, qısaldılmış: "Gecikən iş özü sənə gəlir") → 53–60 s (CTA).
+Reklam mətni (caption): "İşçi tapşırığı telefonda edir. Rəhbər şirkəti paneldən görür. Gecikən iş özü sənə gəlir. 30 gün pulsuz, kart lazım deyil."
+Hədəf: şirkət sahibi / direktor, 28–55, Bakı + regionlar; sonra TR və RU dilində eyni montaj.
+
+### Çəkiliş siyahısı (bir gündə çəkilir)
+
+1. Sən kameraya: 3 cümlə (hook, 25–33 s panel cümləsi, CTA). Hər birini 3 dəfə çək.
+2. İşçi ilə telefon: bildiriş gəlir → kart açır → iş edir → foto → "Təhvil ver" → "İşim ilişib" düyməsi (ayrıca take).
+3. Noutbuk üst çəkiliş + ekran yazısı (screen record 1080p): direktor paneli gəzinti, eskalasiya ayarı, təsdiq düyməsi, People səhifəsində nişan, başlanğıc paketi seçimi.
+4. B-roll: WhatsApp qrupu (adlar gizli), Excel cədvəli, dəftər; iş yerinin ümumi planı.
+5. Səs: yaxa mikrofonu mütləqdir; fon musiqisi aşağı, səsdən 20 dB alçaq.
+
+### Montaj qeydləri
+
+- Ekran yazıları: max 2 sətir, 3–5 söz, qalın, qara kontur; açar sözlər (telefon, panel, 30 gün) başqa rəngdə.
+- Hər 3–4 saniyədə kadr dəyişsin, amma sənin danışdığın yerlərdə üz 2 saniyədən az qalmasın.
+- Logo və bepositive.cc son 3 saniyə tam ekranda, altında "30 gün pulsuz · kart lazım deyil".
+- Eyni montajı ingilis və türk altyazı ilə də ixrac et (sayt /teams, /tr/teams səhifələrinə qoyulacaq).
+
+---
+
+## QISA REELS (sonra çəkilir)
+
 10 Reel ssenarisi. Hər biri 15–30 saniyə, 9:16, səssiz baxılacaq kimi hazırlanıb (ekran yazısı mütləqdir).
 Əsas mesaj hər videoda eyni qalır: **işçi tapşırığı telefonda oxuyur və edir, rəhbər şirkəti veb paneldən idarə edir.**
 
