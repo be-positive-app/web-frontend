@@ -6,8 +6,20 @@ import calendarPng from '../assets/teams-calendar.png'
 import calendarWebp from '../assets/teams-calendar.webp'
 import reportsPng from '../assets/teams-reports.png'
 import reportsWebp from '../assets/teams-reports.webp'
+import directorPng from '../assets/teams-director.png'
+import directorWebp from '../assets/teams-director.webp'
+import peoplePng from '../assets/teams-people.png'
+import peopleWebp from '../assets/teams-people.webp'
+import recognitionPng from '../assets/teams-recognition.png'
+import recognitionWebp from '../assets/teams-recognition.webp'
+import tasksPng from '../assets/teams-tasks.png'
+import tasksWebp from '../assets/teams-tasks.webp'
 
 const SCREENS: { id: string; label: Key; alt: Key; png: string; webp: string }[] = [
+  { id: 'director', label: 'teams.screen.director', alt: 'teams.screen.director.alt', png: directorPng, webp: directorWebp },
+  { id: 'people', label: 'teams.screen.people', alt: 'teams.screen.people.alt', png: peoplePng, webp: peopleWebp },
+  { id: 'recognition', label: 'teams.screen.recognition', alt: 'teams.screen.recognition.alt', png: recognitionPng, webp: recognitionWebp },
+  { id: 'tasks', label: 'teams.screen.tasks', alt: 'teams.screen.tasks.alt', png: tasksPng, webp: tasksWebp },
   { id: 'dashboard', label: 'teams.screen.dashboard', alt: 'teams.screen.dashboard.alt', png: dashboardPng, webp: dashboardWebp },
   { id: 'calendar', label: 'teams.screen.calendar', alt: 'teams.screen.calendar.alt', png: calendarPng, webp: calendarWebp },
   { id: 'reports', label: 'teams.screen.reports', alt: 'teams.screen.reports.alt', png: reportsPng, webp: reportsWebp },
@@ -22,7 +34,7 @@ export function TeamsScreens() {
   return (
     <div>
       <div className="flex justify-center" role="tablist" aria-label={t('teams.screens.kicker')}>
-        <div className="inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 p-1">
+        <div className="inline-flex flex-wrap items-center justify-center gap-1 rounded-3xl border border-slate-200 bg-slate-50 p-1">
           {SCREENS.map((s, i) => (
             <button
               key={s.id}

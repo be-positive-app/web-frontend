@@ -213,8 +213,74 @@ const FAQ_RU: readonly FaqEntry[] = [
 ]
 
 /** The visible FAQ in each site language. The FAQPage structured data stays on the English list. */
-export const FAQ_BY_LANG: Record<'en' | 'az' | 'ru', readonly FaqEntry[]> = {
+const FAQ_TR: readonly FaqEntry[] = [
+  {
+    question: 'Görevleri unutmayı nasıl bırakırım?',
+    answer:
+      'Görevi aklınıza geldiği anda yazın, tarih ve saat verin, hafızanız yerine uygulama hatırlatsın. Be Positive\'de her görev bir son tarih, saat, tekrar kuralı ve hatırlatma taşıyabilir; böylece hiçbir şey sonradan hatırlamanıza bağlı kalmaz.',
+  },
+  {
+    question: 'Günümü nasıl planlarım?',
+    answer:
+      'Zaten sabit olanlardan başlayın, kalanını etrafına yerleştirin. Be Positive günü bir takvimde gösterir, boş saatleri görürsünüz; her görevi düşük, orta veya yüksek öncelikle işaretleyebilirsiniz ki önemliler küçüklerin arasında kaybolmasın.',
+  },
+  {
+    question: 'Uygulama görevden önce hatırlatabilir mi?',
+    answer:
+      'Evet. Her görevin oluştururken açabileceğiniz bir hatırlatması vardır; günlük, haftalık veya aylık tekrar eden görevler her seferinde ayarlamanıza gerek kalmadan yinelenir.',
+  },
+  {
+    question: 'Gerçekten neyi bitirdiğimi nasıl takip ederim?',
+    answer:
+      'Genel bakış ekranı tamamladığınız görevleri, tamamlanma oranınızı, aktif günlerinizi ve mevcut serinizi sayar ve haftanızı grafikle gösterir; böylece planın işleyip işlemediğini tahmin etmek yerine görürsünüz.',
+  },
+  {
+    question: 'Be Positive ne kadar?',
+    answer: `Be Positive bir aboneliktir: aylık ${SITE_META.pricing.monthly} veya yıllık ${SITE_META.pricing.yearly}. Uygulama içinden abone olabilirsiniz.`,
+  },
+  {
+    question: 'Be Positive hangi cihazlarda çalışır?',
+    answer:
+      'Be Positive iPhone ve Android için mevcuttur. App Store veya Google Play\'den indirebilirsiniz; bağlantılar bu sayfanın üstünde.',
+  },
+  {
+    question: 'Uygulamayla ne yapabilirim?',
+    answer:
+      'Görevleri planlayıp önemli olana öncelik verin, gününüzü takvimde düzenleyin, hiçbir şey kaçmasın diye hatırlatma alın ve zaman içinde ilerlemenizi izleyin.',
+  },
+  {
+    question: 'Be Positive çevrimdışı çalışır mı?',
+    answer: 'Hayır. Be Positive çalışmak için internet bağlantısı gerektirir.',
+  },
+  {
+    question: 'Verilerim cihazlar arasında eşitlenir mi?',
+    answer:
+      'Hayır. Be Positive verilerinizi cihazlar arasında eşitlemez; planlarınız oluşturduğunuz cihazda kalır.',
+  },
+  {
+    question: 'Verilerimi satıyor musunuz?',
+    answer:
+      'Hayır. Verilerinizi satmıyoruz. Uygulamanın kullandığı hizmetler Gizlilik Politikamızda açıklanmıştır.',
+  },
+  {
+    question: 'Hesabımı ve verilerimi nasıl silerim?',
+    answer:
+      'Uygulamada profilinizi açın ve Hesabı sil\'i seçin. Talebi bu sitedeki Hesabı sil sayfasından da başlatabilirsiniz: e-postanızı girin ve gönderdiğimiz, 24 saat geçerli bağlantıyla onaylayın. Veriler 30 günlük bekleme süresinden sonra kalıcı olarak silinir; bu sürede istediğiniz zaman vazgeçebilirsiniz.',
+  },
+  {
+    question: 'Şifremi unuttum. Ne yapmalıyım?',
+    answer:
+      'Uygulamada Şifremi unuttum\'u kullanın. Sıfırlama bağlantısı bu sitede yeni şifre belirlediğiniz bir sayfa açar.',
+  },
+  {
+    question: 'Destekle nasıl iletişime geçerim?',
+    answer: `${SITE_META.supportEmail} adresine yazın. Genellikle birkaç iş günü içinde yanıtlarız. Cihaz türünüzü, uygulama sürümünü ve bir ekran görüntüsünü eklemeniz daha hızlı yanıt vermemize yardımcı olur.`,
+  },
+]
+
+export const FAQ_BY_LANG: Record<'en' | 'az' | 'ru' | 'tr', readonly FaqEntry[]> = {
   en: FAQ,
   az: FAQ_AZ,
   ru: FAQ_RU,
+  tr: FAQ_TR,
 }

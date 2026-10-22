@@ -27,10 +27,13 @@ export const TEAMS_SYMBOL: Record<TeamsCurrency, string> = { AZN: '₼', USD: '$
 const CORE_FEATURES: Key[] = [
   'feature.tasks',
   'feature.assign',
-  'feature.board',
+  'feature.flows',
+  'feature.director',
+  'feature.packs',
+  'feature.api',
   'feature.meet',
-  'feature.support',
   'feature.mobile',
+  'feature.support',
 ]
 
 export const TEAMS_PLANS: TeamsPlan[] = [

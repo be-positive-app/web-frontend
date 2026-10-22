@@ -40,11 +40,13 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/teams" element={<Teams />} />
-            {/* Azerbaijani and Russian editions: same pages, own URLs so search engines index each language. */}
+            {/* Azerbaijani, Russian and Turkish editions: same pages, own URLs so search engines index each language. */}
             <Route path="/az" element={<Landing />} />
             <Route path="/ru" element={<Landing />} />
             <Route path="/az/teams" element={<Teams />} />
             <Route path="/ru/teams" element={<Teams />} />
+            <Route path="/tr" element={<Landing />} />
+            <Route path="/tr/teams" element={<Teams />} />
             {POLICY_PAGES.map(({ slug, path }) => (
               <Route
                 key={slug}

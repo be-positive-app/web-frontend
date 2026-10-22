@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from 'vite'
 import react from '@vitejs/plugin-react'
 import { FAQ } from './src/config/faq'
+import { TEAMS_PLANS } from './src/config/teamsPricing'
 import { SITE_META } from './src/config/siteMeta'
 
 function escapeAttr(value: string): string {
@@ -124,6 +125,32 @@ export default defineConfig(({ mode }) => {
                     },
                   },
                 ],
+              },
+              {
+                '@type': 'SoftwareApplication',
+                '@id': `${siteUrl}/#teams`,
+                name: 'Be Positive Teams',
+                description:
+                  'Task and team management for companies of 5 to 500: director dashboard, sign-off and escalation, retention signal, work calendar and leave, starter packs by industry, API. Flat price per company.',
+                url: `${siteUrl}/teams`,
+                applicationCategory: 'BusinessApplication',
+                operatingSystem: 'Web, iOS, Android',
+                inLanguage: ['en', 'az', 'ru', 'tr'],
+                publisher: { '@id': `${siteUrl}/#organization` },
+                offers: TEAMS_PLANS.filter((p) => p.prices).map((p) => ({
+                  '@type': 'Offer',
+                  name: `${p.id} plan, yearly`,
+                  price: p.prices!.USD.yearly,
+                  priceCurrency: 'USD',
+                  priceSpecification: {
+                    '@type': 'UnitPriceSpecification',
+                    price: p.prices!.USD.yearly,
+                    priceCurrency: 'USD',
+                    billingDuration: 1,
+                    billingIncrement: 1,
+                    unitCode: 'ANN',
+                  },
+                })),
               },
               {
                 '@type': 'FAQPage',

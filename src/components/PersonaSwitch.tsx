@@ -11,7 +11,7 @@ import { localizedPath } from '../i18n/paths'
 export function PersonaSwitch({ className = '', onNavigate }: { className?: string; onNavigate?: () => void }) {
   const { pathname } = useLocation()
   const { t, lang } = useT()
-  const isTeams = /^\/(?:(?:az|ru)\/)?teams/.test(pathname)
+  const isTeams = /^\/(?:(?:az|ru|tr)\/)?teams/.test(pathname)
   const base = 'whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-semibold transition focus-ring motion-reduce:transition-none'
 
   return (

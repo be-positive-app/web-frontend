@@ -2,15 +2,17 @@ import { createContext, useContext } from 'react'
 import { en, type Dict, type Key } from './en'
 import { az } from './az'
 import { ru } from './ru'
+import { tr } from './tr'
 
-export type Lang = 'en' | 'az' | 'ru'
+export type Lang = 'en' | 'az' | 'ru' | 'tr'
 export const LANGS: { code: Lang; label: string; native: string }[] = [
   { code: 'en', label: 'EN', native: 'English' },
   { code: 'az', label: 'AZ', native: 'Azərbaycanca' },
   { code: 'ru', label: 'RU', native: 'Русский' },
+  { code: 'tr', label: 'TR', native: 'Türkçe' },
 ]
 
-export const DICTS: Record<Lang, Dict> = { en, az, ru }
+export const DICTS: Record<Lang, Dict> = { en, az, ru, tr }
 export function translate(lang: Lang, key: Key, vars?: Record<string, string | number>): string {
   const raw = DICTS[lang][key] ?? en[key]
   return vars ? raw.replace(/\{(\w+)\}/g, (_, k: string) => String(vars[k] ?? `{${k}}`)) : raw

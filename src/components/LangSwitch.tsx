@@ -1,6 +1,6 @@
 import { LANGS, useT } from '../i18n'
 
-/** EN / AZ / RU pills; the choice is remembered in the browser. */
+/** EN / AZ / RU / TR pills; the choice is remembered in the browser. */
 export function LangSwitch({ className = '' }: { className?: string }) {
   const { lang, setLang, t } = useT()
   return (

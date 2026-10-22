@@ -4,7 +4,7 @@ import type { Lang } from './index'
 
 /**
  * Pages published in every language under their own URL: English at the bare
- * path, Azerbaijani and Russian under /az and /ru. Each edition is prerendered
+ * path, Azerbaijani, Russian and Turkish under /az, /ru and /tr. Each edition is prerendered
  * with its own title, description, <html lang> and hreflang links, so search
  * engines index all three instead of only the English one.
  */
@@ -12,13 +12,13 @@ export const LOCALIZED_PATHS = ['/', '/teams'] as const
 
 /** The language a URL is published in, or null for a page with no language prefix. */
 export function langFromPath(pathname: string): Lang | null {
-  const m = /^\/(az|ru)(?=\/|$)/.exec(pathname)
+  const m = /^\/(az|ru|tr)(?=\/|$)/.exec(pathname)
   return m ? (m[1] as Lang) : null
 }
 
 /** "/az/teams" → "/teams", "/ru" → "/". */
 export function basePath(pathname: string): string {
-  const rest = pathname.replace(/^\/(az|ru)(?=\/|$)/, '')
+  const rest = pathname.replace(/^\/(az|ru|tr)(?=\/|$)/, '')
   return rest === '' ? '/' : rest
 }
 
