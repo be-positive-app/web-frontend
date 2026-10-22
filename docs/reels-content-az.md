@@ -1,86 +1,68 @@
 # Be Positive Teams — B2B Reels paketi (AZ)
 
-## ƏSAS VİDEO — "Hamı pozitivdir" · Reklam agentliyi (tək adam çəkir, 60 s)
+## ƏSAS VİDEO — Kameraya müraciət (sən tək, 60 s)
 
-**Başlıq:** *Agentliyə nəzarət, komandaya rahatlıq. Hamı pozitivdir.*
+**Başlıq:** *Şirkətə nəzarət, işçiyə rahatlıq. Hamı pozitivdir.*
 
-**Niyə agentlik:** auditoriya özünü tanıyır (agentliklər Instagram-dadır, Reels-ə baxır, rəqibləri də baxır), tapşırıq həcmi böyükdür (hər müştəriyə ayda 20–30 post), gecikmə dərhal müştəriyə görünür. Ağrı: "post hazırdır?", "düzəliş gəldi", "dizayner çəkilişdədir, kompüter başında deyil".
+**Format:** sən kameranın qarşısında dayanıb şirkət sahiblərinə müraciət edirsən. Rol yoxdur, aksesuar yoxdur. Sadəcə sən, yaxşı işıq, təmiz səs. Əlində telefon, yanında noutbuk: iki yerdə onları kameraya göstərirsən. Ekranın özünü montajda ayrıca screen record ilə üstünə qoyursan.
 
-**Konsept:** sən bütün rolları özün oynayırsan, hər kəsikdə bir aksesuar dəyişir: qrafik planşet/stilus = **dizayner**, telefon + selfie-çubuq = **SMM**, qulaqlıq (zəngdə) = **akkaunt-menecer**, pencək = **agentlik sahibi**. Kamera sabit, bir künc, bir saat. "Əvvəl" boz, "İndi" işıqlı, ortada KLİK.
+**Ton:** sahibkar sahibkara danışır. Satış səsi yox, "siz də bunu yaşayırsınız" səsi. Tempi yüksək tut, pauzaları montajda kəs.
 
-### Ssenari
+**Hədəf:** reklam agentlikləri (ilk hədəf). Mətndə agentlik nümunələri var; başqa sənaye üçün yalnız 3–8 s hissəsini dəyişmək bəsdir.
 
-| Vaxt | Sən (aksesuar) | Söz | Ekran yazısı |
-|---|---|---|---|
-| 0–3 s | Stilus. Çəkilişdən qayıtmış kimi, çanta çiyində, noutbuku açırsan, əsəbi. | "Mən dizaynerəm. Bütün günü çəkilişdəydim. İndi gəlib kompüterdə baxım, mənə nə tapşırılıb?" | `Çəkilişdən gəl` / `kompüterə bax?` |
-| 3–6 s | Selfie-çubuq (SMM). Eyni yer. | "Mən saytda 6 müştərinin storisini çəkirəm. Tapşırıq kompüterdədir, mən küçədəyəm." | `Tapşırıq kompüterdə` / `mən küçədə` |
-| 6–9 s | Qulaqlıq (akkaunt). Telefonu çənəyə sıxıb, kompüterə parol yazırsan, səhv. | "Müştəri soruşur 'post hazırdır?' Mən soruşuram 'kimdədir?' Parol da... yenə." | `"Post hazırdır?"` / `"Kimdədir?"` |
-| 9–13 s | Pencək (sahib). Telefon qulaqda, WhatsApp-da 6 müştəri qrupu açıq, yorğun. | "Mən də 6 qrupda 'düzəliş gəldi, kim baxır?' yazıram. Müştəri narazı, komanda narazı. Mən də." | `6 qrup · 60 mesaj` / `Hamı narazı` |
-| 13–15 s | KLİK. Çırtma, kadr çevrilir, işıq dəyişir. | (səs effekti) | `Be Positive` |
-| 15–21 s | Stilus. Ayaq üstə, çəkilişdə kimi, cibdən telefon çıxarırsan. | "İndi tapşırıq cibimdədir: hansı müştəri, hansı post, nə vaxta, brif harda. Çəkilişdən çıxmadan oxudum, etdim, təhvil verdim." | `Tapşırıq cibində` / `müştəri · post · deadline` |
-| 21–26 s | Selfie-çubuq. Küçədə kimi, telefonda "Təhvil ver" + foto. | "Storini çəkdim, elə yerindəcə yüklədim, təhvil verdim. Ofisə qayıtmadım." | `Yerindəcə təhvil` |
-| 26–30 s | Qulaqlıq. Telefonu barmaq izi ilə açırsan, "İşim ilişib" basırsan: "Müştəridən loqo gəlməyib". | "Loqo gəlməyib? 'İşim ilişib' — səbəb: müştəri gözlənir. Hamı görür, mənə zəng etmir." | `İlişdi? bir düymə` / `səbəb: müştəri` |
-| 30–38 s | Pencək. Noutbukda direktor paneli, qəhvə. Kursor gəzir. | "Mənim üçün vahid platforma. 6 müştəri, 40 post, kim gecikir, nə müştəridə ilişib, kimin əli boş, kim məzuniyyətdə — bir ekranda. Qrupda yazmıram, görürəm." | `Agentlik: vahid platforma` / `Komanda: mobil tətbiq` |
-| 38–44 s | Pencək. Telefonda 4 bildiriş ardıcıl; noutbukda "Təsdiq" / "Düzəlt". | "Gecikən post özü mənə gəlir: dizayner, sonra akkaunt, sonra mən. Post mən təsdiq edəndə müştəriyə gedir. Düzəliş? Bir düymə: 'Düzəlt'." | `Gecikən özü gəlir` / `Təsdiqsiz getməz` |
-| 44–49 s | Stilus. Telefonda "🏆 Ayın işçisi" nişanı, özünə əl çalırsan. | "Ayın işçisi — mən. Ofisə gəlmədən." | `Ayın işçisi` / `ofissiz` |
-| 49–54 s | Dörd sürətli kəsik, hər aksesuarla bir söz. | "Dizayner pozitiv. SMM pozitiv. Akkaunt pozitiv. Sahib pozitiv. Müştəri də." | `Hamı pozitivdir.` |
-| 54–60 s | Pencək, kameraya sakit. Sonra logo. | "Be Positive Teams. Agentliyə nəzarət, komandaya rahatlıq. Agentlik üçün hazır paket, 10 dəqiqəyə qurulur. 30 gün pulsuz, kart lazım deyil. Link profildə." | `Agentlik paketi · 10 dəq` / `30 gün pulsuz · bepositive.cc` |
+### Mətn (saniyə-saniyə)
 
-### Agentliyə məxsus ekran kadrları (screen record üçün)
+| Vaxt | Sən | Mətn | Ekran yazısı | Montaj |
+|---|---|---|---|---|
+| 0–3 s | Kameraya, birbaşa. | "Agentlik sahibləri, bir sual: 'post hazırdır?' sualı gündə neçə dəfə sizə gəlir?" | `"Post hazırdır?"` / `gündə neçə dəfə?` | Üz yaxın plan |
+| 3–8 s | Barmaqla sayırsan. | "Dizayner çəkilişdədir. SMM küçədə stori çəkir. Akkaunt müştəri ilə zəngdədir. Tapşırıq isə... kompüterdə. Heç kim kompüterin başında deyil." | `Dizayner çəkilişdə` / `SMM küçədə` → `Tapşırıq kompüterdə` | Hər rol adında kiçik ikon çıxsın |
+| 8–13 s | Çiyin çəkirsən. | "Və işçilər haqlı deyinir: 'niyə hər dəfə gəlib kompüterdə baxım mənə nə tapşırılıb?' Haqlıdırlar. Siz də 6 WhatsApp qrupunda 'kim baxır?' yazırsınız. Hamı narazı." | `İşçi deyinir` / `haqlıdır` → `Hamı narazı` | WhatsApp qrupu screenshot (adlar gizli) 1 s |
+| 13–15 s | Pauza, gülümsəyirsən, telefonu qaldırırsan. | "Biz bunu belə həll etdik." | `Be Positive` | Musiqi dəyişir, işıq açılır |
+| 15–23 s | Telefonu kameraya göstərirsən. | "İşçi üçün mobil tətbiq. Tapşırıq cibinə gəlir: hansı müştəri, hansı post, nə vaxta, brif harda. Çəkilişdən çıxmadan oxuyur, edir, foto atır, təhvil verir. Kompüter yoxdur. Parol yoxdur, barmaq izi." | `İşçi: mobil tətbiq` / `oxu · et · foto · təhvil` | Telefon ekranı screen record üstə |
+| 23–28 s | Telefonu hələ əldə. | "İlişdi? Bir düymə: 'İşim ilişib'. Səbəb: müştəridən loqo gəlməyib. Hamı görür, heç kim sizə zəng etmir." | `İlişdi? bir düymə` / `səbəb görünür` | "İşim ilişib" düyməsi yaxın plan |
+| 28–37 s | Noutbuka tərəf dönürsən, ekranı göstərirsən. | "Sizin üçün isə vahid platforma: veb panel. 6 müştəri, 40 post, kim gecikir, nə müştəridə ilişib, kimin əli boş, kim məzuniyyətdə, nə sizin qərarınızı gözləyir. Bir ekran. Qrupda yazmırsınız, görürsünüz." | `Şirkət: vahid platforma` / `bir ekran` | Direktor paneli screen record |
+| 37–44 s | Kameraya, əlini qaldırıb 3 say. | "Gecikən post özü sizə gəlir: əvvəl işçiyə, sonra menecerə, sonra sizə. Siz yalnız həqiqətən ilişəni eşidirsiniz. Və post siz təsdiq edəndə müştəriyə gedir, əvvəl yox." | `Gecikən özü gəlir` / `Təsdiqsiz getməz` | 4 bildiriş animasiyası, "Təsdiq" düyməsi |
+| 44–50 s | Yumşaq ton. | "Yaxşı işləyən də unudulmur. Ayın işçisi, nişanlar, təşəkkürlər — sistem ayın sonuna bir həftə qalmış sizə xatırladır. İşçi görür ki, görülür." | `Ayın işçisi` / `sistem xatırladır` | Nişan ekranı 1 s |
+| 50–55 s | Kameraya, inamla. | "İşçi rahat, çünki kompüterə getmir. Siz rahat, çünki hər şey bir ekrandadır. Müştəri rahat, çünki post vaxtında gedir. Hamı pozitivdir." | `Hamı pozitivdir.` | Sözlər bir-bir çıxır |
+| 55–60 s | Son cümlə, sonra logo. | "Be Positive Teams. Agentlik üçün hazır paket, 10 dəqiqəyə qurulur. 30 gün pulsuz, kart lazım deyil. Link profildə." | `30 gün pulsuz · kart yox` / `bepositive.cc` | Logo + sayt |
 
-Demo şirkəti agentlik kimi qur (Başlanğıc paketi: Agentlik), sonra bunları yaz:
-- Tapşırıq kartı: "Müştəri X · Oktyabr posts · 12/20 · deadline cümə" + brif linki.
-- Direktor paneli: şöbələr "Dizayn · SMM · Akkaunt", "Gecikir: 3", "Müştəridə ilişib: 2".
-- "İşim ilişib" səbəbləri arasında "Müştəridən material gözlənir".
-- Təsdiq axını: "Düzəlt" şərhi ilə qaytarma.
-- People: ayın işçisi nişanı dizaynerin profilində.
+**Söz sayı:** ~230 söz, normal tempdə 60 saniyə. Çox gəlirsə 44–50 s (ayın işçisi) hissəsini at, 54 saniyəyə düşür.
 
-### Montaj hiyləsi (tək adam üçün)
+### Başqa sənaye üçün 3–8 s dəyişikliyi
 
-- Kamera sabit, ayağının yerini lentlə işarələ, hər dəfə eyni yerə qayıt. Montajda yalnız kəs, kadr tərpənməsin — "eyni adam, 4 rol" effekti bundan çıxır.
-- Hər cümlə 3 take. "Pozitiv!" səhnəsi üçün hər aksesuarla 1 saniyəlik take.
-- Noutbuk və telefon ekranlarını ayrıca screen record et, montajda kadrın üstünə qoy.
-- "Əvvəl" boz-mavi ton, dar kadr; "İndi" isti ton, geniş kadr. Flip keçid bütün Reellərdə eyni — brend imzası.
+- **Restoran:** "Aşpaz mətbəxdədir. Ofisiant salondadır. Anbardar anbardadır. Tapşırıq isə kompüterdə." Hook: "'Nə oldu o işə?' sualı gündə neçə dəfə sizə gəlir?"
+- **Gözəllik salonu:** "Ustalar müştəri başındadır, administrator kassadadır, tapşırıq kompüterdə."
+- **Mağaza:** "Satıcı zaldadır, anbardar anbardadır, mühasib hesabdadır, tapşırıq kompüterdə."
+- **Tikinti:** "Usta obyektdədir, təchizatçı yoldadır, mühəndis layihədədir, tapşırıq ofisdəki kompüterdə."
 
-### Sadə variant (aksesuarsız, 40 s, yalnız sən)
+### Çəkiliş (30 dəqiqə)
 
-- 0–3 s: "Agentlikdə ən çox eşitdiyim üç söz: 'post hazırdır?'" `"Post hazırdır?"`
-- 3–8 s: "Dizayner çəkilişdə, SMM küçədə, tapşırıq kompüterdə. Heç kim kompüter başında deyil. Haqlıdırlar." `Heç kim kompüterdə`
-- 8–12 s: "Mən də 6 qrupda 'kim baxır?' yazıram. Müştəri narazı, komanda narazı, mən də." `Hamı narazı`
-- 12–14 s: KLİK.
-- 14–22 s: telefonu göstər. "İndi tapşırıq onların cibindədir: müştəri, post, deadline, brif. Çəkilişdən çıxmadan təhvil verir." `Komanda: mobil tətbiq`
-- 22–32 s: noutbuku göstər. "Mənim üçün vahid platforma: 6 müştəri, 40 post, kim gecikir, nə müştəridə ilişib. Gecikən post özü mənə gəlir. Post mən təsdiq edəndə gedir." `Agentlik: vahid platforma` / `Təsdiqsiz getməz`
-- 32–36 s: "Komanda rahat, müştəri rahat, mən rahat. Hamı pozitivdir." `Hamı pozitivdir.`
-- 36–40 s: "Be Positive Teams. Agentlik paketi 10 dəqiqəyə. 30 gün pulsuz, kart yox. Link profildə." `bepositive.cc`
+1. Yer: sakit otaq və ya öz ofisin, arxada dərinlik olsun (divara yapışma). Pəncərə işığı üzünə, kameraya yox.
+2. Kamera göz səviyyəsində, 9:16, 4K varsa 4K (montajda yaxınlaşdırma üçün).
+3. Yaxa mikrofonu; yoxdursa telefonu yaxında ikinci cihaz kimi səs yazan et.
+4. Mətni 3 hissədə çək (0–15, 15–37, 37–60), hər hissə 3 take. Bir nəfəsdə 60 saniyə lazım deyil, montaj birləşdirir.
+5. Hər hissədə iki plan: biri geniş, biri yaxın. Montajda cümlə başlarında plan dəyişir, "kəsik" gizlənir.
+6. Telefonu və noutbuku göstərdiyin anlarda ekran kameraya tərəf, 1 saniyə sabit dur.
+7. Ayrıca: telefon screen record (tapşırıq kartı, foto, təhvil, "İşim ilişib", nişan) və noutbuk screen record (panel, eskalasiya ayarı, təsdiq). Demo şirkət agentlik paketi ilə qurulsun: şöbələr Dizayn · SMM · Akkaunt.
 
-### 30 saniyəlik reklam kəsiyi
+### Montaj
 
-0–3 s (dizayner) → 6–9 s ("Post hazırdır? Kimdədir?") → 13–15 s (klik) → 15–21 s (tapşırıq cibində) → 30–36 s (vahid platforma) → 49–60 s (hamı pozitiv + CTA).
-Reklam mətni: "Dizayner çəkilişdə, SMM küçədə, tapşırıq kompüterdə? Be Positive-də tapşırıq cibdədir, nəzarət sənin panelində. Gecikən post özü sənə gəlir. Agentlik paketi, 30 gün pulsuz."
-Hədəf: agentlik sahibləri və kreativ direktorlar, 25–45, Bakı; maraqlar: marketinq, SMM, dizayn. Sonra TR/RU altyazı ilə İstanbul və Almatı.
+- Ekran yazıları max 2 sətir, 3–5 söz, qalın, qara kontur; "mobil tətbiq", "vahid platforma", "pozitiv" brend rəngində.
+- 0–13 s bir az soyuq ton, 13–15 s-dən sonra isti ton. Dəyişiklik hiss olunsun, amma karikatura olmasın.
+- Screen record-lar sənin kadrının üstünə kiçik pəncərə kimi (telefon formasında / noutbuk formasında), 60–70% ekran.
+- Altyazı mütləqdir, səssiz baxılacaq. Sonra eyni montajı EN və TR altyazı ilə ixrac et.
+- Son 3 saniyə: logo, bepositive.cc, "30 gün pulsuz · kart lazım deyil".
 
-### 15 saniyəlik hook
+### Kəsiklər
 
-0–3 s dizayner → klik → 5–11 s split screen: solda sən stilusla telefon, sağda sən pencəklə noutbuk → "Hamı pozitivdir. 30 gün pulsuz."
+- **30 s reklam:** 0–3 + 8–11 ("işçi deyinir, haqlıdır") + 13–15 + 15–20 + 28–33 + 50–60.
+- **15 s hook:** 0–3 + 13–15 + 15–19 ("tapşırıq cibinə gəlir... kompüter yoxdur") + 50–52 ("Hamı pozitivdir") + CTA 3 s.
+- **Qısa Reellər (eyni çəkilişdən):** "Post hazırdır?" (0–13 + CTA); "İşçi haqlı deyinir" (8–13 + 15–23 + CTA); "İşim ilişib" (23–28 + CTA); "6 qrup, bir ekran" (28–37 + CTA); "Gecikən özü gəlir" (37–44 + CTA); "Hamı pozitivdir" (50–60).
 
-### Çəkiliş sırası (1 saat)
+### Caption (əsas video)
 
-1. Kamera + kadr işarəsi.
-2. "Əvvəl" 4 rol, hər cümlə 3 take.
-3. Çırtma, 3 take.
-4. "İndi" 4 rol, telefon əldə.
-5. "Pozitiv!" 5 qısa take (4 rol + "müştəri də" pencəklə).
-6. CTA, 3 take.
-7. Screen record: agentlik demo paneli, tapşırıq kartı, "İşim ilişib" səbəbi, təsdiq/düzəlt, nişan.
-
-### Bu çəkilişdən çıxan qısa Reellər (əlavə çəkiliş yoxdur)
-
-- "Mən dizaynerəm, çəkilişdən gəlib kompüterə baxım?" (0–3 + 15–21 + CTA)
-- "Post hazırdır? Kimdədir?" → gecikən özü gəlir (6–9 + 38–44 + CTA)
-- "Loqo gəlməyib" → İşim ilişib, səbəb: müştəri (26–30 + CTA)
-- "6 qrup, 60 mesaj" → bir ekran (9–13 + 30–38 + CTA)
-- "Ayın işçisi, ofissiz" (44–49 + CTA)
-- "Pozitiv! Pozitiv! Pozitiv!" 7 saniyəlik loop
+Agentlik sahibləri üçün: dizayner çəkilişdə, SMM küçədə, tapşırıq kompüterdə — heç kim kompüterin başında deyil. Be Positive-də işçi tapşırığı telefonda alır və edir, siz şirkəti bir paneldən görürsünüz, gecikən post özü sizə gəlir. Hamı pozitivdir. Agentlik paketi 10 dəqiqəyə, 30 gün pulsuz, kart lazım deyil → bepositive.cc
+#bepositive #reklamagentliyi #smm #agentlik #komandaidarəetmə #sahibkar #biznesazerbaijan
 
 ---
 
