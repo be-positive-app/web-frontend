@@ -1,48 +1,67 @@
 # Be Positive Teams — B2B Reels paketi (AZ)
 
-## ƏSAS VİDEO — Təqdimat + reklam (45–60 s)
+## ƏSAS VİDEO — "Hamı pozitivdir" (təqdimat + reklam, 60 s)
 
-Bu bir video həm profilin "tanışlıq" videosu, həm Instagram/Facebook/YouTube reklamıdır. Qalan 10 qısa Reel bundan kəsilir və ya ayrıca çəkilir.
-İki variant montaj et: **60 s tam** (profil, YouTube, sayt) və **30 s kəsik** (reklam; 0–3, 18–38, 50–60 saniyələr).
+**Başlıq:** *Şirkətə nəzarət, işçiyə rahatlıq. Hamı pozitivdir.*
 
-**Mesaj bir cümlədə:** işçi tapşırığı telefonda alır və edir, rəhbər şirkəti veb paneldən idarə edir, gecikən iş özü rəhbərə gəlir.
+**Konsept:** iki dünya. Birinci yarı — "Əvvəl": işçilər deyinir, rəhbər axtarır, hamı əsəbi (boz rəng, dar kadr, səs-küy). Ortada bir "klik" səsi ilə ekran çevrilir. İkinci yarı — "İndi": eyni adamlar, eyni iş yeri, amma işçinin əlində telefon, rəhbərin qarşısında bir panel, hamı rahat (işıqlı rəng, geniş kadr, sakit musiqi). Son: hamı kameraya baxıb gülümsəyir, ekranda "Hamı pozitivdir. Be Positive."
 
-**Ton:** sakit, inamlı, satış səsi yox. Danışan — şirkət sahibi (sən). Kamera ilə danışırsan, kadrlar arasında məhsul görünür.
+Komediya yüngüldür, karikatura yox: işçi deyinəndə tamaşaçı özünü tanımalıdır, gülməlidir, əsəbləşməməlidir.
+
+**Rollar:** rəhbər (sən), 3 işçi (məsələn aşpaz, ofisiant, menecer; və ya satıcı, anbardar, mühasib — öz sənayenə uyğun seç).
 
 ### Ssenari
 
-| Vaxt | Kadr | Söz (səsli) | Ekran yazısı |
+| Vaxt | Kadr | Söz / dialoq | Ekran yazısı |
 |---|---|---|---|
-| 0–3 s | Sən kameraya, arxada real iş yeri (restoran/ofis). Telefona bildiriş düşür, kameraya göstərirsən. | "Şirkətində 'nə oldu o işə?' sualı hələ də səndən keçirsə, bu video sənə görədir." | `"Nə oldu o işə?"` / `hələ də sənə gəlir?` |
-| 3–10 s | WhatsApp qrupu, Excel, dəftər — sürətli kəsiklər. | "Tapşırıqlar WhatsApp-da, cədvəldə, yaddaşda. Kim nəyi nə vaxt etməli — heç kim dəqiq bilmir. Sonda hamısı rəhbərə qayıdır." | `WhatsApp · Excel · yaddaş` / `sonda hamısı sənə` |
-| 10–18 s | İşçi (aşpaz/satıcı/usta) telefonu çıxarır, tapşırıq kartı açır. | "Be Positive-də işçi sayta girmir, kompüterə oturmur. Tapşırıq telefonuna gəlir: nə etməli, nə vaxta, kimə hesabat." | `İşçi: telefon` / `nə · nə vaxt · kimə` |
-| 18–25 s | İşçi işi edir, foto çəkir, "Təhvil ver" basır. | "Etdi, foto atdı, təhvil verdi. İlişdisə — bir düymə: 'İşim ilişib'. Menecer həmin dəqiqə bilir." | `Etdi → foto → təhvil` / `İlişdi? bir düymə` |
-| 25–33 s | Kəsik: noutbuk, direktor paneli. Kursor sütunlarla gəzir. | "Rəhbər isə veb paneldə oturur. Bu gün nə var, hansı şöbə geridədir, kim yüklənib, kim məzuniyyətdə, nə sənin qərarını gözləyir — bir ekranda." | `Rəhbər: veb panel` / `bütün şirkət bir ekranda` |
-| 33–40 s | Paneldə eskalasiya ayarı: 0 · 1 · 2 · 3. Telefonda ardıcıl 4 bildiriş. | "Gecikən iş özü yuxarı qalxır: birinci gün işçiyə, sonra menecerə, sonra sənə. Sən soruşmursan — sənə deyilir." | `Gün 0 işçi · Gün 2 menecer` / `Gün 3 rəhbər` |
-| 40–47 s | Menecer paneldə "Təsdiq" basır. İşçinin profilində nişan görünür. | "İş yalnız menecer təsdiq edəndə bitmiş sayılır. Yaxşı işləyən unudulmur: ayın işçisi, nişanlar, təşəkkürlər — sistem özü xatırladır." | `Təsdiqsiz bitməz` / `Ayın işçisi · nişan` |
-| 47–53 s | Başlanğıc paketi seçimi: Restoran, Mağaza, Salon, Agentlik, Klinika. | "Restoran, mağaza, salon, agentlik, klinika — hazır paket seç, 10 dəqiqəyə qurulur. Qiymət şirkət üçündür, işçi başına yox." | `Hazır paket · 10 dəqiqə` / `Qiymət şirkət üçün` |
-| 53–60 s | Sən kameraya. Son kadr: logo, bepositive.cc. | "Be Positive Teams. İşçiyə telefon, rəhbərə panel. 30 gün pulsuz, kart lazım deyil. Demo üçün saytda forma var." | `30 gün pulsuz · kart yox` / `bepositive.cc` |
+| 0–3 s | Boz rəng. İşçi (aşpaz) əlində fartuk, kompüterin qarşısında dayanıb, siçanı yöndəmsiz tutur. Kameraya: | **Aşpaz:** "Mən aşpazam. Niyə hər dəfə kompüterə gəlib tapşırığa baxmalıyam?" | `Hər dəfə kompüterə?` / `Mən aşpazam!` |
+| 3–8 s | Sürətli kəsiklər, hər işçi bir cümlə, hamısı deyinir. | **Ofisiant:** "Kompüter mətbəxdədir, mən salondayam." **Anbardar:** "Parolu yenə unutmuşam." **Menecer:** "Mən də hamısına ayrı-ayrı zəng edirəm." | `Kompüter orda` / `mən burda` → `Parol?` → `Hamıya zəng` |
+| 8–14 s | Rəhbər (sən) telefonda, bir əlində dəftər, WhatsApp-da 47 oxunmamış. Kameraya yorğun: | **Rəhbər:** "Mən isə bilmirəm: kim nəyi edib, kim etməyib. Hamı narazı. Mən də." | `Kim edib?` / `Kim etməyib?` → `Hamı narazı` |
+| 14–16 s | KLİK. Ekran yarıdan çevrilir, rəng işıqlanır, musiqi dəyişir. | (səs effekti) | `Be Positive` |
+| 16–23 s | İşıqlı. Aşpaz mətbəxdə, cibindən telefon çıxarır, bildiriş: "Bu gün: 4 tapşırıq". Gülümsəyir. | **Aşpaz:** "İndi tapşırıq cibimdədir. Oxudum, etdim, foto atdım, bitdi." | `Tapşırıq cibində` / `oxu · et · foto · bitdi` |
+| 23–29 s | Ofisiant salonda telefonla "Təhvil ver" basır. Anbardar "İşim ilişib" düyməsinə basır, bir sətir yazır. | **Ofisiant:** "Kompüterə getmirəm, salondan çıxmıram." **Anbardar:** "İlişdim — bir düymə. Parol da lazım deyil, barmaq izi." | `Salondan çıxmadan` → `İlişdim? bir düymə` |
+| 29–37 s | Rəhbər noutbukda, direktor paneli. Rahat oturub, çay içir. Kursor panellə gəzir. | **Rəhbər:** "Şirkət üçün vahid platforma. Kim gecikir, kim ilişib, kim məzuniyyətdə, hansı şöbə geridədir — hamısı bir ekranda. Zəng etmirəm, görürəm." | `Şirkət: vahid platforma` / `İşçi: mobil tətbiq` |
+| 37–44 s | Telefonda 4 ardıcıl bildiriş: işçi → gecikdi → menecer → rəhbər. Menecer paneldə "Təsdiq" basır. | **Menecer:** "Gecikən iş özü mənə gəlir, mən zəng etmirəm. İş mən təsdiq edəndə bitir." | `Gecikən özü gəlir` / `Təsdiqsiz bitməz` |
+| 44–50 s | Aşpazın telefonunda "🏆 Ayın işçisi" nişanı açılır. Həmkarlar əl çalır (yüngül, gülməli). | **Aşpaz:** "Ayın işçisi oldum. Kompüter olmadan." **Rəhbər (kadr arxasından):** "Sistem özü xatırlatdı, mən unutmadım." | `Ayın işçisi` / `kompütersiz` |
+| 50–55 s | Hamı bir kadrda, iş yerində, rahat. Kameraya baxır. | **Hamı birlikdə:** "Hamı pozitivdir!" | `Hamı pozitivdir.` |
+| 55–60 s | Logo, bepositive.cc. Rəhbər səsi: | **Rəhbər:** "Be Positive Teams. Şirkətə nəzarət, işçiyə rahatlıq. 30 gün pulsuz, kart lazım deyil." | `30 gün pulsuz · kart yox` / `bepositive.cc` |
 
 ### 30 saniyəlik reklam kəsiyi
 
-0–3 s (hook) → 10–18 s (işçi telefon) → 25–33 s (rəhbər panel) → 33–38 s (eskalasiya, qısaldılmış: "Gecikən iş özü sənə gəlir") → 53–60 s (CTA).
-Reklam mətni (caption): "İşçi tapşırığı telefonda edir. Rəhbər şirkəti paneldən görür. Gecikən iş özü sənə gəlir. 30 gün pulsuz, kart lazım deyil."
-Hədəf: şirkət sahibi / direktor, 28–55, Bakı + regionlar; sonra TR və RU dilində eyni montaj.
+0–3 s (aşpaz: "Niyə hər dəfə kompüterə?") → 8–11 s (rəhbər: "Hamı narazı. Mən də.") → 14–16 s (klik) → 16–23 s (tapşırıq cibində) → 29–35 s (vahid platforma, bir ekran) → 50–60 s ("Hamı pozitivdir" + CTA).
 
-### Çəkiliş siyahısı (bir gündə çəkilir)
+Reklam mətni: "İşçilər kompüterə getmək istəmir? Düz edirlər. Be Positive-də tapşırıq telefondadır, nəzarət isə sənin panelində. Şirkətə vahid platforma, işçiyə mobil tətbiq. Hamı pozitivdir. 30 gün pulsuz."
 
-1. Sən kameraya: 3 cümlə (hook, 25–33 s panel cümləsi, CTA). Hər birini 3 dəfə çək.
-2. İşçi ilə telefon: bildiriş gəlir → kart açır → iş edir → foto → "Təhvil ver" → "İşim ilişib" düyməsi (ayrıca take).
-3. Noutbuk üst çəkiliş + ekran yazısı (screen record 1080p): direktor paneli gəzinti, eskalasiya ayarı, təsdiq düyməsi, People səhifəsində nişan, başlanğıc paketi seçimi.
-4. B-roll: WhatsApp qrupu (adlar gizli), Excel cədvəli, dəftər; iş yerinin ümumi planı.
-5. Səs: yaxa mikrofonu mütləqdir; fon musiqisi aşağı, səsdən 20 dB alçaq.
+### 15 saniyəlik "hook" versiyası (Reels/TikTok reklam)
+
+0–3 s aşpaz deyinir → 3–5 s klik → 5–11 s telefon + panel yan-yana (split screen: solda işçi telefonu, sağda rəhbər paneli) → 11–15 s "Hamı pozitivdir. 30 gün pulsuz."
+
+### Çəkiliş siyahısı (bir gün, bir məkan)
+
+1. "Əvvəl" səhnələri: hər işçi kompüter qarşısında bir deyinmə cümləsi (3 take). Rəng montajda boz ediləcək, çəkilişdə normal işıq.
+2. Rəhbər "Əvvəl": telefon + dəftər + WhatsApp (adlar gizli), yorğun ifadə.
+3. "İndi" səhnələri: hər işçi öz yerində telefonla (bildiriş, kart, foto, təhvil, "İşim ilişib", barmaq izi ilə giriş).
+4. Rəhbər "İndi": noutbuk, panel gəzintisi, çay. Ayrıca ekran yazısı (screen record) paneldən.
+5. Menecer: paneldə təsdiq düyməsi; telefonda 4 bildiriş (montajda animasiya da olar).
+6. Nişan səhnəsi: aşpazın telefonu + həmkarların alqışı.
+7. Final: hamı bir kadrda "Hamı pozitivdir!" (5 take, ən təbii güləni seç).
+8. Səs: yaxa mikrofonu; "klik" səs effekti; iki fərqli musiqi (gərgin / sakit).
 
 ### Montaj qeydləri
 
-- Ekran yazıları: max 2 sətir, 3–5 söz, qalın, qara kontur; açar sözlər (telefon, panel, 30 gün) başqa rəngdə.
-- Hər 3–4 saniyədə kadr dəyişsin, amma sənin danışdığın yerlərdə üz 2 saniyədən az qalmasın.
-- Logo və bepositive.cc son 3 saniyə tam ekranda, altında "30 gün pulsuz · kart lazım deyil".
-- Eyni montajı ingilis və türk altyazı ilə də ixrac et (sayt /teams, /tr/teams səhifələrinə qoyulacaq).
+- "Əvvəl" hissəsi: boz-mavi ton, dar kadr (vinyet), sürətli kəsik, dar səs. "İndi": isti ton, geniş kadr, sakit musiqi.
+- 14–16 s keçid: ekran yarıdan çevrilir (flip), bu, bütün qısa Reellərdə də eyni keçid olsun — brend imzası.
+- Ekran yazıları max 2 sətir, 3–5 söz; "telefon", "panel", "pozitiv" sözləri brend rəngində.
+- "Hamı pozitivdir." sətri videonun sonunda 2 saniyə tək qalsın, sonra logo.
+- İngilis və türk altyazı versiyası: "Everyone's positive." / "Herkes pozitif."
+
+### Bu videodan çıxan qısa Reellər
+
+Eyni çəkiliş materialından 4 qısa Reel kəsilir, əlavə çəkiliş lazım deyil:
+- "Mən aşpazam, niyə kompüterə?" (0–3 + 16–23 + CTA)
+- "Parolu unutmuşam" → barmaq izi (anbardar səhnəsi + CTA)
+- "Hamıya ayrı zəng edirəm" → gecikən özü gəlir (menecer səhnələri + CTA)
+- "Ayın işçisi, kompütersiz" (nişan səhnəsi + CTA)
 
 ---
 
