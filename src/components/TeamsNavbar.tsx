@@ -37,10 +37,13 @@ export function TeamsNavbar() {
     setOpen(false)
   }
 
+  const onTeams = /^\/(?:(?:az|ru|tr)\/)?teams/.test(location.pathname)
   function go(id: Section) {
     return (e: MouseEvent<HTMLAnchorElement>) => {
-      e.preventDefault()
       setOpen(false)
+      // From the blog the section links lead to the Teams page itself.
+      if (!onTeams) return
+      e.preventDefault()
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
@@ -66,10 +69,11 @@ export function TeamsNavbar() {
         <nav className="hidden items-center gap-1 lg:flex" aria-label="Primary">
           <PersonaSwitch className="mr-2" />
           {SECTIONS.map((id) => (
-            <a key={id} href={`#${id}`} onClick={go(id)} className={link}>
+            <a key={id} href={onTeams ? `#${id}` : `${teamsHome}#${id}`} onClick={go(id)} className={link}>
               {t(LABEL[id])}
             </a>
           ))}
+          <Link to={localizedPath(lang, '/blog')} className={link}>{t('blog.nav')}</Link>
         </nav>
 
         <button
@@ -106,10 +110,11 @@ export function TeamsNavbar() {
               <PersonaSwitch className="mb-1 w-full justify-center" onNavigate={() => setOpen(false)} />
               <LangSwitch className="mb-1 justify-self-center" />
               {SECTIONS.map((id) => (
-                <a key={id} href={`#${id}`} onClick={go(id)} className={mobileLink}>
+                <a key={id} href={onTeams ? `#${id}` : `${teamsHome}#${id}`} onClick={go(id)} className={mobileLink}>
                   {t(LABEL[id])}
                 </a>
               ))}
+              <Link to={localizedPath(lang, '/blog')} className={mobileLink}>{t('blog.nav')}</Link>
               <a href={TEAMS_APP_URL} className={mobileLink}>{t('teams.nav.login')}</a>
               <a href={TEAMS_APP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-4 py-3 text-sm font-semibold text-white shadow-soft focus-ring">
                 {t('teams.nav.cta')} <ArrowRight className="h-4 w-4" aria-hidden="true" />

@@ -1,0 +1,56 @@
+{
+  "$comment": "Blog articles. Body text lives in <slug>/<lang>.md (plain markdown: ## headings, paragraphs, - lists, **bold**). Adding an entry here and its four files publishes it in every language, with meta, hreflang and a sitemap entry.",
+  "posts": [
+    {
+      "slug": "stop-chasing-tasks",
+      "date": "2026-10-23",
+      "minutes": 4,
+      "title": {
+        "en": "How to stop chasing tasks: five habits for owners",
+        "az": "Tapşırıqları izləməyi necə dayandırmalı: rəhbərlər üçün beş vərdiş",
+        "ru": "Как перестать гоняться за задачами: пять привычек руководителя",
+        "tr": "Görev kovalamayı nasıl bırakırsınız: yöneticiler için beş alışkanlık"
+      },
+      "description": {
+        "en": "Why owners end up chasing their team, and five habits that stop it: one owner per task, tasks on the phone, an \"I'm blocked\" button, escalation and sign-off.",
+        "az": "Rəhbərlər niyə komandanın arxasınca qaçır və bunu dayandıran beş vərdiş: hər tapşırığa bir sahib, tapşırıq telefonda, \"İşim ilişib\" düyməsi, eskalasiya və təsdiq.",
+        "ru": "Почему руководитель догоняет команду и пять привычек, которые это прекращают: один ответственный, задачи в телефоне, кнопка «Я застрял», эскалация и подтверждение.",
+        "tr": "Yöneticiler neden ekiplerinin peşinden koşar ve bunu durduran beş alışkanlık: görev başına tek sahip, telefonda görevler, \"Takıldım\" düğmesi, eskalasyon ve onay."
+      }
+    },
+    {
+      "slug": "why-good-employees-leave",
+      "date": "2026-10-23",
+      "minutes": 4,
+      "title": {
+        "en": "Why good employees leave without warning, and six signals that show it first",
+        "az": "Yaxşı işçi niyə xəbərsiz gedir və bunu əvvəlcədən göstərən altı siqnal",
+        "ru": "Почему хорошие сотрудники уходят без предупреждения и шесть сигналов, которые видны заранее",
+        "tr": "İyi çalışanlar neden habersiz ayrılır ve bunu önceden gösteren altı işaret"
+      },
+      "description": {
+        "en": "Resignations rarely come out of nowhere. Six signals in data you already have, and what to do about them this week.",
+        "az": "İstefa nadir hallarda heç yerdən çıxır. Onsuz da əlinizdə olan məlumatdakı altı siqnal və bu həftə nə etməli.",
+        "ru": "Увольнение редко бывает внезапным. Шесть сигналов в данных, которые у вас уже есть, и что сделать на этой неделе.",
+        "tr": "İstifalar nadiren birdenbire gelir. Zaten elinizdeki verilerde altı işaret ve bu hafta ne yapmalı."
+      }
+    },
+    {
+      "slug": "restaurant-task-system",
+      "date": "2026-10-23",
+      "minutes": 3,
+      "title": {
+        "en": "A task system for a restaurant in ten minutes",
+        "az": "Restoran üçün tapşırıq sistemi on dəqiqəyə",
+        "ru": "Система задач для ресторана за десять минут",
+        "tr": "Bir restoran için on dakikada görev sistemi"
+      },
+      "description": {
+        "en": "Opening and closing checklists, fridge temperatures and weekly cleaning on the staff's phones, without a computer in the kitchen. A ten-minute setup.",
+        "az": "Açılış və bağlanış siyahıları, soyuducu temperaturu və həftəlik təmizlik işçilərin telefonunda, mətbəxdə kompüter olmadan. On dəqiqəlik quraşdırma.",
+        "ru": "Чек-листы открытия и закрытия, температура холодильников и еженедельная уборка в телефонах персонала, без компьютера на кухне. Настройка за десять минут.",
+        "tr": "Açılış ve kapanış listeleri, buzdolabı sıcaklıkları ve haftalık temizlik personelin telefonunda, mutfakta bilgisayar olmadan. On dakikalık kurulum."
+      }
+    }
+  ]
+}

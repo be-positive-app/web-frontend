@@ -9,6 +9,8 @@ import { trackPageView } from './lib/analytics'
 
 const Landing = lazy(() => import('./pages/Landing').then((m) => ({ default: m.Landing })))
 import { Home } from './pages/Home'
+import { Blog } from './pages/Blog'
+import { BlogPost } from './pages/BlogPost'
 const Teams = lazy(() => import('./pages/Teams').then((m) => ({ default: m.Teams })))
 const PolicyDocumentPage = lazy(() =>
   import('./pages/PolicyDocumentPage').then((m) => ({ default: m.PolicyDocumentPage })),
@@ -54,6 +56,12 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/app" element={<Landing />} />
             <Route path="/teams" element={<Teams />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            {['az', 'ru', 'tr'].map((l) => [
+              <Route key={`${l}-blog`} path={`/${l}/blog`} element={<Blog />} />,
+              <Route key={`${l}-post`} path={`/${l}/blog/:slug`} element={<BlogPost />} />,
+            ])}
             {/* Azerbaijani, Russian and Turkish editions: same pages, own URLs so search engines index each language. */}
             <Route path="/az" element={<Home />} />
             <Route path="/ru" element={<Home />} />

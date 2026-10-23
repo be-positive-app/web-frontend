@@ -162,6 +162,154 @@
       "title": "Page Not Found",
       "description": "This page does not exist. Find downloads on the home page, or contact support.",
       "noindex": true
+    },
+    {
+      "path": "/blog",
+      "title": "Blog — Be Positive Teams",
+      "description": "Practical notes for company owners: running a team without chasing it, keeping good people, and setting up task systems by industry.",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/az/blog",
+      "lang": "az",
+      "alternateOf": "/blog",
+      "title": "Bloq — Be Positive Teams",
+      "description": "Şirkət rəhbərləri üçün praktik qeydlər: komandanı izləmədən idarə etmək, yaxşı insanları saxlamaq və sahəyə görə tapşırıq sistemi qurmaq.",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/ru/blog",
+      "lang": "ru",
+      "alternateOf": "/blog",
+      "title": "Блог — Be Positive Teams",
+      "description": "Практические заметки для руководителей: как управлять командой без погони за задачами, удерживать хороших людей и настраивать задачи под отрасль.",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/tr/blog",
+      "lang": "tr",
+      "alternateOf": "/blog",
+      "title": "Blog — Be Positive Teams",
+      "description": "Şirket sahipleri için pratik notlar: ekibi kovalamadan yönetmek, iyi insanları tutmak ve sektöre göre görev sistemi kurmak.",
+      "changefreq": "weekly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/blog/stop-chasing-tasks",
+      "title": "How to stop chasing tasks: five habits for owners",
+      "description": "Why owners end up chasing their team, and five habits that stop it: one owner per task, tasks on the phone, an \"I'm blocked\" button, escalation and sign-off.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "stop-chasing-tasks"
+    },
+    {
+      "path": "/az/blog/stop-chasing-tasks",
+      "lang": "az",
+      "alternateOf": "/blog/stop-chasing-tasks",
+      "title": "Tapşırıqları izləməyi necə dayandırmalı: rəhbərlər üçün beş vərdiş",
+      "description": "Rəhbərlər niyə komandanın arxasınca qaçır və bunu dayandıran beş vərdiş: hər tapşırığa bir sahib, tapşırıq telefonda, \"İşim ilişib\" düyməsi, eskalasiya və təsdiq.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "stop-chasing-tasks"
+    },
+    {
+      "path": "/ru/blog/stop-chasing-tasks",
+      "lang": "ru",
+      "alternateOf": "/blog/stop-chasing-tasks",
+      "title": "Как перестать гоняться за задачами: пять привычек руководителя",
+      "description": "Почему руководитель догоняет команду и пять привычек, которые это прекращают: один ответственный, задачи в телефоне, кнопка «Я застрял», эскалация и подтверждение.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "stop-chasing-tasks"
+    },
+    {
+      "path": "/tr/blog/stop-chasing-tasks",
+      "lang": "tr",
+      "alternateOf": "/blog/stop-chasing-tasks",
+      "title": "Görev kovalamayı nasıl bırakırsınız: yöneticiler için beş alışkanlık",
+      "description": "Yöneticiler neden ekiplerinin peşinden koşar ve bunu durduran beş alışkanlık: görev başına tek sahip, telefonda görevler, \"Takıldım\" düğmesi, eskalasyon ve onay.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "stop-chasing-tasks"
+    },
+    {
+      "path": "/blog/why-good-employees-leave",
+      "title": "Why good employees leave without warning, and six signals that show it first",
+      "description": "Resignations rarely come out of nowhere. Six signals in data you already have, and what to do about them this week.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "why-good-employees-leave"
+    },
+    {
+      "path": "/az/blog/why-good-employees-leave",
+      "lang": "az",
+      "alternateOf": "/blog/why-good-employees-leave",
+      "title": "Yaxşı işçi niyə xəbərsiz gedir və bunu əvvəlcədən göstərən altı siqnal",
+      "description": "İstefa nadir hallarda heç yerdən çıxır. Onsuz da əlinizdə olan məlumatdakı altı siqnal və bu həftə nə etməli.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "why-good-employees-leave"
+    },
+    {
+      "path": "/ru/blog/why-good-employees-leave",
+      "lang": "ru",
+      "alternateOf": "/blog/why-good-employees-leave",
+      "title": "Почему хорошие сотрудники уходят без предупреждения и шесть сигналов, которые видны заранее",
+      "description": "Увольнение редко бывает внезапным. Шесть сигналов в данных, которые у вас уже есть, и что сделать на этой неделе.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "why-good-employees-leave"
+    },
+    {
+      "path": "/tr/blog/why-good-employees-leave",
+      "lang": "tr",
+      "alternateOf": "/blog/why-good-employees-leave",
+      "title": "İyi çalışanlar neden habersiz ayrılır ve bunu önceden gösteren altı işaret",
+      "description": "İstifalar nadiren birdenbire gelir. Zaten elinizdeki verilerde altı işaret ve bu hafta ne yapmalı.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "why-good-employees-leave"
+    },
+    {
+      "path": "/blog/restaurant-task-system",
+      "title": "A task system for a restaurant in ten minutes",
+      "description": "Opening and closing checklists, fridge temperatures and weekly cleaning on the staff's phones, without a computer in the kitchen. A ten-minute setup.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "restaurant-task-system"
+    },
+    {
+      "path": "/az/blog/restaurant-task-system",
+      "lang": "az",
+      "alternateOf": "/blog/restaurant-task-system",
+      "title": "Restoran üçün tapşırıq sistemi on dəqiqəyə",
+      "description": "Açılış və bağlanış siyahıları, soyuducu temperaturu və həftəlik təmizlik işçilərin telefonunda, mətbəxdə kompüter olmadan. On dəqiqəlik quraşdırma.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "restaurant-task-system"
+    },
+    {
+      "path": "/ru/blog/restaurant-task-system",
+      "lang": "ru",
+      "alternateOf": "/blog/restaurant-task-system",
+      "title": "Система задач для ресторана за десять минут",
+      "description": "Чек-листы открытия и закрытия, температура холодильников и еженедельная уборка в телефонах персонала, без компьютера на кухне. Настройка за десять минут.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "restaurant-task-system"
+    },
+    {
+      "path": "/tr/blog/restaurant-task-system",
+      "lang": "tr",
+      "alternateOf": "/blog/restaurant-task-system",
+      "title": "Bir restoran için on dakikada görev sistemi",
+      "description": "Açılış ve kapanış listeleri, buzdolabı sıcaklıkları ve haftalık temizlik personelin telefonunda, mutfakta bilgisayar olmadan. On dakikalık kurulum.",
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "article": "restaurant-task-system"
     }
   ]
 }

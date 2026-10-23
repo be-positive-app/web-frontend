@@ -93,6 +93,30 @@ function withoutFaqStructuredData(html) {
   )
 }
 
+
+/** Minimal markdown for blog articles (## headings, paragraphs, - and 1. lists, **bold**), escaped. */
+function articleHtml(slug, lang) {
+  const file = join(root, 'src/content/blog', slug, `${lang ?? 'en'}.md`)
+  let md
+  try {
+    md = readFileSync(file, 'utf8')
+  } catch {
+    md = readFileSync(join(root, 'src/content/blog', slug, 'en.md'), 'utf8')
+  }
+  const inline = (t) => escapeAttr(t).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+  return md
+    .trim()
+    .split(/\n{2,}/)
+    .map((block) => {
+      const lines = block.split('\n')
+      if (block.startsWith('## ')) return `<h2>${inline(block.slice(3))}</h2>`
+      if (lines.every((l) => /^- /.test(l))) return `<ul>${lines.map((l) => `<li>${inline(l.slice(2))}</li>`).join('')}</ul>`
+      if (lines.every((l) => /^\d+\. /.test(l))) return `<ol>${lines.map((l) => `<li>${inline(l.replace(/^\d+\. /, ''))}</li>`).join('')}</ol>`
+      return `<p>${lines.map(inline).join('<br>')}</p>`
+    })
+    .join('\n')
+}
+
 function renderRoute(route) {
   const title = escapeAttr(fullTitle(route))
   const description = escapeAttr(route.description)
@@ -149,6 +173,13 @@ function renderRoute(route) {
   if (route.lang) {
     html = html.replace(/<html lang="[^"]*"/i, `<html lang="${route.lang}"`)
     html = withoutFaqStructuredData(html)
+  }
+  if (route.article) {
+    // Crawlers get the article text without running JavaScript; the app replaces it on load.
+    html = html.replace(
+      /<div id="root"><\/div>/,
+      `<div id="root"><article class="prose-blog" style="max-width:48rem;margin:0 auto;padding:3rem 1rem"><h1>${escapeAttr(route.title)}</h1>\n${articleHtml(route.article, route.lang)}</article></div>`,
+    )
   }
   const alternates = hreflangLinks(route)
   if (alternates) html = html.replace('</head>', `    ${alternates}\n  </head>`)
