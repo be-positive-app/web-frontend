@@ -51,6 +51,7 @@ export const az: Dict = {
   'feature.director': 'Direktor paneli, iş təqvimi və məzuniyyət',
   'feature.flows': 'Təsdiq, bloklar, eskalasiya və ötürmə',
   'feature.packs': 'Başlanğıc paketləri, hədəflər və hesabatlar',
+  'feature.people': 'İnsan Paketi: saxlama siqnalı, bacarıqlar, tanınma və nişanlar',
   'feature.api': 'API açarları və webhook-lar',
   'feature.invoice': 'Bank köçürməsi, illik faktura',
   'feature.onboarding': 'Fərdi işə salma dəstəyi',

@@ -30,6 +30,7 @@ const CORE_FEATURES: Key[] = [
   'feature.flows',
   'feature.director',
   'feature.packs',
+  'feature.people',
   'feature.api',
   'feature.meet',
   'feature.mobile',

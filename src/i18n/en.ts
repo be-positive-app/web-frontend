@@ -50,6 +50,7 @@ export const en = {
   'feature.director': 'Director dashboard, work calendar and leave',
   'feature.flows': 'Sign-off, blockers, escalation and transfer',
   'feature.packs': 'Starter packs, goals and reports',
+  'feature.people': 'People Pack: retention signal, skills, recognition and badges',
   'feature.api': 'API keys and webhooks',
   'feature.invoice': 'Bank transfer, annual invoice',
   'feature.onboarding': 'Dedicated onboarding',
