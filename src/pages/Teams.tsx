@@ -150,10 +150,9 @@ export function Teams() {
             <h2 className={h2}>{t('teams.addons.title')}</h2>
             <p className="mt-3 text-base leading-relaxed text-slate-600">{t('teams.addons.text')}</p>
           </div>
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 lg:grid-cols-2">
             {([
               ['addon1', <Sparkles key="a1" className="h-5 w-5" aria-hidden="true" />],
-              ['addon2', <HeartHandshake key="a2" className="h-5 w-5" aria-hidden="true" />],
               ['addon3', <Wrench key="a3" className="h-5 w-5" aria-hidden="true" />],
             ] as const).map(([k, icon]) => (
               <div key={k} className="rounded-3xl border border-brandBlue/15 bg-gradient-to-b from-brandBlue/5 to-white p-6 shadow-card">

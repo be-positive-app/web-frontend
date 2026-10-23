@@ -47,6 +47,7 @@ export const tr: Dict = {
   'feature.director': 'Direktör paneli, çalışma takvimi ve izinler',
   'feature.flows': 'Onay, engeller, yükseltme ve devir',
   'feature.packs': 'Başlangıç paketleri, hedefler ve raporlar',
+  'feature.people': 'İnsan Paketi: elde tutma sinyali, beceriler, takdir ve rozetler',
   'feature.api': 'API anahtarları ve webhook\'lar',
   'feature.invoice': 'Banka havalesi, yıllık fatura',
   'feature.onboarding': 'Özel kurulum desteği',
