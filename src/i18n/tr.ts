@@ -62,6 +62,7 @@ export const tr: Dict = {
   'hub.person.b2': 'Odak araçları ve seriler',
   'hub.person.b3': 'Görünür ilerleme',
   'hub.person.more': 'Uygulama hakkında daha fazla',
+  'hub.person.cta': 'Uygulamayı indir',
   'hub.person.price': 'Ayda 2.99 $’dan. iPhone ve Android.',
   'hub.company.kicker': 'Şirketim için',
   'hub.company.title': 'Şirketi tek ekrandan yönetin.',

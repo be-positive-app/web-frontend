@@ -43,6 +43,8 @@ export function LangProvider({ children }: { children: ReactNode }) {
       setChosen(l)
       try {
         localStorage.setItem('bp.lang', l)
+        // The edge redirect (middleware.ts) reads this cookie, so an explicit choice beats the IP guess.
+        document.cookie = `bp_lang=${l}; Path=/; Max-Age=31536000; SameSite=Lax`
       } catch {
         /* storage blocked: the choice lasts for this visit */
       }

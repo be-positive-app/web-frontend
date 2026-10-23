@@ -1,10 +1,8 @@
 import { ArrowRight, Building2, Check, Smartphone } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { StoreButtons } from '../components/StoreButtons'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { useT } from '../i18n'
 import { localizedPath, useLocalRouteMeta } from '../i18n/paths'
-import { TEAMS_APP_URL } from '../config/teamsPricing'
 
 /**
  * The front door. Two products share the domain, so the home page does one
@@ -18,7 +16,7 @@ export function Home() {
   const bullet = (text: string, tone: 'light' | 'dark') => (
     <li key={text} className="flex items-start gap-2.5 text-sm leading-relaxed">
       <Check className={`mt-0.5 h-4 w-4 shrink-0 ${tone === 'dark' ? 'text-brandYellow' : 'text-brandBlue'}`} aria-hidden="true" />
-      <span className={tone === 'dark' ? 'text-[#c7cbe0]' : 'text-slate-600'}>{text}</span>
+      <span className={tone === 'dark' ? 'text-white/80' : 'text-slate-600'}>{text}</span>
     </li>
   )
 
@@ -39,10 +37,9 @@ export function Home() {
             <ul className="mt-6 grid gap-2.5">
               {[t('hub.person.b1'), t('hub.person.b2'), t('hub.person.b3')].map((x) => bullet(x, 'light'))}
             </ul>
-            <div className="mt-8 flex flex-col items-start gap-4">
-              <StoreButtons />
-              <Link to={localizedPath(lang, '/app')} className="inline-flex items-center gap-1.5 text-sm font-semibold text-brandBlue hover:underline focus-ring">
-                {t('hub.person.more')} <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+            <div className="mt-8">
+              <Link to={localizedPath(lang, '/app')} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-brandNavy focus-ring">
+                {t('hub.person.cta')} <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
             <p className="mt-6 text-xs font-semibold text-slate-500">{t('hub.person.price')}</p>
@@ -50,7 +47,7 @@ export function Home() {
         </div>
 
         {/* Company */}
-        <div className="flex flex-col justify-center bg-brandNavy px-6 py-14 text-white sm:px-10 lg:px-16 lg:py-20">
+        <div className="flex flex-col justify-center bg-brandBlue px-6 py-14 text-white sm:px-10 lg:px-16 lg:py-20">
           <div className="mx-auto w-full max-w-xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-white">
               <Building2 className="h-4 w-4 text-brandYellow" aria-hidden="true" />
@@ -59,19 +56,16 @@ export function Home() {
             <h2 className="mt-5 text-balance text-3xl font-extrabold tracking-tight sm:text-4xl xl:text-5xl">
               {t('hub.company.title')}
             </h2>
-            <p className="mt-4 text-pretty text-base leading-relaxed text-[#c7cbe0] sm:text-lg">{t('hub.company.lead')}</p>
+            <p className="mt-4 text-pretty text-base leading-relaxed text-white/80 sm:text-lg">{t('hub.company.lead')}</p>
             <ul className="mt-6 grid gap-2.5">
               {[t('hub.company.b1'), t('hub.company.b2'), t('hub.company.b3')].map((x) => bullet(x, 'dark'))}
             </ul>
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="mt-8">
               <Link to={localizedPath(lang, '/teams')} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandYellow px-6 py-3.5 text-base font-semibold text-brandNavy shadow-soft transition hover:bg-white focus-ring">
                 {t('hub.company.cta')} <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
-              <a href={TEAMS_APP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 px-6 py-3 text-base font-semibold text-white transition hover:border-brandYellow hover:text-brandYellow focus-ring">
-                {t('hub.company.trial')}
-              </a>
             </div>
-            <p className="mt-6 text-xs font-semibold text-[#9da6c0]">{t('hub.company.price')}</p>
+            <p className="mt-6 text-xs font-semibold text-white/70">{t('hub.company.price')}</p>
           </div>
         </div>
       </section>
