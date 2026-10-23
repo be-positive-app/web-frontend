@@ -12,15 +12,16 @@ export function PersonaSwitch({ className = '', onNavigate }: { className?: stri
   const { pathname } = useLocation()
   const { t, lang } = useT()
   const isTeams = /^\/(?:(?:az|ru|tr)\/)?teams/.test(pathname)
+  const isPerson = /^\/(?:(?:az|ru|tr)\/)?app/.test(pathname)
   const base = 'whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-semibold transition focus-ring motion-reduce:transition-none'
 
   return (
     <div className={`inline-flex items-center gap-1 rounded-full border border-slate-200 bg-slate-50 p-1 ${className}`}>
       <Link
-        to={localizedPath(lang, '/')}
+        to={localizedPath(lang, '/app')}
         onClick={onNavigate}
-        aria-current={!isTeams ? 'page' : undefined}
-        className={`${base} ${!isTeams ? 'bg-brandBlue text-white shadow-sm' : 'text-slate-600 hover:text-brandBlue'}`}
+        aria-current={isPerson ? 'page' : undefined}
+        className={`${base} ${isPerson ? 'bg-brandBlue text-white shadow-sm' : 'text-slate-600 hover:text-brandBlue'}`}
       >
         {t('persona.person')}
       </Link>

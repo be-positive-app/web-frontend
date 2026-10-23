@@ -34,7 +34,7 @@ const googlePlayHref =
   SITE_META.googlePlayUrl
 
 export function Landing() {
-  usePageMeta(useLocalRouteMeta('/'))
+  usePageMeta(useLocalRouteMeta('/app'))
   const { t } = useT()
 
   const { ref: featuresRef, inView: featuresInView } = useInView<HTMLDivElement>({ once: true })

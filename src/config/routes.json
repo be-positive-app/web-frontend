@@ -3,10 +3,17 @@
   "routes": [
     {
       "path": "/",
+      "title": "Be Positive — Planner for people and companies",
+      "description": "Be Positive is a personal day planner on iPhone and Android, and Be Positive Teams is the task and team manager for companies of 5 to 500. Pick yours.",
+      "changefreq": "weekly",
+      "priority": "1.0"
+    },
+    {
+      "path": "/app",
       "title": "Be Positive — Life Planner",
       "description": "Stop forgetting tasks and plan your day in one place. Be Positive Life Planner keeps your tasks, calendar and reminders together, and tracks what you finish — on iPhone and Android.",
       "changefreq": "weekly",
-      "priority": "1.0"
+      "priority": "0.9"
     },
     {
       "path": "/teams",
@@ -19,19 +26,37 @@
       "path": "/az",
       "lang": "az",
       "alternateOf": "/",
+      "title": "Be Positive — İnsanlar və şirkətlər üçün planlayıcı",
+      "description": "Be Positive iPhone və Android-də gündəlik planlayıcıdır, Be Positive Teams isə 5–500 nəfərlik şirkətlər üçün tapşırıq və komanda idarəetməsidir. Sizinkini seçin.",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/az/app",
+      "lang": "az",
+      "alternateOf": "/app",
       "title": "Be Positive — Gündəlik planlayıcı",
       "description": "Tapşırıqları unutmağı dayandırın və gününüzü bir yerdə planlayın. Be Positive tapşırıqları, təqvimi və xatırlatmaları bir yerdə saxlayır və nəyi bitirdiyinizi izləyir — iPhone və Android-də.",
       "changefreq": "weekly",
-      "priority": "0.9"
+      "priority": "0.8"
     },
     {
       "path": "/ru",
       "lang": "ru",
       "alternateOf": "/",
+      "title": "Be Positive — Планировщик для людей и компаний",
+      "description": "Be Positive — личный планировщик дня на iPhone и Android, а Be Positive Teams — управление задачами и командой для компаний от 5 до 500 человек. Выберите своё.",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/ru/app",
+      "lang": "ru",
+      "alternateOf": "/app",
       "title": "Be Positive — Планировщик дня",
       "description": "Перестаньте забывать задачи и планируйте день в одном месте. Be Positive хранит задачи, календарь и напоминания вместе и отслеживает, что вы сделали, — на iPhone и Android.",
       "changefreq": "weekly",
-      "priority": "0.9"
+      "priority": "0.8"
     },
     {
       "path": "/az/teams",
@@ -55,10 +80,19 @@
       "path": "/tr",
       "lang": "tr",
       "alternateOf": "/",
+      "title": "Be Positive — İnsanlar ve şirketler için planlayıcı",
+      "description": "Be Positive iPhone ve Android’de kişisel günlük planlayıcı, Be Positive Teams ise 5–500 kişilik şirketler için görev ve ekip yönetimidir. Sizinkini seçin.",
+      "changefreq": "weekly",
+      "priority": "0.9"
+    },
+    {
+      "path": "/tr/app",
+      "lang": "tr",
+      "alternateOf": "/app",
       "title": "Be Positive — Günlük planlayıcı",
       "description": "Görevleri unutmayı bırakın ve gününüzü tek yerde planlayın. Be Positive görevlerinizi, takviminizi ve hatırlatmalarınızı bir arada tutar ve neyi bitirdiğinizi izler; iPhone ve Android'de.",
       "changefreq": "weekly",
-      "priority": "0.9"
+      "priority": "0.8"
     },
     {
       "path": "/tr/teams",

@@ -74,7 +74,7 @@ export default defineConfig(({ mode }) => {
                 '@id': `${siteUrl}/#app`,
                 name: SITE_META.title,
                 description: SITE_META.description,
-                url: `${siteUrl}/`,
+                url: `${siteUrl}/app`,
                 image: toAbsolute(SITE_META.ogImage),
                 applicationCategory: 'ProductivityApplication',
                 operatingSystem: 'iOS, Android',

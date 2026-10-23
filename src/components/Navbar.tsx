@@ -1,5 +1,6 @@
 import { Download, Menu, X } from 'lucide-react'
 import { PersonaSwitch } from './PersonaSwitch'
+import { TeamsNavbar } from './TeamsNavbar'
 import { LangSwitch } from './LangSwitch'
 import { useT } from '../i18n'
 import { basePath, localizedPath } from '../i18n/paths'
@@ -15,13 +16,45 @@ function scrollToId(id: string) {
 }
 
 export function Navbar() {
+  const { pathname } = useLocation()
+  if (/^\/(?:(?:az|ru|tr)\/)?teams/.test(pathname)) return <TeamsNavbar />
+  if (basePath(pathname) === '/') return <HubNavbar />
+  return <PersonalNavbar />
+}
+
+/** The front door only needs the logo, the two doors and the language. */
+function HubNavbar() {
+  const { lang } = useT()
+  return (
+    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur">
+      <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+        <Link to={localizedPath(lang, '/')} className="group inline-flex items-center gap-2.5 rounded-xl px-1 py-0.5 focus-ring" aria-label="Be Positive home">
+          <picture className="contents">
+            <source srcSet={appLogoWebp} type="image/webp" />
+            <img src={appLogoPng} alt="Be Positive" width={40} height={40} decoding="async" className="h-9 w-9 shrink-0 rounded-2xl object-contain shadow-sm ring-1 ring-slate-200/50 sm:h-10 sm:w-10" />
+          </picture>
+          <span className="text-base font-extrabold tracking-tight text-slate-900">Be Positive</span>
+        </Link>
+        <PersonaSwitch className="hidden sm:inline-flex" />
+        <LangSwitch />
+      </div>
+      <div className="border-t border-slate-200/70 px-4 py-2 sm:hidden">
+        <PersonaSwitch className="w-full justify-center" />
+      </div>
+    </header>
+  )
+}
+
+function PersonalNavbar() {
   const location = useLocation()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
   const { t, lang } = useT()
   // The home page of the visitor's language edition, and whether we are already on it.
-  const home = localizedPath(lang, '/')
-  const onHome = basePath(location.pathname) === '/'
+  // The personal product lives at /app; the bare logo still goes to the front door.
+  const home = localizedPath(lang, '/app')
+  const onHome = basePath(location.pathname) === '/app'
+  const front = localizedPath(lang, '/')
 
   // Every link in the menu closes it on click; this covers the navigations that
   // do not go through them (back/forward, programmatic). Adjusting state during
@@ -91,7 +124,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/80 backdrop-blur">
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link
-          to={home}
+          to={front}
           className="group inline-flex items-center rounded-xl px-1 py-0.5 focus-ring"
           aria-label="Be Positive home"
         >

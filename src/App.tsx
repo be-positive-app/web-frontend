@@ -6,6 +6,7 @@ import { POLICY_PAGES } from './lib/policyPages'
 import { useT } from './i18n'
 
 const Landing = lazy(() => import('./pages/Landing').then((m) => ({ default: m.Landing })))
+import { Home } from './pages/Home'
 const Teams = lazy(() => import('./pages/Teams').then((m) => ({ default: m.Teams })))
 const PolicyDocumentPage = lazy(() =>
   import('./pages/PolicyDocumentPage').then((m) => ({ default: m.PolicyDocumentPage })),
@@ -38,14 +39,18 @@ export default function App() {
       <main id="main" className="flex-1">
         <Suspense fallback={null}>
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/app" element={<Landing />} />
             <Route path="/teams" element={<Teams />} />
             {/* Azerbaijani, Russian and Turkish editions: same pages, own URLs so search engines index each language. */}
-            <Route path="/az" element={<Landing />} />
-            <Route path="/ru" element={<Landing />} />
+            <Route path="/az" element={<Home />} />
+            <Route path="/ru" element={<Home />} />
+            <Route path="/az/app" element={<Landing />} />
+            <Route path="/ru/app" element={<Landing />} />
+            <Route path="/tr/app" element={<Landing />} />
             <Route path="/az/teams" element={<Teams />} />
             <Route path="/ru/teams" element={<Teams />} />
-            <Route path="/tr" element={<Landing />} />
+            <Route path="/tr" element={<Home />} />
             <Route path="/tr/teams" element={<Teams />} />
             {POLICY_PAGES.map(({ slug, path }) => (
               <Route
