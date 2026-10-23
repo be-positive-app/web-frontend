@@ -1,9 +1,11 @@
-import { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Navbar } from './components/Navbar'
 import { POLICY_PAGES } from './lib/policyPages'
 import { useT } from './i18n'
+import { ConsentBanner } from './components/ConsentBanner'
+import { trackPageView } from './lib/analytics'
 
 const Landing = lazy(() => import('./pages/Landing').then((m) => ({ default: m.Landing })))
 import { Home } from './pages/Home'
@@ -23,6 +25,15 @@ const ResetPassword = lazy(() =>
 )
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
+/** Tells analytics about page changes inside the single-page site (the first view is counted on load). */
+function PageViews() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    trackPageView(pathname)
+  }, [pathname])
+  return null
+}
+
 export default function App() {
   const { t } = useT()
   return (
@@ -35,6 +46,7 @@ export default function App() {
       </a>
 
       <Navbar />
+      <PageViews />
 
       <main id="main" className="flex-1">
         <Suspense fallback={null}>
@@ -69,6 +81,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <ConsentBanner />
     </div>
   )
 }

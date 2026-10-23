@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from 'react'
 import { CheckCircle2, Send } from 'lucide-react'
 import { apiV1Url } from '../lib/apiBase'
+import { track } from '../lib/analytics'
+import { getAttribution } from '../lib/attribution'
 import { useT, type Key } from '../i18n'
 
 const SIZES = ['1-10', '11-50', '51-200', '200+'] as const
@@ -53,10 +55,12 @@ export function RequestDemoForm() {
           industry: industry || undefined,
           note: note.trim() || undefined,
           language: lang,
+          attribution: getAttribution(),
         }),
       })
       if (!res.ok) throw new Error(String(res.status))
       setSentTo(email.trim())
+      track('generate_lead', { form: 'demo', team_size: teamSize })
     } catch {
       setError(true)
     } finally {

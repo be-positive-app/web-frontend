@@ -12,6 +12,10 @@ interface ImportMetaEnv {
   readonly VITE_FIREBASE_API_KEY?: string
   readonly VITE_FIREBASE_AUTH_DOMAIN?: string
   readonly VITE_FIREBASE_PROJECT_ID?: string
+  /** Google Analytics 4 measurement ID (G-XXXXXXX). Empty: no analytics. */
+  readonly VITE_GA4_ID?: string
+  /** Meta (Facebook/Instagram) Pixel ID. Empty: no pixel. */
+  readonly VITE_META_PIXEL_ID?: string
 }
 
 interface ImportMeta {

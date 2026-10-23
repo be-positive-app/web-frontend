@@ -4,6 +4,11 @@ import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 import App from './App.tsx'
 import { LangProvider } from './i18n/LangProvider'
+import { initAnalytics } from './lib/analytics'
+import { captureAttribution } from './lib/attribution'
+
+captureAttribution()
+initAnalytics()
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
