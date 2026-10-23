@@ -66,6 +66,7 @@ export const ru: Dict = {
   'hub.person.b2': 'Инструменты фокуса и серии',
   'hub.person.b3': 'Прогресс, который видно',
   'hub.person.more': 'Подробнее о приложении',
+  'hub.person.cta': 'Скачать приложение',
   'hub.person.price': 'От $2.99 в месяц. iPhone и Android.',
   'hub.company.kicker': 'Для компании',
   'hub.company.title': 'Управляйте компанией с одного экрана.',

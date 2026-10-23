@@ -65,6 +65,7 @@ export const en = {
   'hub.person.b2': 'Focus tools and streaks',
   'hub.person.b3': 'Progress you can see',
   'hub.person.more': 'More about the app',
+  'hub.person.cta': 'Get the app',
   'hub.person.price': 'From $2.99 a month. iPhone and Android.',
   'hub.company.kicker': 'For my company',
   'hub.company.title': 'Run the company from one screen.',

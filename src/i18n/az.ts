@@ -66,6 +66,7 @@ export const az: Dict = {
   'hub.person.b2': 'Fokus alətləri və seriyalar',
   'hub.person.b3': 'Görünən irəliləyiş',
   'hub.person.more': 'Tətbiq haqqında ətraflı',
+  'hub.person.cta': 'Tətbiqi yüklə',
   'hub.person.price': 'Ayda 2.99 $-dan. iPhone və Android.',
   'hub.company.kicker': 'Şirkətim üçün',
   'hub.company.title': 'Şirkəti bir ekrandan idarə edin.',
