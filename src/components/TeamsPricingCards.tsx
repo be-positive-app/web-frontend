@@ -81,7 +81,7 @@ export function TeamsPricingCards({ compact = false }: { compact?: boolean }) {
         {t('pricing.currencyNote')}
       </p>
 
-      <div className={`mt-8 grid gap-5 lg:grid-cols-3 ${compact ? '' : 'mx-auto max-w-5xl'}`}>
+      <div className={`mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-4 ${compact ? '' : 'mx-auto max-w-6xl'}`}>
         {TEAMS_PLANS.map((p) => {
           const amount = p.prices ? p.prices[currency][cycle] : null
           // Starter and Team go to the contact form too while card payment is paused.

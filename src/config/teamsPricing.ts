@@ -11,7 +11,7 @@ export type TeamsCurrency = 'AZN' | 'USD'
 export type TeamsPrice = { monthly: number; yearly: number }
 
 export type TeamsPlan = {
-  id: 'starter' | 'team' | 'enterprise'
+  id: 'starter' | 'team' | 'business' | 'enterprise'
   /** i18n keys: the cards render them in the visitor's language. */
   name: Key
   sub: Key
@@ -41,15 +41,22 @@ export const TEAMS_PLANS: TeamsPlan[] = [
     id: 'starter',
     name: 'plan.starter.name',
     sub: 'plan.starter.sub',
-    prices: { AZN: { monthly: 29.9, yearly: 199.9 }, USD: { monthly: 24.9, yearly: 199.9 } },
+    prices: { AZN: { monthly: 29.9, yearly: 199.9 }, USD: { monthly: 19.9, yearly: 149.9 } },
     features: CORE_FEATURES,
   },
   {
     id: 'team',
     name: 'plan.team.name',
     sub: 'plan.team.sub',
-    prices: { AZN: { monthly: 99.9, yearly: 999.9 }, USD: { monthly: 69.9, yearly: 699.9 } },
+    prices: { AZN: { monthly: 49.9, yearly: 299.9 }, USD: { monthly: 29.9, yearly: 199.9 } },
     recommended: true,
+    features: CORE_FEATURES,
+  },
+  {
+    id: 'business',
+    name: 'plan.business.name',
+    sub: 'plan.business.sub',
+    prices: { AZN: { monthly: 99.9, yearly: 899.9 }, USD: { monthly: 54.9, yearly: 449.9 } },
     features: CORE_FEATURES,
   },
   {
