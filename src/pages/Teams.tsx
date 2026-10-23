@@ -43,19 +43,19 @@ export function Teams() {
 
   return (
     <div>
-      <section className="overflow-x-clip bg-hero-gradient">
+      <section className="overflow-x-clip bg-brandNavy text-white">
         <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-16 sm:px-6 sm:pb-20 sm:pt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/70 px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm">
-              <Building2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white">
+              <Building2 className="h-4 w-4 text-brandYellow" aria-hidden="true" />
               <span>{t('teams.kicker')}</span>
             </div>
 
-            <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              <span>{t('teams.h1a')}</span> <span className="text-brandBlue">{t('teams.h1b')}</span>
+            <h1 className="mt-6 text-balance text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+              <span>{t('teams.h1a')}</span> <span className="text-brandYellow">{t('teams.h1b')}</span>
             </h1>
 
-            <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-slate-600 sm:text-lg">
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-[#c7cbe0] sm:text-lg">
               {t('teams.lead')}
             </p>
 
@@ -64,23 +64,23 @@ export function Teams() {
                 href={APP_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandYellow px-6 py-3.5 text-base font-semibold text-brandNavy shadow-soft transition hover:bg-white focus-ring"
               >
                 {t('teams.cta')}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
               <a
                 href="#demo"
-                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-800 shadow-sm transition hover:border-brandBlue hover:text-brandBlue focus-ring"
+                className="inline-flex items-center justify-center gap-2 rounded-2xl border border-white/30 bg-transparent px-6 py-3 text-base font-semibold text-white transition hover:border-brandYellow hover:text-brandYellow focus-ring"
               >
                 {t('demo.cta')}
               </a>
-              <div className="flex items-center justify-center gap-2 text-center text-sm text-slate-600">
-                <Check className="h-4 w-4 text-brandBlue" aria-hidden="true" />
+              <div className="flex items-center justify-center gap-2 text-center text-sm text-[#c7cbe0]">
+                <Check className="h-4 w-4 text-brandYellow" aria-hidden="true" />
                 <span>{t('teams.noCard')}</span>
               </div>
-              <div className="flex items-center justify-center gap-2 text-center text-xs font-semibold text-slate-500">
-                <Globe2 className="h-4 w-4 text-brandBlue" aria-hidden="true" />
+              <div className="flex items-center justify-center gap-2 text-center text-xs font-semibold text-[#9da6c0]">
+                <Globe2 className="h-4 w-4 text-brandYellow" aria-hidden="true" />
                 <span>{t('teams.langs')}</span>
               </div>
             </div>
@@ -108,7 +108,7 @@ export function Teams() {
           <p className="mt-6 text-xs text-slate-500">{t('teams.why.sources')}</p>
         </div>
       </section>
-      <section className="border-t border-slate-100 bg-white">
+      <section id="features" className="scroll-mt-20 border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
             <p className={kicker}>{t('teams.features.kicker')}</p>

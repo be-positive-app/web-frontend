@@ -1,5 +1,6 @@
 import { Download, Menu, X } from 'lucide-react'
 import { PersonaSwitch } from './PersonaSwitch'
+import { TeamsNavbar } from './TeamsNavbar'
 import { LangSwitch } from './LangSwitch'
 import { useT } from '../i18n'
 import { basePath, localizedPath } from '../i18n/paths'
@@ -15,6 +16,12 @@ function scrollToId(id: string) {
 }
 
 export function Navbar() {
+  const { pathname } = useLocation()
+  if (/^\/(?:(?:az|ru|tr)\/)?teams/.test(pathname)) return <TeamsNavbar />
+  return <PersonalNavbar />
+}
+
+function PersonalNavbar() {
   const location = useLocation()
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
