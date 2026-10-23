@@ -10,7 +10,6 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { AudienceSplit } from '../components/AudienceSplit'
 import { DownloadCta } from '../components/DownloadCta'
 import { Faq } from '../components/Faq'
 import { FoundUs } from '../components/FoundUs'
@@ -35,7 +34,7 @@ const googlePlayHref =
   SITE_META.googlePlayUrl
 
 export function Landing() {
-  usePageMeta(useLocalRouteMeta('/'))
+  usePageMeta(useLocalRouteMeta('/app'))
   const { t } = useT()
 
   const { ref: featuresRef, inView: featuresInView } = useInView<HTMLDivElement>({ once: true })
@@ -91,8 +90,6 @@ export function Landing() {
           <HeroScreens />
         </div>
       </section>
-
-      <AudienceSplit />
 
       <Problem />
 

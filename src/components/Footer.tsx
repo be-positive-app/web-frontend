@@ -9,7 +9,7 @@ import { TEAMS_APP_URL } from '../config/teamsPricing'
 
 export function Footer() {
   const location = useLocation()
-  const isLanding = /^\/(?:az|ru|tr)?$/.test(location.pathname)
+  const isLanding = /^\/(?:(?:az|ru|tr)\/)?app$/.test(location.pathname)
   const isTeams = /^\/(?:(?:az|ru|tr)\/)?teams/.test(location.pathname)
   const { t, lang } = useT()
 
@@ -55,18 +55,18 @@ export function Footer() {
                     <a href="#pricing" className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('teams.nav.pricing')}</a>
                     <a href="#demo" className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('teams.nav.demo')}</a>
                     <a href={TEAMS_APP_URL} className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('teams.nav.login')}</a>
-                    <Link to={localizedPath(lang, '/')} className="rounded-xl px-3 py-2 text-sm font-semibold text-brandYellow transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('footer.personal')}</Link>
+                    <Link to={localizedPath(lang, '/app')} className="rounded-xl px-3 py-2 text-sm font-semibold text-brandYellow transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('footer.personal')}</Link>
                   </>
                 ) : (
                   <>
                     <a
-                      href={isLanding ? '#faq' : '/#faq'}
+                      href={isLanding ? '#faq' : `${localizedPath(lang, '/app')}#faq`}
                       className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy"
                     >
                       {t('footer.faq')}
                     </a>
                     <a
-                      href={isLanding ? '#contact' : '/#contact'}
+                      href={isLanding ? '#contact' : `${localizedPath(lang, '/app')}#contact`}
                       className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy"
                     >
                       {t('footer.contact')}
