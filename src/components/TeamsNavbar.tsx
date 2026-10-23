@@ -50,7 +50,7 @@ export function TeamsNavbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur">
-      <div className="h-1 bg-brandNavy" aria-hidden="true" />
+      <div className="h-1 bg-brandBlue" aria-hidden="true" />
       <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
         <Link to={teamsHome} className="group inline-flex items-center gap-2.5 rounded-xl px-1 py-0.5 focus-ring" aria-label="Be Positive Teams">
           <picture className="contents">
@@ -59,7 +59,7 @@ export function TeamsNavbar() {
           </picture>
           <span className="hidden items-baseline gap-1.5 2xl:inline-flex">
             <span className="text-base font-extrabold tracking-tight text-slate-900">Be Positive</span>
-            <span className="rounded-md bg-brandNavy px-1.5 py-0.5 text-xs font-extrabold uppercase tracking-wide text-brandYellow">Teams</span>
+            <span className="rounded-md bg-brandBlue px-1.5 py-0.5 text-xs font-extrabold uppercase tracking-wide text-brandYellow">Teams</span>
           </span>
         </Link>
 
@@ -91,7 +91,7 @@ export function TeamsNavbar() {
             href={TEAMS_APP_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-brandNavy px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-brandBlue focus-ring motion-reduce:transition-none"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-brandNavy focus-ring motion-reduce:transition-none"
           >
             {t('teams.nav.cta')}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -111,7 +111,7 @@ export function TeamsNavbar() {
                 </a>
               ))}
               <a href={TEAMS_APP_URL} className={mobileLink}>{t('teams.nav.login')}</a>
-              <a href={TEAMS_APP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandNavy px-4 py-3 text-sm font-semibold text-white shadow-soft focus-ring">
+              <a href={TEAMS_APP_URL} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-4 py-3 text-sm font-semibold text-white shadow-soft focus-ring">
                 {t('teams.nav.cta')} <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </a>
             </div>
