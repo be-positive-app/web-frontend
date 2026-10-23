@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { AudienceSplit } from '../components/AudienceSplit'
 import { DownloadCta } from '../components/DownloadCta'
 import { Faq } from '../components/Faq'
 import { FoundUs } from '../components/FoundUs'
@@ -90,6 +91,8 @@ export function Landing() {
           <HeroScreens />
         </div>
       </section>
+
+      <AudienceSplit />
 
       <Problem />
 
