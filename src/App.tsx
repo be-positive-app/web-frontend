@@ -1,12 +1,16 @@
-import { lazy, Suspense } from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { lazy, Suspense, useEffect } from 'react'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { Footer } from './components/Footer'
 import { Navbar } from './components/Navbar'
 import { POLICY_PAGES } from './lib/policyPages'
 import { useT } from './i18n'
+import { ConsentBanner } from './components/ConsentBanner'
+import { trackPageView } from './lib/analytics'
 
 const Landing = lazy(() => import('./pages/Landing').then((m) => ({ default: m.Landing })))
 import { Home } from './pages/Home'
+import { Blog } from './pages/Blog'
+import { BlogPost } from './pages/BlogPost'
 const Teams = lazy(() => import('./pages/Teams').then((m) => ({ default: m.Teams })))
 const PolicyDocumentPage = lazy(() =>
   import('./pages/PolicyDocumentPage').then((m) => ({ default: m.PolicyDocumentPage })),
@@ -23,6 +27,15 @@ const ResetPassword = lazy(() =>
 )
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
+/** Tells analytics about page changes inside the single-page site (the first view is counted on load). */
+function PageViews() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    trackPageView(pathname)
+  }, [pathname])
+  return null
+}
+
 export default function App() {
   const { t } = useT()
   return (
@@ -35,6 +48,7 @@ export default function App() {
       </a>
 
       <Navbar />
+      <PageViews />
 
       <main id="main" className="flex-1">
         <Suspense fallback={null}>
@@ -42,6 +56,12 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/app" element={<Landing />} />
             <Route path="/teams" element={<Teams />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            {['az', 'ru', 'tr'].map((l) => [
+              <Route key={`${l}-blog`} path={`/${l}/blog`} element={<Blog />} />,
+              <Route key={`${l}-post`} path={`/${l}/blog/:slug`} element={<BlogPost />} />,
+            ])}
             {/* Azerbaijani, Russian and Turkish editions: same pages, own URLs so search engines index each language. */}
             <Route path="/az" element={<Home />} />
             <Route path="/ru" element={<Home />} />
@@ -69,6 +89,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <ConsentBanner />
     </div>
   )
 }

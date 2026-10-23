@@ -24,7 +24,8 @@ export function basePath(pathname: string): string {
 
 /** The URL of `path` in `lang`: English stays at the bare path. Non-localized pages are returned as-is. */
 export function localizedPath(lang: Lang, path: string): string {
-  if (lang === 'en' || !(LOCALIZED_PATHS as readonly string[]).includes(path)) return path
+  const localized = (LOCALIZED_PATHS as readonly string[]).includes(path) || path === '/blog' || path.startsWith('/blog/')
+  if (lang === 'en' || !localized) return path
   return path === '/' ? `/${lang}` : `/${lang}${path}`
 }
 

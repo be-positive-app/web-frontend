@@ -19,6 +19,8 @@ export type RouteMeta = {
   lang?: string
   /** The English path this edition translates; ties the editions together for hreflang. */
   alternateOf?: string
+  /** Blog article slug: prerender writes its text into the page so crawlers read it without JavaScript. */
+  article?: string
 }
 
 export const ROUTES: readonly RouteMeta[] = routes.routes

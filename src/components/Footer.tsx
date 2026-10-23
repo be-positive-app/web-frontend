@@ -10,7 +10,7 @@ import { TEAMS_APP_URL } from '../config/teamsPricing'
 export function Footer() {
   const location = useLocation()
   const isLanding = /^\/(?:(?:az|ru|tr)\/)?app$/.test(location.pathname)
-  const isTeams = /^\/(?:(?:az|ru|tr)\/)?teams/.test(location.pathname)
+  const isTeams = /^\/(?:(?:az|ru|tr)\/)?(?:teams|blog)/.test(location.pathname)
   const { t, lang } = useT()
 
   return (
@@ -52,8 +52,9 @@ export function Footer() {
                 </a>
                 {isTeams ? (
                   <>
-                    <a href="#pricing" className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('teams.nav.pricing')}</a>
-                    <a href="#demo" className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('teams.nav.demo')}</a>
+                    <a href={`${localizedPath(lang, '/teams')}#pricing`} className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('teams.nav.pricing')}</a>
+                    <a href={`${localizedPath(lang, '/teams')}#demo`} className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('teams.nav.demo')}</a>
+                    <Link to={localizedPath(lang, '/blog')} className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('blog.nav')}</Link>
                     <a href={TEAMS_APP_URL} className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('teams.nav.login')}</a>
                     <Link to={localizedPath(lang, '/app')} className="rounded-xl px-3 py-2 text-sm font-semibold text-brandYellow transition hover:text-white focus-ring focus-visible:ring-offset-brandNavy">{t('footer.personal')}</Link>
                   </>

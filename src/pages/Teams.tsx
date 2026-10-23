@@ -30,6 +30,8 @@ import { useInView } from '../hooks/useInView'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { useT } from '../i18n'
 import { localizedPath, useLocalRouteMeta } from '../i18n/paths'
+import { TeamsCalculator } from '../components/TeamsCalculator'
+import { Testimonials } from '../components/Testimonials'
 
 const kicker = 'text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70'
 const h2 = 'mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl'
@@ -231,6 +233,8 @@ export function Teams() {
         </div>
       </section>
 
+      <Testimonials />
+
       <section id="pricing" className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="mx-auto max-w-2xl text-center">
@@ -240,6 +244,8 @@ export function Teams() {
           </div>
 
           <TeamsPricingCards />
+
+          <TeamsCalculator />
 
           <p className="mt-8 text-center text-sm text-slate-500">
             {t('teams.terms.pre')}{' '}

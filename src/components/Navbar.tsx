@@ -17,7 +17,8 @@ function scrollToId(id: string) {
 
 export function Navbar() {
   const { pathname } = useLocation()
-  if (/^\/(?:(?:az|ru|tr)\/)?teams/.test(pathname)) return <TeamsNavbar />
+  // The blog is written for company owners, so it wears the Teams menu.
+  if (/^\/(?:(?:az|ru|tr)\/)?(?:teams|blog)/.test(pathname)) return <TeamsNavbar />
   if (basePath(pathname) === '/') return <HubNavbar />
   return <PersonalNavbar />
 }
