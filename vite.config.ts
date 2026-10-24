@@ -58,7 +58,7 @@ export default defineConfig(({ mode }) => {
                   width: 512,
                   height: 512,
                 },
-                sameAs: [appStoreUrl, googlePlayUrl],
+                sameAs: [appStoreUrl, googlePlayUrl, SITE_META.instagramUrl, SITE_META.linkedinUrl],
               },
               {
                 '@type': 'WebSite',
