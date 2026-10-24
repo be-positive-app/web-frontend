@@ -93,13 +93,13 @@ export function Footer() {
                 {t('footer.legal')}
               </p>
               <ul className="mt-2 flex flex-wrap gap-x-4 gap-y-2 sm:justify-end">
-                {FOOTER_LEGAL_LINKS.map(({ path, label }) => (
+                {FOOTER_LEGAL_LINKS.map(({ path, key }) => (
                   <li key={path}>
                     <Link
                       to={path}
                       className="text-sm font-semibold text-white/90 underline-offset-2 transition hover:text-white hover:underline focus-ring focus-visible:ring-offset-[#4660f2]"
                     >
-                      {label}
+                      {t(key)}
                     </Link>
                   </li>
                 ))}

@@ -18,8 +18,8 @@ export const SUPPORT_PAGE = {
 
 /** Footer and any combined legal nav: API policies + static support. */
 export const FOOTER_LEGAL_LINKS = [
-  ...POLICY_PAGES.map((p) => ({ path: p.path, label: p.label })),
-  { path: SUPPORT_PAGE.path, label: SUPPORT_PAGE.label },
+  ...POLICY_PAGES.map((p) => ({ path: p.path, label: p.label, key: `legal.${p.slug}` as const })),
+  { path: SUPPORT_PAGE.path, label: SUPPORT_PAGE.label, key: 'legal.support' as const },
 ] as const
 
 export function policyMetaForSlug(slug: string) {
