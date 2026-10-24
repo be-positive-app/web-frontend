@@ -111,6 +111,13 @@
       "priority": "0.6"
     },
     {
+      "path": "/help",
+      "title": "Help center — Be Positive Teams",
+      "description": "Short how-to guides for Be Positive Teams: invite your team, create and import tasks from Excel, Trello or Asana, approvals, risk signals, custom fields and plans.",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
       "path": "/security",
       "title": "Security & trust — Be Positive Teams",
       "description": "How Be Positive keeps company data safe: Firebase sign-in, HTTPS, roles per department, audit log, card payments we never see, CSV export and account deletion.",

@@ -17,6 +17,7 @@ const PolicyDocumentPage = lazy(() =>
 )
 const Support = lazy(() => import('./pages/Support').then((m) => ({ default: m.Support })))
 const Security = lazy(() => import('./pages/Security').then((m) => ({ default: m.Security })))
+const Help = lazy(() => import('./pages/Help').then((m) => ({ default: m.Help })))
 const DeleteAccount = lazy(() =>
   import('./pages/DeleteAccount').then((m) => ({ default: m.DeleteAccount })),
 )
@@ -82,6 +83,7 @@ export default function App() {
             ))}
             <Route path="/support" element={<Support />} />
             <Route path="/security" element={<Security />} />
+            <Route path="/help" element={<Help />} />
             <Route path="/delete-account" element={<DeleteAccount />} />
             <Route path="/delete-account/verify/:token" element={<DeleteAccountVerify />} />
             <Route path="/reset-password" element={<ResetPassword />} />

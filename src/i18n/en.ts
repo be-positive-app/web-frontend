@@ -483,6 +483,20 @@ export const en = {
   'sec.report.t': "Found a security issue?",
   'sec.report.b': "Write to us and we will answer quickly. Please give us time to fix it before sharing it publicly.",
   'sec.more': "More details for your IT team:",
+  'legal.help': "Help center",
+  'help.eyebrow': "Help center",
+  'help.title': "How to do it in Be Positive",
+  'help.lead': "Short guides, two minutes each. \"Show me in the panel\" opens the right page with the button framed in yellow.",
+  'help.search': "Search: invite, import, approve…",
+  'help.group.start': "Getting started",
+  'help.group.daily': "Everyday work",
+  'help.group.manage': "Settings and plan",
+  'help.show': "Show me in the panel",
+  'help.getApp': "About the mobile app",
+  'help.none': "Nothing found. Try another word or write to us.",
+  'help.more.t': "Didn't find your answer?",
+  'help.more.b': "Write to us; we answer on working days and can set up the panel together with you.",
+  'help.contact': "Contact support",
 } as const
 
 export type Key = keyof typeof en
