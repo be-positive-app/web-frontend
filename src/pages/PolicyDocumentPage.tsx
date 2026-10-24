@@ -37,7 +37,7 @@ export function PolicyDocumentPage({ slug }: PolicyDocumentPageProps) {
 
   useEffect(() => {
     const ac = new AbortController()
-    const url = apiV1Url(`/policy/${slug}`)
+    const url = apiV1Url(`/policy/${slug}?lang=${lang}`)
 
     void (async () => {
       try {
@@ -62,7 +62,7 @@ export function PolicyDocumentPage({ slug }: PolicyDocumentPageProps) {
     })()
 
     return () => ac.abort()
-  }, [slug])
+  }, [slug, lang])
 
   const heading = state.status === 'ok' ? state.data.title : defaultTitle
 
