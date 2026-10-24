@@ -11,7 +11,7 @@ type DownloadCtaProps = {
 export function DownloadCta({ appStoreHref, googlePlayHref }: DownloadCtaProps) {
   const { t } = useT()
   return (
-    <section className="border-t border-slate-100 bg-brandNavy text-white">
+    <section className="border-t border-slate-100 surface-blue text-white">
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 px-4 py-14 text-center sm:px-6 sm:py-20">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandYellow">
           {t('cta.kicker')}

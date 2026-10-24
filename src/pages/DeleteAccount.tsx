@@ -4,9 +4,11 @@ import { Mail, Trash2 } from 'lucide-react'
 import { apiV1Url } from '../lib/apiBase'
 import { routeMeta } from '../config/routeMeta'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { useT } from '../i18n'
 
 export function DeleteAccount() {
   usePageMeta(routeMeta('/delete-account'))
+  const { t } = useT()
 
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
@@ -33,13 +35,13 @@ export function DeleteAccount() {
           ? body.message.join(', ')
           : typeof body?.message === 'string'
             ? body.message
-            : `Request failed (${res.status})`
+            : t('del.failed', { status: res.status })
         throw new Error(msg)
       }
       setSuccess(true)
       setEmail('')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Something went wrong')
+      setError(err instanceof Error ? err.message : t('page.wrong'))
     } finally {
       setLoading(false)
     }
@@ -55,11 +57,10 @@ export function DeleteAccount() {
             </div>
             <div>
               <h1 className="text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                Delete account & data
+                {t('del.title')}
               </h1>
               <p className="mt-2 text-sm text-slate-600">
-                Request permanent removal of your Be Positive account and associated data from our
-                systems.
+                {t('del.lead')}
               </p>
             </div>
           </div>
@@ -67,17 +68,17 @@ export function DeleteAccount() {
             to="/"
             className="shrink-0 rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring"
           >
-            Back home
+            {t('page.backHome')}
           </Link>
         </div>
 
         <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50/80 p-6 shadow-card">
-          <h2 className="text-lg font-semibold tracking-tight text-slate-900">How it works</h2>
+          <h2 className="text-lg font-semibold tracking-tight text-slate-900">{t('del.howTitle')}</h2>
           <ol className="mt-3 list-inside list-decimal space-y-2 text-sm leading-relaxed text-slate-600">
-            <li>Enter the email address you use with the app.</li>
-            <li>We send a confirmation link (valid 24 hours).</li>
-            <li>After you confirm, there is a 30-day grace period before data is permanently deleted.</li>
-            <li>During that period you can cancel deletion using the link we show after confirmation.</li>
+            <li>{t('del.step1')}</li>
+            <li>{t('del.step2')}</li>
+            <li>{t('del.step3')}</li>
+            <li>{t('del.step4')}</li>
           </ol>
         </div>
 
@@ -86,10 +87,9 @@ export function DeleteAccount() {
             className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-900"
             role="status"
           >
-            If an account exists for this email, we&apos;ve sent a confirmation link. Check your
-            inbox (and spam). If you don&apos;t see it, you can try again or{' '}
+            {t('del.sent')}{' '}
             <Link to="/support" className="font-semibold underline hover:no-underline">
-              contact support
+              {t('page.contactSupport')}
             </Link>
             .
           </div>
@@ -107,7 +107,7 @@ export function DeleteAccount() {
         <form onSubmit={handleSubmit} className="mt-8 space-y-4">
           <div>
             <label htmlFor="delete-email" className="block text-sm font-semibold text-slate-800">
-              Email address
+              {t('del.email')}
             </label>
             <div className="relative mt-2">
               <Mail
@@ -132,18 +132,18 @@ export function DeleteAccount() {
             disabled={loading}
             className="w-full rounded-2xl bg-brandBlue px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
-            {loading ? 'Sending…' : 'Send confirmation link'}
+            {loading ? t('del.sending') : t('del.send')}
           </button>
         </form>
 
         <p className="mt-10 text-sm leading-relaxed text-slate-600">
-          Need help instead?{' '}
+          {t('del.help')}{' '}
           <Link to="/support" className="font-semibold text-brandBlue hover:underline">
-            Visit support
+            {t('page.visitSupport')}
           </Link>{' '}
-          or see our{' '}
+          {t('page.or')}{' '}
           <Link to="/privacy" className="font-semibold text-brandBlue hover:underline">
-            Privacy Policy
+            {t('legal.privacy')}
           </Link>
           .
         </p>

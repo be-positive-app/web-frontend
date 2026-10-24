@@ -58,6 +58,9 @@ export const SITE_META = {
   appStoreUrl: 'https://apps.apple.com/app/be-positive-life-planner/id6760747846',
   googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.bepositive.mobile',
   supportEmail: 'info@bepositive.cc',
+  /** Social profiles: footer icons and the Organization's sameAs. */
+  instagramUrl: 'https://www.instagram.com/bepositiveapp',
+  linkedinUrl: 'https://www.linkedin.com/company/be-positive-life-planner/',
   /**
    * Where the "how did you find us?" answers are posted. A Formspree form that
    * mails them to supportEmail.

@@ -6,6 +6,7 @@ import { SITE_META } from '../config/siteMeta'
 import { apiV1Url } from '../lib/apiBase'
 import { usePageMeta } from '../hooks/usePageMeta'
 import { policyMetaForSlug, type PolicySlug } from '../lib/policyPages'
+import { useT } from '../i18n'
 
 type PolicyApiResponse = {
   id: string
@@ -29,7 +30,8 @@ type PolicyDocumentPageProps = {
 
 export function PolicyDocumentPage({ slug }: PolicyDocumentPageProps) {
   const meta = policyMetaForSlug(slug)
-  const defaultTitle = meta?.label ?? 'Policy'
+  const { t, lang } = useT()
+  const defaultTitle = t(`legal.${slug}`)
 
   const [state, setState] = useState<LoadState>({ status: 'loading' })
 
@@ -81,19 +83,19 @@ export function PolicyDocumentPage({ slug }: PolicyDocumentPageProps) {
             to="/"
             className="shrink-0 rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring"
           >
-            Back home
+            {t('page.backHome')}
           </Link>
         </div>
 
         {state.status === 'loading' ? (
-          <p className="mt-6 text-base text-slate-600">Loading…</p>
+          <p className="mt-6 text-base text-slate-600">{t('pol.loading')}</p>
         ) : null}
 
         {state.status === 'ok' ? (
           <>
             <p className="mt-4 text-sm text-slate-500">
-              Last updated:{' '}
-              {new Intl.DateTimeFormat(undefined, {
+              {t('pol.updated')}{' '}
+              {new Intl.DateTimeFormat(lang, {
                 dateStyle: 'long',
               }).format(new Date(state.data.updatedAt))}
             </p>
@@ -129,10 +131,8 @@ function Fallback({
   slug: PolicySlug
   defaultTitle: string
 }) {
-  const intro =
-    reason === 'not_found'
-      ? `${defaultTitle} is not published yet. Please check back later or contact us.`
-      : `We could not load ${defaultTitle.toLowerCase()}. Please try again later or contact us.`
+  const { t } = useT()
+  const intro = t(reason === 'not_found' ? 'pol.notPublished' : 'pol.loadFailed', { title: defaultTitle })
 
   return (
     <>
@@ -149,20 +149,20 @@ function Fallback({
       {slug === 'privacy' ? (
         <div className="mt-10 space-y-8">
           <Section
-            title="Information we collect"
-            body="Be Positive may collect basic app usage data to improve performance and reliability. The full policy will list what is collected and why once it is published."
+            title={t('pol.s1t')}
+            body={t('pol.s1b')}
           />
           <Section
-            title="How we use information"
-            body="We use information to provide and improve the app, keep it secure, and understand what features are most helpful."
+            title={t('pol.s2t')}
+            body={t('pol.s2b')}
           />
           <Section
-            title="Data sharing"
-            body="We do not sell your data. Third-party services used by the app (such as analytics or crash reporting) will be described in the published policy."
+            title={t('pol.s3t')}
+            body={t('pol.s3b')}
           />
           <Section
-            title="Contact"
-            body={`Questions about privacy: ${SITE_META.supportEmail}`}
+            title={t('pol.s4t')}
+            body={t('pol.s4b', { email: SITE_META.supportEmail })}
           />
         </div>
       ) : null}

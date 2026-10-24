@@ -149,7 +149,7 @@ export function TrustBand() {
   const counting = inView || !OBSERVER_SUPPORTED
 
   return (
-    <section className="relative isolate overflow-hidden border-t border-slate-100 bg-brandNavy text-white">
+    <section className="relative isolate overflow-hidden border-t border-slate-100 surface-blue text-white">
       {/* A grid that fades out towards the edges, plus two brand glows, so the
           band reads as a surface rather than a flat navy block. */}
       <div
@@ -190,7 +190,7 @@ export function TrustBand() {
             <div className="flex flex-col items-center">
               <div className="flex items-baseline gap-3">
                 <Figure display={rating.value} active={counting} />
-                <p className="text-2xl font-bold text-white/40 sm:text-3xl">/ 5</p>
+                <p className="text-2xl font-bold text-white/70 sm:text-3xl">/ 5</p>
               </div>
               <a
                 href={appStoreHref}

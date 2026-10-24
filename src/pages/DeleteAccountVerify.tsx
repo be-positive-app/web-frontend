@@ -4,10 +4,12 @@ import { AlertCircle, CheckCircle2, Loader2 } from 'lucide-react'
 import { apiV1Url } from '../lib/apiBase'
 import { routeMeta } from '../config/routeMeta'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { useT } from '../i18n'
 
 type Phase = 'loading' | 'confirmed' | 'cancelled' | 'error'
 
 export function DeleteAccountVerify() {
+  const { t, lang } = useT()
   usePageMeta(routeMeta('/delete-account/verify'))
 
   const { token } = useParams<{ token: string }>()
@@ -22,7 +24,7 @@ export function DeleteAccountVerify() {
   const confirmOnce = useCallback(async () => {
     if (!token?.trim()) {
       setPhase('error')
-      setMessage('Invalid link.')
+      setMessage(t('delv.invalid'))
       return
     }
     try {
@@ -39,8 +41,8 @@ export function DeleteAccountVerify() {
           typeof body?.message === 'string'
             ? body.message
             : res.status === 404
-              ? 'This link is invalid or has expired.'
-              : `Could not confirm (${res.status})`
+              ? t('delv.expired')
+              : t('delv.confirmFailed', { status: res.status })
         setPhase('error')
         setMessage(msg)
         return
@@ -50,9 +52,9 @@ export function DeleteAccountVerify() {
       setPhase('confirmed')
     } catch {
       setPhase('error')
-      setMessage('Network error. Please try again.')
+      setMessage(t('page.network'))
     }
-  }, [token])
+  }, [token, t])
 
   useEffect(() => {
     if (ranRef.current) return
@@ -74,14 +76,14 @@ export function DeleteAccountVerify() {
         const msg =
           typeof body?.message === 'string'
             ? body.message
-            : `Could not cancel (${res.status})`
+            : t('delv.cancelFailed', { status: res.status })
         setCancelError(msg)
         return
       }
       setPhase('cancelled')
-      setMessage(typeof body?.message === 'string' ? body.message : 'Deletion cancelled.')
+      setMessage(typeof body?.message === 'string' ? body.message : t('delv.cancelledText'))
     } catch {
-      setCancelError('Network error. Please try again.')
+      setCancelError(t('page.network'))
     } finally {
       setCancelLoading(false)
     }
@@ -89,7 +91,7 @@ export function DeleteAccountVerify() {
 
   const formattedDate =
     scheduledDeletionAt != null
-      ? new Date(scheduledDeletionAt).toLocaleString(undefined, {
+      ? new Date(scheduledDeletionAt).toLocaleString(lang, {
           dateStyle: 'long',
           timeStyle: 'short',
         })
@@ -100,20 +102,20 @@ export function DeleteAccountVerify() {
       <div className="mx-auto w-full max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="flex items-start justify-between gap-4">
           <h1 className="text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-            Account deletion
+            {t('delv.title')}
           </h1>
           <Link
             to="/"
             className="shrink-0 rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring"
           >
-            Back home
+            {t('page.backHome')}
           </Link>
         </div>
 
         {phase === 'loading' ? (
           <div className="mt-10 flex items-center gap-3 text-slate-600">
             <Loader2 className="h-6 w-6 shrink-0 animate-spin text-brandBlue" aria-hidden />
-            <p>Confirming your request…</p>
+            <p>{t('delv.confirming')}</p>
           </div>
         ) : null}
 
@@ -121,15 +123,15 @@ export function DeleteAccountVerify() {
           <div className="mt-10 flex gap-3 rounded-2xl border border-red-200 bg-red-50 px-4 py-4 text-sm text-red-900">
             <AlertCircle className="h-5 w-5 shrink-0" aria-hidden />
             <div>
-              <p className="font-semibold">Something went wrong</p>
+              <p className="font-semibold">{t('page.wrong')}</p>
               <p className="mt-1">{message}</p>
               <p className="mt-3">
                 <Link to="/delete-account" className="font-semibold text-brandBlue hover:underline">
-                  Start over
+                  {t('delv.startOver')}
                 </Link>{' '}
-                or{' '}
+                {t('page.or')}{' '}
                 <Link to="/support" className="font-semibold text-brandBlue hover:underline">
-                  contact support
+                  {t('page.contactSupport')}
                 </Link>
                 .
               </p>
@@ -142,18 +144,17 @@ export function DeleteAccountVerify() {
             <div className="flex gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-4 text-sm text-amber-950">
               <CheckCircle2 className="h-5 w-5 shrink-0 text-amber-700" aria-hidden />
               <div>
-                <p className="font-semibold">Deletion scheduled</p>
+                <p className="font-semibold">{t('delv.scheduled')}</p>
                 {message ? <p className="mt-1">{message}</p> : null}
                 {formattedDate ? (
                   <p className="mt-2 font-medium">
-                    Permanent deletion after: <time dateTime={scheduledDeletionAt ?? undefined}>{formattedDate}</time>
+                    {t('delv.after')} <time dateTime={scheduledDeletionAt ?? undefined}>{formattedDate}</time>
                   </p>
                 ) : null}
               </div>
             </div>
             <p className="text-sm text-slate-600">
-              Changed your mind? You can cancel before that date. Your account stays active until
-              then.
+              {t('delv.changed')}
             </p>
             {cancelError ? (
               <div className="rounded-2xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-900">
@@ -166,7 +167,7 @@ export function DeleteAccountVerify() {
               disabled={cancelLoading}
               className="rounded-2xl border-2 border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-800 transition hover:border-brandBlue hover:text-brandBlue focus-ring disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {cancelLoading ? 'Cancelling…' : 'Cancel deletion'}
+              {cancelLoading ? t('delv.cancelling') : t('delv.cancel')}
             </button>
           </div>
         ) : null}
@@ -175,11 +176,11 @@ export function DeleteAccountVerify() {
           <div className="mt-10 flex gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-900">
             <CheckCircle2 className="h-5 w-5 shrink-0" aria-hidden />
             <div>
-              <p className="font-semibold">Deletion cancelled</p>
+              <p className="font-semibold">{t('delv.cancelledTitle')}</p>
               <p className="mt-1">{message}</p>
               <p className="mt-3">
                 <Link to="/" className="font-semibold text-brandBlue hover:underline">
-                  Back to home
+                  {t('page.backHome')}
                 </Link>
               </p>
             </div>

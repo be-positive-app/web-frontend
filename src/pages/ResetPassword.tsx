@@ -6,27 +6,29 @@ import { getFirebaseAuth } from '../lib/firebase'
 import { StoreButtons } from '../components/StoreButtons'
 import { routeMeta } from '../config/routeMeta'
 import { usePageMeta } from '../hooks/usePageMeta'
+import { useT, type Key } from '../i18n'
 
 /** Firebase minimum is 6; we enforce higher for basic strength. */
 const MIN_PASSWORD_LENGTH = 8
 const MAX_PASSWORD_LENGTH = 128
 
-function mapFirebaseAuthError(code: string): string {
+/** Firebase error code → message key. */
+function mapFirebaseAuthError(code: string): Key {
   switch (code) {
     case 'auth/invalid-action-code':
-      return 'This reset link is invalid or was already used. Request a new reset email from the app.'
+      return 'rp.invalidCode'
     case 'auth/expired-action-code':
-      return 'This reset link has expired. Request a new password reset from the app.'
+      return 'rp.expiredCode'
     case 'auth/weak-password':
-      return 'That password is too weak. Use a longer mix of letters, numbers, and symbols.'
+      return 'rp.weak'
     case 'auth/user-disabled':
-      return 'This account has been disabled. Contact support if you need help.'
+      return 'rp.disabled'
     case 'auth/too-many-requests':
-      return 'Too many attempts. Wait a few minutes, then try again.'
+      return 'rp.tooMany'
     case 'auth/network-request-failed':
-      return 'Network error. Check your connection and try again.'
+      return 'rp.network'
     default:
-      return 'Something went wrong. Try again or request a new reset link from the app.'
+      return 'rp.generic'
   }
 }
 
@@ -64,6 +66,7 @@ function hasFirebaseWebConfig(): boolean {
 
 export function ResetPassword() {
   usePageMeta(routeMeta('/reset-password'))
+  const { t } = useT()
 
   const [searchParams] = useSearchParams()
   const link = useMemo(() => parseResetLink(searchParams), [searchParams])
@@ -86,15 +89,15 @@ export function ResetPassword() {
     if (!link.ok || !configOk) return
     setError(null)
     if (password.length < MIN_PASSWORD_LENGTH) {
-      setError(`Use at least ${MIN_PASSWORD_LENGTH} characters.`)
+      setError(t('rp.min', { n: MIN_PASSWORD_LENGTH }))
       return
     }
     if (password.length > MAX_PASSWORD_LENGTH) {
-      setError(`Use at most ${MAX_PASSWORD_LENGTH} characters.`)
+      setError(t('rp.max', { n: MAX_PASSWORD_LENGTH }))
       return
     }
     if (password !== confirm) {
-      setError('Passwords do not match.')
+      setError(t('rp.mismatch'))
       return
     }
     setLoading(true)
@@ -109,7 +112,7 @@ export function ResetPassword() {
         err && typeof err === 'object' && 'code' in err && typeof (err as { code: unknown }).code === 'string'
           ? (err as { code: string }).code
           : ''
-      setError(code ? mapFirebaseAuthError(code) : mapFirebaseAuthError('unknown'))
+      setError(t(mapFirebaseAuthError(code || 'unknown')))
     } finally {
       setLoading(false)
     }
@@ -122,19 +125,16 @@ export function ResetPassword() {
         className="mt-8 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-4 text-sm text-amber-950"
         role="status"
       >
-        Password reset is not available on this deployment yet (Firebase environment variables are
-        missing). If you are the site operator, set{' '}
-        <code className="rounded bg-amber-100/80 px-1 py-0.5 text-xs">VITE_FIREBASE_*</code> for
-        production builds.
+        {t('rp.noConfig')}
       </div>
     )
   } else if (!link.ok) {
     const msg =
       link.reason === 'wrong_mode'
-        ? 'This link is not a password reset link. Open the link from your latest password reset email, or use the app to start again.'
+        ? t('rp.wrongMode')
         : link.reason === 'wrong_project'
-          ? 'This reset link does not match this website. Open the link on the official Be Positive site, or request a new email from the app.'
-          : 'This page needs a valid reset link from your email. Request a new password reset from the app, then tap the link in the message.'
+          ? t('rp.wrongProject')
+          : t('rp.missing')
     banner = (
       <div
         className="mt-8 rounded-2xl border border-red-200 bg-red-50 px-4 py-4 text-sm text-red-900"
@@ -155,11 +155,10 @@ export function ResetPassword() {
             </div>
             <div>
               <h1 className="text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-                Set a new password
+                {t('rp.title')}
               </h1>
               <p className="mt-2 text-sm text-slate-600">
-                Choose a strong password you have not used elsewhere. After saving, sign in again
-                in the Be Positive app with this password.
+                {t('rp.lead')}
               </p>
             </div>
           </div>
@@ -167,7 +166,7 @@ export function ResetPassword() {
             to="/"
             className="shrink-0 rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring"
           >
-            Back home
+            {t('page.backHome')}
           </Link>
         </div>
 
@@ -178,18 +177,17 @@ export function ResetPassword() {
             className="mt-8 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-4 text-sm text-emerald-900"
             role="status"
           >
-            <p className="font-semibold">Your password was updated.</p>
+            <p className="font-semibold">{t('rp.doneTitle')}</p>
             <p className="mt-2">
-              Open the Be Positive app and sign in with your email and the new password. If anything
-              looks wrong,{' '}
+              {t('rp.doneText')}{' '}
               <Link to="/support" className="font-semibold underline hover:no-underline">
-                contact support
+                {t('page.contactSupport')}
               </Link>
               .
             </p>
             <div className="mt-6">
               <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-emerald-900/80">
-                Get the app
+                {t('rp.getApp')}
               </p>
               <StoreButtons variant="secondary" />
             </div>
@@ -199,11 +197,11 @@ export function ResetPassword() {
         {!done && link.ok && configOk ? (
           <>
             <div className="mt-8 rounded-3xl border border-slate-200 bg-slate-50/80 p-6 shadow-card">
-              <h2 className="text-lg font-semibold tracking-tight text-slate-900">Tips</h2>
+              <h2 className="text-lg font-semibold tracking-tight text-slate-900">{t('rp.tips')}</h2>
               <ul className="mt-3 list-inside list-disc space-y-2 text-sm leading-relaxed text-slate-600">
-                <li>Use at least {MIN_PASSWORD_LENGTH} characters (longer is better).</li>
-                <li>Mix letters, numbers, and symbols; avoid common words and personal info.</li>
-                <li>Do not reuse a password from another site or service.</li>
+                <li>{t('rp.tip1', { n: MIN_PASSWORD_LENGTH })}</li>
+                <li>{t('rp.tip2')}</li>
+                <li>{t('rp.tip3')}</li>
               </ul>
             </div>
 
@@ -219,7 +217,7 @@ export function ResetPassword() {
             <form onSubmit={handleSubmit} className="mt-8 space-y-4">
               <div>
                 <label htmlFor={pwdId} className="block text-sm font-semibold text-slate-800">
-                  New password
+                  {t('rp.new')}
                 </label>
                 <input
                   id={pwdId}
@@ -232,13 +230,13 @@ export function ResetPassword() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20"
-                  placeholder="Enter a new password"
+                  placeholder={t('rp.newPh')}
                   disabled={loading}
                 />
               </div>
               <div>
                 <label htmlFor={confirmId} className="block text-sm font-semibold text-slate-800">
-                  Confirm new password
+                  {t('rp.confirm')}
                 </label>
                 <input
                   id={confirmId}
@@ -251,7 +249,7 @@ export function ResetPassword() {
                   value={confirm}
                   onChange={(e) => setConfirm(e.target.value)}
                   className="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm outline-none transition focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20"
-                  placeholder="Re-enter the new password"
+                  placeholder={t('rp.confirmPh')}
                   disabled={loading}
                 />
               </div>
@@ -260,23 +258,23 @@ export function ResetPassword() {
                 disabled={loading || !canSubmit}
                 className="w-full rounded-2xl bg-brandBlue px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:shadow-md hover:shadow-brandYellow/25 hover:ring-1 hover:ring-brandYellow/50 focus-ring disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
               >
-                {loading ? 'Saving…' : 'Save new password'}
+                {loading ? t('rp.saving') : t('rp.save')}
               </button>
               {password.length > 0 && password !== confirm ? (
-                <p className="text-sm text-slate-600">Both fields must match before you can save.</p>
+                <p className="text-sm text-slate-600">{t('rp.mustMatch')}</p>
               ) : null}
             </form>
           </>
         ) : null}
 
         <p className="mt-10 text-sm leading-relaxed text-slate-600">
-          Questions?{' '}
+          {t('page.questions')}{' '}
           <Link to="/support" className="font-semibold text-brandBlue hover:underline">
-            Visit support
+            {t('page.visitSupport')}
           </Link>{' '}
-          or read our{' '}
+          {t('page.or')}{' '}
           <Link to="/privacy" className="font-semibold text-brandBlue hover:underline">
-            Privacy Policy
+            {t('legal.privacy')}
           </Link>
           .
         </p>
