@@ -95,7 +95,7 @@ export function TeamsNavbar() {
             href={TEAMS_APP_URL}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-brandNavy focus-ring motion-reduce:transition-none"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-2xl bg-brandBlue px-4 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-[#0606a0] focus-ring motion-reduce:transition-none"
           >
             {t('teams.nav.cta')}
             <ArrowRight className="h-4 w-4" aria-hidden="true" />

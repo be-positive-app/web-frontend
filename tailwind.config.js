@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        brandBlue: '#0808c1',
+        brandBlue: '#4660f2',
         brandYellow: '#fff45c',
         brandNavy: '#060d24',
       },

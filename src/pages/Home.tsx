@@ -38,7 +38,7 @@ export function Home() {
               {[t('hub.person.b1'), t('hub.person.b2'), t('hub.person.b3')].map((x) => bullet(x, 'light'))}
             </ul>
             <div className="mt-8">
-              <Link to={localizedPath(lang, '/app')} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-brandNavy focus-ring">
+              <Link to={localizedPath(lang, '/app')} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-brandBlue px-6 py-3.5 text-base font-semibold text-white shadow-soft transition hover:bg-[#0606a0] focus-ring">
                 {t('hub.person.cta')} <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             </div>
@@ -47,7 +47,7 @@ export function Home() {
         </div>
 
         {/* Company */}
-        <div className="flex flex-col justify-center bg-brandBlue px-6 py-14 text-white sm:px-10 lg:px-16 lg:py-20">
+        <div className="flex flex-col justify-center surface-blue px-6 py-14 text-white sm:px-10 lg:px-16 lg:py-20">
           <div className="mx-auto w-full max-w-xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wide text-white">
               <Building2 className="h-4 w-4 text-brandYellow" aria-hidden="true" />

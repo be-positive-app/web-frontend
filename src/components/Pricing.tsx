@@ -95,7 +95,7 @@ export function Pricing() {
           </ul>
           <Link
             to={localizedPath(lang, '/teams#pricing')}
-            className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-brandBlue px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brandNavy"
+            className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-brandBlue px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-[#0606a0]"
           >
             {t('home.companies.link')}
             <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
