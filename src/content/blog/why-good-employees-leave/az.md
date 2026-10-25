@@ -30,4 +30,4 @@ Etibarlı adamda gecikən tapşırıqların birdən artması nadir hallarda tən
 
 Bu siqnalları ən çox göstərən iki nəfəri seçin və on dəqiqəlik söhbət edin. "Xoşbəxtsənmi?" deyə soruşmayın. Gələn ayı nəyin daha yaxşı edəcəyini və nəyin mane olduğunu soruşun. Sonra kiməsə hamının görəcəyi yerdə təşəkkür edin.
 
-Be Positive Teams bu altı siqnalı komandanızın tətbiqdə onsuz da gördüyü işdən oxuyur və rəhbərə bu həftə kiminlə danışmalı olduğunu, söhbət nöqtələri ilə göstərir. Anonim qalış sorğusu, təşəkkürlər və nişanlar, ayın işçisi xatırlatması da var. Hamısı hər plana daxildir, 30 gün pulsuz sınaq ilə.
+Be Positive bu altı siqnalı komandanızın tətbiqdə onsuz da gördüyü işdən oxuyur və rəhbərə bu həftə kiminlə danışmalı olduğunu, söhbət nöqtələri ilə göstərir. Anonim qalış sorğusu, təşəkkürlər və nişanlar, ayın işçisi xatırlatması da var. Hamısı hər plana daxildir, 30 gün pulsuz sınaq ilə.

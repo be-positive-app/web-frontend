@@ -129,7 +129,7 @@ export default defineConfig(({ mode }) => {
               {
                 '@type': 'SoftwareApplication',
                 '@id': `${siteUrl}/#teams`,
-                name: 'Be Positive Teams',
+                name: 'Be Positive for Business',
                 description:
                   'Task and team management for companies of 5 to 500: director dashboard, sign-off and escalation, retention signal, work calendar and leave, starter packs by industry, API. Flat price per company.',
                 url: `${siteUrl}/teams`,

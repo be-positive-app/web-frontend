@@ -38,7 +38,7 @@ export function Footer() {
             </Link>
             <div className="flex min-w-0 flex-1 flex-col gap-4">
               <div>
-                <p className="text-lg font-extrabold tracking-tight">Be Positive{isTeams ? ' Teams' : ''}</p>
+                <p className="text-lg font-extrabold tracking-tight">Be Positive{isTeams ? ` ${t('brand.biz')}` : ''}</p>
                 <p className="mt-1 text-sm text-white/80">
                   {t(isTeams ? 'footer.teamsTagline' : 'footer.tagline')}
                 </p>

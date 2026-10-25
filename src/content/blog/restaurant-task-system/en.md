@@ -4,7 +4,7 @@ Here is how to set up a task system for a restaurant in about ten minutes, witho
 
 ## Minute 1–2: pick the restaurant starter pack
 
-In Be Positive Teams, open Settings and apply the Restaurant starter pack. It creates the usual departments (kitchen, hall, bar, management) and the daily checklists: opening, closing, fridge temperatures, cleaning.
+In Be Positive for Business, open Settings and apply the Restaurant starter pack. It creates the usual departments (kitchen, hall, bar, management) and the daily checklists: opening, closing, fridge temperatures, cleaning.
 
 ## Minute 3–4: adjust it to your place
 

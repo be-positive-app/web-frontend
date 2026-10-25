@@ -24,6 +24,6 @@ Edən adamın "bitdi" deməsi vəddir. Menecer baxandan sonrakı "bitdi" faktdı
 
 ## Praktikada necə görünür
 
-Be Positive Teams bu beş vərdiş üzərində qurulub: işçilər tapşırığı mobil tətbiqdə oxuyub bitirir, "İşim ilişib" düyməsi var, eskalasiya özü işçi, menecer, rəhbər ardıcıllığı ilə gedir, iş təsdiqdən sonra bitmiş sayılır. Rəhbər hamısını bir veb paneldə görür.
+Be Positive bu beş vərdiş üzərində qurulub: işçilər tapşırığı mobil tətbiqdə oxuyub bitirir, "İşim ilişib" düyməsi var, eskalasiya özü işçi, menecer, rəhbər ardıcıllığı ilə gedir, iş təsdiqdən sonra bitmiş sayılır. Rəhbər hamısını bir veb paneldə görür.
 
 30 gün pulsuz sınaya bilərsiniz, kart lazım deyil.

@@ -24,6 +24,6 @@ You should not have to check. A late task should remind the employee, then tell 
 
 ## What this looks like in practice
 
-Be Positive Teams was built around these five habits: employees read and finish tasks in the mobile app, there is an "I'm blocked" button, escalation goes employee, manager, owner on its own, and work counts as done after sign-off. The owner sees all of it in one web panel.
+Be Positive for Business was built around these five habits: employees read and finish tasks in the mobile app, there is an "I'm blocked" button, escalation goes employee, manager, owner on its own, and work counts as done after sign-off. The owner sees all of it in one web panel.
 
 You can try it free for 30 days, no card needed.

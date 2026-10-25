@@ -4,7 +4,7 @@
     {
       "path": "/",
       "title": "Be Positive — Planner for people and companies",
-      "description": "Be Positive is a personal day planner on iPhone and Android, and Be Positive Teams is the task and team manager for companies of 5 to 500. Pick yours.",
+      "description": "Be Positive is a personal day planner on iPhone and Android, and Be Positive for Business is the task and team manager for companies of 5 to 500. Pick yours.",
       "changefreq": "weekly",
       "priority": "1.0"
     },
@@ -17,7 +17,7 @@
     },
     {
       "path": "/teams",
-      "title": "Be Positive Teams — The team planner built for the owner",
+      "title": "Be Positive for Business — The team planner built for the owner",
       "description": "Task and team management for companies of 5 to 500: director dashboard, sign-off and escalation, retention signal, work calendar and leave, starter packs by industry, API. Flat price per company. 30-day free trial, no card.",
       "changefreq": "weekly",
       "priority": "0.9"
@@ -27,7 +27,7 @@
       "lang": "az",
       "alternateOf": "/",
       "title": "Be Positive — İnsanlar və şirkətlər üçün planlayıcı",
-      "description": "Be Positive iPhone və Android-də gündəlik planlayıcıdır, Be Positive Teams isə 5–500 nəfərlik şirkətlər üçün tapşırıq və komanda idarəetməsidir. Sizinkini seçin.",
+      "description": "Be Positive iPhone və Android-də gündəlik planlayıcıdır, Be Positive-in biznes versiyası isə 5–500 nəfərlik şirkətlər üçün tapşırıq və komanda idarəetməsidir. Sizinkini seçin.",
       "changefreq": "weekly",
       "priority": "0.9"
     },
@@ -45,7 +45,7 @@
       "lang": "ru",
       "alternateOf": "/",
       "title": "Be Positive — Планировщик для людей и компаний",
-      "description": "Be Positive — личный планировщик дня на iPhone и Android, а Be Positive Teams — управление задачами и командой для компаний от 5 до 500 человек. Выберите своё.",
+      "description": "Be Positive — личный планировщик дня на iPhone и Android, а Be Positive для бизнеса — управление задачами и командой для компаний от 5 до 500 человек. Выберите своё.",
       "changefreq": "weekly",
       "priority": "0.9"
     },
@@ -62,7 +62,7 @@
       "path": "/az/teams",
       "lang": "az",
       "alternateOf": "/teams",
-      "title": "Be Positive Teams — Rəhbər üçün qurulmuş komanda planlayıcısı",
+      "title": "Be Positive Biznes üçün — Rəhbər üçün qurulmuş komanda planlayıcısı",
       "description": "5-500 nəfərlik şirkətlər üçün tapşırıq və komanda idarəetməsi: direktor paneli, təsdiq və eskalasiya, saxlama siqnalı, iş təqvimi və məzuniyyət, sahə üzrə başlanğıc paketləri, API. Şirkət başına sabit qiymət. 30 gün pulsuz, kart tələb olunmur.",
       "changefreq": "weekly",
       "priority": "0.8"
@@ -71,7 +71,7 @@
       "path": "/ru/teams",
       "lang": "ru",
       "alternateOf": "/teams",
-      "title": "Be Positive Teams — Планировщик команды, созданный для руководителя",
+      "title": "Be Positive для бизнеса — Планировщик команды, созданный для руководителя",
       "description": "Управление задачами и командой для компаний от 5 до 500 человек: панель директора, согласование и эскалация, сигнал удержания, рабочий календарь и отпуска, стартовые наборы по отраслям, API. Фиксированная цена за компанию. 30 дней бесплатно, без карты.",
       "changefreq": "weekly",
       "priority": "0.8"
@@ -81,7 +81,7 @@
       "lang": "tr",
       "alternateOf": "/",
       "title": "Be Positive — İnsanlar ve şirketler için planlayıcı",
-      "description": "Be Positive iPhone ve Android’de kişisel günlük planlayıcı, Be Positive Teams ise 5–500 kişilik şirketler için görev ve ekip yönetimidir. Sizinkini seçin.",
+      "description": "Be Positive iPhone ve Android’de kişisel günlük planlayıcı, Be Positive’in işletme sürümü ise 5–500 kişilik şirketler için görev ve ekip yönetimidir. Sizinkini seçin.",
       "changefreq": "weekly",
       "priority": "0.9"
     },
@@ -98,7 +98,7 @@
       "path": "/tr/teams",
       "lang": "tr",
       "alternateOf": "/teams",
-      "title": "Be Positive Teams — Yönetici için tasarlanmış ekip planlayıcısı",
+      "title": "Be Positive İşletmeler için — Yönetici için tasarlanmış ekip planlayıcısı",
       "description": "5-500 kişilik şirketler için görev ve ekip yönetimi: direktör paneli, onay ve yükseltme, elde tutma sinyali, çalışma takvimi ve izinler, sektöre göre başlangıç paketleri, API. Şirket başı sabit fiyat. 30 gün ücretsiz, kart gerekmez.",
       "changefreq": "weekly",
       "priority": "0.8"
@@ -112,14 +112,14 @@
     },
     {
       "path": "/help",
-      "title": "Help center — Be Positive Teams",
-      "description": "Short how-to guides for Be Positive Teams: invite your team, create and import tasks from Excel, Trello or Asana, approvals, risk signals, custom fields and plans.",
+      "title": "Help center — Be Positive for Business",
+      "description": "Short how-to guides for Be Positive for Business: invite your team, create and import tasks from Excel, Trello or Asana, approvals, risk signals, custom fields and plans.",
       "changefreq": "monthly",
       "priority": "0.6"
     },
     {
       "path": "/security",
-      "title": "Security & trust — Be Positive Teams",
+      "title": "Security & trust — Be Positive for Business",
       "description": "How Be Positive keeps company data safe: Firebase sign-in, HTTPS, roles per department, audit log, card payments we never see, CSV export and account deletion.",
       "changefreq": "monthly",
       "priority": "0.6"
@@ -179,7 +179,7 @@
     },
     {
       "path": "/blog",
-      "title": "Blog — Be Positive Teams",
+      "title": "Blog — Be Positive for Business",
       "description": "Practical notes for company owners: running a team without chasing it, keeping good people, and setting up task systems by industry.",
       "changefreq": "weekly",
       "priority": "0.7"
@@ -188,7 +188,7 @@
       "path": "/az/blog",
       "lang": "az",
       "alternateOf": "/blog",
-      "title": "Bloq — Be Positive Teams",
+      "title": "Bloq — Be Positive Biznes üçün",
       "description": "Şirkət rəhbərləri üçün praktik qeydlər: komandanı izləmədən idarə etmək, yaxşı insanları saxlamaq və sahəyə görə tapşırıq sistemi qurmaq.",
       "changefreq": "weekly",
       "priority": "0.7"
@@ -197,7 +197,7 @@
       "path": "/ru/blog",
       "lang": "ru",
       "alternateOf": "/blog",
-      "title": "Блог — Be Positive Teams",
+      "title": "Блог — Be Positive для бизнеса",
       "description": "Практические заметки для руководителей: как управлять командой без погони за задачами, удерживать хороших людей и настраивать задачи под отрасль.",
       "changefreq": "weekly",
       "priority": "0.7"
@@ -206,7 +206,7 @@
       "path": "/tr/blog",
       "lang": "tr",
       "alternateOf": "/blog",
-      "title": "Blog — Be Positive Teams",
+      "title": "Blog — Be Positive İşletmeler için",
       "description": "Şirket sahipleri için pratik notlar: ekibi kovalamadan yönetmek, iyi insanları tutmak ve sektöre göre görev sistemi kurmak.",
       "changefreq": "weekly",
       "priority": "0.7"
