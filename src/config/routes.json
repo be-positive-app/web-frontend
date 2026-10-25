@@ -18,7 +18,7 @@
     {
       "path": "/teams",
       "title": "Be Positive for Business — The team planner built for the owner",
-      "description": "Task and team management for companies of 5 to 500: director dashboard, sign-off and escalation, retention signal, work calendar and leave, starter packs by industry, API. Flat price per company. 30-day free trial, no card.",
+      "description": "Task and team management for companies of 5 to 500: director dashboard, sign-off and escalation, retention signal, work calendar and leave, starter packs by industry, task import from Excel, Trello and Asana. Flat price per company. 30-day free trial, no card.",
       "changefreq": "weekly",
       "priority": "0.9"
     },
@@ -63,7 +63,7 @@
       "lang": "az",
       "alternateOf": "/teams",
       "title": "Be Positive Biznes üçün — Rəhbər üçün qurulmuş komanda planlayıcısı",
-      "description": "5-500 nəfərlik şirkətlər üçün tapşırıq və komanda idarəetməsi: direktor paneli, təsdiq və eskalasiya, saxlama siqnalı, iş təqvimi və məzuniyyət, sahə üzrə başlanğıc paketləri, API. Şirkət başına sabit qiymət. 30 gün pulsuz, kart tələb olunmur.",
+      "description": "5-500 nəfərlik şirkətlər üçün tapşırıq və komanda idarəetməsi: direktor paneli, təsdiq və eskalasiya, saxlama siqnalı, iş təqvimi və məzuniyyət, sahə üzrə başlanğıc paketləri, Excel, Trello və Asana-dan idxal. Şirkət başına sabit qiymət. 30 gün pulsuz, kart tələb olunmur.",
       "changefreq": "weekly",
       "priority": "0.8"
     },
@@ -72,7 +72,7 @@
       "lang": "ru",
       "alternateOf": "/teams",
       "title": "Be Positive для бизнеса — Планировщик команды, созданный для руководителя",
-      "description": "Управление задачами и командой для компаний от 5 до 500 человек: панель директора, согласование и эскалация, сигнал удержания, рабочий календарь и отпуска, стартовые наборы по отраслям, API. Фиксированная цена за компанию. 30 дней бесплатно, без карты.",
+      "description": "Управление задачами и командой для компаний от 5 до 500 человек: панель директора, согласование и эскалация, сигнал удержания, рабочий календарь и отпуска, стартовые наборы по отраслям, импорт из Excel, Trello и Asana. Фиксированная цена за компанию. 30 дней бесплатно, без карты.",
       "changefreq": "weekly",
       "priority": "0.8"
     },
@@ -99,7 +99,7 @@
       "lang": "tr",
       "alternateOf": "/teams",
       "title": "Be Positive İşletmeler için — Yönetici için tasarlanmış ekip planlayıcısı",
-      "description": "5-500 kişilik şirketler için görev ve ekip yönetimi: direktör paneli, onay ve yükseltme, elde tutma sinyali, çalışma takvimi ve izinler, sektöre göre başlangıç paketleri, API. Şirket başı sabit fiyat. 30 gün ücretsiz, kart gerekmez.",
+      "description": "5-500 kişilik şirketler için görev ve ekip yönetimi: direktör paneli, onay ve yükseltme, elde tutma sinyali, çalışma takvimi ve izinler, sektöre göre başlangıç paketleri, Excel, Trello ve Asana'dan aktarma. Şirket başı sabit fiyat. 30 gün ücretsiz, kart gerekmez.",
       "changefreq": "weekly",
       "priority": "0.8"
     },
