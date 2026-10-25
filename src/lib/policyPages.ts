@@ -20,6 +20,7 @@ export const SUPPORT_PAGE = {
 export const FOOTER_LEGAL_LINKS = [
   ...POLICY_PAGES.map((p) => ({ path: p.path, label: p.label, key: `legal.${p.slug}` as const })),
   { path: '/security', label: 'Security', key: 'legal.security' as const },
+  { path: '/help', label: 'Help center', key: 'legal.help' as const },
   { path: SUPPORT_PAGE.path, label: SUPPORT_PAGE.label, key: 'legal.support' as const },
 ] as const
 

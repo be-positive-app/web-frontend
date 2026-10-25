@@ -1,11 +1,13 @@
 import { Calculator } from 'lucide-react'
 import { useState } from 'react'
-import { TEAMS_PLANS, defaultTeamsCurrency, formatTeamsPrice, type TeamsCurrency } from '../config/teamsPricing'
+import { TEAMS_PLANS, defaultTeamsCurrency, formatTeamsPrice, TEAMS_SYMBOL, type TeamsCurrency } from '../config/teamsPricing'
 import { useT } from '../i18n'
 
 const CAPS: Record<string, number> = { starter: 10, team: 20, business: 50 }
 /** An illustration, labelled as such on the page: what a per-seat tool at this price costs the same team. */
 const PER_SEAT_USD = 10
+// The manat is pegged to the dollar (1 USD = 1.70 AZN), so the comparison is shown in the visitor's currency.
+const PER_SEAT = { USD: PER_SEAT_USD, AZN: PER_SEAT_USD * 1.7 } as const
 
 /** "How many people?" slider: the package that fits, its price, and what per-seat pricing would cost. */
 export function TeamsCalculator() {
@@ -15,7 +17,6 @@ export function TeamsCalculator() {
   const plan = TEAMS_PLANS.find((p) => p.prices && CAPS[p.id] >= people)
   const monthly = plan?.prices ? plan.prices[currency].monthly : null
   const perPerson = monthly !== null ? monthly / people : null
-  const perSeatUsd = PER_SEAT_USD * people
 
   return (
     <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
@@ -55,11 +56,11 @@ export function TeamsCalculator() {
         </div>
         <div className="rounded-2xl border border-dashed border-slate-300 p-4">
           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t('calc.perSeatTitle')}</div>
-          <div className="mt-1 text-3xl font-extrabold tracking-tight text-slate-400 line-through decoration-2">
-            ${perSeatUsd.toFixed(0)}
-            <span className="text-sm font-semibold text-slate-400 no-underline"> {t('home.companies.perMonth')}</span>
+          <div className="mt-1 text-3xl font-extrabold tracking-tight text-slate-400">
+            <span className="line-through decoration-slate-400/70 decoration-2">{TEAMS_SYMBOL[currency]}{(PER_SEAT[currency] * people).toFixed(0)}</span>
+            <span className="text-sm font-semibold"> {t('home.companies.perMonth')}</span>
           </div>
-          <div className="mt-1 text-xs text-slate-500">{t('calc.perSeatNote', { price: `$${PER_SEAT_USD}` })}</div>
+          <div className="mt-1 text-xs text-slate-500">{t('calc.perSeatNote', { price: `${TEAMS_SYMBOL[currency]}${PER_SEAT[currency].toFixed(0)}` })}</div>
         </div>
       </div>
     </div>
