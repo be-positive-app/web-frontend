@@ -92,7 +92,7 @@ export const en = {
   'hub.person.price': 'From $2.99 a month. iPhone and Android.',
   'hub.company.kicker': 'For my company',
   'hub.company.title': 'Run the company from one screen.',
-  'hub.company.lead': 'Be Positive Teams: employees get tasks on their phone, the owner sees the whole company in one web panel.',
+  'hub.company.lead': 'Be Positive for Business: employees get tasks on their phone, the owner sees the whole company in one web panel.',
   'hub.company.b1': 'Every task has an owner and a deadline',
   'hub.company.b2': 'Late work escalates by itself',
   'hub.company.b3': 'Who is stuck, who may leave, who to thank',
@@ -112,7 +112,7 @@ export const en = {
   'teams.nav.features': 'Features',
   'split.company.cta': 'See the company product',
   'split.company.text': 'Employees get tasks on their phone, the owner runs the company from one web panel. Flat price per company, from 10 people.',
-  'split.company.title': 'For my company: Be Positive Teams',
+  'split.company.title': 'For my company: Be Positive for Business',
   'split.person.cta': 'Download the app',
   'split.person.text': 'Daily tasks, reminders and focus tools on your phone. From $2.99 a month.',
   'split.person.title': 'For me: Life Planner app',
@@ -120,7 +120,7 @@ export const en = {
 
   'teams.kicker': 'The team planner built for the owner',
   'teams.h1b': 'Run the company from one screen.',
-  'teams.lead': 'Be Positive Teams gives every task an owner and a deadline, shows the owner what is late, who is stuck and who may leave, and tells the right person before you have to ask. For companies of 5 to 500 people, in English, Azerbaijani, Russian and Turkish.',
+  'teams.lead': 'Be Positive for Business gives every task an owner and a deadline, shows the owner what is late, who is stuck and who may leave, and tells the right person before you have to ask. For companies of 5 to 500 people, in English, Azerbaijani, Russian and Turkish.',
   'teams.cta': 'Start 30-day free trial',
   'teams.noCard': 'No credit card required to start',
 
@@ -147,7 +147,7 @@ export const en = {
   'teams.screens.title': 'What the owner opens every morning',
   'teams.screens.text': 'Real screens from the web panel, with sample data.',
   'teams.screen.dashboard': 'Dashboard',
-  'teams.screen.dashboard.alt': 'The Teams dashboard: team progress, total tasks, active employees and team mood, a per-department completion chart, and today’s tasks with assignees and status.',
+  'teams.screen.dashboard.alt': 'The Be Positive dashboard: team progress, total tasks, active employees and team mood, a per-department completion chart, and today’s tasks with assignees and status.',
   'teams.screen.calendar': 'Calendar',
   'teams.screen.calendar.alt': 'The shared calendar: a month view with every task by day, and the selected day’s tasks with assignees on the right.',
   'teams.screen.reports': 'Reports',
@@ -497,6 +497,7 @@ export const en = {
   'help.more.t': "Didn't find your answer?",
   'help.more.b': "Write to us; we answer on working days and can set up the panel together with you.",
   'help.contact': "Contact support",
+  'brand.biz': "for Business",
 } as const
 
 export type Key = keyof typeof en

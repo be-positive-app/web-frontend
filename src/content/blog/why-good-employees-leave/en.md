@@ -30,4 +30,4 @@ The first months are the riskiest. A new hire who has not been checked on, thank
 
 Pick the two people who show the most of these signals and have a ten-minute conversation. Do not ask "are you happy?". Ask what would make next month better, and what is getting in the way. Then thank someone in public.
 
-Be Positive Teams reads these six signals from the work your team already does in the app and shows the owner who to talk to this week, with talking points. It also has an anonymous stay survey, thanks and badges, and an employee of the month reminder. All of it is included in every plan, with a 30-day free trial.
+Be Positive for Business reads these six signals from the work your team already does in the app and shows the owner who to talk to this week, with talking points. It also has an anonymous stay survey, thanks and badges, and an employee of the month reminder. All of it is included in every plan, with a 30-day free trial.

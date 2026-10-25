@@ -4,7 +4,7 @@ Bir restoran için görev sistemini yaklaşık on dakikada, mutfakta bilgisayar 
 
 ## 1–2. dakika: restoran başlangıç paketini seçin
 
-Be Positive Teams'te Ayarlar'ı açın ve Restoran başlangıç paketini uygulayın. Alışılmış departmanları (mutfak, salon, bar, yönetim) ve günlük listeleri oluşturur: açılış, kapanış, buzdolabı sıcaklıkları, temizlik.
+Be Positive'te Ayarlar'ı açın ve Restoran başlangıç paketini uygulayın. Alışılmış departmanları (mutfak, salon, bar, yönetim) ve günlük listeleri oluşturur: açılış, kapanış, buzdolabı sıcaklıkları, temizlik.
 
 ## 3–4. dakika: kendinize uyarlayın
 

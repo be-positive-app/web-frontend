@@ -4,7 +4,7 @@ Restoran üçün tapşırıq sistemini təxminən on dəqiqəyə, mətbəxdə ko
 
 ## 1–2-ci dəqiqə: restoran başlanğıc paketini seçin
 
-Be Positive Teams-də Ayarları açın və Restoran başlanğıc paketini tətbiq edin. O, adi şöbələri (mətbəx, salon, bar, idarə) və gündəlik siyahıları yaradır: açılış, bağlanış, soyuducu temperaturu, təmizlik.
+Be Positive-də Ayarları açın və Restoran başlanğıc paketini tətbiq edin. O, adi şöbələri (mətbəx, salon, bar, idarə) və gündəlik siyahıları yaradır: açılış, bağlanış, soyuducu temperaturu, təmizlik.
 
 ## 3–4-cü dəqiqə: öz restoranınıza uyğunlaşdırın
 

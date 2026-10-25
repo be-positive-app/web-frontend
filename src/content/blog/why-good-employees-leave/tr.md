@@ -30,4 +30,4 @@ Güvenilir birinde geciken görevlerin aniden artması nadiren tembelliktir. Aş
 
 Bu işaretleri en çok gösteren iki kişiyi seçin ve on dakikalık bir konuşma yapın. "Mutlu musun?" diye sormayın. Gelecek ayı neyin daha iyi yapacağını ve neyin engel olduğunu sorun. Sonra birine herkesin önünde teşekkür edin.
 
-Be Positive Teams bu altı işareti ekibinizin uygulamada zaten yaptığı işten okur ve patrona bu hafta kiminle konuşması gerektiğini, konuşma notlarıyla gösterir. Anonim kalış anketi, teşekkürler ve rozetler, ayın çalışanı hatırlatması da vardır. Hepsi her plana dahildir, 30 gün ücretsiz deneme ile.
+Be Positive bu altı işareti ekibinizin uygulamada zaten yaptığı işten okur ve patrona bu hafta kiminle konuşması gerektiğini, konuşma notlarıyla gösterir. Anonim kalış anketi, teşekkürler ve rozetler, ayın çalışanı hatırlatması da vardır. Hepsi her plana dahildir, 30 gün ücretsiz deneme ile.

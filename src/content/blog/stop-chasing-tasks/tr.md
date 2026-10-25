@@ -24,6 +24,6 @@ Yapan kişinin "bitti" demesi bir sözdür. Yönetici baktıktan sonraki "bitti"
 
 ## Pratikte nasıl görünür
 
-Be Positive Teams bu beş alışkanlık üzerine kuruldu: çalışanlar görevleri mobil uygulamada okuyup bitirir, "Takıldım" düğmesi vardır, eskalasyon kendiliğinden çalışan, yönetici, patron sırasıyla ilerler ve iş onaydan sonra bitmiş sayılır. Patron hepsini tek bir web panelinde görür.
+Be Positive bu beş alışkanlık üzerine kuruldu: çalışanlar görevleri mobil uygulamada okuyup bitirir, "Takıldım" düğmesi vardır, eskalasyon kendiliğinden çalışan, yönetici, patron sırasıyla ilerler ve iş onaydan sonra bitmiş sayılır. Patron hepsini tek bir web panelinde görür.
 
 30 gün ücretsiz deneyebilirsiniz, kart gerekmez.
