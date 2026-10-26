@@ -50,7 +50,7 @@ export function Security() {
         <div className="mt-10 flex flex-col gap-4 rounded-3xl surface-blue p-6 text-white sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-lg font-semibold tracking-tight">{t('sec.report.t')}</h2>
-            <p className="mt-1 max-w-xl text-sm text-white/85">{t('sec.report.b')}</p>
+            <p className="mt-1 max-w-xl text-sm text-white/95">{t('sec.report.b')}</p>
           </div>
           <a href={`mailto:${SITE_META.supportEmail}?subject=Security`} className="inline-flex shrink-0 items-center gap-2 rounded-2xl bg-brandYellow px-5 py-3 text-sm font-semibold text-brandNavy focus-ring">
             <Mail className="h-4 w-4" aria-hidden /> {SITE_META.supportEmail}

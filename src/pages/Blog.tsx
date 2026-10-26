@@ -11,7 +11,7 @@ export function Blog() {
   return (
     <section className="bg-white">
       <div className="mx-auto w-full max-w-4xl px-4 py-14 sm:px-6 sm:py-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">{t('blog.kicker')}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">{t('blog.kicker')}</p>
         <h1 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">{t('blog.title')}</h1>
         <p className="mt-3 max-w-2xl text-base leading-relaxed text-slate-600">{t('blog.lead')}</p>
         <ul className="mt-10 grid gap-5">

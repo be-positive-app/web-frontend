@@ -33,7 +33,7 @@ import { localizedPath, useLocalRouteMeta } from '../i18n/paths'
 import { TeamsCalculator } from '../components/TeamsCalculator'
 import { Testimonials } from '../components/Testimonials'
 
-const kicker = 'text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70'
+const kicker = 'text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue'
 const h2 = 'mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl'
 
 export function Teams() {
@@ -48,7 +48,7 @@ export function Teams() {
       <section className="overflow-x-clip bg-brandBlue text-white">
         <div className="mx-auto w-full max-w-6xl px-4 pb-14 pt-16 sm:px-6 sm:pb-20 sm:pt-20">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold text-white">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-black/15 px-4 py-2 text-sm font-semibold text-white">
               <Building2 className="h-4 w-4 text-brandYellow" aria-hidden="true" />
               <span>{t('teams.kicker')}</span>
             </div>
@@ -57,7 +57,7 @@ export function Teams() {
               <span>{t('teams.h1a')}</span> <span className="text-brandYellow">{t('teams.h1b')}</span>
             </h1>
 
-            <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/85 sm:text-lg">
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-base leading-relaxed text-white/95 sm:text-lg">
               {t('teams.lead')}
             </p>
 
@@ -77,11 +77,11 @@ export function Teams() {
               >
                 {t('demo.cta')}
               </a>
-              <div className="flex items-center justify-center gap-2 text-center text-sm text-white/85">
+              <div className="flex items-center justify-center gap-2 text-center text-sm text-white">
                 <Check className="h-4 w-4 text-brandYellow" aria-hidden="true" />
                 <span>{t('teams.noCard')}</span>
               </div>
-              <div className="flex items-center justify-center gap-2 text-center text-xs font-semibold text-white/70">
+              <div className="flex items-center justify-center gap-2 text-center text-xs font-semibold text-white">
                 <Globe2 className="h-4 w-4 text-brandYellow" aria-hidden="true" />
                 <span>{t('teams.langs')}</span>
               </div>

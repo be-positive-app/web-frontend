@@ -32,7 +32,7 @@ export function LangSwitch({ className = '' }: { className?: string }) {
         type="button"
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label={t('nav.language')}
+        aria-label={`${t('nav.language')}: ${current.label}`}
         onClick={() => setOpen((v) => !v)}
         className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-bold text-slate-700 shadow-sm transition hover:border-brandBlue focus-ring motion-reduce:transition-none"
       >

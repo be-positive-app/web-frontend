@@ -56,8 +56,8 @@ export function TeamsCalculator() {
         </div>
         <div className="rounded-2xl border border-dashed border-slate-300 p-4">
           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{t('calc.perSeatTitle')}</div>
-          <div className="mt-1 text-3xl font-extrabold tracking-tight text-slate-400">
-            <span className="line-through decoration-slate-400/70 decoration-2">{TEAMS_SYMBOL[currency]}{(PER_SEAT[currency] * people).toFixed(0)}</span>
+          <div className="mt-1 text-3xl font-extrabold tracking-tight text-slate-500">
+            <span className="line-through decoration-slate-500/70 decoration-2">{TEAMS_SYMBOL[currency]}{(PER_SEAT[currency] * people).toFixed(0)}</span>
             <span className="text-sm font-semibold"> {t('home.companies.perMonth')}</span>
           </div>
           <div className="mt-1 text-xs text-slate-500">{t('calc.perSeatNote', { price: `${TEAMS_SYMBOL[currency]}${PER_SEAT[currency].toFixed(0)}` })}</div>

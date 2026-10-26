@@ -58,7 +58,7 @@ export function TeamsNavbar() {
         <Link to={teamsHome} className="group inline-flex items-center gap-2.5 rounded-xl px-1 py-0.5 focus-ring" aria-label="Be Positive for Business">
           <picture className="contents">
             <source srcSet={appLogoWebp} type="image/webp" />
-            <img src={appLogoPng} alt="Be Positive" width={40} height={40} decoding="async" className="h-9 w-9 shrink-0 rounded-2xl object-contain shadow-sm ring-1 ring-slate-200/50 sm:h-10 sm:w-10" />
+            <img src={appLogoPng} alt="" width={40} height={40} decoding="async" className="h-9 w-9 shrink-0 rounded-2xl object-contain shadow-sm ring-1 ring-slate-200/50 sm:h-10 sm:w-10" />
           </picture>
           <span className="hidden items-baseline gap-1.5 2xl:inline-flex">
             <span className="text-base font-extrabold tracking-tight text-slate-900">Be Positive</span>

@@ -12,7 +12,7 @@ export function Faq() {
   return (
     <section id="faq" className="border-t border-slate-100 bg-white">
       <div className="mx-auto w-full max-w-3xl px-4 py-14 sm:px-6 sm:py-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">
           {t('faq.kicker')}
         </p>
         <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">

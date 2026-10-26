@@ -15,7 +15,7 @@ export function NotFound() {
   return (
     <section className="bg-white">
       <div className="mx-auto w-full max-w-3xl px-4 py-20 sm:px-6 sm:py-28">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">
           {t('nf.eyebrow')}
         </p>
         <h1 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">

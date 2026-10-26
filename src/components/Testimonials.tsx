@@ -9,7 +9,7 @@ export function Testimonials() {
   return (
     <section className="border-t border-slate-100 bg-white">
       <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
-        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">{t('quotes.kicker')}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">{t('quotes.kicker')}</p>
         <h2 className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">{t('quotes.title')}</h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {TESTIMONIALS.map((q) => (

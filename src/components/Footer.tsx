@@ -173,7 +173,7 @@ export function Footer() {
                 <span className="mt-0.5 block text-[15px] font-extrabold leading-tight">{t('footer.kobiaMain')}</span>
               </span>
             </a>
-            <div ref={milliNet} aria-label="MilliNet 2026" className="overflow-hidden rounded-xl shadow-md" />
+            <div ref={milliNet} className="overflow-hidden rounded-xl shadow-md" />
           </div>
         </div>
       </div>

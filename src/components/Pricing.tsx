@@ -22,7 +22,7 @@ export function Pricing() {
     <section id="pricing" className="border-t border-slate-100 bg-white">
       <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
         <div className="mx-auto max-w-2xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">
             {t('b2c.kicker')}
           </p>
           <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
@@ -74,7 +74,7 @@ export function Pricing() {
         </ul>
 
         <div className="mx-auto mt-12 max-w-3xl rounded-3xl border border-slate-200 bg-slate-50 p-6 text-center sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">
             {t('home.companies.kicker')}
           </p>
           <h3 className="mt-2 text-balance text-xl font-extrabold tracking-tight text-slate-900 sm:text-2xl">

@@ -54,7 +54,7 @@ export function TeamsPricingCards({ compact = false }: { compact?: boolean }) {
           {CYCLES.map((c) => (
             <button key={c} type="button" onClick={() => setCycle(c)} className={pillClass(cycle === c)}>
               {c === 'monthly' ? t('pricing.monthly') : t('pricing.yearly')}
-              {c === 'yearly' && <span className="ml-1.5 text-xs text-[#1f9e5a]">{t('pricing.save', { n: saving })}</span>}
+              {c === 'yearly' && <span className="ml-1.5 text-xs font-semibold text-[#15803d]">{t('pricing.save', { n: saving })}</span>}
             </button>
           ))}
         </div>

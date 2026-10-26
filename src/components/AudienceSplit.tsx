@@ -35,7 +35,7 @@ export function AudienceSplit() {
             </span>
             <span className="min-w-0">
               <span className="block text-lg font-semibold tracking-tight">{t('split.company.title')}</span>
-              <span className="mt-1 block text-sm leading-relaxed text-white/85">{t('split.company.text')}</span>
+              <span className="mt-1 block text-sm leading-relaxed text-white/95">{t('split.company.text')}</span>
               <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brandYellow">
                 {t('split.company.cta')} <ArrowRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" aria-hidden="true" />
               </span>
