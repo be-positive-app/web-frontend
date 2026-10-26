@@ -13,19 +13,35 @@ import { TEAMS_APP_URL } from '../config/teamsPricing'
  * Once the footer is on screen the finished element is moved into its bottom row, so it shares
  * the footer's colour and sits to the right of the legal line instead of in a band of its own.
  */
+const BADGE_HEIGHT = 64
+
 function useMilliNetInFooter() {
   const slot = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const banner = document.getElementById('millinet-banner')
     const target = slot.current
     if (!banner || !target || banner.parentElement === target) return
-    // The vendor draws a 265×137 badge; it is shown scaled down, so pin its box to that size.
-    banner.style.width = '265px'
-    banner.style.height = '137px'
+    banner.style.width = 'max-content'
+    banner.style.height = 'auto'
     banner.style.justifyContent = 'flex-start'
+    banner.style.transformOrigin = 'top left'
     target.appendChild(banner)
+    // Whatever size the vendor draws, show it at the same height as the badge next to it.
+    const fit = () => {
+      banner.style.transform = 'none'
+      const r = banner.getBoundingClientRect()
+      if (!r.height || !r.width) return
+      const k = BADGE_HEIGHT / r.height
+      banner.style.transform = `scale(${k})`
+      target.style.width = `${Math.round(r.width * k)}px`
+      target.style.height = `${BADGE_HEIGHT}px`
+    }
+    fit()
+    const ro = new ResizeObserver(fit)
+    ro.observe(banner)
+    banner.querySelectorAll('img').forEach((img) => img.addEventListener('load', fit))
     return () => {
-      // Another page's footer takes it next; put it back under the app meanwhile.
+      ro.disconnect()
       if (banner.parentElement === target) document.body.appendChild(banner)
     }
   }, [])
@@ -157,9 +173,7 @@ export function Footer() {
                 <span className="mt-0.5 block text-[15px] font-extrabold leading-tight">{t('footer.kobiaMain')}</span>
               </span>
             </a>
-            <div className="h-16 w-[124px] overflow-hidden rounded-xl shadow-md">
-              <div ref={milliNet} aria-label="MilliNet 2026" className="origin-top-left scale-[0.4672]" />
-            </div>
+            <div ref={milliNet} aria-label="MilliNet 2026" className="overflow-hidden rounded-xl shadow-md" />
           </div>
         </div>
       </div>
