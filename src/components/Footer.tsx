@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import appLogoPng from '../assets/logo-128.png'
 import appLogoWebp from '../assets/logo-128.webp'
@@ -7,7 +8,28 @@ import { useT } from '../i18n'
 import { localizedPath } from '../i18n/paths'
 import { TEAMS_APP_URL } from '../config/teamsPricing'
 
+/**
+ * The MilliNet badge is drawn by the vendor's script where it sits in index.html (under the app).
+ * Once the footer is on screen the finished element is moved into its bottom row, so it shares
+ * the footer's colour and sits to the right of the legal line instead of in a band of its own.
+ */
+function useMilliNetInFooter() {
+  const slot = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const banner = document.getElementById('millinet-banner')
+    const target = slot.current
+    if (!banner || !target || banner.parentElement === target) return
+    target.appendChild(banner)
+    return () => {
+      // Another page's footer takes it next; put it back under the app meanwhile.
+      if (banner.parentElement === target) document.body.appendChild(banner)
+    }
+  }, [])
+  return slot
+}
+
 export function Footer() {
+  const milliNet = useMilliNetInFooter()
   const location = useLocation()
   const isLanding = /^\/(?:(?:az|ru|tr)\/)?app$/.test(location.pathname)
   const isTeams = /^\/(?:(?:az|ru|tr)\/)?(?:teams|blog)/.test(location.pathname)
@@ -108,13 +130,16 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/15 pt-6 text-center">
-          <p className="text-xs text-white/70">
-            {t('footer.rights')}
-          </p>
-          <p className="mt-1 text-xs text-white/70">
-            {t('footer.voen', { id: SITE_META.taxId })}
-          </p>
+        <div className="flex flex-col items-center gap-4 border-t border-white/15 pt-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
+          <div>
+            <p className="text-xs text-white/70">
+              {t('footer.rights')}
+            </p>
+            <p className="mt-1 text-xs text-white/70">
+              {t('footer.voen', { id: SITE_META.taxId })}
+            </p>
+          </div>
+          <div ref={milliNet} className="shrink-0" aria-label="MilliNet 2026" />
         </div>
       </div>
     </footer>
