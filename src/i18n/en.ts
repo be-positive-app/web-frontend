@@ -18,6 +18,9 @@ export const en = {
   'footer.contact': 'Contact',
   'footer.rights': '© 2026 Be Positive. All rights reserved.',
   'footer.voen': 'Tax ID (VÖEN): {id}',
+  'footer.kobia': 'KOBİA Startup certificate holder',
+  'footer.kobiaTop': 'KOBİA',
+  'footer.kobiaMain': 'Startup certificate',
 
   'pricing.monthly': 'Monthly',
   'pricing.yearly': 'Yearly',
