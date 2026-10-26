@@ -20,7 +20,7 @@ export const ru: Dict = {
   'footer.rights': '© 2026 Be Positive. Все права защищены.',
   'footer.voen': 'ИНН (VÖEN): {id}',
   'footer.kobia': 'Обладатель сертификата стартапа KOBİA',
-  'footer.kobiaTop': 'KOBİA',
+  'footer.kobiaTop': 'KOBİA · 2026',
   'footer.kobiaMain': 'Сертификат стартапа',
 
   'pricing.monthly': 'Помесячно',

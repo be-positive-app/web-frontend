@@ -19,6 +19,10 @@ function useMilliNetInFooter() {
     const banner = document.getElementById('millinet-banner')
     const target = slot.current
     if (!banner || !target || banner.parentElement === target) return
+    // The vendor draws a 265×137 badge; it is shown scaled down, so pin its box to that size.
+    banner.style.width = '265px'
+    banner.style.height = '137px'
+    banner.style.justifyContent = 'flex-start'
     target.appendChild(banner)
     return () => {
       // Another page's footer takes it next; put it back under the app meanwhile.
@@ -145,15 +149,17 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               title={t('footer.kobia')}
-              className="flex h-11 items-center gap-2.5 rounded-xl bg-[#7a6a1f] pl-1.5 pr-4 text-white shadow-sm transition hover:bg-[#8c7b25] focus-ring focus-visible:ring-offset-[#4660f2]"
+              className="flex h-[72px] items-center gap-3.5 rounded-xl bg-white pl-2.5 pr-5 text-[#0f1a4d] shadow-md transition hover:shadow-lg focus-ring focus-visible:ring-offset-[#4660f2]"
             >
-              <img src="/kobia-logo.svg" alt="" width={32} height={32} className="h-8 w-8 rounded-lg" loading="lazy" />
+              <img src="/kobia-logo.svg" alt="" width={56} height={56} className="h-14 w-14 rounded-[12px]" loading="lazy" />
               <span className="leading-tight">
-                <span className="block text-[9px] font-semibold uppercase tracking-wider text-white/80">{t('footer.kobiaTop')}</span>
-                <span className="block text-sm font-extrabold">{t('footer.kobiaMain')}</span>
+                <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-[#0f1a4d]/70">{t('footer.kobiaTop')}</span>
+                <span className="block text-base font-extrabold">{t('footer.kobiaMain')}</span>
               </span>
             </a>
-            <div ref={milliNet} aria-label="MilliNet 2026" />
+            <div className="h-[72px] w-[139px] overflow-hidden rounded-xl shadow-md">
+              <div ref={milliNet} aria-label="MilliNet 2026" className="origin-top-left scale-[0.5245]" />
+            </div>
           </div>
         </div>
       </div>
