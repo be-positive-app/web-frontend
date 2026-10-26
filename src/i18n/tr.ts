@@ -19,7 +19,7 @@ export const tr: Dict = {
   'footer.rights': '© 2026 Be Positive. Tüm hakları saklıdır.',
   'footer.voen': 'Vergi no (VÖEN): {id}',
   'footer.kobia': 'KOBİA Startup sertifikası sahibi',
-  'footer.kobiaTop': 'KOBİA',
+  'footer.kobiaTop': 'KOBİA · 2026',
   'footer.kobiaMain': 'Startup sertifikası',
   'pricing.monthly': 'Aylık',
   'pricing.yearly': 'Yıllık',
