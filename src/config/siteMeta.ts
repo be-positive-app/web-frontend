@@ -52,7 +52,7 @@ export const SITE_META = {
   /** BCP 47 locale, mirrored into <html lang> and og:locale. */
   locale: 'en_US',
   /** Social share preview image, 1200x630, path relative to the site root. */
-  ogImage: '/og-image.png',
+  ogImage: '/og-image-v2.png',
   ogImageAlt: 'Be Positive — Life Planner: plan your day, stay focused, feel positive.',
   /** Store listings. Overridable per environment via VITE_APP_STORE_URL / VITE_GOOGLE_PLAY_URL. */
   appStoreUrl: 'https://apps.apple.com/app/be-positive-life-planner/id6760747846',
