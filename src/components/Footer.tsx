@@ -139,7 +139,22 @@ export function Footer() {
               {t('footer.voen', { id: SITE_META.taxId })}
             </p>
           </div>
-          <div ref={milliNet} className="shrink-0" aria-label="MilliNet 2026" />
+          <div className="flex shrink-0 flex-wrap items-center justify-center gap-3">
+            <a
+              href="https://kobia.gov.az"
+              target="_blank"
+              rel="noopener noreferrer"
+              title={t('footer.kobia')}
+              className="flex h-11 items-center gap-2.5 rounded-xl bg-[#7a6a1f] pl-1.5 pr-4 text-white shadow-sm transition hover:bg-[#8c7b25] focus-ring focus-visible:ring-offset-[#4660f2]"
+            >
+              <img src="/kobia-logo.svg" alt="" width={32} height={32} className="h-8 w-8 rounded-lg" loading="lazy" />
+              <span className="leading-tight">
+                <span className="block text-[9px] font-semibold uppercase tracking-wider text-white/80">{t('footer.kobiaTop')}</span>
+                <span className="block text-sm font-extrabold">{t('footer.kobiaMain')}</span>
+              </span>
+            </a>
+            <div ref={milliNet} aria-label="MilliNet 2026" />
+          </div>
         </div>
       </div>
     </footer>
