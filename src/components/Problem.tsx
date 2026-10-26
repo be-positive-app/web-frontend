@@ -14,7 +14,7 @@ export function Problem() {
     <section className="border-t border-slate-100 bg-slate-50/60">
       <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[minmax(0,420px)_minmax(0,1fr)] lg:items-start">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
+          <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">
             {t('problem.kicker')}
           </p>
           <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">

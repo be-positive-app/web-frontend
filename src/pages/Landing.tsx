@@ -98,7 +98,7 @@ export function Landing() {
       <section className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">
               {t('landing.features.kicker')}
             </p>
             <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
@@ -148,7 +148,7 @@ export function Landing() {
       <section className="border-t border-slate-100 bg-white">
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-20">
           <div className="max-w-2xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">
               {t('landing.how.kicker')}
             </p>
             <h2 className="mt-3 text-balance text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
@@ -207,7 +207,7 @@ export function Landing() {
         <div className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-6 sm:py-18">
           <div className="grid gap-8 rounded-[30px] border border-slate-200 bg-white p-8 shadow-card sm:p-10 lg:grid-cols-2 lg:items-center">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue/70">
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-brandBlue">
                 {t('landing.contact.kicker')}
               </p>
               <h2 className="mt-3 text-balance text-2xl font-extrabold tracking-tight text-slate-900 sm:text-3xl">

@@ -85,7 +85,7 @@ export function ContactSalesForm() {
           <input className={field} type="email" value={email} onChange={(e) => setEmail(e.target.value)} required maxLength={255} autoComplete="email" />
         </label>
         <label className={label}>
-          {t('form.phone')} <span className="font-normal text-slate-400">({t('form.optional')})</span>
+          {t('form.phone')} <span className="font-normal text-slate-500">({t('form.optional')})</span>
           <input className={field} type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} maxLength={40} autoComplete="tel" placeholder="+994" />
         </label>
       </div>
@@ -107,7 +107,7 @@ export function ContactSalesForm() {
         </div>
       </fieldset>
       <label className={label}>
-        {t('form.note')} <span className="font-normal text-slate-400">({t('form.optional')})</span>
+        {t('form.note')} <span className="font-normal text-slate-500">({t('form.optional')})</span>
         <textarea className={`${field} min-h-[96px] resize-y`} value={note} onChange={(e) => setNote(e.target.value)} maxLength={1000} placeholder={t('form.notePlaceholder')} />
       </label>
       {error && (

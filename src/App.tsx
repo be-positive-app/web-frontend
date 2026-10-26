@@ -9,8 +9,8 @@ import { trackPageView } from './lib/analytics'
 
 const Landing = lazy(() => import('./pages/Landing').then((m) => ({ default: m.Landing })))
 import { Home } from './pages/Home'
-import { Blog } from './pages/Blog'
-import { BlogPost } from './pages/BlogPost'
+const Blog = lazy(() => import('./pages/Blog').then((m) => ({ default: m.Blog })))
+const BlogPost = lazy(() => import('./pages/BlogPost').then((m) => ({ default: m.BlogPost })))
 const Teams = lazy(() => import('./pages/Teams').then((m) => ({ default: m.Teams })))
 const PolicyDocumentPage = lazy(() =>
   import('./pages/PolicyDocumentPage').then((m) => ({ default: m.PolicyDocumentPage })),
@@ -53,7 +53,7 @@ export default function App() {
       <PageViews />
 
       <main id="main" className="flex-1">
-        <Suspense fallback={null}>
+        <Suspense fallback={<div className="min-h-dvh" aria-busy="true" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/app" element={<Landing />} />

@@ -31,7 +31,7 @@ export function Step({
           {icon}
         </div>
         <div className="min-w-0">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brandBlue/70">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brandBlue">
             Step {index}
           </p>
           <h3 className="mt-1 text-lg font-semibold tracking-tight text-slate-900">
