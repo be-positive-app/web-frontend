@@ -30,7 +30,10 @@ const BY_COUNTRY: Record<string, Lang> = {
   TR: 'tr',
 }
 
-const BOT = /bot|crawl|spider|slurp|facebookexternalhit|whatsapp|telegram|preview|lighthouse|pagespeed/i
+// Link-preview fetchers must see the page itself, never a redirect: anything that looks like a
+// crawler, plus the messengers and social apps that fetch previews under their own names.
+const BOT =
+  /bot|crawl|spider|slurp|facebookexternalhit|facebot|whatsapp|telegram|twitter|linkedin|slack|discord|viber|skype|instagram|snapchat|pinterest|applebot|embedly|quora|outbrain|vkshare|redditbot|mastodon|bluesky|preview|lighthouse|pagespeed|curl|wget|python-requests|go-http-client|headless/i
 
 function cookieLang(header: string | null): Lang | null {
   const m = header && /(?:^|;\s*)bp_lang=(en|az|ru|tr)(?:;|$)/.exec(header)
@@ -41,6 +44,10 @@ export default function middleware(request: Request): Response | undefined {
   const url = new URL(request.url)
   const ua = request.headers.get('user-agent') ?? ''
   if (BOT.test(ua)) return undefined
+  // Only a browser asking for a page is sent to its language edition; preview fetchers,
+  // link checkers and unknown clients get the page as is.
+  const accept = request.headers.get('accept') ?? ''
+  if (!accept.includes('text/html')) return undefined
 
   const chosen = cookieLang(request.headers.get('cookie'))
   const country = (request.headers.get('x-vercel-ip-country') ?? '').toUpperCase()
