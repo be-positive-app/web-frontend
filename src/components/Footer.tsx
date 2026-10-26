@@ -149,16 +149,16 @@ export function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               title={t('footer.kobia')}
-              className="flex h-[72px] items-center gap-3.5 rounded-xl bg-white pl-2.5 pr-5 text-[#0f1a4d] shadow-md transition hover:shadow-lg focus-ring focus-visible:ring-offset-[#4660f2]"
+              className="flex h-[88px] items-center gap-4 rounded-2xl bg-white pl-3 pr-6 text-[#0f1a4d] shadow-md transition hover:shadow-lg focus-ring focus-visible:ring-offset-[#4660f2]"
             >
-              <img src="/kobia-logo.svg" alt="" width={56} height={56} className="h-14 w-14 rounded-[12px]" loading="lazy" />
+              <img src="/kobia-logo.svg" alt="" width={68} height={68} className="h-[68px] w-[68px] rounded-[14px]" loading="lazy" />
               <span className="leading-tight">
-                <span className="block text-[11px] font-bold uppercase tracking-[0.12em] text-[#0f1a4d]/70">{t('footer.kobiaTop')}</span>
-                <span className="block text-base font-extrabold">{t('footer.kobiaMain')}</span>
+                <span className="block text-[13px] font-extrabold uppercase tracking-[0.14em] text-[#7a6a1f]">{t('footer.kobiaTop')}</span>
+                <span className="mt-0.5 block text-lg font-extrabold leading-tight">{t('footer.kobiaMain')}</span>
               </span>
             </a>
-            <div className="h-[72px] w-[139px] overflow-hidden rounded-xl shadow-md">
-              <div ref={milliNet} aria-label="MilliNet 2026" className="origin-top-left scale-[0.5245]" />
+            <div className="h-[88px] w-[170px] overflow-hidden rounded-2xl shadow-md">
+              <div ref={milliNet} aria-label="MilliNet 2026" className="origin-top-left scale-[0.6423]" />
             </div>
           </div>
         </div>
