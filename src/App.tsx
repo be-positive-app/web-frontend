@@ -27,6 +27,7 @@ const DeleteAccountVerify = lazy(() =>
 const ResetPassword = lazy(() =>
   import('./pages/ResetPassword').then((m) => ({ default: m.ResetPassword })),
 )
+const Partner = lazy(() => import('./pages/Partner').then((m) => ({ default: m.Partner })))
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
 /** Tells analytics about page changes inside the single-page site (the first view is counted on load). */
@@ -87,6 +88,7 @@ export default function App() {
             <Route path="/delete-account" element={<DeleteAccount />} />
             <Route path="/delete-account/verify/:token" element={<DeleteAccountVerify />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/partner/:token" element={<Partner />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>
