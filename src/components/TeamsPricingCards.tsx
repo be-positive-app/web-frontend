@@ -116,11 +116,9 @@ export function TeamsPricingCards({ compact = false }: { compact?: boolean }) {
                   </span>
                 )}
               </div>
-              {/* Manat prices are without Azerbaijani VAT; the app charges it on top (same 18% as its Billing page). */}
+              {/* Manat prices are what the company pays: no VAT is charged on top. */}
               {amount !== null && currency === 'AZN' && (
-                <p className="mt-1 text-xs font-semibold text-slate-500">
-                  {t('pricing.vat', { total: formatTeamsPrice(currency, Math.round(amount * 118) / 100) })}
-                </p>
+                <p className="mt-1 text-xs font-semibold text-slate-500">{t('pricing.noVat')}</p>
               )}
               {!compact && (
                 <ul className="mt-6 flex-1 space-y-2.5 text-sm text-slate-600">

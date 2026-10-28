@@ -32,7 +32,7 @@ export const az: Dict = {
   'pricing.contactUs': 'Bizimlə əlaqə',
   'pricing.perYear': '/ il',
   'pricing.perMonth': '/ ay',
-  'pricing.vat': '+ 18% ƏDV: cəmi {total}',
+  'pricing.noVat': "ƏDV tətbiq olunmur",
   'pricing.startTrial': 'Pulsuz sınağa başla',
   'pricing.contactSales': 'Satış komandası ilə əlaqə',
 
