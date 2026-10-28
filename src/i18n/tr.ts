@@ -30,7 +30,7 @@ export const tr: Dict = {
   'pricing.contactUs': 'Bize ulaşın',
   'pricing.perYear': '/ yıl',
   'pricing.perMonth': '/ ay',
-  'pricing.vat': '+ %18 KDV: toplam {total}',
+  'pricing.noVat': "KDV uygulanmaz",
   'pricing.startTrial': 'Ücretsiz deneyin',
   'pricing.contactSales': 'Satışla görüşün',
   'plan.starter.name': 'Starter',

@@ -31,7 +31,7 @@ export const en = {
   'pricing.contactUs': 'Contact us',
   'pricing.perYear': '/ year',
   'pricing.perMonth': '/ month',
-  'pricing.vat': '+ 18% VAT: {total} in total',
+  'pricing.noVat': "No VAT is charged",
   'pricing.startTrial': 'Start free trial',
   'pricing.contactSales': 'Contact sales',
 

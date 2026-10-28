@@ -32,7 +32,7 @@ export const ru: Dict = {
   'pricing.contactUs': 'Свяжитесь с нами',
   'pricing.perYear': '/ год',
   'pricing.perMonth': '/ месяц',
-  'pricing.vat': '+ НДС 18%: итого {total}',
+  'pricing.noVat': "НДС не взимается",
   'pricing.startTrial': 'Начать бесплатно',
   'pricing.contactSales': 'Связаться с отделом продаж',
 
