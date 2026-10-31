@@ -538,6 +538,8 @@ export const en = {
   'habit.faq3q': "What if I miss a day?",
   'habit.faq3a': "Carry on the next day. One missed day does not undo the habit; giving up does.",
   'habit.more': "See what else Be Positive can do",
+  'hub.tool.kicker': "Free tool",
+  'hub.tool.lead': "Type your habit, download the PDF, print it.",
 } as const
 
 export type Key = keyof typeof en

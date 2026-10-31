@@ -43,6 +43,22 @@ export function Home() {
               </Link>
             </div>
             <p className="mt-6 text-xs font-semibold text-slate-500">{t('hub.person.price')}</p>
+            <Link
+              to={localizedPath(lang, '/tools/habit-calendar')}
+              className="mt-7 flex items-center gap-3.5 rounded-2xl border-[1.5px] border-[#e3e8fb] bg-white p-3.5 text-brandNavy shadow-soft transition hover:border-[#c9d2f5] focus-ring"
+            >
+              <span aria-hidden="true" className="grid h-16 w-16 shrink-0 grid-cols-5 gap-[3px] rounded-xl bg-[#f4f6fe] p-2">
+                {Array.from({ length: 15 }, (_, i) => (
+                  <span key={i} className={`rounded-[3px] ${i < 9 ? 'bg-brandYellow' : 'bg-[#d7ddf6]'}`} />
+                ))}
+              </span>
+              <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+                <span className="text-[11px] font-extrabold uppercase tracking-wider text-[#3a50d9]">{t('hub.tool.kicker')}</span>
+                <span className="text-base font-extrabold">{t('habit.h1')}</span>
+                <span className="text-[13px] font-semibold text-slate-600">{t('hub.tool.lead')}</span>
+              </span>
+              <ArrowRight className="h-5 w-5 shrink-0 text-[#3a50d9]" aria-hidden="true" />
+            </Link>
           </div>
         </div>
 
