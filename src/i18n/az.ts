@@ -539,4 +539,6 @@ export const az: Dict = {
   'habit.faq3q': "Bir günü buraxsam nə olar?",
   'habit.faq3a': "Ertəsi gün davam et. Bir buraxılmış gün vərdişi pozmur, onu tərk etmək pozur.",
   'habit.more': "Be Positive başqa nə edə bilir, bax",
+  'hub.tool.kicker': "Pulsuz alət",
+  'hub.tool.lead': "Vərdişini yaz, PDF-i yüklə, çap et.",
 }

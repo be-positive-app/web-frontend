@@ -527,4 +527,6 @@ export const tr: Dict = {
   'habit.faq3q': "Bir günü kaçırırsam ne olur?",
   'habit.faq3a': "Ertesi gün devam et. Kaçırılan bir gün alışkanlığı bozmaz, vazgeçmek bozar.",
   'habit.more': "Be Positive başka neler yapabilir, bak",
+  'hub.tool.kicker': "Ücretsiz araç",
+  'hub.tool.lead': "Alışkanlığını yaz, PDF’i indir, yazdır.",
 }
