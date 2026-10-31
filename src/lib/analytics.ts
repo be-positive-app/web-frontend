@@ -93,7 +93,14 @@ export function trackPageView(path: string) {
   window.fbq?.('track', 'PageView')
 }
 
-export type EventName = 'generate_lead' | 'start_trial_click' | 'app_store_click' | 'google_play_click' | 'sign_in_click'
+export type EventName =
+  | 'generate_lead'
+  | 'start_trial_click'
+  | 'app_store_click'
+  | 'google_play_click'
+  | 'sign_in_click'
+  | 'tool_download'
+  | 'tool_share'
 
 export function track(name: EventName, params: Record<string, string> = {}) {
   if (!loaded) return

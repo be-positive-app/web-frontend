@@ -8,7 +8,7 @@ import type { Lang } from './index'
  * with its own title, description, <html lang> and hreflang links, so search
  * engines index all three instead of only the English one.
  */
-export const LOCALIZED_PATHS = ['/', '/app', '/teams'] as const
+export const LOCALIZED_PATHS = ['/', '/app', '/teams', '/tools/habit-calendar'] as const
 
 /** The language a URL is published in, or null for a page with no language prefix. */
 export function langFromPath(pathname: string): Lang | null {

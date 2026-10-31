@@ -324,6 +324,40 @@
       "changefreq": "monthly",
       "priority": "0.6",
       "article": "restaurant-task-system"
+    },
+    {
+      "path": "/tools/habit-calendar",
+      "title": "Free 30-day habit tracker (printable PDF)",
+      "description": "Free 30-day habit tracker: type your habit, tick a box every day and download a printable A4 PDF. No sign-up, works in your browser.",
+      "changefreq": "monthly",
+      "priority": "0.7"
+    },
+    {
+      "path": "/az/tools/habit-calendar",
+      "lang": "az",
+      "alternateOf": "/tools/habit-calendar",
+      "title": "Pulsuz 30 günlük vərdiş təqvimi (çap üçün PDF)",
+      "description": "Pulsuz 30 günlük vərdiş təqvimi: vərdişini yaz, hər gün xananı işarələ, çap üçün A4 PDF yüklə. Qeydiyyatsız, brauzerdə işləyir.",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "path": "/ru/tools/habit-calendar",
+      "lang": "ru",
+      "alternateOf": "/tools/habit-calendar",
+      "title": "Бесплатный трекер привычек на 30 дней (PDF для печати)",
+      "description": "Бесплатный трекер привычек на 30 дней: напишите привычку, отмечайте клетку каждый день и скачайте PDF A4 для печати. Без регистрации, работает в браузере.",
+      "changefreq": "monthly",
+      "priority": "0.6"
+    },
+    {
+      "path": "/tr/tools/habit-calendar",
+      "lang": "tr",
+      "alternateOf": "/tools/habit-calendar",
+      "title": "Ücretsiz 30 günlük alışkanlık takvimi (yazdırılabilir PDF)",
+      "description": "Ücretsiz 30 günlük alışkanlık takvimi: alışkanlığını yaz, her gün bir kutu işaretle, yazdırılabilir A4 PDF indir. Kayıt yok, tarayıcında çalışır.",
+      "changefreq": "monthly",
+      "priority": "0.6"
     }
   ]
 }

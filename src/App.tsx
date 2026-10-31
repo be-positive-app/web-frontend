@@ -27,6 +27,9 @@ const DeleteAccountVerify = lazy(() =>
 const ResetPassword = lazy(() =>
   import('./pages/ResetPassword').then((m) => ({ default: m.ResetPassword })),
 )
+const HabitCalendar = lazy(() =>
+  import('./pages/HabitCalendar').then((m) => ({ default: m.HabitCalendar })),
+)
 const Partner = lazy(() => import('./pages/Partner').then((m) => ({ default: m.Partner })))
 const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })))
 
@@ -81,6 +84,10 @@ export default function App() {
                 path={path}
                 element={<PolicyDocumentPage slug={slug} />}
               />
+            ))}
+            <Route path="/tools/habit-calendar" element={<HabitCalendar />} />
+            {(['az', 'ru', 'tr'] as const).map((l) => (
+              <Route key={`${l}-habit`} path={`/${l}/tools/habit-calendar`} element={<HabitCalendar />} />
             ))}
             <Route path="/support" element={<Support />} />
             <Route path="/security" element={<Security />} />

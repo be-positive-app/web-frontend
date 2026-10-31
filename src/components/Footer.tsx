@@ -114,6 +114,7 @@ export function Footer() {
                     >
                       {t('footer.contact')}
                     </a>
+                    <Link to={localizedPath(lang, '/tools/habit-calendar')} className="rounded-xl px-3 py-2 text-sm font-semibold text-white/90 transition hover:text-white focus-ring focus-visible:ring-offset-[#4660f2]">{t('footer.habitTool')}</Link>
                     <Link to={localizedPath(lang, '/teams')} className="rounded-xl px-3 py-2 text-sm font-semibold text-brandYellow transition hover:text-white focus-ring focus-visible:ring-offset-[#4660f2]">{t('footer.companies')}</Link>
                   </>
                 )}
