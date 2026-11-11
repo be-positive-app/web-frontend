@@ -15,6 +15,7 @@ export const ru: Dict = {
 
   'footer.tagline': 'Планируй день. Держи фокус. Оставайся на позитиве.',
   'footer.legal': 'Правовые документы',
+  'footer.payments': 'Способы оплаты · безопасная оплата картой через YIGIM',
   'footer.faq': 'Вопросы',
   'footer.contact': 'Контакты',
   'footer.rights': '© 2026 Be Positive. Все права защищены.',
