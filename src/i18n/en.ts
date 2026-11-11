@@ -14,6 +14,7 @@ export const en = {
 
   'footer.tagline': 'Plan your day. Stay focused. Feel positive.',
   'footer.legal': 'Legal & policies',
+  'footer.payments': 'Payment methods · secure card payments via YIGIM',
   'footer.faq': 'FAQ',
   'footer.contact': 'Contact',
   'footer.rights': '© 2026 Be Positive. All rights reserved.',

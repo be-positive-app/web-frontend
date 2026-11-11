@@ -14,6 +14,7 @@ export const tr: Dict = {
   'persona.company': 'Şirketler',
   'footer.tagline': 'Gününü planla. Odaklan. Pozitif hisset.',
   'footer.legal': 'Yasal ve politikalar',
+  'footer.payments': 'Ödeme yöntemleri · YIGIM ile güvenli kart ödemesi',
   'footer.faq': 'SSS',
   'footer.contact': 'İletişim',
   'footer.rights': '© 2026 Be Positive. Tüm hakları saklıdır.',
