@@ -2,8 +2,6 @@ import { useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import appLogoPng from '../assets/logo-128.png'
 import appLogoWebp from '../assets/logo-128.webp'
-import paymentsPng from '../assets/payment-methods.png'
-import paymentsWebp from '../assets/payment-methods.webp'
 import { SITE_META } from '../config/siteMeta'
 import { FOOTER_LEGAL_LINKS } from '../lib/policyPages'
 import { useT } from '../i18n'
@@ -151,22 +149,6 @@ export function Footer() {
               </ul>
             </div>
           </div>
-        </div>
-
-        <div className="flex flex-col items-center gap-3 border-t border-white/15 pt-6">
-          <p className="text-center text-xs font-semibold text-white/75">{t('footer.payments')}</p>
-          <picture className="contents">
-            <source srcSet={paymentsWebp} type="image/webp" />
-            <img
-              src={paymentsPng}
-              alt="Visa, Mastercard, American Express, UnionPay, Apple Pay, Google Pay, YIGIM"
-              width={1200}
-              height={76}
-              loading="lazy"
-              decoding="async"
-              className="h-auto w-full max-w-[560px] sm:max-w-[640px]"
-            />
-          </picture>
         </div>
 
         <div className="flex flex-col items-center gap-4 border-t border-white/15 pt-6 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">

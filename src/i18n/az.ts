@@ -15,7 +15,6 @@ export const az: Dict = {
 
   'footer.tagline': 'Gününü planla. Diqqətini qoru. Pozitiv qal.',
   'footer.legal': 'Hüquqi sənədlər',
-  'footer.payments': 'Ödəniş üsulları · YIGIM vasitəsilə təhlükəsiz kart ödənişi',
   'footer.faq': 'Suallar',
   'footer.contact': 'Əlaqə',
   'footer.rights': '© 2026 Be Positive. Bütün hüquqlar qorunur.',
